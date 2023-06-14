@@ -2,5 +2,5 @@
 
 # FIX-ME! seleccionar bases necesarias y limpiarlas antes de subirlas
 /bases
-#/tmp
-#/logs
+/tmp
+/logs
