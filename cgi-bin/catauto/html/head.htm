@@ -1,0 +1,411 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!-- 
+	=======================================================================
+	Encabezamiento para las páginas de Catalis.
+	
+	(c) 2003-2005  Fernando J. Gómez - CONICET - INMABB
+	=======================================================================
+-->
+
+<html>
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Expires" content="-1">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="x-ua-compatible" content="IE=6">
+	<title>CATAUTO</title>
+	
+	<style type="text/css">
+		div#cartel {
+			width: 420px;
+			height: 120px;
+			background: #A07C60;
+			color: #FED;
+			font-weight: bold;
+			position: absolute;
+			z-index: 1000;
+		}
+		div#cartelHead {
+			background: #400000;
+			color: #FED;
+			padding: 3px 3px 3px 10px;
+			font-family: georgia;
+			font-size: 18px;
+		}
+	</style>
+	
+	
+	<script type="text/javascript">
+		// -----------------------------------------------------------------------------
+		function handleErrors(errorMessage, url, line) {
+		// Genera un mensaje más o menos amable, y (opcionalmente) invoca al script PHP
+		// que envia un email para informar al adminisrador sobre el error.
+		// -----------------------------------------------------------------------------
+			var recordID;
+			try {
+				recordID = document.getElementById("marcEditForm").f001.value;
+			}
+			catch(err){
+				recordID = "???";
+			}
+			var db = g_activeDatabase.name;
+			var userAgent = navigator.userAgent;
+			
+			var msg = "";
+			msg += "Se ha producido un error.\n\n";
+			msg += "---------------------------------------------------------------------------------\n";
+			msg += "Mensaje de error: " + errorMessage + "\n";
+			msg += "Línea #: " + line + "\n";
+			msg += "URL: " + url + "\n";
+			msg += "Base de datos: " + db + "\n";
+			msg += "Registro: " + recordID + "\n";
+			msg += "---------------------------------------------------------------------------------\n\n";
+			msg += "Si tiene datos aún sin grabar, intente grabarlos.\n";
+			msg += "Luego presione «Ctrl F5» para volver a cargar todos\n";
+			msg += "los archivos de Catalis en su navegador.\n";
+			msg += "Si el problema persiste, póngase en contacto con " + ADMIN_EMAIL + ".\n";
+			alert(msg);
+			
+			if (REPORT_JS_ERRORS) {
+				var userID = "[pft]v2002[/pft]";
+				var myURL = "[pft]v6003^h[/pft]php/handleError.php"
+					+ "?userID=" + escape(userID)
+					+ "&errorMessage=" + escape(errorMessage) 
+					+ "&url=" + escape(url) 
+					+ "&line=" + escape(line)
+					+ "&db=" + escape(db)
+					+ "&recordID=" + escape(recordID)
+					+ "&userAgent=" + escape(userAgent);
+				
+				/*if ( typeof document.frames != "undefined" ) {
+					document.frames["hiddenIFRAME"].location.href = myURL;
+				} else {*/
+					document.getElementById("hiddenIFRAME").src = myURL;
+				/*}*/
+			}
+			
+			return true;
+		}
+		window.onerror = handleErrors;
+	</script>
+	
+	<script type="text/javascript">
+		
+		// =============================================================================
+		//  Variables de configuración globales.
+		//
+		//  Algunos valores provienen del archivo catalis.conf.
+		// =============================================================================
+		
+		var SOFT_NAME = "CATAUTO"; // para mostrarlo en el título de la ventana
+		var SOFT_VERSION = "2008.05.21";
+		var SOFT_EMAIL = "catalis@googlegroups.com";
+		
+		
+		// SCRIPT_URL de catalis.conf
+		var SCRIPT_URL = "[pft]v6001^u[/pft]";
+		
+		var DISPLAY_SUBFIELD_LABELS = true; // Mostrar etiquetas para los subcampos
+		var AUTOMATIC_PUNCTUATION = [pft]v6001^p[/pft];  // Asignar automáticamente la puntuación (boolean)
+		var USE_FIELD_BLOCKS = [pft]v6001^b[/pft];  // Agrupar campos en bloques (boolean)
+		var MODIFY_NOT_2 = true;  // Corregir datos en registros no-2 (boolean)
+		var AUTHORITY_CONTROL = false;
+		var REPORT_JS_ERRORS = [pft]v6004^e[/pft];  // (boolean)
+		var ADMIN_EMAIL = "[pft]v6004^m[/pft]";
+		var MAIN_ENTRY_TOP = [pft]v6001^1[/pft];  // (boolean)
+		var _FIELD_HL = true;  // resaltar campos en la ficha 2 (boolean)
+		var DOC_LC_REMOTE = [pft]v6001^l[/pft];  // (boolean)
+		
+		
+		// Idioma para las etiquetas de campos y subcampos
+		var LANG = "spa";
+		
+		// Patterns para especificar qué campos pertenecen a cada bloque
+		var FIELD_BLOCK_PATTERN = new Object;
+		// FIELD_BLOCK_PATTERN.description = no lo definimos explícitamente
+		FIELD_BLOCK_PATTERN.access = /1..|7../;
+		FIELD_BLOCK_PATTERN.subject = /6..|08.|043|052/;
+		FIELD_BLOCK_PATTERN.other = /02[^02]|0[1367].|04[^3]|05[^2]|856/;
+		
+		// Directorio público (para documentos HTML, CSS, XML)
+		var HTDOCS = "[pft]v6003^h[/pft]/";
+		
+		// URLs de ventanas auxiliares
+		var URL_AUTHORITY = HTDOCS + "html/authority.htm";
+		var URL_CONFIRM_DIALOG = HTDOCS + "html/confirm.htm";
+		var URL_EDIT_CODES = HTDOCS + "html/editCodes.htm";
+		var URL_EDIT_INDICATORS = HTDOCS + "html/editIndicators.htm";
+		var URL_EDIT_POSTITNOTE = HTDOCS + "html/editPostItNote.htm";
+		var URL_IMPORT_RECORD = HTDOCS + "html/importRecord.htm";
+		var URL_RAW_EDIT = HTDOCS + "html/rawEdit.htm";
+		var URL_RECORD_VISUALIZATION = HTDOCS + "html/recordVisualization.htm";
+		var URL_REQUEST_RECORD = HTDOCS + "html/requestRecord.htm";
+		var URL_SAVE_CHANGES = HTDOCS + "html/saveChanges.htm";
+		var URL_SAVING_RECORD = HTDOCS + "html/savingRecord.htm";
+		var URL_SELECT_FIELD = HTDOCS + "html/selectField.htm";
+		var URL_SELECT_SUBFIELD = HTDOCS + "html/selectSubfield.htm";
+		var URL_SELECT_TEMPLATE = HTDOCS + "html/selectTemplate.htm";
+		
+		// Contenido inicial para el iframe de resultados
+		var SEARCH_RESULTS_IFRAME_SRC = "[pft]v6001^u[/pft]?IsisScript=[pft]v2000[/pft]&userid=[pft]v2002[/pft]&tarea=NEW_RECORDS&db=[pft]v2104[/pft]";
+		
+		// Delimitadores usados en los registros ISO 2709
+		var ISO_SUBFIELD_DELIMITER = String.fromCharCode(0x1F);
+		var REGEX_ISO_SUBFIELD_DELIMITER = new RegExp(ISO_SUBFIELD_DELIMITER, "g");
+		var ISO_FIELD_TERMINATOR = String.fromCharCode(0x1E);
+		var ISO_RECORD_TERMINATOR = String.fromCharCode(0x1D);
+		
+		// Delimitador de subcampo usado internamente por el sistema
+		// TO-DO: implementar el uso de un carácter diferente, para permitir el uso de
+		// '^' como parte de los datos?
+		var SYSTEM_SUBFIELD_DELIMITER = String.fromCharCode(0x5E);   // '^', el delimitador de ISIS, '^'
+		var REGEX_SYSTEM_SUBFIELD_DELIMITER = new RegExp("\\" + SYSTEM_SUBFIELD_DELIMITER, "g");
+		
+		// Símbolo para representar elementos "indecidibles" en 2marc()
+		var UNK = "\u2666";  // Black diamond suit
+		var REGEX_UNK = new RegExp(UNK, "g");
+		
+		// A qué llamamos "subcampos vacíos"
+		var REGEX_EMPTY_SUBFIELD = new RegExp("^\\s*$");
+		
+		// Ancho de los menúes contextuales (px)
+		var CONTEXT_MENU_WIDTH = 150;
+		
+		var V_HEIGHT = 95;  // ??
+		
+		// Altura mínima de los subfield boxes (debe ir asociada a .subfieldBox en el archivo CSS)
+		var SUBFIELDBOX_MIN_HEIGHT = 26; //23;
+		
+		// Altura del frame con la documentación de MARC (px)
+		var DOCWIN_MIN_HEIGHT = 0; //22;
+		
+		// Algunos colores
+		var SUBFIELDBOX_HL_BGCOLOR = "#E2DFD0"; // Oyster Shell   //"#E9E9E9"
+		var SUBFIELDBOX_HL_BORDERCOLOR = "#AAA";
+		var RESULTROW_HL_BGCOLOR = "#FFF8DC";  // "#FED" "#FEFEF0"
+		var INDEXTERM_HL_BGCOLOR = "#E2DFD0";
+		var HOLDINGS_BGCOLOR = "#FCB";
+		var POSTITNOTE_BGCOLOR = "#FFA";
+		var DISPLAY_STYLE_BGCOLOR = "#FEFEF0"; // #FFF8DC;
+		var INDEXTERM_COLOR = "#0000CC";
+		var FIXEDFIELD_HL_BGCOLOR = "#FFC";
+		
+		// Browser detection
+		var moz = ( document.implementation && document.implementation.createDocument );
+		var ie = ( window.ActiveXObject );
+		
+		var originalRecord;                   // para comparar con la versión actual, y decidir si hubo cambios
+		var resultSet = new Array();          // relación entre MFNs y posición en la lista de resultados, para los resultados de la última búsqueda
+		var g_editResultIndex = "";           // índice (dentro de la tabla de resultados) del registro actualmente editado
+		var g_HighlightIndexRowId = "";       // ID de la fila resaltada dentro de la tabla de términos del diccionario
+		var g_HighlightRowId = "";            // ID de la fila resaltada dentro de la tabla de resultados
+		var g_RecordDisplayStyle = "marc";    // estilo inicial para presentar detalles de un registro
+		var g_NextTask = "";                  // la tarea a ejecutar luego de una grabación del registr
+		var g_activeDatabase = new Object();  // datos de la base bibliográfica activa
+		var g_currentUser = null;             // el usuario actual
+		var g_MARCOrganizationCode = "";
+		
+		// Nombres de los meses
+		var MONTH_NAME = new Object();
+		MONTH_NAME["01"] = "Ene";
+		MONTH_NAME["02"] = "Feb";
+		MONTH_NAME["03"] = "Mar";
+		MONTH_NAME["04"] = "Abr";
+		MONTH_NAME["05"] = "May";
+		MONTH_NAME["06"] = "Jun";
+		MONTH_NAME["07"] = "Jul";
+		MONTH_NAME["08"] = "Ago";
+		MONTH_NAME["09"] = "Sep";
+		MONTH_NAME["10"] = "Oct";
+		MONTH_NAME["11"] = "Nov";
+		MONTH_NAME["12"] = "Dic";
+	</script>
+	
+	<script type="text/javascript">
+		
+		// ATENCION: revisar este mecanismo para prevenir un cierre accidental de la ventana
+		//window.onbeforeunload = function() {if (confirm("¿Cierra la sesión?")) return true; else return;}
+		
+		// -----------------------------------------------------------------------------
+		function showSystemInformation()
+		// -----------------------------------------------------------------------------
+		{
+			var message = SOFT_NAME + " v. " + SOFT_VERSION + "\n\n";
+			message += "© 2007-2008  Ricardo A. Piriz - Biblioteca Central - UNS\n\n";
+			message += "Comunique problemas, dudas o sugerencias a: " + SOFT_EMAIL;
+			alert(message);
+		}
+		
+		// -----------------------------------------------------------------------------
+		function handleLoad()
+		// -----------------------------------------------------------------------------
+		{
+			if ( document.getElementById("loginForm") ) {
+				// Cuando se presenta el formulario de acceso
+				document.getElementById("loginForm").userid.focus();
+			} else {
+				// Cuando se presenta la aplicación propiamente dicha
+				init();
+			}
+		}
+		
+		window.onload = handleLoad;
+	</script>
+	
+	<link rel="stylesheet" type="text/css" href="[pft]v6003^h[/pft]css/catalis.css">
+	<link rel="stylesheet" type="text/css" href="[pft]v6003^h[/pft]css/etiquetado.css">
+	
+	<script type="text/javascript" src="[pft]v6003^h[/pft]js/simModal.js"></script>
+	
+	[pft]if p(v2001) and not 'FIN_SESION' : v2001 then[/pft]
+		<script type="text/javascript" src="[pft]v6003^h[/pft]js/catalis.js"></script>
+		<script type="text/javascript" src="[pft]v6003^h[/pft]js/create-field-subfield.js"></script>
+		<script type="text/javascript" src="[pft]v6003^h[/pft]js/eventHandlers.js"></script>
+		<script type="text/javascript" src="[pft]v6003^h[/pft]js/disable-keys.js"></script>
+		<script type="text/javascript" src="[pft]v6003^h[/pft]js/dom-functions.js"></script>
+		<script type="text/javascript" src="[pft]v6003^h[/pft]js/aux-windows.js"></script>
+		<script type="text/javascript" src="[pft]v6003^h[/pft]js/data-out.js"></script>
+		<script type="text/javascript" src="[pft]v6003^h[/pft]js/validate.js"></script>
+		<script type="text/javascript" src="[pft]v6003^h[/pft]js/data-in.js"></script>
+		<script type="text/javascript" src="[pft]v6003^h[/pft]js/import.js"></script>
+		<script type="text/javascript" src="[pft]v6003^h[/pft]js/menu-newrecord.js"></script>
+		<script type="text/javascript" src="[pft]v6003^h[/pft]js/punctuation.js"></script>
+		<script type="text/javascript" src="[pft]v6003^h[/pft]js/templates.js"></script>
+		<script type="text/javascript" src="[pft]v6003^h[/pft]js/isbncheck.js"></script>
+		<script type="text/javascript" src="[pft]v6003^h[/pft]js/contextmenu-field.js"></script>
+		<script type="text/javascript" src="[pft]v6003^h[/pft]js/contextmenu-subfield.js"></script>
+		<script type="text/javascript" src="[pft]v6003^h[/pft]js/2marc.js"></script>
+		<script type="text/javascript" src="[pft]v6003^h[/pft]js/marc2marcTagged.js"></script>
+		
+	<!--	<script type="text/javascript" src="[pft]v6003^h[/pft]common/js/getMaterialType.js"></script> -->
+		<script type="text/javascript" src="[pft]v6003^h[/pft]js/isbn-hyphen.js"></script>
+		<script type="text/javascript" src="[pft]v6003^h[/pft]js/marc2aacr.js"></script>
+	[pft]fi[/pft]
+</head>
+
+
+
+<body onclick="checkModal()"
+	  onfocus="return checkModal()">
+
+	[pft]if 'FIN_SESION' <> v2001 and p(v2001) and a(v2005) then[/pft]
+		<!-- Cartel para mensajes -->
+		<!-- "display: none" pues no queremos que sea visible antes de haber establecido su posición vía Javascript -->
+		<div id="cartel" style="display: none; border-width: 1px; border-style: solid; border-top-color: #A07C60; border-right-color: #333; border-bottom-color: #333; border-left-color: #A07C60;">
+			<div style="border-width: 1px; border-style: solid; border-top-color: #FED; border-right-color: #805C40; border-bottom-color: #805C40; border-left-color: #FED; height: 100%;">
+				<div id="cartelHead">Catalis</div>
+				<div style="padding: 10px 15px 15px 15px;">
+					<div id="cartelMsg"></div>
+					<div align="center" style="margin-top: 12px;">
+						<button id="cartelBtn" class="marcEditButton" style="display: none;" accesskey="C"><u>C</u>errar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			// Cartel para mensajes: fijamos su posición en la pantalla (inicialmente, centrado) y lo hacemos visible
+			document.getElementById("cartel").style.top = (screen.height - 100)/2.2 + "px";
+			document.getElementById("cartel").style.left = (screen.width - 420)/2 + "px";
+			document.getElementById("cartel").style.display = "block";
+			document.getElementById("cartelBtn").onclick = function() {
+				this.style.display = "none";
+				document.getElementById("cartel").style.display = "none";
+				// ATENCION: sería bueno saber dónde colocar el foco una vez eliminado el cartel de mensajes!
+				// Para ello, habría que almacenar en una variable esa información en cada ocasión en que
+				// se muestra el cartel.
+			}
+			document.getElementById("cartelMsg").innerHTML = "Descargando archivos del servidor...";
+		</script>
+	[pft]fi[/pft]
+	
+	<div id="topBar">
+		
+		<a href="#"
+			title="Acerca de Catalis"
+			onclick="showSystemInformation(); return false;"
+			style="color: #FED;" tabindex="-1"><span id="appName">CATAUTO</span></a>
+		<span style="font-size: 11px; color: #FED;"><script type="text/javascript">document.write(SOFT_VERSION)</script></span>
+		<span style="font-size: 11px; color: #FED;">[[pft]getenv('SERVER_NAME')[/pft]]</span>
+		
+		<!-- Botón que permite mostrar el iframe oculto para analizar su contenido -->
+		<button id="showHiddenData" tabindex="-1" accesskey="*">*</button>
+		
+		
+		<!-- Catalogador / base / fin de sesión; p(v2005) => login fallido -->
+		[pft]if p(v2001) and not 'FIN_SESION' = v2001 and a(v2005) then[/pft]
+			<div style="position: absolute; top: 1px; right: 1px; font-size: 13px; color: #F0F0F0;">
+				
+				<form id="logoutForm" action="[pft]v6001^u[/pft]" method="POST">
+					<input type="hidden" name="IsisScript" value="[pft]v2000[/pft]">
+					<input type="hidden" name="userid" value="[pft]v2002[/pft]">
+					<input type="hidden" name="db" value="[pft]v2104[/pft]">
+					<input type="hidden" name="tarea" value="FIN_SESION">
+					[pft]
+					/* v3007: lista con las bases de datos para este catalogador */
+					proc( 
+							ref(
+									['USERS']l(['USERS']v2002),
+									( 'a3007#',v5,'#' )
+								)
+						),
+					[/pft]
+					
+					Base:
+					<select id="selDatabase"
+							tabindex="-1"
+							title="Desde aquí puede pasar a otra base de datos">
+					[pft]
+						(,
+							'<option value="',v3007^*,'" ', if v3007^* = v2104[1] then ' selected="selected"' fi, ' >',
+								'[',v3007^p,'] ',v3007^*,
+							'</option>'/
+						),
+					[/pft]
+					</select>
+					
+					<script type="text/javascript">
+					// La base de datos activa
+					[pft]
+						(, /* loop sobre v3007 */
+							if v3007^* = v2104[1] then 
+								'g_activeDatabase.name = "',v3007^*,'";'/
+								'g_activeDatabase.index = ',f(iocc-1,1,0),';'/
+								'g_activeDatabase.userLevel = ',v3007^p,';'/
+								break,
+							fi,
+						),
+					[/pft]
+					switch ( g_activeDatabase.name ) {
+						case "eunm"   : g_MARCOrganizationCode = "AR-BaUNS"; break;
+						case "bibima" : g_MARCOrganizationCode = "AR-BbIMB"; break;
+					}
+					
+					g_currentUser = "[pft]s(mpu,v2002,mpl)[/pft]";
+					</script>
+					
+					[pft]
+					if p(v2002) then '&nbsp;&nbsp;&nbsp;Usuario:&nbsp;<strong>',v2002,'</strong>&nbsp;',
+						if s(mpu,v2002,mpl) = 'XX' then
+							'[',
+								if getenv('HTTP_X_FORWARDED_FOR') <> '' then 
+									getenv('HTTP_X_FORWARDED_FOR'),
+								else
+									getenv('REMOTE_ADDR'),
+								fi,
+							']',
+						else
+							'[<strong>',ref(['USERS']l(['USERS']v2002),v2),'</strong>]',
+						fi, 
+					fi
+					[/pft]
+					
+					&nbsp;<button id="btnFinSesion" class="marcEditButton" -accesskey="F" tabindex="-1">&nbsp;Fin sesión&nbsp;</button>
+				</form>
+			</div>
+		[pft]fi[/pft]
+		
+	</div>  <!-- id="topBar" -->
+

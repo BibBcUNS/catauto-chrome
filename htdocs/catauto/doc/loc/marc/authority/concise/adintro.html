@@ -1,0 +1,893 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html40/loose.dtd">
+<html>
+   
+<!-- Mirrored from www.loc.gov/marc/authority/adintro.html by HTTrack Website Copier/3.x [XR&CO'2003], Tue, 03 Jun 2008 14:54:25 GMT -->
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>MARC 21 Format for Authority Data: Introduction (Network Development and MARC Standards Office, Library of Congress)
+      </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <meta name="description" content="This page contains the introduction to the MARC 21 Format for Authority Data(Network Development and MARC Standards Office, Library of Congress)">
+      <meta name="keywords" content="marc, marc21, marc standards">
+      <meta name="author" content="Library of Congress Network Development and MARC Standards Office">
+      <link href="http://www.loc.gov/marc/marc-generic.css" rel="stylesheet" type="text/css"><style type="text/css">
+					body {margin-left:.5em; margin-right:.5em;} 
+					h1 {font-family:Arial, Helvetica, sans-serif;}
+					h3 {text-align:left;}
+					h4 {margin-top:.5em; margin-bottom:.5em;}
+					p {text-align:justify; margin-left:2em; margin-right:2em;}
+					.formatname {font-weight:bold; font-family:Arial, Helvetica, sans-serif; margin-left:.5em}
+					.datename {font-weight:bold; text-align:right; font-family:Arial, Helvetica, sans-serif; margin-top:-1.2em;}
+					.font_small {font-size:9pt;}
+					.fieldtoc {margin-left:2em;}
+					.subfieldtoc {margin-left:3em;}
+					.box {font-family:ZapfDingbats;}
+					.description {text-align:justify; margin-left:2em;}
+					.description2  {text-align:justify; margin-top:1em; margin-bottom:1em;}
+					.description3 {text-align:justify; margin-top:1em; margin-bottom:1em; margin-left:2em;}
+					.indicator {text-align:left; margin-top:1em; margin-bottom:1em;}
+					.indicatorvalue {margin-left:2em; margin-top:1em; margin-bottom:1em;}
+					.subfieldvalue {margin-left:2em; margin-top:1em; margin-bottom:1em;}
+					.subfield {text-align:left; margin-top:1em; margin-bottom:1em; margin-left:2em;}
+					.characterposition {text-align:left; margin-top:1em; margin-bottom:1em; margin-left:2em;}
+					.charactervalue {margin-left:2em; margin-top:1em; margin-bottom:1em;}
+					.characterpositionhistory {text-align:left; margin-top:.5em; margin-bottom:.5em; margin-left:2em;}
+					.charactervaluehistory {margin-left:2em; margin-top:.1em; margin-bottom:.1em;}
+					.example {margin-left:4em;}
+					.changed {color: #FF0000;}
+					.captiontext {font-style:italic;}
+					.displaytext {font-style:italic; margin-bottom:.5em; margin-top:.5em;}
+					.displaycontent {text-align:left;}
+					.table {margin-left:2em; margin-top:1em; margin-bottom:1em;}
+					.head-nav {font-family:Arial, Helvetica, sans-serif; font-size:9pt;}
+					.summary {margin-left:2em;}
+					.summarytable {margin-left:4em;}
+					.update {text-align:center; font-weight:bold; margin-top:1em; margin-bottom:1em;}
+					.changebox {font-style:italic; margin-top:.5em;}
+					.changesection {text-align:left; margin-left:2em; font-weight:bold; margin-top:.5em;}
+					.changefield {text-align:left; margin-left:1em; font-weight:bold;}
+					.changefieldlabel {margin-left:3em; font-weight:bold;}
+					.changeindicator {margin-left:3em;}
+					.changeindicatorfieldname {margin-left:2em;}
+					.changeindicatorvalue {margin-left:4em; font-weight:bold;}
+					.changesubfield {margin-left:3em; font-weight:bold;}
+					.changesubfieldname {margin-left:1em; font-weight:bold;}
+					.changesubfieldlocation {text-align:justify; font-weight:normal;}
+					.glossaryentry {margin-left:2em; margin-top:1em; font-weight:bold;}
+					.glossaryentrydescription {margin-left:4em; margin-bottom:1em; text-align:justify;}
+					.citationaddress {margin-left:2em; text-align:justify;}
+					.citationinternet {margin-left:2em; text-align:justify;}
+					.citationname {font-style:italic; margin-top:1em;}
+				</style><script type='text/javascript' src='http://www.loc.gov/global/triggerParams.js'></script><script type='text/javascript' src='http://www.loc.gov/global/stdLauncher.js'></script><script type='text/javascript'>Poll();</script></head>
+   <body bgcolor="#ffffff">
+      <div class="head-nav"><a href="http://www.loc.gov/">Library of Congress</a> &gt;&gt; <a href="http://www.loc.gov/marc/">MARC</a> &gt;&gt; <a href="index.html">Authority</a>
+         					&gt;&gt; <strong>Introduction</strong></div>
+      <hr><a name="skip_menu"></a><h1>Introduction</h1>
+	  
+      <hr>
+      <div class="formatname">MARC 21 Authority</div>
+      <div class="datename">October 2006</div>
+      <hr>
+      <p>The five MARC 21 communication formats, 
+	  <em><a href="http://www.loc.gov/marc/bibliographic/ecbdhome.html">MARC 21 Format for Bibliographic Data</a></em>, 
+	  <em><a href="ecadhome.html">MARC 21 Format for Authority Data</a></em>, 
+<em><a href="http://www.loc.gov/marc/holdings/echdhome.html">MARC 21 Format for Holdings Data</a></em>, 
+<em><a href="http://www.loc.gov/marc/classification/eccdhome.html">MARC 21 Format for Classification Data</a></em>, and
+<em><a href="http://www.loc.gov/marc/community/eccihome.html">MARC 21 Format for Community Information</a></em>, are widely used standards for
+                         the representation and exchange of bibliographic, authority, holdings,
+                         classification, and community information data in machine-readable form.
+      </p>
+      <p>A MARC record is composed of three elements: the record structure, the content
+                         designation, and the data content of the record. The <strong>record
+                            structure</strong> is an implementation of the international standard <em>Format for
+                                Information Exchange</em> (ISO 2709) and its American counterpart,
+                             <em>Bibliographic Information Interchange</em> (ANSI/NISO Z39.2). The
+                             <strong>content designation</strong>--the codes and conventions established
+                         explicitly to identify and further characterize the data elements within a record
+                         and to support the manipulation of that data--is defined by each of the MARC
+                         formats. The <strong>content</strong> of the data elements that comprise a MARC
+                         record is usually defined by standards outside the formats. Examples are the
+                             <em>International Standard Bibliographic Description</em> (ISBD),
+                             <em>Anglo-American Cataloguing Rules</em>, <em>Library of Congress Subject
+                                Headings</em> (LCSH), or other cataloging rules, subject thesauri, and
+                         classification schedules used by the organization that creates a record. The content
+                         of certain coded data elements is defined in the MARC formats (e.g., the Leader,
+                         field 008).
+      </p>
+      <p class="changed">
+   The <em>MARC 21 Format for Authority Data: Including Guidelines for Content
+                                Designation</em> defines the codes and conventions (tags, indicators, subfield
+                         codes, and coded values that identify the data elements in MARC authority records).
+                         This document is intended for the use of personnel involved in the creation and
+                         maintenance of authority records, as well as those involved in the design and
+                         maintenance of systems for communication and processing of bibliographic records.
+                         This documentation is also available online, including a concise version and a
+                         simple field list at: <a href="http://www.loc.gov/marc/">www.loc.gov/marc/</a>.      </p>
+      <hr>
+      <p><strong>SCOPE OF THE AUTHORITY FORMAT</strong></p>
+      <p>The <em>MARC 21 Format for Authority Data</em> is designed to be a carrier for
+                         information concerning the authorized forms of names, subjects, and subject
+                         subdivisions to be used in constructing access points in MARC records, the forms of
+                         these names, subjects, and subject subdivisions that should be used as references to
+                         the authorized forms, and the interrelationships among these forms. A
+                         <strong>name</strong> may be used as a main, added, series, or subject access entry. 
+      </p>
+      <p>The term <strong>name</strong> refers to:
+      </p>
+      <div class="table">
+         <table>
+            <tr>
+               <td width="209" align="left" valign="top">personal names (X00)</td>
+               <td width="388" align="left" valign="top">names of jurisdictions (X51)</td>
+            </tr>
+            <tr>
+               <td valign="top" align="left">corporate names (X10)</td>
+               <td valign="top" align="left">uniform titles (X30)</td>
+            </tr>
+            <tr>
+               <td valign="top" align="left">meeting names (X11)</td>
+               <td valign="top" align="left">name/title combinations</td>
+            </tr>
+         </table>
+      </div>
+      <p>The term <strong>subject</strong> refers to:
+      </p>
+      <div class="table">
+         <table width="610">
+            <tr>
+               <td width="220" align="left" valign="top">topical terms (X50)</td>
+               <td width="352" align="left" valign="top">topical terms, geographic names, and </td>
+            </tr>
+            <tr>
+               <td valign="top" align="left">geographic names (X51)</td>
+               <td valign="top" align="left">genre/form terms with subject subdivisions</td>
+            </tr>
+            <tr>
+               <td valign="top" align="left">genre/form terms (X55)</td>
+               <td valign="top" align="left">chronolgoical terms  (X48)</td>
+            </tr>
+            <tr>
+               <td valign="top" align="left">names with subject subdivisions</td>
+               <td valign="top" align="left">uniform titles with subject subdivisions (X30)</td>
+            </tr>
+        </table>
+      </div>
+      <p>A <strong>subject</strong> may be used only as a subject access entry.
+      </p>
+      <p>The term <strong>subject subdivision</strong> refers to:
+      </p>
+      <div class="table">
+         <table width="615">
+            <tr>
+               <td height="24" align="left" valign="top">general subdivision terms (X80)</td>
+               <td valign="top" align="left">geographic subdivision names (X81)</td>
+            </tr>
+            <tr>
+               <td valign="top" align="left">chronological subdivision terms (X82)</td>
+               <td valign="top" align="left">form subdivision terms (X85)</td>
+            </tr>
+        </table>
+      </div>
+      <p>A <strong>subject subdivision</strong> may be used <em>with</em> a name or subject
+                         lead element in an extended subject access entry. It may <em>not</em> be used as the
+                         lead element in a main, added, series, or subject access entry.
+      </p>
+      <p>The <em>MARC 21 Format for Authority Data</em> also provides for information
+                         concerning the authorized forms of <strong>node labels</strong>. A node label is not
+                         assigned to documents as an indexing term.
+      </p>
+      <p><strong>Kinds of Authority Records</strong></p>
+      <p>MARC authority records are distinguished from all other types of MARC records by the
+                         presence of code z (Authority data) in Leader/06 (Type of record). The formulation
+                         of a name, subject, subject subdivision, or node label heading in an authority
+                         record is based on generally accepted cataloging and thesaurus-building conventions
+                         (e.g., <em>AACR 2</em>, <em>LCSH</em>). The content of the remainder of the
+                         authority records follows the practice of the organization creating the record.
+      </p>
+      <p>The <em>MARC 21 Format for Authority Data</em> identifies seven kinds of authority
+                         records in 008/09, (Kind of record):      </p>
+      <ul>
+         <li class="nobullet"><strong>Established heading</strong> (code a) - An authority record in which
+                                field 100-155 contains an established name or subject. An established heading
+                                record may also contain tracing fields for variant and related headings and
+                                notes recording such information as the sources used to establish the heading
+                                and series treatment.
+         </li>
+         <li class="nobullet"><strong>Subdivision</strong> (code d) - An authority record in which the 18X
+                                field contains the authorized form of a general, chronological, genre/form term,
+                                or a geographic name that may be used only as a subject subdivision portion of
+                                an established heading.
+         </li>
+         <li class="nobullet"><strong>Established heading and subdivision</strong> (code f) - An authority
+                                record in which the 15X field contains an established name or subject that may
+                                also be used as a subject subdivision portion of another established heading.
+                                (An organization may choose instead to create separate records for the
+                                established name or subject heading and the subdivision.)
+         </li>
+         <li class="nobullet"><strong>Reference</strong> (code b or c) - An authority record in which field
+                                100-155 contains an unestablished name or subject. A reference record also
+                                contains either field 260 (Complex See Reference&#8722;Subject), field 664 (Complex
+                                See Reference&#8722;Name), or field 666 (General Explanatory Reference&#8722;Name) to guide
+                                the user to the established form. Separate codes are defined in 008/09 for
+                                    <strong>traced</strong> and <strong>untraced</strong> reference records. The
+                                distinction depends upon whether the heading in the 1XX field in the record is
+                                also given as a see from tracing in a 4XX field in another authority record.
+         </li>
+         <li class="nobullet"><strong>Reference and subdivision</strong> (code g) - An authority record in
+                                which the 15X field contains an unestablished name or subject that may also be
+                                used as a subject subdivision portion of an established heading. (An
+                                organization may choose instead to create separate records for the reference and
+                                the subdivision.) 
+         </li>
+         <li class="nobullet"><strong>Node label</strong> (code e) - An authority record in which field 150
+                                contains an unestablished term that is the authorized form used in the
+                                systematic section of a thesaurus to indicate the logical basis on which a
+                                category has been divided.
+         </li>
+      </ul>
+      <p><strong>Types of Headings</strong></p>
+      <p>In a MARC authority record, a <strong>heading</strong> is the content of a 1XX, 4XX,
+                         or 5XX field that documents the form of heading used for indexing and retrieval or
+                         organizational purposes in a file. Two types of headings are defined in the
+                         authorities format:      </p>
+      <ul>
+         <li class="nobullet"><strong>Established heading</strong> - A heading that is authorized for use in
+                                other MARC records as a main entry (1XX), added entry (700-730), or series added
+                                entry (440 or 800-830) field or as the lead element in a subject access
+                                (600-655; 654-657) field. In authority records, established headings are used in
+                                fields 100-155 (headings) and fields 500-555 (tracings) for established heading
+                                (008/09, Kind of record, code a or f) records.
+         </li>
+         <li class="nobullet"><strong>Unestablished heading</strong> - A heading that is <em>not</em>
+                                authorized for use in other MARC records as the lead element of a main, added,
+                                series, or subject access field. An unestablished heading may be a reference to
+                                a variant form of the established heading, a form of the heading used only for
+                                authority file organizational purposes, or a subject subdivision that is
+                                authorized for use with an established heading in an extended subject heading.
+                                In authority records, unestablished headings are used in the 1XX (heading) and
+                                4XX (tracing) fields of reference (008/09, code b or c), subdivision (code d),
+                                reference and subdivision (code g), and node label (code e) records. An
+                                unestablished heading may also be used in the 4XX fields of established heading
+                                (code a or f) records.
+         </li>
+      </ul>
+      <p>Headings may be <strong>names, name/title combinations, uniform titles, chronological
+                                terms, topical terms, genre/form terms, subdivisions, extended subject
+                            headings</strong>, or <strong>node labels</strong>.      </p>
+      <ul>
+         <li class="nobullet"><strong>Name heading</strong> - A heading that is a personal, corporate,
+                                meeting, or jurisdiction (including geographic) name.
+         </li>
+         <li class="nobullet"><strong>Name/title heading</strong> - heading&#8722;A heading consisting of both
+                                name and title portions. The name portion contains a personal, corporate,
+                                meeting, or jurisdiction name. The title portion contains the title by which an
+                                item or a series is identified for cataloging purposes and may be a uniform or
+                                conventional title, a title page title of a work, or a series title.
+         </li>
+         <li class="nobullet"><strong>Uniform title heading</strong> - A heading consisting of the title by
+                                which an item or a series is identified for cataloging purposes when the title
+                                is not entered under a personal, corporate, meeting, or jurisdiction name in a
+                                name/title heading construction.
+         </li>
+         <li class="nobullet"><strong>Chronological term heading</strong> - A heading consisting of a
+                                chronological subject term.
+         </li>
+         <li class="nobullet"><strong>Topical term heading</strong> - A heading consisting of a topical
+                                subject term.
+         </li>
+         <li class="nobullet"><strong>Genre/form term heading</strong> - A heading consisting of a
+                                genre/form subject term.
+         </li>
+         <li class="nobullet"><strong>Subdivision heading</strong> - A heading consisting of a general
+                                (topical or language), form, geographic, or chronological subject subdivision
+                                term. An extended subdivision heading contains more than one subject subdivision
+                                term (subfields $v, $x, $y, and $z).
+         </li>
+         <li class="nobullet"><strong>Extended subject heading</strong> - A name, name/title, uniform title,
+                                topical term, or genre/form term heading that includes one or more general,
+                                form, geographic, or chronological subject subdivision terms (subfields
+                                $v, $x, $y, or $z).
+         </li>
+         <li class="nobullet"><strong>Node label heading</strong> - A heading consisting of a term used in
+                                the systematic section of a thesaurus to indicate the logical basis on which a
+                                category is divided.
+         </li>
+      </ul>
+      <p><strong>Heading Usage in Authority Records</strong></p>
+      <p>The <em>MARC 21 Format for Authority Data</em> identifies three categories of heading
+                         usage in records: <strong>main</strong> or <strong>added entry</strong> (008/14);
+                             <strong>subject added entry</strong> (008/15); and <strong>series added
+                            entry</strong> (008/16). Only established headings may be used as the lead element
+                         of access points in bibliographic records. Name, name/title, and uniform title
+                         established headings may be appropriately used as any one, two, or three of the
+                         008/14-16 usage categories. Topical term and extended subject headings may be used
+                         only as subject added entries. Subdivision headings may be used only in extended
+                         subject heading added entries.
+      </p>
+      <p><strong>Heading Usage in Authority Structures</strong></p>
+      <p>A heading may be categorized as being suitable for either a <strong>name</strong> or
+                         a <strong>subject authority structure</strong>. Name, name/title, and uniform title
+                         headings that are formulated using descriptive cataloging conventions (008/10) are
+                         suitable for a <strong>name authority structure</strong>. Established forms of these
+                         types of headings are used in established heading (008/09, code a) and established
+                         heading and subdivision records (code f); unestablished forms are used in reference
+                         records (code b or c). Certain note and tracing and reference fields in the format
+                         are used only in records for headings suitable for name authority structures.
+      </p>
+      <p>Name, name/title, uniform title, chronological, topical and genre/form term (and
+                         extended subject headings using these types of headings), and subdivision headings
+                         that are formulated using subject heading system/thesaurus building conventions
+                         (008/11) are suitable for a <strong>subject authority structure</strong>.
+                         Established forms of these types of headings are used in established heading
+                         (008/09, code a) and established heading and subdivision (code f) records;
+                         unestablished forms are used in subdivision (code d), reference (code b or c),
+                         reference and subdivision (code g), and node label (code e) records. Certain note
+                         and tracing and reference fields in the format are used only in records for headings
+                         suitable for subject authority structures.
+      </p>
+      <p><strong>Series Treatment Information</strong></p>
+      <p>Authority records that contain a 1XX field that contains a uniform title or
+                         name/title heading for a series may also contain information concerning the
+                         treatment of that series should the heading be used in bibliographic records. The
+                         term <em>series</em> applies to the types of series identified in 008/12:
+                         monographic series, multipart items, series-like phrases, and titles of
+                         occasionally-analyzable serials. The data elements and fields that are used to
+                         record series treatment include three character positions in the 008 field; link,
+                         standard number, and call number fields in the 0XX range; and the series treatment
+                         information fields in the 64X range.
+      </p>
+	  <hr>
+      <p><strong>COMPONENTS OF AUTHORITY RECORDS</strong></p>
+      <p><strong>Description of Record Parts</strong></p>
+      <p>A MARC authority record consists of three main components: the
+                         <strong>Leader</strong>, the <strong>Directory</strong>, and the <strong>variable
+                                fields</strong>. The following information summarizes the structure of a
+                         separate MARC record. More detail is provided in <em><a href="http://www.loc.gov/marc/specifications/">MARC 21 Specifications for
+                                       Record Structure, Character Sets, and Exchange Media</a></em>.      </p>
+      <ul>
+         <li class="nobullet"><strong>Leader</strong> - Data elements that primarily provide information for
+                                the processing of the record. The data elements contain numbers or coded values
+                                and are identified by relative character position. The Leader is fixed in length
+                                at 24 character positions and is the first field of a MARC record. 
+         </li>
+         <li class="nobullet"><strong>Directory</strong> - A series of entries that contain the tag, length,
+                                and starting location of each variable field within a record. Each entry is 12
+                                character positions in length. Directory entries for variable control fields
+                                appear first, sequenced by the field tag in increasing numerical order. Entries
+                                for variable data fields follow, arranged in ascending order according to the
+                                first character of the tag. The stored sequence of the variable data fields in a
+                                record does not necessarily correspond to the order of the corresponding
+                                Directory entries. Duplicate tags are distinguished only by the location of the
+                                respective fields within the record. The Directory ends with a field terminator
+                                character (ASCII 1E hex). 
+         </li>
+         <li class="nobullet"><strong>Variable fields</strong> - The data in a MARC authority record is
+                                organized into <strong>variable fields</strong>, each identified by a
+                                three-character numeric tag that is stored in the Directory entry for the field.
+                                Each field ends with a field terminator character. The last variable field in a
+                                record ends with both a field terminator and a record terminator (ASCII 1D hex).
+                                There are two types of <strong>variable fields</strong>.
+         </li>
+         <li class="nobullet"><strong>Variable control fields</strong> - The 00X fields. These fields are
+                                identified by a field tag in the Directory but they contain neither indicator
+                                positions nor subfield codes. The variable control fields are structurally
+                                different from the variable data fields. They may contain either a single data
+                                element or a series of fixed-length data elements identified by relative
+                                character position.
+         </li>
+         <li class="nobullet"><strong>Variable data fields</strong> - The remaining variable fields defined
+                                in the format. In addition to being identified by a field tag in the Directory,
+                                variable data fields contain two <strong>indicator positions</strong> stored at
+                                the beginning of each field and a two-character <strong>subfield code</strong>
+                                preceding each data element within the field. 
+         </li>
+      </ul>
+      <p>The <strong>variable data fields</strong> are grouped into blocks according to the
+                         first character of the <strong>tag</strong>, which with some exceptions identifies
+                         the function of the data within the record. The type of information in the field is
+                         identified by the remainder of the tag.
+      </p>
+      <div class="table">
+         <table>
+            <tr>
+               <td width="76" align="left" valign="top">0XX</td>
+               <td width="547" align="left" valign="top">Standard numbers, classification numbers, codes</td>
+            </tr>
+            <tr>
+               <td valign="top" align="left">1XX</td>
+               <td valign="top" align="left">Headings (established and unestablished)</td>
+            </tr>
+            <tr>
+               <td valign="top" align="left">2XX</td>
+               <td valign="top" align="left">Complex see references</td>
+            </tr>
+            <tr>
+               <td valign="top" align="left">3XX</td>
+               <td valign="top" align="left">Complex see also references</td>
+            </tr>
+            <tr>
+               <td valign="top" align="left">4XX</td>
+               <td valign="top" align="left">See from tracings</td>
+            </tr>
+            <tr>
+               <td valign="top" align="left">5XX</td>
+               <td valign="top" align="left">See also from tracings</td>
+            </tr>
+            <tr>
+               <td valign="top" align="left">6XX</td>
+               <td valign="top" align="left">Treatment decisions, notes</td>
+            </tr>
+            <tr>
+               <td valign="top" align="left">7XX</td>
+               <td valign="top" align="left">Linking entries</td>
+            </tr>
+            <tr>
+               <td valign="top" align="left">8XX</td>
+               <td valign="top" align="left">Alternate graphics</td>
+            </tr>
+            <tr>
+               <td valign="top" align="left">9XX</td>
+               <td valign="top" align="left">Reserved for local implementation</td>
+            </tr>
+         </table>
+      </div>
+      <p>Within the 1XX, 4XX, 6XX, 7XX and 8XX blocks, certain parallels of content
+                         designation are usually preserved. The following meanings, with some exceptions, are
+                         given to the final two characters of the tag of fields:
+      </p>
+      <div class="table">
+         <table width="656">
+            <tr>
+               <td width="27" align="left" valign="top">X00</td>
+               <td width="257" align="left" valign="top">Personal names</td>
+               <td width="27" align="left" valign="top">X51</td>
+               <td width="325" align="left" valign="top">Geographic names</td>
+            </tr>
+            <tr>
+               <td valign="top" align="left">X10</td>
+               <td valign="top" align="left">Corporate names</td>
+               <td valign="top" align="left">X55</td>
+               <td valign="top" align="left">Genre/form terms</td>
+            </tr>
+            <tr>
+               <td valign="top" align="left">X11</td>
+               <td valign="top" align="left">Meeting names</td>
+               <td valign="top" align="left">X80</td>
+               <td valign="top" align="left">General subdivisions</td>
+            </tr>
+            <tr>
+               <td valign="top" align="left">X30</td>
+               <td valign="top" align="left">Uniform titles</td>
+               <td valign="top" align="left">X81</td>
+               <td valign="top" align="left">Geographic subdivisions</td>
+            </tr>
+            <tr>
+               <td valign="top" align="left">X48</td>
+               <td valign="top" align="left">Chronological terms</td>
+               <td valign="top" align="left">X82</td>
+               <td valign="top" align="left">Chronological subdivisions</td>
+            </tr>
+            <tr>
+               <td valign="top" align="left">X50</td>
+               <td valign="top" align="left">Topical terms</td>
+               <td valign="top" align="left">X85</td>
+               <td valign="top" align="left">Form subdivisions</td>
+            </tr>
+        </table>
+      </div>
+      <p>Within variable data fields, the following two kinds of content designation are used:</p>
+      <ul>
+         <li class="nobullet"><strong>Indicator positions</strong> - The first two character positions in
+                                the variable data fields that contain values which interpret or supplement the
+                                data found in the field. Indicator values are interpreted independently, that
+                                is, meaning is not ascribed to the two indicators taken together. Indicator
+                                values may be a lowercase alphabetic or a numeric character. A blank (ASCII
+                                SPACE), represented in this document as a #, is used in an undefined indicator
+                                position. In a defined indicator position, a blank may be assigned a meaning, or
+                                may mean <em>no information provided</em>.
+         </li>
+         <li class="nobullet"><strong>Subfield codes</strong> - Two characters that distinguish the data
+                                elements within a field which require separate manipulation. A subfield code
+                                consists of a delimiter (ASCII 1F hex), represented in this document as a
+                                $, followed by a data element identifier. Data element identifiers
+                                may be a lowercase alphabetic or a numeric character. Subfield codes are defined
+                                independently for each field; however, parallel meanings are preserved whenever
+                                possible (e.g., in the 100, 400, and 600 Personal Name fields). Subfield codes
+                                are defined for purposes of identification, not arrangement. The order of
+                                subfields is generally specified by standards for the data content, such as the
+                                cataloging rules.
+         </li>
+      </ul>
+      <p><strong>Multiscript Authority Records</strong></p>
+      <p>A MARC authority record may contain <em>data</em> in multiple scripts. One script may
+                         be considered the primary script of the <em>data content</em> of the record, even
+                         though other scripts are also used for data content. (Note: ASCII is used for the
+                         structure elements of the record, with most coded data also specified within the
+                         ASCII range of characters). General models for multiscript data are described in
+                         <a href="ecadmulti.html">Appendix C</a>, along with several full record examples. 
+      </p>
+      <p><strong>Field and Subfield Repeatability</strong></p>
+      <p>Theoretically, all fields and subfields may be repeated. The nature of the data,
+                         however, often precludes repetition. For example, an authority record may contain
+                         only one 1XX field; a field 100 may contain only one subfield $a
+                         (Personal name) but may contain more than one subfield $c (Titles and
+                         other words associated with a name). The repeatability or non-repeatability of each
+                         field and subfield is specified in the format.
+      </p>
+      <p><strong>Field Linking</strong></p>
+      <p>Fields in the record may be specially linked using a generally-applicable field
+                         linking technique. The technique relies upon the syntax of data in subfield
+                         $8 (Field link and sequence number) to identify the linked fields. The
+                         structure and syntax for the field link and sequence number subfield are described
+                         in <a href="ecadcntf.html">Appendix A</a>.
+      </p>
+      <p><strong>Fill Character and Related Values</strong></p>
+      <p>A fill character (ASCII 7C hex), represented in this document as a vertical bar (|),
+                         may be used in authority records in field 008, and subfield $w of the 4XX
+                         and 5XX tracing and 700-785 linking entry fields. A fill character may not be used
+                         in the Leader, or in tags, indicators, or subfield codes. The use of the fill
+                         character in records contributed to a national database may also be dependent upon
+                         the national level requirements specified for each data element. The presence of a
+                         fill character in an authority record indicates that the format specifies a code to
+                         be used but the creator of the record has decided not to attempt to supply a code.
+      </p>
+      <p>Code u (Unknown or unspecified) when it is defined indicates that the creator of the
+                         record attempted to supply a code but was unable to determine what the appropriate
+                         code should be. 
+      </p>
+      <p>Code n (Not applicable) is defined in many coded positions to indicate that the
+                         characteristic defined by the position is not applicable to a specific type of item
+                         or kind of record. 
+      </p>
+      <p><strong>Display Constants</strong></p>
+      <p>A display constant is a term, phrase, spacing, or punctuation convention that may be
+                         system generated under prescribed circumstances in order to make a visual
+                         presentation of data in a record more meaningful to a user. In the authority format
+                         certain field tags (e.g., field 770, Supplement/Special Issue Entry), indicators
+                         (e.g. the 4XX and 5XX tracing fields), and subfield codes (e.g., the subject
+                         subdivision subfields $v, $x, $y, and $z
+                         in an extended subject heading), and coded values (e.g., tracings control subfield
+                         $w/0, Special relationship) may be used to generate specific display
+                         constants. The use of display constants is determined by each organization or
+                         system. Examples of display constants are provided under <em>Input Conventions</em>
+                         in the field descriptions.
+      </p>
+      <p><strong>Record Content Responsibility</strong></p>
+      <p>The <em>MARC 21 Format for Authority Data</em> serves as a vehicle for authority data
+                         of all types from any organization. In general, the responsibility for the data
+                         content, content designation, and transcription of authority data within a MARC
+                         record may be determined by examination of the field indicated in the
+                             <strong>responsible parties</strong> section below. The data content of certain
+                         data elements, however, is restricted when the element is an
+                         <strong>agency-assigned</strong> or a <strong>controlled-list</strong> data element. 
+      </p>
+      <p><strong>Responsible Parties</strong></p>
+      <p>In <em>unmodified records</em>, the organization identified as the original
+                         cataloging source in 008/39 and/or 040 $a is responsible for the content
+                         of the record. The organization identified as the transcribing agency in field 040
+                         $c is responsible for the content designation and transcription of the
+                         data. 
+      </p>
+      <p>In <em>modified records</em>, the organizations identified in 040 $a and
+                         $d (Modifying agency) are collectively responsible for the content of the
+                         record. Organizations identified as transcribing or modifying agencies in field 040
+                         $c and $d are collectively responsible for the content
+                         designation and transcription of the data. 
+      </p>
+      <p><strong>Agency-assigned Data Elements</strong></p>
+      <p>An agency-assigned data element is one whose content is determined by a designated
+                         agency and is the responsibility of that agency, e.g., field 010 (Library of
+                         Congress Control Number). While it is usually input by the designated agency, it may
+                         be transcribed by another organization.
+      </p>
+      <p><strong>Controlled-list Data Elements</strong></p>
+      <p>Certain data elements contain data from controlled lists maintained by designated
+                         agencies, e.g., the <em>MARC Code List for Geographic Areas</em> in field 043
+                         (Geographic Area Code). These elements are indicated at the field or subfield level
+                         in MARC 21 and only values from the designated lists may be used. If a change or
+                         addition is desirable for a list, the maintenance agency for the list should be
+                         consulted. 
+      </p>
+      <p><strong>Record Level Requirements</strong></p>
+      <p>User groups may have full level and minimal level record requirements to promote
+                         consistency across cataloging agencies. These should be widely publicized for all
+                         possible interchange partners to be aware. 
+      </p>
+	  <hr>
+      <p><strong>ORGANIZATION OF THIS DOCUMENT</strong></p>
+      <p><strong>Main Parts</strong></p>
+      <p><em>MARC 21 Format for Authority Data</em> consists of a Summary Statement of Content
+                         Designators followed by a detailed presentation of each content designator.
+                         Following the descriptions of the Leader and the Directory, the variable control
+                         fields are arranged in field tag order (001-008). The variable data fields are
+                         presented in the following groupings in order to bring together fields that serve
+                         related functions:      </p>
+      <ul>
+         <li class="nobullet">Numbers and Codes</li>
+         <li class="nobullet">Headings</li>
+         <li class="nobullet">Tracings and References</li>
+         <li class="nobullet">Series Treatment</li>
+         <li class="nobullet">Notes</li>
+         <li class="nobullet">Heading Linking Entries</li>
+         <li class="nobullet">Alternate Graphics</li>
+      </ul>
+      <p>Appendixes to this document provide information about several control subfields (<a href="ecadcntf.html">Appendix A</a>), full
+                         level record examples (<a href="examples.html">Appendix B</a>), multiscript record examples (<a href="ecadmulti.html">Appendix C</a>), an
+                         alphabetical listing of ambiguous headings with suggested tagging (<a href="ambiguous-headings.html">Appendix D</a>), a
+                         multilingual list of initial definite and indefinite articles (<a href="adapndxe.html">Appendix E</a>), lists
+                         of changes to the format since the last edition or update (<a href="adapndxf.html">Appendix F</a>), and a list
+                         of organization code sources (<a href="ecadorg.html">Appendix G</a>).
+      </p>
+      <p><strong>General Information Sections</strong></p>
+      <p>To avoid repetition, general information sections are provided for groups of fields
+                         with similar characteristics. These general information sections provide
+                         instructions for the content designators that are common to each field in the group.
+                         The description for each of the fields refers back to the general information
+                         section for that group and to any related general information section.
+      </p>
+      <p>To reduce repetition, the X-- <em>General Information</em> section is provided for
+                         types of headings (X00 Personal Names; X10 Corporate Names; X11 Meeting Names; X30
+                         Uniform Titles, X48 Chronological Terms, X50 Topical Terms; X51 Geographic Names;
+                         X55 Genre/Form terms; X80 General Subdivisions; X81 Geographic Subdivisions; X82
+                         Chronological Subdivisions; X85 Form Subdivisions). These general information
+                         sections provide instructions for the content designators that are common to each
+                         type of personal heading whether it is used in a 1XX heading, 4XX see from tracing
+                         or 5XX see also from tracing field, or a 7XX heading linking entry field. The
+                         description for each of the individual fields (i.e., 100, 600, 700, 800) refers back
+                         to the X-- <em>General Information</em> section for that type of heading. 
+      </p>
+      <p>A <em>Tracing and Reference Fields&#8722;General Information</em> section describes the use
+                         of the tracing fields (4XX and 5XX fields) and the various reference note fields
+                         (field 260, 360, and fields 663-666) in constructing displays of cross references
+                         from these fields. It also provides instructions for applying subfield $i
+                         (Reference instruction phrase) and subfield $w (Control subfield) in the
+                         4XX and 5XX fields. The description for each of the reference note fields contains
+                         the detailed instructions for the content designators for the field. Reference is
+                         made to the <em>Tracing and Reference Fields&#8722;General Information</em> section only
+                         for cross reference display descriptions. Descriptions for the 4XX and 5XX fields
+                         refer to both the related X-- <em>General Information</em> section and the Tracing
+                         and reference fields section for content designator instructions.
+      </p>
+      <p>A <em>7XX Heading Linking Entries&#8722;General Information</em> section describes the use
+                         of the linking fields and provides instructions for applying the second indicator
+                         (Subject heading system/thesaurus) and subfield $0 (Record control
+                         number), subfield $w (Control subfield), subfield $2 (Source
+                         of heading or term), and subfield $8 (Field Link and sequence number).
+                         The individual descriptions for fields 700-785 list all of the content designators
+                         for each field and refer to both the general information section for the
+                         corresponding type of heading and to the 7XX general information section for
+                         application guidelines. The first indicator position and all of the subfield codes
+                         for field 788 (Complex Linking Entry Data) are fully described in the field 788
+                         description. 
+      </p>
+      <p><strong>Components of the Detailed Descriptions</strong></p>
+      <p>A detailed description may consist of six parts: content designator listing;
+                         character position or field definition and scope; guidelines for applying content
+                         designators, with examples; input conventions; and content designator history.
+      </p>
+      <p>The <strong>content designator listing</strong> area presents      </p>
+      <ul>
+         <li class="nobullet">the name of the content designator</li>
+         <li class="nobullet">the repeatability/nonrepeatability code (R or NR)</li>
+      </ul>
+      <p>For the Leader and the variable control fields, the list gives the
+                         <strong>name</strong> of the character position and any defined coded value. For the
+                         variable data fields, the list gives the name of the indicator positions and any
+                         defined coded values and the name of the subfield codes and any defined coded
+                         values. For all variable fields, the <strong>repeatability/nonrepeatability
+                            code</strong> at the field level specifies whether the field may be repeated in a
+                         record. For variable data fields, the subfield repeatability code specifies whether
+                         the subfield code may be repeated within a field.
+      </p>
+      <p>The <strong>character position or field definition and scope</strong> area describes
+                         the contents of the character position or field, the appropriateness of its use in
+                         specific kinds of authority records, and gives other information, such as field
+                         repeatability in particular circumstances, the use of required lists or rules in
+                         formulating the data, etc. 
+      </p>
+      <p>The <strong>guidelines for applying content designators</strong> area describes the
+                         content and scope of each coded value, indicator, or subfield code and gives other
+                         information, such as appropriateness for use and repeatability in certain
+                         circumstances. Examples showing the use of the content designator are provided
+                         immediately following the description. The examples illustrate the application of
+                         specific MARC content designation. The data may be fuller or less full than would be
+                         used in actual cataloging practice. Most of the examples reflect the application of
+                         AACR 2 and ISBD; however, some reflect a generalized MARC application. Other
+                         examples illustrate specific points. In the X&#8211;General Information sections, the 1XX
+                         heading field examples usually illustrate the use of the content designators in a
+                         4XX or 5XX tracing field as well. Neither field terminators nor record terminators
+                         are shown in the examples used in the <em>MARC 21 Format for Authority Data</em>.
+      </p>
+      <p>The <strong>input conventions</strong> area provides general guidance for the
+                         application of the content designators, and for such things as punctuation, spacing,
+                         and the use of display constants. The input conventions clarify MARC punctuation
+                         practices especially with respect to final punctuation. In the discussion of
+                         punctuation practices, <em>mark of punctuation</em> is a period (.), a question mark
+                         (?), an exclamation mark (!), or a hyphen (-).
+      </p>
+      <p>The <strong>content designator history</strong> area provides a record of significant
+                         content designator changes. The types of changes that are included are:      </p>
+      <ul>
+         <li class="nobullet">newly defined content designators that impact on coding consistency within a
+                                file
+         </li>
+         <li class="nobullet">redefined codes and values</li>
+         <li class="nobullet">changes in codes and values for consistency across MARC specifications</li>
+         <li class="nobullet">changes in repeatability when it impacts on file consistency</li>
+         <li class="nobullet">restructuring</li>
+         <li class="nobullet">obsolete content designation. Obsolete content designation formerly defined in
+                                only one format are designated <em>[USMARC only]</em> or <em>[CAN/MARC
+                                   only]</em>; unmarked items were defined in both formats. 
+         </li>
+      </ul>
+      <p>In the MARC formats, a distinction is made between <strong>obsolete</strong> and
+                             <strong>deleted</strong> content designators. An <strong>obsolete</strong>
+                         content designator is one that may have been used in MARC records and that may
+                         continue to appear in records created prior to the date it was made obsolete.
+                         Obsolete content designators are not used in new records. An obsolete content
+                         designator is recorded in the <em>Content Designator History</em> area. Content
+                         designation instructions are provided for retrospective conversion of records having
+                         data elements that would have been identified by the obsolete content designator. A
+                             <strong>deleted</strong> content designator is not recorded in the history area
+                         and will no longer appear anywhere in the MARC documentation. A content designator
+                         that had been reserved in MARC but has not been defined, or one that had been
+                         defined but is known with near certainty not to have been used, may be deleted from
+                         the format. A deleted content designator is available for redefinition in a format.
+                         A deleted content designator is available for redefinition in a format.
+      </p>
+      <p><strong>Typographical Conventions</strong></p>
+      <p>Throughout this document, the following typographical conventions are used:</p>
+      <ul>
+         <li class="nobullet">0 - The graphic 0 represents the digit zero in tags, fixed-position character
+                                positions, indicator positions, and other places numerics are used. This
+                                character must be distinguished from an uppercase letter O in examples or text.
+         </li>
+         <li class="nobullet"># - The graphic symbol # is used for a blank in coded fields and in other
+                                special situations where the existence of the character blank might be
+                                ambiguous. (In most textual examples, the blank is represented in the
+                                conventional way, by the absence of a character.)
+         </li>
+         <li class="nobullet">$ - The graphic symbol $ is used for the delimiter
+                                portion of a subfield code. Within the text, subfield codes are referred to as
+                                    <em>subfield $a</em>, for example.
+         </li>
+         <li class="nobullet">/ - Specific character positions of the Leader, Directory, field 008, and
+                                subfield $w are expressed using a slash and the number of the
+                                character position, e.g., Leader/06, $w/0.
+         </li>
+         <li class="nobullet">1 - The graphic 1 represents the digit one (hex 31). This character must be
+                                distinguished from a lowercase roman alphabet letter l (hex 6C) and uppercase
+                                alphabetic letter I (hex 4C) in examples or text.
+         </li>
+         <li class="nobullet">| - The graphic | represents a fill character in MARC examples. When this mark
+                                appears in the left margin, it indicates areas of the text of this document
+                                where changes have been made.
+         </li>
+      </ul>
+	  <hr>
+	   <a href="http://www.loc.gov/global/disclaim.html"><img src="http://www.loc.gov/images/disclaimer.gif" alt="Link disclaimer" width="91" height="16" border="0" align="right"></a>
+      <p><strong>STANDARDS AND OTHER DOCUMENTS RELATED TO THIS FORMAT</strong></p>
+      <p>The <em>MARC 21 Format for Authority Data</em> should be used with the following
+                         standards and related documentation. When a standard is applicable to data in
+                         specific fields of the format, the fields are given in brackets following the
+                         citation.
+      </p>
+      <p><strong>National and International Standards:</strong></p>
+      <p>ISO publications may be obtained from the <a href="../../../www.iso.org/index.html">International
+                                Organization for Standardization (ISO)</a> and their agents; and ANSI/NISO Z39
+                         publications may be obtained from the <a href="../../../www.niso.org/index.html">National
+                                Information Standards Organization (NISO)</a>.      </p>
+      <ul>
+         <li class="nobullet"><em>Format for Information Exchange</em> (ISO 2709) and <em>Bibliographic
+                                       Information Interchange</em> (ANSI/NISO Z39.2)
+         </li>
+         <li class="nobullet"><em>Code for the Representation of Names of Countries and their Subdivisions:
+                                       Part 2, Country subdivision code</em> (ISO 3166-2)
+         </li>
+         <li class="nobullet"><em>International Standard Book Numbering (ISBN) </em> (ISO 2108)
+         </li>
+         <li class="nobullet"><em>International Standard Serial Number (ISSN)</em> (ISO 3297) (ANSI/NISO
+                                Z39.9)
+         </li>
+         <li class="nobullet"><em>Representations of Dates and Times</em> (ISO 8601)
+         </li>
+      </ul>
+      <p>Character set standards are specified in <em><a href="http://www.loc.gov/marc/specifications">MARC 21 Specifications for
+                                       Record Structure, Character Sets, and Exchange Media</a></em>. 
+      </p>
+      <p><strong>MARC Standards and other related publications:</strong></p>
+      <p>These publications are available from the Library of Congress, Cataloging
+                         Distribution Service, Washington, DC 20541, USA (Worldwide distribution) and
+                         Canadian Government Publishing - PWGSC, Ottawa, Ontario K1A 0S9, Canada (Canadian
+                         distribution). Where indicated these publications are available on the Internet.      </p>
+      <ul>
+         <li class="nobullet"><em><a href="http://www.loc.gov/marc/countries/">MARC Code List for
+         Countries</a></em></li>
+         <li class="nobullet"><em><a href="http://www.loc.gov/marc/geoareas/gacshome.html">MARC Code List for
+                                              Geographic Areas</a></em></li>
+         <li class="nobullet"><em><a href="http://www.loc.gov/marc/languages/">MARC Code List for
+         Languages</a></em></li>
+         <li class="nobullet"><em><a href="http://www.loc.gov/marc/organizations/orgshome.html">MARC Code List
+                                              for Organizations</a></em> (earlier title: <em>Symbols of American Libraries</em>)         </li>
+         <li class="nobullet"><em><a href="http://www.loc.gov/marc/relators">MARC Code Lists for Relators,
+         Sources, Description Conventions</a></em></li>
+         <li class="nobullet"><em><a href="../../../www.collectionscanada.gc.ca/6/16/s16-202-e.html">Symbols and
+         Interlibrary Loan Policies in Canada</a></em></li>
+         <li class="nobullet"><em><a href="http://www.loc.gov/marc/concise/">MARC 21 Concise Formats</a></em> (all five formats in concise form) </li>
+         <li class="nobullet"><em><a href="http://www.loc.gov/marc/bibliographic/lite/">MARC 21 LITE
+         Bibliographic Format</a></em></li>
+         <li class="nobullet"><em><a href="http://www.loc.gov/marc/bibliographic/">MARC 21 Format for Bibliographic Data</a></em></li>
+         <li class="nobullet"><em><a href="http://www.loc.gov/marc/classification/eccdhome.html">MARC 21 Format for Classification Data</a></em></li>
+         <li class="nobullet"><em><a href="http://www.loc.gov/marc/community/eccihome.html">MARC 21 Format for Community Information</a></em></li>
+         <li class="nobullet"><em><a href="http://www.loc.gov/marc/holdings/echdhome.html">MARC 21 Format for Holdings Data</a></em></li>
+         <li class="nobullet"><em><a href="http://www.loc.gov/marc/specifications">MARC 21 Specifications for
+         Record Structure, Character Sets, and Exchange Media</a></em></li>
+      </ul>
+	  <hr>
+      <p><strong>SUPERSEDED DOCUMENTATION</strong></p>
+      <p>This document supersedes the most recent editions of the <em>USMARC Format for
+                                Authority Data</em> and the <em>Canadian MARC Communication Format:
+                            Authorities</em>. With alignment of these formats in 1997, a single edition of the
+                         format could be issued. 
+      </p>
+      <p><strong>USMARC Documentation</strong></p>
+      <p>MARC 21 supersedes the 1993 edition of <em>USMARC Format for Authority Data:
+                                Including Guidelines for Content Designation</em> and updates No. 1 (July
+                         1995),and No. 2 (March 1997) to that edition. With Update No.2 the USMARC and
+                         CAN/MARC formats were identical format specifications. The 1993 edition superseded
+                         the 1987 edition of the format and its four updates published between 1988 and 1991.
+                         The 1987 edition incorporated the base text of the 1976 edition and subsequent
+                         updates published under the title <em>Authorities: A MARC Format</em>. 
+      </p>
+      <p><strong>CAN/MARC Documentation</strong></p>
+      <p>MARC 21 supersedes the 1988 edition of Canadian <em>MARC Communication Format:
+                                Authorities</em>.
+      </p>
+      <hr>
+	  <p><strong>DOCUMENTATION MAINTENANCE</strong></p>
+      <p>The <em>MARC 21 Format for Authority Data</em> is prepared by the Network Development
+                         and MARC Standards Office, Library of Congress, in cooperation with Standards,
+                         Library and Archives Canada (previously National Library of Canada) and
+                         Bibliographic Standards and Systems, British Library. Please direct any questions
+                         related to the content of this document to one of the following:
+      </p>
+       <p>Network Development and MARC Standards Office<br>Library of Congress <br>101 Independence Avenue, S.E. <br>Washington, DC 20540-4402, USA <br>Fax: +1-202-707-0115<br>Email: <a href="mailto:ndmso@loc.gov">ndmso@loc.gov</a>
+      </p>
+      <p>Standards<br>Library and Archives Canada<br>395 Wellington St. <br>Ottawa, Ontario K1A 0N4, Canada <br>Fax: +1-819-953-0291<br>Email: <a href="mailto:marc@lac-bac.gc.ca">marc@lac-bac.gc.ca</a>
+      </p>
+      <p>Bibliographic Standards and Systems<br>The British Library<br>Boston Spa Wetherby <br>West Yorkshire LS23 7BQ, United Kingdom <br>Fax: +44 (0) 1937 546586<br>Email: <a href="mailto:bss-info@bl.uk"> bss-info@bl.uk</a>
+      </p>
+      <p>The <em>MARC 21 Format for Authority Data</em> is organized on a field-by-field basis
+                         with each field separately paged to facilitate the updating of fields. Periodic
+                         updates of new and replacement pages for the base text and cumulated versions of the
+                         base text will be available from the Cataloging Distribution Service, Library of
+                         Congress, Washington, DC 20541-5017, USA (Worldwide distribution) and from the
+                         Canadian Government Publishing, Public Works and Government Services Canada (PWGSC),
+                         Ottawa, Ontario K1A 0S9, Canada (Canadian distribution). Their availability will be
+                         announced on the <a href="http://www.loc.gov/marc">Library of Congress MARC
+                            website</a>, the <a href="../../../www.collectionscanada.ca/marc/index-e.html">Library and Archives
+                                Canada MARC website</a>, on
+                         listservs, and through press releases to the library press and to those who purchase
+                         the initial base volume. Updates are also available on standing order from the
+                         Library of Congress and the Canadian Government Publishing-PWGSC. This publication
+                         and all updates are supplied to all purchasers of the Library of Congress MARC
+                         Distribution Service files of authority records as part of their MARC record
+                         subscription.      </p>
+     
+      <hr>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+         <tr valign="bottom">
+            <td>
+               <div class="head-nav"><a href="http://www.loc.gov/">Library of
+                     								Congress</a> &gt;&gt; <a href="http://www.loc.gov/marc/">MARC</a> &gt;&gt; <a href="index.html">Authority</a>
+                  							&gt;&gt; <strong>Introduction</strong></div> 
+               (03/13/2008) 
+            </td>
+            <td align="right"><a href="mailto:ndmso@loc.gov">Contact Us</a></td>
+         </tr>
+      </table>
+   <script type='text/javascript' src='http://www.loc.gov/global/s_code.js'></script></body>
+
+<!-- Mirrored from www.loc.gov/marc/authority/adintro.html by HTTrack Website Copier/3.x [XR&CO'2003], Tue, 03 Jun 2008 14:54:25 GMT -->
+</html>

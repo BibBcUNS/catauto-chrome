@@ -1,0 +1,1315 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html40/loose.dtd"><html><head>
+
+<title>Subject Access Fields (6XX)</title><!-- base href="http://www.loc.gov/marc/bibliographic/ecbdsubj.html" -->
+<meta content="This document contains the Subject Access Fields (6XX) section of the MARC 21 Concise Bibliographic format which includes all related data elements and many examples." name="description">
+<meta content="MARC 21 Concise, Subject Access Fields (6XX), bibliographic format" name="keywords">
+<link type="text/css" rel="stylesheet" href="../marcdoc.css">
+</head>
+
+<body bgcolor="#ffffff">
+<a name="top"></a>
+<hr><h1><em>MARC 21 Concise Bibliographic: <br>
+  Subject Access Fields (6XX) </em></h1>
+<hr><p>Fields 600-65X (with the exception of field 653 that is used
+for uncontrolled index terms) contain subject headings or access
+terms that provide additional access to a bibliographic record through a
+heading or term that is constructed according to established subject cataloging
+or thesaurus-building principles and guidelines.  The standard list or
+authority file used is identified by 
+the value in the second indicator position or
+by the MARC
+source code contained in subfield $2 that is used in conjunction
+with value 7.</p><p>The arabic number that precedes a subject access field in some
+displays is
+not carried in the MARC record.  It may be generated based on
+the field
+tag.  The dash ( -- ) that precedes a general subject subdivision
+is not carried
+in the MARC record; it may be generated based on the presence
+of subfields, $v, $x, $y, and $z.</p><ul>
+<li><a href="#mrcb600">600 - SUBJECT ADDED ENTRY--PERSONAL NAME</a>
+
+<small>(R)</small></li><li><a href="#mrcb610">610 - SUBJECT ADDED ENTRY--CORPORATE NAME</a>
+
+<small>(R)</small></li><li><a href="#mrcb611">611 - SUBJECT ADDED ENTRY--MEETING NAME</a>
+
+<small>(R)</small></li><li><a href="#mrcb630">630 - SUBJECT ADDED ENTRY--UNIFORM TITLE</a>
+
+<small>(R)</small></li><li><a href="#mrcb648">648 - SUBJECT ADDED ENTRY--CHRONOLOGICAL TERM</a>
+
+<small>(R)</small></li><li><a href="#mrcb650">650 - SUBJECT ADDED ENTRY--TOPICAL TERM</a>
+
+<small>(R)</small></li><li><a href="#mrcb651">651 - SUBJECT ADDED ENTRY--GEOGRAPHIC NAME</a>
+
+<small>(R)</small></li><li><a href="#mrcb653">653 - INDEX TERM--UNCONTROLLED</a>
+
+<small>(R)</small></li><li><a href="#mrcb654">654 - SUBJECT ADDED ENTRY--FACETED TOPICAL TERMS</a>
+
+<small>(R)</small></li><li><a href="#mrcb655">655 - INDEX TERM--GENRE/FORM</a>
+
+<small>(R)</small></li><li><a href="#mrcb656">656 - INDEX TERM--OCCUPATION</a>
+
+<small>(R)</small></li><li><a href="#mrcb657">657 - INDEX TERM--FUNCTION</a>
+
+<small>(R)</small></li><li><a href="#mrcb658">658 - INDEX TERM--CURRICULUM OBJECTIVE</a>
+
+<small>(R)</small></li></ul>
+<p>
+</p><p><u>Information for Translators and Other Users</u><br>
+  Items highlighted in <font color="#ff0000">red</font> indicate changes made
+  after the 2002 edition of the <em>MARC 21 Concise Formats</em> was published
+  and are included in the 2003 printed edition of the <em>MARC 21 Concise Formats</em>.
+</p><hr><h2><a name="mrcb600">600 - SUBJECT ADDED ENTRY--PERSONAL NAME
+<small>(R)</small></a>
+</h2>
+<p>A subject added entry in which the entry element is a personal
+name.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Type of personal name entry
+element<br><em>See the description of the first indicator under <a href="ecbdmain.html#mrcb100">field 100</a>
+</em>.
+<ul>
+<li>0 - Forename</li></ul>
+
+<ul>
+<li>1 - Surname</li></ul>
+
+<ul>
+<li>3 - Family name</li></ul>
+</li><li>Second - Thesaurus<br>The thesaurus or authority file from which the heading came.
+<ul>
+<li>0 - Library of Congress Subject
+Headings<br>The subject added entry conforms to and is appropriate for use in the
+<em>Library of Congress Subject Headings</em> (LCSH) and the Name
+authority files.</li></ul>
+
+<ul>
+<li>1 - LC subject headings for
+children's literature<br>The subject added entry conforms to the "AC Subject Headings" section of the
+<em>LCSH</em> and is appropriate for use in the LC Annotated Card
+Program.</li></ul>
+
+<ul>
+<li>2 - Medical Subject Headings<br>The subject added entry conforms to the NLM authority files.</li></ul>
+
+<ul>
+<li>3 - National Agricultural Library
+subject authority file<br>The subject added entry conforms to the NAL subject authority file.</li></ul>
+
+<ul>
+<li>4 - Source not specified<br>The subject added entry conforms to a controlled list that cannot be identified by another
+defined value or by a code in subfield $2.</li></ul>
+
+<ul>
+<li>5 - Canadian Subject Headings<br>The subject added entry conforms to and is appropriate for use in the
+<em>Canadian Subject Headings</em> and the NLC authority
+files.</li></ul>
+
+<ul>
+<li>6 - Répertoire de vedettes-matière<br>The subject added entry conforms to and is appropriate for use in the
+<em>Répertoire de vedettes-matière</em> and the NLC
+authority
+fields</li></ul>
+
+<ul>
+<li>7 - Source specified in subfield $2</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Personal name
+<small>(NR)</small></li><li>$b - Numeration
+<small>(NR)</small></li><li>$c - Titles and other words associated with
+a name
+<small>(R)</small></li><li>$d - Dates associated with a name
+<small>(NR)</small></li><li>$e - Relator term
+<small>(R)</small></li><li>$f - Date of a work
+<small>(NR)</small></li><li>$g - Miscellaneous information
+<small>(NR)</small></li><li>$h - Medium
+<small>(NR)</small><br>A media qualifier.</li><li>$j - Attribution qualifier<small>(R)</small><br>Attribution information for names when the responsibility is unknown, uncertain, fictitious, or pseudonymous.</li><li>$k - Form subheading
+<small>(R)</small></li><li>$l - Language of a work
+<small>(NR)</small></li><li>$m - Medium of performance for music
+<small>(R)</small></li><li>$n - Number of part/section of a work
+<small>(R)</small></li><li>$o - Arranged statement for music
+<small>(NR)</small></li><li>$p - Name of part/section of a work
+<small>(R)</small></li><li>$q - Fuller form of name
+<small>(NR)</small></li><li>$r - Key for music
+<small>(NR)</small></li><li>$s - Version
+<small>(NR)</small></li><li>$t - Title of a work
+<small>(NR)</small></li><li>$u - Affiliation
+<small>(NR)</small></li><li>$v - Form subdivision
+<small>(R)</small></li><li>$x - General subdivision
+<small>(R)</small></li><li>$y - Chronological subdivision
+<small>(R)</small></li><li>$z - Geographic subdivision
+<small>(R)</small></li><li>$2 - Source of heading or term
+<small>(NR)</small><br>Code from: 
+<em><a href="../relators/relahome.html">MARC Code Lists for Relators, Sources, Description Conventions</a>
+</em></li><li>$3 - Materials specified
+<small>(NR)</small></li><li>$4 - Relator code
+<small>(R)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em><br><em>See the descriptions of subfields $a, $b, $d, $e, $f, $g, $l, $n, $p, $q, $t,
+$u, and $4 under <a href="ecbdmain.html#mrcb100">field
+100</a>
+
+.</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>600</strong></td>
+<td valign="top"><br><strong>00$a</strong>Norodom Sihanouk,<strong>$c</strong>Prince,<strong>$d</strong>1922-</td>
+</tr>
+<tr><td valign="top"><br><strong>600</strong></td>
+<td valign="top"><br><strong>10$a</strong>Smith,<strong>$d</strong>fl. <font color="#ff0000">1813.</font></td>
+</tr>
+<tr><td valign="top"><br><strong>600</strong></td>
+<td valign="top"><br><strong>10$a</strong><font color="#ff0000">Dunlap</font> family<font color="#ff0000">.</font></td>
+</tr>
+<tr><td valign="top"><br><strong>600</strong></td>
+<td valign="top"><br>
+<strong>30$a</strong>P<font color="#ff0000">r</font>emyslid dynasty.</td>
+</tr>
+<tr><td valign="top"><br><strong>600</strong></td>
+<td valign="top"><br><strong>30$a</strong>Morton family.</td>
+</tr>
+<tr><td valign="top"><br><strong>600</strong></td>
+<td valign="top"><br><strong>00$a</strong>Moses<strong>$c</strong>(Biblical
+leader)</td>
+</tr>
+<tr><td valign="top"><br><strong>600</strong></td>
+<td valign="top"><br><strong>10$a</strong>Drake, Francis,<strong>$c</strong>Sir,<strong>$d</strong>1540?-1596.</td>
+</tr>
+<tr><td valign="top"><br><strong>600</strong></td>
+<td valign="top"><br><strong>10$a</strong>Shakespeare, William,<strong>$d</strong>1564-1616.<strong>$t</strong>Hamlet.</td>
+</tr>
+<tr><td valign="top"><br><strong>600</strong></td>
+<td valign="top"><br><strong>00$a</strong><font color="#ff0000">Gautama Buddha<strong>$v</strong>Early works to 1800.</font></td>
+</tr>
+<tr><td valign="top"><br><strong>600</strong></td>
+<td valign="top"><br><strong>10$a</strong>Shakespeare, William,<strong>$d</strong>1564-1616<strong>$x</strong>Criticism and interpretation<strong>$x</strong>History<strong>$y</strong>18th century.</td>
+</tr>
+<tr><td valign="top"><br><strong>600</strong></td>
+<td valign="top"><br><strong>10$a</strong>Reagan, Ronald<strong>$x</strong>Assassination attempt, 1981.</td>
+</tr>
+<tr><td valign="top"><br><strong>600</strong></td>
+<td valign="top"><br><strong>10$a</strong>Ford, Gerald R.,<strong>$d</strong>1913-<strong>$x</strong><font color="#ff0000">Museums</font><strong>$z</strong>Michigan.</td>
+</tr>
+<tr><td valign="top"><br><strong>600</strong></td>
+<td valign="top"><br><strong>10$a</strong>Pushkin, Aleksandr Sergeevich,<strong>$d</strong>1799-1837<strong>$x</strong><font color="#ff0000">Museums</font><strong>$z</strong>Russia (Federation)<strong>$z</strong>Moscow<strong>$v</strong>Maps.</td>
+</tr>
+<tr><td valign="top"><br><strong>600</strong></td>
+<td valign="top"><br><strong>10$a</strong>Nixon, Richard M.<strong>$q</strong>(Richard Milhouse),<strong>$d</strong>1913-<strong>$x</strong><font color="#ff0000">Psychology.</font></td>
+</tr>
+<tr><td valign="top"><br><strong>600</strong></td>
+<td valign="top"><br><strong>00$a</strong>Jesus Christ<strong>$x</strong>History of doctrines<strong>$y</strong>Early Church, ca. 30-600.</td>
+</tr>
+
+</tbody></table>
+<p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb610">610 - SUBJECT ADDED ENTRY--CORPORATE NAME
+<small>(R)</small></a>
+</h2>
+<p>A subject added entry in which the entry element is a
+corporate name.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Type of corporate name entry
+element<br><em>See the description of the first indicator under <a href="ecbdmain.html#mrcb110">field 110</a>
+</em>.
+<ul>
+<li>0 - Inverted name</li></ul>
+
+<ul>
+<li>1 - Jurisdiction name</li></ul>
+
+<ul>
+<li>2 - Name in direct
+order</li></ul>
+</li><li>Second - Thesaurus<br>The thesaurus or authority file from which the heading came.
+<ul>
+<li>0 - Library of Congress Subject
+Headings<br>The subject added entry conforms to and is appropriate for use in the
+<em>Library of Congress Subject Headings</em> (LCSH) and the Name
+authority files.</li></ul>
+
+<ul>
+<li>1 - LC subject headings for
+children's literature<br>The subject added entry conforms to the "AC Subject Headings" section of the
+<em>LCSH</em> and is appropriate for use in the LC Annotated Card
+Program.</li></ul>
+
+<ul>
+<li>2 - Medical Subject Headings<br>The subject added entry conforms to the NLM authority files.</li></ul>
+
+<ul>
+<li>3 - National Agricultural Library
+subject authority file<br>The subject added entry conforms to the NAL subject authority file.</li></ul>
+
+<ul>
+<li>4 - Source not specified<br>The subject added entry conforms to a controlled list that cannot be identified by another
+defined value or by a code in subfield $2.</li></ul>
+
+<ul>
+<li>5 - Canadian Subject Headings<br>The subject added entry conforms to and is appropriate for use in the
+<em>Canadian Subject Headings</em> and the NLC authority
+files.</li></ul>
+
+<ul>
+<li>6 - Répertoire de vedettes-matière<br>The subject added entry conforms to and is appropriate for use in the
+<em>Répertoire de vedettes-matière</em> and the NLC
+authority
+fields</li></ul>
+
+<ul>
+<li>7 - Source specified in subfield $2</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Corporate name or jurisdiction name as
+entry
+element
+<small>(NR)</small></li><li>$b - Subordinate unit
+<small>(R)</small></li><li>$c - Location of meeting
+<small>(NR)</small></li><li>$d - Date of meeting or treaty signing
+<small>(R)</small></li><li>$e - Relator term
+<small>(R)</small></li><li>$f - Date of a work
+<small>(NR)</small></li><li>$g - Miscellaneous information
+<small>(NR)</small></li><li>$h - Medium
+<small>(NR)</small><br>A media qualifier.</li><li>$k - Form subheading
+<small>(R)</small></li><li>$l - Language of a work
+<small>(NR)</small></li><li>$m - Medium of performance for music
+<small>(R)</small></li><li>$n - Number of part/section/meeting
+<small>(R)</small></li><li>$o - Arranged statement for music
+<small>(NR)</small></li><li>$p - Name of part/section of a work
+<small>(R)</small></li><li>$r - Key for music
+<small>(NR)</small></li><li>$s - Version
+<small>(NR)</small></li><li>$t - Title of a work
+<small>(NR)</small></li><li>$u - Affiliation
+<small>(NR)</small></li><li>$v - Form subdivision
+<small>(R)</small></li><li>$x - General subdivision
+<small>(R)</small></li><li>$y - Chronological subdivision
+<small>(R)</small></li><li>$z - Geographic subdivision
+<small>(R)</small></li><li>$2 - Source of heading or term
+<small>(NR)</small><br>Code from: 
+<em><a href="../relators/relahome.html">MARC Code Lists
+for
+Relators, Sources, Description Conventions</a>
+</em></li><li>$3 - Materials specified
+<small>(NR)</small></li><li>$4 - Relator code
+<small>(R)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em><br><em>See the descriptions of subfields $e, $f, $l, $p, $t, $u and $4 under <a href="ecbdmain.html#mrcb100">field
+100</a>
+
+ and subfields $a, $b, $c, $d, $g, and $n
+under <a href="ecbdmain.html#mrcb110">field
+110</a>
+</em>.</li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>610</strong></td>
+<td valign="top"><br><strong>20$a</strong><font color="#ff0000">Titanic (Steamship)</font></td>
+</tr>
+<tr><td valign="top"><br><strong>610</strong></td>
+<td valign="top"><br><strong>20$a</strong>Empire State Building (New York,
+N.Y.)</td>
+</tr>
+<tr><td valign="top"><br><strong>610</strong></td>
+<td valign="top"><br><strong>10$a</strong>France.<strong>$t</strong>Constitution
+(1946)</td>
+</tr>
+<tr><td valign="top"><br><strong>610</strong></td>
+<td valign="top"><br><strong>10$a</strong>Great Britain.<strong>$t</strong>Treaties, etc.<strong>$g</strong>Ireland,<strong>$d</strong>1985 Nov.15.</td>
+</tr>
+<tr><td valign="top"><br><strong>610</strong></td>
+<td valign="top"><br><strong>20$a</strong>British Library.<strong>$k</strong>Manuscript.<strong>$n</strong>Arundel 384.</td>
+</tr>
+<tr><td valign="top"><br><strong>610</strong></td>
+<td valign="top"><br><strong>10$a</strong>Uruguay.<strong>$t</strong>Treaties,
+etc.<strong>$g</strong>Argentina,<strong>$d</strong>1974 Aug. 20.<strong>$k</strong>Protocols, etc.<strong>$d</strong>1982 Dec. 20.</td>
+</tr>
+<tr><td valign="top"><br><strong>610</strong></td>
+<td valign="top"><br><strong>20$a</strong>Daughters of the American Revolution.<strong>$b</strong><font color="#ff0000">Mary Tyler Chapter (Tyler, Tex.)</font><strong>$k</strong>Charters and regulations.</td>
+</tr>
+<tr><td valign="top"><br><strong>610</strong></td>
+<td valign="top"><br><strong>20$a</strong>United States Strategic Bombing Survey.<strong>$t</strong>Reports.<strong>$p</strong>Pacific war<strong>$v</strong>Indexes.</td>
+</tr>
+<tr><td valign="top"><br><strong>610</strong></td>
+<td valign="top"><br><strong>10$a</strong>United States.<strong>$b</strong>Army.<strong>$b</strong>Cavalry<strong>$x</strong>History<strong>$y</strong>Civil War, 1861-1865<strong>$v</strong>Maps.</td>
+</tr>
+<tr><td valign="top"><br><strong>610</strong></td>
+<td valign="top"><br><strong>20$a</strong>Catholic Church.<strong>$b</strong>Province of Baltimore (Md.)</td>
+</tr>
+<tr><td valign="top"><br><strong>610</strong></td>
+<td valign="top"><br><strong>20$a</strong>United Nations<strong>$z</strong>Africa.</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb611">611 - SUBJECT ADDED ENTRY--MEETING NAME
+<small>(R)</small></a>
+</h2>
+<p>A subject added entry in which the entry element is a meeting
+name.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Type of meeting name entry
+element<br><em>See the description of the first indicator under <a href="ecbdmain.html#mrcb111">field 111</a>
+</em>.
+<ul>
+<li>0 - Inverted name</li></ul>
+
+<ul>
+<li>1 - Jurisdiction
+name</li></ul>
+
+<ul>
+<li>2 - Name in direct order</li></ul>
+</li><li>Second - Thesaurus<br>The thesaurus or authority file from which the heading came.
+<ul>
+<li>0 - Library of Congress Subject Headings<br>The subject added entry conforms to and is appropriate for use in the
+<em>Library of Congress Subject Headings</em> (LCSH) and the Name
+authority files.</li></ul>
+
+<ul>
+<li>1 - LC subject headings for
+children's literature<br>The subject added entry conforms to the "AC Subject Headings" section of the
+<em>LCSH</em> and is appropriate for use in the LC Annotated Card
+Program.</li></ul>
+
+<ul>
+<li>2 - Medical Subject Headings<br>The subject added entry conforms to the NLM authority files.</li></ul>
+
+<ul>
+<li>3 - National Agricultural Library
+subject authority file<br>The subject added entry conforms to the NAL subject authority file.</li></ul>
+
+<ul>
+<li>4 - Source not specified<br>The subject added entry conforms to a controlled list that cannot be identified by another
+defined value or by a code in subfield $2.</li></ul>
+
+<ul>
+<li>5 - Canadian Subject Headings<br>The subject added entry conforms to and is appropriate for use in the
+<em>Canadian Subject Headings</em> and the NLC authority
+files.</li></ul>
+
+<ul>
+<li>6 - Répertoire de vedettes-matière<br>The subject added entry conforms to and is appropriate for use in the
+<em>Répertoire de vedettes-matière</em> and the NLC
+authority
+fields</li></ul>
+
+<ul>
+<li>7 - Source specified in subfield $2</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Meeting name or jurisdiction name as
+entry element
+<small>(NR)</small></li><li>$c - Location of meeting
+<small>(NR)</small></li><li>$d - Date of meeting
+<small>(NR)</small></li><li>$e - Subordinate unit
+<small>(R)</small></li><li>$f - Date of a work
+<small>(NR)</small></li><li>$g - Miscellaneous information
+<small>(NR)</small></li><li>$h - Medium
+<small>(NR)</small><br>A media qualifier.</li><li>$k - Form subheading
+<small>(R)</small></li><li>$l - Language of a work
+<small>(NR)</small></li><li>$n - Number of part/section/meeting
+<small>(R)</small></li><li>$p - Name of part/section of a work
+<small>(R)</small></li><li>$q - Name of meeting following jurisdiction
+name entry
+element
+<small>(NR)</small></li><li>$s - Version
+<small>(NR)</small></li><li>$t - Title of a work
+<small>(NR)</small></li><li>$u - Affiliation
+<small>(NR)</small></li><li>$v - Form subdivision
+<small>(R)</small></li><li>$x - General subdivision
+<small>(R)</small></li><li>$y - Chronological subdivision
+<small>(R)</small></li><li>$z - Geographic subdivision
+<small>(R)</small></li><li>$2 - Source of heading or term
+<small>(NR)</small><br>Code from: 
+<em><a href="../relators/relahome.html">MARC Code Lists for
+Relators, Sources, Description Conventions</a>
+</em></li><li>$3 - Materials specified
+<small>(NR)</small></li><li>$4 - Relator code
+<small>(R)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em><br><em>See the descriptions of subfields $f, $g, $l, $p, $t, $u, and $4 under <a href="ecbdmain.html#mrcb100">field 100</a>
+
+; subfields $c and $n under <a href="ecbdmain.html#mrcb110">field 110</a>
+
+ and subfields $a, $e, and $q under <a href="ecbdmain.html#mrcb111">field 111</a>
+</em>.</li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>611</strong></td>
+<td valign="top"><br><strong>20$a</strong>Vatican Council<strong>$n</strong>(2nd :<strong>$d</strong>1962-1965).<strong>$t</strong>Decretum de presbyterorum ministerio et vita.</td>
+</tr>
+<tr><td valign="top"><br><strong>611</strong></td>
+<td valign="top"><br><strong>20$a</strong>International Congress of Writers for the
+Defense of Culture<strong>$n</strong>(1st :<strong>$d</strong>1935 :<strong>$c</strong>Paris, France)<strong>$v</strong>Fiction.</td>
+</tr>
+<tr><td valign="top"><br><strong>611</strong></td>
+<td valign="top"><br><strong>20$a</strong>World Series (Baseball)<strong>$x</strong>History.</td>
+</tr>
+<tr><td valign="top"><br><strong>611</strong></td>
+<td valign="top"><br><strong>20$a</strong><font color="#ff0000">Derby</font> (Horse race)<strong>$x</strong>History<strong>$y</strong>20th century.</td>
+</tr>
+<tr><td valign="top"><br><strong>611</strong></td>
+<td valign="top"><br><strong>20$a</strong>Olympic
+Games<strong>$n</strong>(23rd :<strong>$d</strong>1984 :<strong>$c</strong>Los Angeles, Calif.)<strong>$v</strong>Periodicals.</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb630">630 - SUBJECT ADDED ENTRY--UNIFORM TITLE
+<small>(R)</small></a>
+</h2>
+<p>A subject added entry in which the entry element is a uniform
+title.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Nonfiling characters
+<ul>
+<li>0-9 - Number of nonfiling characters<br>A value that indicates the
+number of character positions associated with an initial definite or
+indefinite article at the beginning of a uniform title field that are
+to be disregarded in sorting and filing processes.</li></ul>
+</li><li>Second - Thesaurus<br>The thesaurus or authority file from which the heading came.
+<ul>
+<li>0 - Library of Congress Subject Headings<br>The subject added entry conforms to and is appropriate for use in the
+<em>Library of Congress Subject Headings</em> (LCSH) and the Name
+authority files.</li></ul>
+
+<ul>
+<li>1 - LC subject headings for
+children's literature<br>The subject added entry conforms to the "AC Subject Headings" section of the
+<em>LCSH</em> and is appropriate for use in the LC Annotated Card
+Program.</li></ul>
+
+<ul>
+<li>2 - Medical Subject Headings<br>The subject added entry conforms to the NLM authority files.</li></ul>
+
+<ul>
+<li>3 - National Agricultural Library
+subject authority file<br>The subject added entry conforms to the NAL subject authority file.</li></ul>
+
+<ul>
+<li>4 - Source not specified<br>The subject added entry conforms to a controlled list that cannot be identified by another
+defined value or by a code in subfield $2.</li></ul>
+
+<ul>
+<li>5 - Canadian Subject Headings<br>The subject added entry conforms to and is appropriate for use in the
+<em>Canadian Subject Headings</em> and the NLC authority
+files.</li></ul>
+
+<ul>
+<li>6 - Répertoire de vedettes-matière<br>The subject added entry conforms to and is appropriate for use in the
+<em>Répertoire de vedettes-matière</em> and the NLC
+authority
+fields</li></ul>
+
+<ul>
+<li>7 - Source specified in subfield $2</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Uniform title
+<small>(NR)</small></li><li>$d - Date of treaty signing
+<small>(R)</small></li><li>$f - Date of a work
+<small>(NR)</small></li><li>$g - Miscellaneous information
+<small>(NR)</small></li><li>$h - Medium
+<small>(NR)</small><br>A media qualifier.</li><li>$k - Form subheading
+<small>(R)</small></li><li>$l - Language of a work
+<small>(NR)</small></li><li>$m - Medium of performance for music
+<small>(R)</small></li><li>$n - Number of part/section of a work
+<small>(R)</small></li><li>$o - Arranged statement for music
+<small>(NR)</small></li><li>$p - Name of part/section of a work
+<small>(R)</small></li><li>$r - Key for music
+<small>(NR)</small></li><li>$s - Version
+<small>(NR)</small></li><li>$t - Title of a work
+<small>(NR)</small><br>The title-page title of an item.</li><li>$v - Form subdivision
+<small>(R)</small></li><li>$x - General subdivision
+<small>(R)</small></li><li>$y - Chronological subdivision
+<small>(R)</small></li><li>$z - Geographic subdivision
+<small>(R)</small></li><li>$2 - Source of heading or term
+<small>(NR)</small><br>Code from: 
+<em><a href="../relators/relahome.html">MARC Code Lists
+for Relators, Sources, Description Conventions</a>
+</em></li><li>$3 - Materials specified
+<small>(NR)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em><br><em>See the descriptions of subfields $f, $g, $l, $n, and $p under <a href="ecbdmain.html#mrcb100">field
+100</a>
+</em>.</li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>630</strong></td>
+<td valign="top"><br><strong>00$a</strong>Dead Sea scrolls.</td>
+</tr>
+<tr><td valign="top"><br><strong>630</strong></td>
+<td valign="top"><br><strong>00$a</strong>Four seasons (Motion picture : 1981)</td>
+</tr>
+<tr><td valign="top"><br><strong>630</strong></td>
+<td valign="top"><br><strong>00$a</strong>Inter-American Treaty of Reciprocal
+Assistance<strong>$d</strong>(1947)</td>
+</tr>
+<tr><td valign="top"><br><strong>630</strong></td>
+<td valign="top"><br><strong>00$a</strong>New York times<strong>$v</strong>Indexes.</td>
+</tr>
+<tr><td valign="top"><br><strong>630</strong></td>
+<td valign="top"><br><strong>00$a</strong>Koran<strong>$x</strong>Criticism,
+interpretation, etc. <strong>$x</strong>History<strong>$y</strong>19th century.</td>
+</tr>
+<tr><td valign="top"><br><strong>630</strong></td>
+<td valign="top"><br><strong>05$a</strong>Studio magazine.<strong>$p</strong>Contemporary paintings<strong>$v</strong>Periodicals.</td>
+</tr>
+<tr><td valign="top"><br><strong>630</strong></td>
+<td valign="top"><br><strong>00$a</strong>Bible.<strong>$p</strong>N.T.<strong>$p</strong>Romans<strong>$x</strong>Geography<strong>$v</strong>Maps.</td>
+</tr>
+<tr><td valign="top"><font color="#ff0000"><br>
+      <strong>630</strong></font></td>
+<td valign="top"><font color="#ff0000"><br>
+    <strong>00$a</strong>MS-DOS (Computer file)</font></td>
+</tr>
+
+</tbody></table>
+<p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb648">648 - SUBJECT ADDED ENTRY--CHRONOLOGICAL TERM
+<small>(R)</small></a>
+</h2>
+<p>A subject added entry in which the entry element is a chronological term.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li><li>Second - Thesaurus<br>The thesaurus or authority file from which the heading came.
+<ul>
+<li>0 - Library of Congress Subject Headings<br>The subject added entry conforms to and is appropriate for use in the
+<em>Library of Congress Subject Headings</em> (LCSH) and the Name
+authority files.</li></ul>
+
+<ul>
+<li>1 - LC subject headings for
+children's literature<br>The subject added entry conforms to the "AC Subject Headings" section of the
+<em>LCSH</em> and is appropriate for use in the LC Annotated Card
+Program.</li></ul>
+
+<ul>
+<li>2 - Medical Subject Headings<br>The subject added entry conforms to the NLM authority files.</li></ul>
+
+<ul>
+<li>3 - National Agricultural Library
+subject authority file<br>The subject added entry conforms to the NAL subject authority file.</li></ul>
+
+<ul>
+<li>4 - Source not specified<br>The subject added entry conforms to a controlled list that cannot be identified by another
+defined value or by a code in subfield $2.</li></ul>
+
+<ul>
+<li>5 - Canadian Subject Headings<br>The subject added entry conforms to and is appropriate for use in the
+<em>Canadian Subject Headings</em> and the NLC authority
+files.</li></ul>
+
+<ul>
+<li>6 - Répertoire de vedettes-matière<br>The subject added entry conforms to and is appropriate for use in the
+<em>Répertoire de vedettes-matière</em> and the NLC
+authority
+fields</li></ul>
+
+<ul>
+<li>7 - Source specified in subfield $2</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Chronological term
+<small>(NR)</small></li><li>$v - Form subdivision
+<small>(R)</small></li><li>$x - General subdivision
+<small>(R)</small></li><li>$y - Chronological subdivision
+<small>(R)</small></li><li>$z - Geographic subdivision
+<small>(R)</small></li><li>$2 - Source of heading or term
+<small>(NR)</small><br>Code from: 
+<em><a href="../relators/relahome.html">MARC Code Lists
+for Relators, Sources, Description Conventions</a>
+</em></li><li>$3 - Materials specified
+<small>(NR)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>648</strong></td>
+<td valign="top"><br><strong>#7$a</strong>1900-1999<strong>$2</strong>fast</td>
+</tr>
+<tr><td valign="top"><br><strong>648</strong></td>
+<td valign="top"><br><strong>#7$a</strong>1862<strong>$2</strong>fast</td>
+</tr>
+<tr><td valign="top"><br><strong>648</strong></td>
+<td valign="top"><br><strong>#7$a</strong>1800-1899<strong>$2</strong>fast</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb650">650 - SUBJECT ADDED ENTRY--TOPICAL TERM
+<small>(R)</small></a>
+</h2>
+<p>A subject added entry in which the entry element is a topical
+term.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Level of subject
+<ul>
+<li># - No information
+provided</li></ul>
+
+<ul>
+<li>0 - No level specified<br>The level of the term could be determined but is not
+specified.</li></ul>
+
+<ul>
+<li>1 - Primary<br>The term describes the main focus or subject content of the material.</li></ul>
+
+<ul>
+<li>2 - Secondary<br>The subject term describes a less important aspect of the content of the material.</li></ul>
+</li><li>Second - Thesaurus<br>The thesaurus or authority file from which the heading came.
+<ul>
+<li>0 - Library of Congress Subject
+Headings<br>The subject added entry conforms to and is appropriate for use in the
+<em>Library of Congress Subject Headings</em> (LCSH) and the Name
+authority files.</li></ul>
+
+<ul>
+<li>1 - LC subject headings for
+children's literature<br>The subject added entry conforms to the "AC Subject Headings" section of the
+<em>LCSH</em> and is appropriate for use in the LC Annotated Card
+Program.</li></ul>
+
+<ul>
+<li>2 - Medical Subject Headings<br>The subject added entry conforms to the NLM authority files.</li></ul>
+
+<ul>
+<li>3 - National Agricultural Library
+subject authority file<br>The subject added entry conforms to the NAL subject authority file.</li></ul>
+
+<ul>
+<li>4 - Source not specified<br>The subject added entry conforms to a controlled list that cannot be identified by another
+defined value or by a code in subfield $2.</li></ul>
+
+<ul>
+<li>5 - Canadian Subject Headings<br>The subject added entry conforms to and is appropriate for use in the
+<em>Canadian Subject Headings</em> and the NLC authority
+files.</li></ul>
+
+<ul>
+<li>6 - Répertoire de vedettes-matière<br>The subject added entry conforms to and is appropriate for use in the
+<em>Répertoire de vedettes-matière</em> and the NLC
+authority
+fields</li></ul>
+
+<ul>
+<li>7 - Source specified in subfield $2</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Topical term or geographic name entry element
+<small>(NR)</small></li><li>$b - Topical term following geographic name entry element
+<small>(NR)</small></li><li>$c - Location of event
+<small>(NR)</small></li><li>$d - Active dates
+<small>(NR)</small><br>The time period during which an event occurred.</li><li>$e - Relator term
+<small>(NR)</small><br>A term that describes the relationship between the
+topical heading and the described materials.</li><li>$v - Form subdivision
+<small>(R)</small></li><li>$x - General subdivision
+<small>(R)</small></li><li>$y - Chronological subdivision
+<small>(R)</small></li><li>$z - Geographic subdivision
+<small>(R)</small></li><li>$2 - Source of heading or term
+<small>(NR)</small><br>Code from: 
+<em><a href="../relators/relahome.html">MARC Code Lists
+for
+Relators, Sources, Description Conventions</a>
+</em> </li><li>$3 - Materials specified
+<small>(NR)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>650</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Architecture, Modern<strong>$y</strong>19th century.</td>
+</tr>
+<tr><td valign="top"><br><strong>650</strong></td>
+<td valign="top"><br><strong>00$a</strong><font color="#ff0000">Flour industry</font><strong>$v</strong>Periodicals.</td>
+</tr>
+<tr><td valign="top"><br><strong>650</strong></td>
+<td valign="top"><br><strong>17$a</strong>Career Exploration.<strong>$2</strong>ericd</td>
+</tr>
+<tr><td valign="top"><br><strong>650</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Concertos (String orchestra)</td>
+</tr>
+<tr><td valign="top"><br><strong>650</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Vocal music<strong>$z</strong>France<strong>$y</strong>18th century.</td>
+</tr>
+<tr><td valign="top"><br><strong>650</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Dentistry<strong>$v</strong>Juvenile films.</td>
+</tr>
+<tr><td valign="top"><br><strong>650</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Real property<strong>$z</strong>Mississippi<strong>$z</strong>Tippah County<strong>$v</strong>Maps.</td>
+</tr>
+<tr><td valign="top"><br><strong>650</strong></td>
+<td valign="top"><br><strong>#7$a</strong>Educational buildings<strong>$z</strong>Washington (D.C.)<strong>$y</strong>1890-1910.<strong>$2</strong>lctgm</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb651">651 - SUBJECT ADDED ENTRY--GEOGRAPHIC NAME
+<small>(R)</small></a>
+</h2>
+<p>A subject added entry in which the entry element is a
+geographic name.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li><li>Second - Thesaurus<br>The thesaurus or authority file from which the heading came.
+
+<ul>
+<li>0 - Library of Congress Subject Headings<br>The subject added entry conforms to and is appropriate for use in the
+<em>Library of Congress Subject Headings</em> (LCSH) and the Name
+authority files.</li></ul>
+
+<ul>
+<li>1 - LC subject headings for
+children's literature<br>The subject added entry conforms to the "AC Subject Headings" section of the
+<em>LCSH</em> and is appropriate for use in the LC Annotated Card
+Program.</li></ul>
+
+<ul>
+<li>2 - Medical Subject Headings<br>The subject added entry conforms to the NLM authority files.</li></ul>
+
+<ul>
+<li>3 - National Agricultural Library
+subject authority file<br>The subject added entry conforms to the NAL subject authority file.</li></ul>
+
+<ul>
+<li>4 - Source not specified<br>The subject added entry conforms to a controlled list that cannot be identified by another
+defined value or by a code in subfield $2.</li></ul>
+
+<ul>
+<li>5 - Canadian Subject Headings<br>The subject added entry conforms to and is appropriate for use in the
+<em>Canadian Subject Headings</em> and the NLC authority
+files.</li></ul>
+
+<ul>
+<li>6 - Répertoire de vedettes-matière<br>The subject added entry conforms to and is appropriate for use in the
+<em>Répertoire de vedettes-matière</em> and the NLC
+authority
+fields</li></ul>
+
+<ul>
+<li>7 - Source specified in subfield $2</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Geographic name
+<small>(NR)</small></li><li>$v - Form subdivision
+<small>(R)</small></li><li>$x - General subdivision
+<small>(R)</small></li><li>$y - Chronological subdivision
+<small>(R)</small></li><li>$z - Geographic subdivision
+<small>(R)</small></li><li>$2 - Source of heading or term
+<small>(NR)</small><br>Code from: 
+<em><a href="../relators/relahome.html">MARC Code Lists
+for
+Relators, Sources, Description Conventions</a>
+</em></li><li>$3 - Materials specified
+<small>(NR)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>651</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Amazon River.</td>
+</tr>
+<tr><td valign="top"><br><strong>651</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Altamira Cave (Spain)</td>
+</tr>
+<tr><td valign="top"><br><strong>651</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Pompeii (<font color="#ff0000">Extinct
+    city</font>)</td>
+</tr>
+<tr><td valign="top"><br><strong>651</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Antietam National Battlefield
+(Md.)</td>
+</tr>
+<tr><td valign="top"><br><strong>651</strong></td>
+<td valign="top"><br><strong>#0$a</strong>King Ranch (Tex.)</td>
+</tr>
+<tr><td valign="top"><br><strong>651</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Ming Tombs (China)</td>
+</tr>
+<tr><td valign="top"><br><strong>651</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Chelsea (London,
+England)</td>
+</tr>
+<tr><td valign="top"><br><strong>651</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Russia<strong>$x</strong>History<strong>$v</strong>Maps.</td>
+</tr>
+<tr><td valign="top"><br><strong>651</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Texas<strong>$x</strong><font color="#ff0000">Officials and employees.</font></td>
+</tr>
+<tr><td valign="top"><br><strong>651</strong></td>
+<td valign="top"><br><strong>#0$a</strong>United States<strong>$x</strong>Boundaries<strong>$z</strong>Canada.</td>
+</tr>
+<tr><td valign="top"><br><strong>651</strong></td>
+<td valign="top"><br><strong>#0$3</strong>Psychiatric admission records<strong>$a</strong>Pennsylvania<strong>$x</strong>Nuclear reactor safety<strong>$y</strong>1975-1985<strong>$z</strong>United States.</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb653">653 - INDEX TERM--UNCONTROLLED
+<small>(R)</small></a>
+</h2>
+<p>An index term added entry that is not constructed by standard
+subject heading/thesaurus-building conventions.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Level of index term
+<ul>
+<li># - No information
+provided</li></ul>
+
+<ul>
+<li>0 - No level
+specified<br>The level of the term could be determined but is not specified.</li></ul>
+
+<ul>
+<li>1 - Primary<br>The term describes the main focus or subject content of the material.</li></ul>
+
+<ul>
+<li>2 - Secondary<br>The subject term describes a less important aspect of the content of the material.</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Uncontrolled term
+<small>(R)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>653</strong></td>
+<td valign="top"><br><strong>1#$a</strong>fuel cells<strong>$a</strong>molten carbonate<strong>$a</strong>power generation</td>
+</tr>
+<tr><td valign="top"><br><strong>653</strong></td>
+<td valign="top"><br><strong>##$a</strong>Man<strong>$a</strong>Eyes<strong>$a</strong>Diseases</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb654">654 - SUBJECT ADDED ENTRY--FACETED TOPICAL TERMS
+<small>(R)</small></a>
+</h2>
+<p>A topical subject constructed from a faceted vocabulary.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Level of subject
+<ul>
+<li># - No information
+provided</li></ul>
+
+<ul>
+<li>0 - No level
+specified<br>The level of the term could be determined but is not specified.</li></ul>
+
+<ul>
+<li>1 - Primary<br>The term describes the main focus or subject content of the material.</li></ul>
+
+<ul>
+<li>2 - Secondary<br>The subject term describes a less important aspect of the content of the material.</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Focus term
+<small><font color="#ff0000">(R)</font></small>
+</li><li>$b - Non-focus term
+<small>(R)</small><br>A term other than that considered the
+focus.</li><li>$c - Facet/hierarchy designation
+<small>(R)</small><br>The designation used by the thesaurus specified by the
+MARC code contained in subfield $2 to identify the facet/hierarchy for
+each term contained in subfields $a and $b.</li><li>$v - Form subdivision
+<small>(R)</small></li><li>$y - Chronological subdivision
+<small>(R)</small></li><li>$z - Geographic subdivision
+<small>(R)</small></li><li>$2 - Source of heading or term
+<small>(NR)</small><br>Code from: 
+<em><a href="../relators/relahome.html">MARC Code Lists
+for
+Relators, Sources, Description Conventions</a>
+</em></li><li>$3 - Materials specified
+<small>(NR)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>654</strong></td>
+<td valign="top"><br><strong>0#$c</strong>r<strong>$a</strong>landscape gardens<strong>$c</strong>y<strong>$b</strong>18th century<strong>$c</strong>z<strong>$b</strong>England.<strong>$2</strong>aat</td>
+</tr>
+<tr><td valign="top"><br><strong>654</strong></td>
+<td valign="top"><br><strong>1#$c</strong>k<strong>$a</strong>interior design.<strong>$2</strong>aat</td>
+</tr>
+<tr><td valign="top"><br><strong>654</strong></td>
+<td valign="top"><br><strong>##$c</strong>f<strong>$b</strong>French colonial<strong>$c</strong>v<strong>$a</strong>portraits<strong>$c</strong>z<strong>$b</strong>United States<strong>$c</strong>z<strong>$b</strong>New Jersey.<strong>$2</strong>aat</td>
+</tr>
+<tr><td valign="top"><br><strong>654</strong></td>
+<td valign="top"><br><strong>##$c</strong>r<strong>$a</strong>country houses<strong>$c</strong>z<strong>$b</strong>Great Britain<strong>$c</strong>y<strong>$b</strong>18th century.<strong>$2</strong>aat</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb655">655 - INDEX TERM--GENRE/FORM
+<small>(R)</small></a>
+</h2>
+<p>Terms indicating the genre, form, and/or physical
+characteristics of the materials being described.  A
+<em>genre term</em>
+designates the style or technique of the intellectual content of
+textual materials or, for graphic materials, aspects such as vantage
+point, intended purpose, or method of representation.  A
+<em>form term</em> designates historically and functionally specific kinds of
+materials distinguished by their physical character, the subject of their
+intellectual content, or the order of information within them. 
+<em>Physical characteristic</em> terms designate
+historically and functionally specific kinds of materials as
+distinguished by an examination of their physical character,
+subject of their intellectual content, or the order of
+information with them.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Type of heading
+<ul>
+<li># - Basic</li></ul>
+
+<ul>
+<li>0 -
+Faceted</li></ul>
+</li><li>Second - Thesaurus<br>The thesaurus or authority file from which the heading came.
+<ul>
+<li>0 - Library of Congress Subject Headings<br>The subject index term conforms to and is appropriate for use in the
+<em>Library of Congress Subject Headings</em> (LCSH).</li></ul>
+
+<ul>
+<li>1 - LC subject headings for
+children's literature<br>The subject index term conforms to the "AC Subject Headings" section of the
+<em>LCSH</em> and is appropriate for use in the LC Annotated Card
+Program.</li></ul>
+
+<ul>
+<li>2 - Medical Subject Headings<br>The subject index term conforms to the NLM subject authority file.</li></ul>
+
+<ul>
+<li>3 - National Agricultural Library subject authority file<br>The subject added entry conforms to the NAL subject authority file.</li></ul>
+
+<ul>
+<li>4 - Source not specified<br>The subject index term conforms to a controlled list that cannot be identified by another
+defined value or by a code in subfield $2.</li></ul>
+
+<ul>
+<li>5 - Canadian Subject Headings<br>The subject index term conforms to and is appropriate for use in the
+<em>Canadian Subject Headings</em> that is maintained by the National Library of Canada.</li></ul>
+
+<ul>
+<li>6 - Répertoire de vedettes-matière<br>The subject index term conforms to and is appropriate for use in the
+<em>Répertoire de vedettes-matière.</em></li></ul>
+
+<ul>
+<li>7 - Source specified in subfield $2</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Genre/form data or focus term
+<small>(NR)</small></li><li>$b - Non-focus term
+<small>(R)</small></li><li>$c - Facet/hierarchy designation
+<small>(R)</small></li><li>$v - Form subdivision
+<small>(R)</small></li><li>$x - General subdivision
+<small>(R)</small></li><li>$y - Chronological subdivision
+<small>(R)</small></li><li>$z - Geographic subdivision
+<small>(R)</small></li><li>$2 - Source of term
+<small>(NR)</small><br>Code from: 
+<em><a href="../relators/relahome.html">MARC Code Lists
+for Relators, Sources, Description Conventions</a>
+</em> </li><li>$3 - Materials specified
+<small>(NR)</small></li><li>$5 - Institution to which field applies
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>655</strong></td>
+<td valign="top"><br><strong>#7$a</strong>Bird's-eye views<strong>$y</strong>1874.<strong>$2</strong>gmgpc</td>
+</tr>
+<tr><td valign="top"><br><strong>655</strong></td>
+<td valign="top"><br><strong>07$c</strong>k<strong>$b</strong>Laminated<strong>$c</strong>m<strong>$b</strong>marblewood<strong>$c</strong>v<strong>$a</strong>bust.<strong>$2</strong>aat</td>
+</tr>
+<tr><td valign="top"><br><strong>655</strong></td>
+<td valign="top"><br><strong>#7$a</strong>Dictionaries<strong>$x</strong>French<strong>$y</strong>18th century.<strong>$2</strong>rbgenr</td>
+</tr>
+<tr><td valign="top"><br><strong>655</strong></td>
+<td valign="top"><br><strong>#7$a</strong>Signing patterns (Printing)<strong>$z</strong>Germany<strong>$y</strong>18th century.<strong>$2</strong>rbpri</td>
+</tr>
+<tr><td valign="top"><br><strong>655</strong></td>
+<td valign="top"><br><strong>#7$3</strong>Municipal Fire Station records<strong>$a</strong>Fire reports<strong>$z</strong>Atlanta, Georgia<strong>$y</strong>1978.<strong>$2</strong>[thesaurus code]</td>
+</tr>
+<tr><td valign="top"><br><strong>655</strong></td>
+<td valign="top"><br><strong>#2$a</strong>Festschrift.</td>
+</tr>
+<tr><td valign="top"><br><strong>655</strong></td>
+<td valign="top"><br><strong>#2$a</strong>Diaries.</td>
+</tr>
+<tr><td valign="top"><br><strong>655</strong></td>
+<td valign="top"><br><strong>#7$a</strong>Annotations (Provenance)<strong>$z</strong>Sweden<strong>$y</strong>18th century.<strong>$2</strong>rbprov<strong>$5</strong>MH-H</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb656">656 - INDEX TERM--OCCUPATION
+<small>(R)</small></a>
+</h2>
+<p>An index term that is descriptive of the occupation reflected
+in the
+contents of the described materials.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li><li>Second - Source of term
+<ul>
+<li>7 - Source specified in subfield $2</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Occupation
+<small>(NR)</small></li><li>$k - Form
+<small>(NR)</small></li><li>$v - Form subdivision
+<small>(R)</small></li><li>$x - General subdivision
+<small>(R)</small></li><li>$y - Chronological subdivision
+<small>(R)</small></li><li>$z - Geographic subdivision
+<small>(R)</small></li><li>$2 - Source of term
+<small>(NR)</small><br>Code from: 
+<em><a href="../relators/relahome.html">MARC Code Lists
+for Relators, Sources, Description Conventions</a>
+</em> </li><li>$3 - Materials specified
+<small>(NR)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>656</strong></td>
+<td valign="top"><br><strong>#7$a</strong>Anthropologists.<strong>$2</strong>[thesaurus code]</td>
+</tr>
+<tr><td valign="top"><br><strong>656</strong></td>
+<td valign="top"><br><strong>#7$a</strong>Educators.<strong>$2</strong>[thesaurus code]</td>
+</tr>
+<tr><td valign="top"><br><strong>656</strong></td>
+<td valign="top"><br><strong>#7$a</strong>Migrant laborers.<strong>$k</strong>School district case files.<strong>$2</strong>[thesaurus code]</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb657">657 - INDEX TERM--FUNCTION
+<small>(R)</small></a>
+</h2>
+<p>An index term that is descriptive of the activity or function
+that generated the described materials.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li><li>Second - Source of term
+<ul>
+<li>7 - Source specified in subfield $2</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Function
+<small>(NR)</small></li><li>$v - Form subdivision
+<small>(R)</small></li><li>$x - General subdivision
+<small>(R)</small></li><li>$y - Chronological subdivision
+<small>(R)</small></li><li>$z - Geographic subdivision
+<small>(R)</small></li><li>$2 - Source of term
+<small>(NR)</small><br>Code from: 
+<em><a href="../relators/relahome.html">MARC Code Lists
+for
+Relators, Sources, Description Conventions</a>
+</em> </li><li>$3 - Materials specified
+<small>(NR)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Example</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>657</strong></td>
+<td valign="top"><br><strong>#7$a</strong>Personnel benefits management<strong>$x</strong>Industrial accidents<strong>$x</strong>Morbidity<strong>$x</strong>Vital statistics<strong>$z</strong>Love Canal, New York.<strong>$2</strong>New York State Management Functions Index</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb658">658 - INDEX TERM--CURRICULUM OBJECTIVE
+<small>(R)</small></a>
+</h2>
+<p>Index terms denoting curriculum or
+course-of-study objectives applicable to the content
+of the described materials.  The field may also contain
+correlation factors indicating the degree to which the
+described materials meet an objective.  Codes assigned
+to specific objectives in published lists are also
+recorded in this field.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Main curriculum objective
+<small>(NR)</small></li><li>$b - Subordinate curriculum objective
+<small>(R)</small></li><li>$c - Curriculum code
+<small>(NR)</small><br>A coded representation of the curriculum
+objective recorded in subfield $a.</li><li>$d - Correlation factor
+<small>(NR)</small><br>A statement that identifies the degree to
+which the described materials correlate to the curriculum
+objective recorded in the field.</li><li>$2 - Source of term or code
+<small>(NR)</small><br>Code from: 
+<em><a href="../relators/relahome.html">MARC Code Lists
+for Relators, Sources, Description Conventions</a>
+</em></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>658</strong></td>
+<td valign="top"><br><strong>##$a</strong>Reading objective 1 (fictional)<strong>$b</strong>understanding language, elements of plots,
+themes, motives, characters, setting by responding to the
+multiple-meaning word<strong>$c</strong>NRPO2-1991<strong>$d</strong>highly correlated.<strong>$2</strong>ohco</td>
+</tr>
+<tr><td valign="top"><br><strong>658</strong></td>
+<td valign="top"><br><strong>##$a</strong>Math manipulatives<strong>$d</strong>highly correlated.<strong>$2</strong>[source code]</td>
+</tr>
+<tr><td valign="top"><br><strong>658</strong></td>
+<td valign="top"><br><strong>##$a</strong>Drug abuse awareness<strong>$b</strong>peer pressure<strong>$b</strong>understanding the law.<strong>$2</strong>local</td>
+</tr>
+<tr><td valign="top"><br><strong>658</strong></td>
+<td valign="top"><br><strong>##$a</strong>Health objective 1<strong>$b</strong>handicapped awareness<strong>$c</strong>NHP01-1991<strong>$d</strong>highly correlated.<strong>$2</strong>ohco</td>
+</tr>
+<tr><td valign="top"><br><strong>658</strong></td>
+<td valign="top"><br><strong>##$a</strong>Reading objective 1<strong>$b</strong>identify, locate, and use information<strong>$c</strong>NRP01-1991.<strong>$2</strong>accssd</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<hr><p><strong>Go to</strong>: <em><a href="ecbdhome.html">
+MARC 21 Concise Bibliographic Format</a></em> | <a href="http://www.loc.gov/marc/">
+MARC Home Page</a></p><p></p><hr><img alt="Library of Congress" src="ecbdsubj_files/lc2.gif">
+<strong>Library of Congress</strong>
+<address><a href="http://www.loc.gov/help/help-desk.html">Library of Congress Help Desk</a>  (
+<!-- #BeginDate format:Am3 -->05/07/2004<!-- #EndDate -->
+)
+</address>
+</body></html>

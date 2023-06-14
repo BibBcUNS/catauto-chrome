@@ -1,0 +1,810 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html40/loose.dtd"><html><head>
+
+<title>Title and Title-Related Fields (20X-24X)</title><!-- base href="http://www.loc.gov/marc/bibliographic/ecbdtils.html" -->
+<meta content="This document contains the Title and Title-Related Fields (20X-24X) section of the MARC 21 Concise Bibliographic format which includes all related data elements and many examples." name="description">
+<meta content="MARC 21 Concise, Title and Title-Related Fields (20X-24X), bibliographic format" name="keywords">
+<link type="text/css" rel="stylesheet" href="../marcdoc.css">
+</head>
+
+<body bgcolor="#ffffff">
+<a name="top"></a>
+<hr><h1><em>MARC 21 Concise Bibliographic: <br>
+  Title and Title-Related Fields (20X-24X) </em></h1>
+<hr><p>Fields 210-24X contain the title of the item described in
+the bibliographic record and variant titles that also apply to the
+item.  These fields may be used to generate access points and to
+display notes for the various titles.</p><ul>
+<li><a href="#mrcb210">210 - ABBREVIATED TITLE</a>
+
+<small>(R)</small></li><li><a href="#mrcb222">222 - KEY TITLE</a>
+
+<small>(R)</small></li><li><a href="#mrcb240">240 - UNIFORM TITLE</a>
+
+<small>(NR)</small></li><li><a href="#mrcb242">242 - TRANSLATION OF TITLE BY CATALOGING AGENCY</a>
+
+<small>(R)</small></li><li><a href="#mrcb243">243 - COLLECTIVE UNIFORM TITLE</a>
+
+<small>(NR)</small></li><li><a href="#mrcb245">245 - TITLE STATEMENT</a>
+
+<small>(NR)</small></li><li><a href="#mrcb246">246 - VARYING FORM OF TITLE</a>
+
+<small>(R)</small></li><li><a href="#mrcb247">247 - FORMER TITLE</a>
+
+<small>(R)</small></li></ul>
+<p><u>Information for Translators and Other Users</u><br>
+Items highlighted in <font color="#ff0000">red</font> indicate changes made after
+the 2002 edition of the <em>MARC 21 Concise Formats</em> was published and are
+included in the 2003 printed edition of the <em>MARC 21 Concise Formats</em>.
+</p><hr><h2><a name="mrcb210">210 - ABBREVIATED TITLE
+<small>(R)</small></a>
+</h2>
+<p>Contains title as abbreviated for indexing or identification.  An abbreviated
+<em>key</em> title is supplied by ISSN centers, based on the Key Title
+(Field 222). Other abbreviated titles are supplied by cataloging
+agencies, including abstracting and indexing services.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Title added entry<br>A value that indicates whether an added entry for the title
+is to be generated.
+<ul>
+<li>0 - No added entry</li></ul>
+
+<ul>
+<li>1 - Added entry</li></ul>
+</li><li>Second - Type
+<ul>
+<li># - Abbreviated key title</li></ul>
+
+<ul>
+<li>0 - Other abbreviated title</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Abbreviated title
+<small>(NR)</small></li><li>$b - Qualifying information
+<small>(NR)</small><br>Abbreviated form of the parenthetical qualifying
+information
+contained in the key title (field 222).</li><li>$2 - Source
+<small>(R)</small><br>Code from: 
+<em><a href="../relators/relahome.html">MARC Code Lists for
+Relators, Sources, Description Conventions</a>
+</em></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>210</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Manage. improv. cost reduct.
+goals</td>
+</tr>
+<tr><td valign="top"><br><strong>210</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Surg. clin. North Am.</td>
+</tr>
+<tr><td valign="top"><br><strong>210</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Plant prot. bull.<strong>$b</strong>(Faridabad)</td>
+</tr>
+<tr><td valign="top"><br><strong>210</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Annu. rep. - Dep. Public Welfare<strong>$b</strong>(Chic.)</td>
+</tr>
+<tr><td valign="top"><br><strong>210</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Issled. zhur. Inst. geofiz.</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb222">222 - KEY TITLE
+<small>(R)</small></a>
+</h2>
+<p>A unique title for a <font color="#ff0000">continuing resource</font> that is assigned in conjunction with
+an ISSN
+recorded in field 022 by national centers under the auspices of
+the
+ISSN Network.
+</p><p>A note formatted as
+<em>ISSN [number] = [Key Title]</em> may be
+generated from data
+in field 022 (International Standard Serial Number) and field 222.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li><li>Second - Nonfiling characters
+<ul>
+<li>0-9 - Number of nonfiling characters</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Key title
+<small>(NR)</small></li><li>$b - Qualifying information
+<small>(NR)</small><br>Parenthetical information that makes a title
+unique.</li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>222</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Viva<strong>$b</strong>(New
+York)</td>
+</tr>
+<tr><td valign="top"><br><strong>222</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Causes of death</td>
+</tr>
+<tr><td valign="top"><br><strong>222</strong></td>
+<td valign="top"><br><strong>#4$a</strong>Der Öffentliche Dienst<strong>$b</strong>(Köln)</td>
+</tr>
+<tr><td valign="top"><br><strong>222</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Journal of polymer science. Part B.
+Polymer letters</td>
+</tr>
+<tr><td valign="top"><br><strong>222</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Economic education bulletin<strong>$b</strong>(Great Barrington)</td>
+</tr>
+<tr><td valign="top"><br><strong>222</strong></td>
+<td valign="top"><br><strong>#0$6</strong>880-02<strong>$a</strong>Mezhdunarodnaíà
+zhizn'</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb240">240 - UNIFORM TITLE
+<small>(NR)</small></a>
+</h2>
+<p>The uniform title for an item when the bibliographic description
+is entered
+under a main entry field that contains a personal (field 100),
+corporate
+(110), or meeting (111) name. 
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Uniform title printed or
+displayed<br>A value that indicates whether the uniform title is printed
+or displayed.
+<ul>
+<li>0 - Not printed or
+displayed</li></ul>
+
+<ul>
+<li>1 - Printed or
+displayed</li></ul>
+</li><li>Second - Nonfiling characters
+<ul>
+<li>0-9 - Number of nonfiling characters</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Uniform title
+<small>(NR)</small></li><li>$d - Date of treaty signing
+<small>(R)</small></li><li>$f - Date of a work
+<small>(NR)</small></li><li>$g - Miscellaneous information
+<small>(NR)</small><br>A data element not more appropriately contained in another
+defined
+subfield.</li><li>$h - Medium
+<small>(NR)</small><br>A media qualifier.</li><li>$k - Form subheading
+<small>(R)</small></li><li>$l - Language of a work
+<small>(NR)</small></li><li>$m - Medium of performance for music
+<small>(R)</small></li><li>$n - Number of part/section of a work
+<small>(R)</small></li><li>$o - Arranged statement for music
+<small>(NR)</small></li><li>$p - Name of part/section of a work
+<small>(R)</small></li><li>$r - Key for music
+<small>(NR)</small></li><li>$s - Version
+<small>(NR)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>240</strong></td>
+<td valign="top"><br><strong>14$a</strong>The Pickwick papers.<strong>$l</strong>French</td>
+</tr>
+<tr><td valign="top"><br><strong>240</strong></td>
+<td valign="top"><br><strong>10$a</strong>Laws, etc. (1969-1970)</td>
+</tr>
+<tr><td valign="top"><br><strong>240</strong></td>
+<td valign="top"><br><strong>10$a</strong>Treaties, etc.<strong>$g</strong>Poland,<strong>$d</strong>1948 Mar. 2.<strong>$k</strong>Protocols, etc.,<strong>$d</strong>1951 Mar. 6</td>
+</tr>
+<tr><td valign="top"><br><strong>240</strong></td>
+<td valign="top"><br><strong>10$a</strong>Poems.<strong>$k</strong>Selections</td>
+</tr>
+<tr><td valign="top"><br><strong>240</strong></td>
+<td valign="top"><br><strong>10$a</strong>Institutiones.<strong>$n</strong>Liber 2.<strong>$n</strong>Capitulum 5.<strong>$l</strong>English</td>
+</tr>
+<tr><td valign="top"><br><strong>240</strong></td>
+<td valign="top"><br><strong>10$a</strong>Fidelio<strong>$n</strong>(1814).<strong>$s</strong>Libretto.<strong>$l</strong>English &amp; German</td>
+</tr>
+<tr><td valign="top"><font color="#ff0000"><br>
+      <strong>240</strong></font></td>
+<td valign="top"><font color="#ff0000"><br>
+    <strong>10$a</strong>Variations,<strong>$m</strong>piano, 4 hands,
+    <strong>$n</strong>K. 501,<strong>$r</strong>G major</font></td>
+</tr>
+
+<tr><td valign="top"><font color="#ff0000"><br>
+      <strong>240</strong></font></td>
+<td valign="top"><br>
+    <strong><font color="#ff0000">10$a</font></strong><font color="#ff0000">Lieder, unacc.</font></td>
+</tr>
+
+</tbody></table>
+<p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb242">242 - TRANSLATION OF TITLE BY CATALOGING AGENCY
+<small>(R)</small></a>
+</h2>
+<p>A translation of the title proper that is made by the cataloger
+when the
+translated title does not appear as a parallel title on the item.
+For a note, the
+introductory phrase
+<em>Title translated:</em> may be generated based on the field tag for display.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Title added entry
+<ul>
+<li>0 - No added entry</li></ul>
+
+<ul>
+<li>1 - Added entry<br>A value that indicates whether an added entry for the title is to be
+generated.</li></ul>
+</li><li>Second - Nonfiling characters
+<ul>
+<li>0-9 - Number of nonfiling characters</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Title
+<small>(NR)</small><br>The title proper, exclusive of the designation of number or
+name of
+part and any alternative title.</li><li>$b - Remainder of title
+<small>(NR)</small><br>Includes parallel, alternative, and other title
+information.</li><li>$c - Statement of responsibility, etc.
+<small>(NR)</small><br>The statement of responsibility and/or any remaining title
+statement
+data that are not more appropriately contained in one of the other
+subfields.</li><li>$h - Medium
+<small>(NR)</small></li><li>$n - Number of part/section of a work
+<small>(R)</small></li><li>$p - Name of part/section of a work
+<small>(R)</small></li><li>$y - Language code of translated title
+<small>(NR)</small><br>Code from: 
+<em><a href="../languages/langhome.html">MARC Code List
+for Languages</a>
+</em></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>242</strong></td>
+<td valign="top"><br><strong>10$a</strong>World of art.<strong>$y</strong>eng</td>
+</tr>
+<tr><td valign="top"><br><strong>242</strong></td>
+<td valign="top"><br><strong>04$a</strong>The Arab East.<strong>$y</strong>eng</td>
+</tr>
+<tr><td valign="top"><br><strong>242</strong></td>
+<td valign="top"><br><strong>00$a</strong>Land surveying and agriculture equipment.<strong>$y</strong>eng</td>
+</tr>
+<tr><td valign="top"><br><strong>242</strong></td>
+<td valign="top"><br><strong>00$a</strong>Annals of chemistry<strong>$n</strong>Series C,<strong>$p</strong>Organic hemistry and biochemistry.<strong>$y</strong>eng</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb243">243 - COLLECTIVE UNIFORM TITLE
+<small>(NR)</small></a>
+</h2>
+<p>A generic title that is constructed by the cataloger to collect
+works by a
+prolific author.  The brackets that customarily enclose a
+collective uniform
+title are not carried in the MARC record.  They may be generated
+based on
+the field tag.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Uniform title printed or
+displayed<br>A value that indicates whether the uniform title is printed or displayed.
+<ul>
+<li>0 - Not printed or
+displayed</li></ul>
+
+<ul>
+<li>1 - Printed or
+displayed</li></ul>
+</li><li>Second - Nonfiling characters
+<ul>
+<li>0-9 - Number of nonfiling characters</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Uniform title
+<small>(NR)</small></li><li>$d - Date of treaty signing
+<small>(R)</small></li><li>$f - Date of a work
+<small>(NR)</small></li><li>$g - Miscellaneous information
+<small>(NR)</small></li><li>$h - Medium
+<small>(NR)</small></li><li>$k - Form subheading
+<small>(R)</small></li><li>$l - Language of a work
+<small>(NR)</small></li><li>$m - Medium of performance for music
+<small>(R)</small></li><li>$n - Number of part/section of a work
+<small>(R)</small></li><li>$o - Arranged statement for music
+<small>(NR)</small></li><li>$p - Name of part/section of a work
+<small>(R)</small></li><li>$r - Key for music
+<small>(NR)</small></li><li>$s - Version
+<small>(NR)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>243</strong></td>
+<td valign="top"><br><strong>10$a</strong>Works.<strong>$f</strong>1983</td>
+</tr>
+<tr><td valign="top"><br><strong>243</strong></td>
+<td valign="top"><br><strong>10$a</strong>Speeches</td>
+</tr>
+<tr><td valign="top"><br><strong>243</strong></td>
+<td valign="top"><br><strong>00$a</strong>Laws, etc.</td>
+</tr>
+<tr><td valign="top"><br><strong>243</strong></td>
+<td valign="top"><br><strong>10$a</strong>Orchestra music.<strong>$k</strong>Selections</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb245">245 - TITLE STATEMENT
+<small>(NR)</small></a>
+</h2>
+<p>The title and statement of responsibility area of the
+bibliographic
+description of a work.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Title added entry<br>A value that indicates whether a title added entry is to be
+generated
+from field 245.
+<ul>
+<li>0 - No added entry<br>
+  <font color="#ff0000">No title added entry is made either because no title added entry is desired or because the title
+added entry is not traced the same as the title in field 245. </font>
+</li></ul>
+
+<ul>
+<li>1 - Added entry<br>The desired title added entry is the same as the title in field
+245.</li></ul>
+</li><li>Second - Nonfiling characters
+<ul>
+<li>0-9 - Number of nonfiling characters</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Title
+<small>(NR)</small></li><li>$b - Remainder of title
+<small>(NR)</small></li><li>$c - Statement of
+responsibility, etc.
+<small>(NR)</small></li><li>$f - Inclusive dates
+<small>(NR)</small><br>The time period during which the entire content of the
+described
+materials was created.</li><li>$g - Bulk dates
+<small>(NR)</small><br>The time period during which the bulk of the content of the
+described
+materials was created.</li><li>$h - Medium
+<small>(NR)</small></li><li>$k - Form
+<small>(R)</small><br>A term that is descriptive of the form of the described
+materials, determined by an examination of their physical character, the
+subject of their intellectual content, or the order of information within
+them.</li><li>$n - Number of part/section of a work
+<small>(R)</small></li><li>$p - Name of part/section of a work
+<small>(R)</small></li><li>$s - Version
+<small>(NR)</small><br>The name, code, or description of a copy of the described
+materials
+that was generated at different times or for different
+audiences.</li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>00$a</strong>[Man smoking at window].</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>03$a</strong>Le Bureau<strong>$h</strong>[filmstrip] =<strong>$b</strong>La Oficina = Das Büro.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>10$a</strong>Statistics :<strong>$b</strong>facts or fiction.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>10$a</strong>--as others see us.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>04$a</strong>The Year book of medicine.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br>
+<strong>1<font color="#000000">8</font>$a</strong>The<font color="#ff0000"> ... </font>annual report to the
+Governor.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>00$a</strong>Proceedings /<strong>$c</strong>...</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>10$a</strong>Under the hill, or, The story of Venus and Tannhauser.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>00$a</strong>Hamlet ;<strong>$b</strong>Romeo and Juliette ; Othello...</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>00$a</strong>Oklahoma<strong>$h</strong>[sound
+recording] ;<strong>$b</strong>Carousel ; South Pacific...</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>00$a</strong>Lord Macaulay's essays ;<strong>$b</strong>and, Lays of ancient Rome.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>00$a</strong>Map of Nelson, Richmond, Motueka :<strong>$b</strong>scale 1:20000.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>1<font color="#ff0000">5</font>$a</strong>The "winter mind" :<strong>$b</strong>William Bonk and American letters /<strong>$c</strong>Burt Kimmelman.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>00$a</strong>Love from <font color="#ff0000">J</font>oy :<strong>$b</strong>letters from a farmer's wife.
+<strong>$n</strong>Part III,<strong>$p</strong>1987-1995<font color="#ff0000">, At the bungalow.</font></td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>04$a</strong>The plays of Oscar Wilde /<strong>$c</strong>Alan Bird.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>10$a</strong>How to play chess /<strong>$c</strong>Kevin Wicker ; with a foreword by David
+Pritchard ; illustrated by Karel Feuerstein.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>10$a</strong>Project directory /<strong>$c</strong>TDC
+= Répertoire des projets / CDT.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>14$a</strong>The analysis of the law /<strong>$c</strong>Sir Matthew Hale. The students companion
+/ Giles Jacob.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>00$a</strong>Management report.<strong>$n</strong>Part I /<strong>$c</strong>U.S. Navy's Military Sealift Command.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>00$a</strong>Short-Harrison-Symmes family papers,<strong>$f</strong>1760-1878.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>00$k</strong>Records,<strong>$f</strong>1939-1973<strong>$g</strong>1965-1972.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>00$a</strong>[Geode]<strong>$h</strong>[realia].</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>03$a</strong>La mer<strong>$h</strong>[sound recording] ;<strong>$b</strong>Khamma ; Rhapsody for clarinet and orchestra / <strong>$c</strong>Claude Debussy.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>10$a</strong>Four years at Yale :<strong>$k</strong>diaries,<strong>$f</strong>1903 Sept. 16-1907 Oct. 5.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>00$a</strong>PL 17 Hearing Files<strong>$k</strong>Case Files<strong>$f</strong>1974<strong>$p</strong>District 6<strong>$h</strong>microfilm (jacketted in fiche).</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>14$a</strong>The charity ball :<strong>$b</strong>a comedy in four acts :<strong>$k</strong>typescript,<strong>$f</strong>1889 /<strong>$c</strong>by David Belasco and Henry C. DeMille.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br>
+<strong>00$a</strong>Zentralblatt für Bakteriologie, Parasitenkunde, Infektionkrankheiten
+und Hygiene.<strong>$n</strong>1. Abt. Originale.<strong>$n</strong>Reihe B,<strong>$p</strong>Hygiene<font color="#ff0000">, </font>Krankenhaushygiene<font color="#ff0000">,</font> Betriebshygiene,
+präventive
+Medizin.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>10$a</strong>Director's report of the Association of Insurance Adjusters.<strong>$s</strong>Member release.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>00$a</strong>Portals to the world.<strong>$p</strong>Selected Internet resources.<strong>$p</strong>Maldives<strong>$h</strong>[electronic resource] /<strong>$c</strong>created and maintained by the Asian Division, Area Studies Directorate.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>00$a</strong>Heritage Books archives.<strong>$p</strong>Underwood biographical dictionary.<strong>$n</strong>Volumes 1 &amp; 2 revised<strong>$h</strong>[electronic resource] /<strong>$c</strong>Laverne Galeener-Moore.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>00$a</strong>Focus on grammar<strong>$h</strong>[electronic resource] :<strong>$b</strong>basic level.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>00$a</strong>Concerto per piano n. 21, K 467<strong>$h</strong>[sound recording] /<strong>$c</strong>W.A. Mozart. L'assedio di Corinto. Ouverture / G. Rossini.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>00$a</strong>Annual report of the Minister of Supply and Service Canada under the Corporations and Labour Unions Returns Act.<strong>$n</strong>Part II,<strong>$p</strong>Labour unions = <strong>$b</strong>Rapport annuel du ministre des Approvisionnements et services Canada présenté sous l'empire et des syndicates ouvriers.<strong>$n</strong>Partie II,<strong>$p</strong>Syndicats ouvriers.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>00$a</strong>Who is it?</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>10$a</strong>Ahab's wife, or, The star-gazer :<strong>$b</strong>a novel /<strong>$c</strong>by Sena Jeter Naslund ; illustrations by Christopher Wormell.</td>
+</tr>
+
+</tbody></table>
+<p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb246">246 - VARYING FORM OF TITLE
+<small>(R)</small></a>
+</h2>
+<p>A form of the title appearing on different parts of an item or
+a portion of
+the title proper, or an alternative form of the title when the
+form differs
+significantly from the title contained in field 245.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Note/added entry controller<br>A value that indicates whether an added entry for the title is to be generated.
+<ul>
+<li>0 - Note, no added entry</li></ul>
+
+<ul>
+<li>1 - Note, added entry</li></ul>
+
+<ul>
+<li>2 - No note, no title added
+entry</li></ul>
+
+<ul>
+<li>3 - No note, added entry</li></ul>
+</li><li>Second - Type of title<br>A value that indicates the type of title contained in field
+246 and
+controls the generation of a note and an associated display
+constant.  All of
+the values except 0 and 1 generate a note field.
+<ul>
+<li># - No type specified</li></ul>
+
+<ul>
+<li>0 - Portion of title<br>An added entry may be generated by first indicator
+value 1.  No
+note is generated.</li></ul>
+
+<ul>
+<li>1 - Parallel title<br>The parallel title that is contained in subfield $b of
+field
+245.  No note is generated.</li></ul>
+
+<ul>
+<li>2 - Distinctive title<br>A special title that appears in addition to the
+regular title
+on individual issues of an item and by which the issue may be
+known. 
+<em>Distinctive title:</em> may be generated with the
+note for display.</li></ul>
+
+<ul>
+<li>3 - Other title<br>A title that appears on the piece that is not more
+appropriately indicated by one of the other values. 
+<em>Other
+title:</em> may be generated with the note for display.</li></ul>
+
+<ul>
+<li>4 - Cover title<br>A title that is printed on the original cover of a
+publication
+or lettered or stamped on the publisher's binding and which is
+used when the
+cover is not the chief source of the bibliographic description. 
+<em>Cover title:</em> may be generated with the
+note for display.</li></ul>
+
+<ul>
+<li>5 - Added title page title<br>A title in another language found on a title page that
+is not
+used as the chief source of the bibliographic description. 
+<em>Added title page title:</em> may be generated with
+the note for display.</li></ul>
+
+<ul>
+<li>6 - Caption title<br>A title printed at the head of the first page of text. 
+<em>Caption title:</em> may be generated with the
+note for display.</li></ul>
+
+<ul>
+<li>7 - Running title<br>A title printed at the top or bottom margin of each
+page of a
+publication. 
+<em>Running title:</em> may be
+generated with the note for display.</li></ul>
+
+<ul>
+<li>8 - Spine
+title<br>A publisher's title found on the spine of a
+publication. 
+<em>Spine title:</em> may be generated with the
+note for display.</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Title proper/short title
+<small>(NR)</small></li><li>$b - Remainder of title
+<small>(NR)</small></li><li>$f - Date or sequential designation
+<small>(NR)</small><br>A date or a volume/issue number that relates the variant
+title to the
+bibliographic description when a note is generated from the
+field.</li><li>$g - Miscellaneous information
+<small>(NR)</small></li><li>$h - Medium
+<small>(NR)</small></li><li>$i - Display text
+<small>(NR)</small></li><li>$n - Number of part/section of a work
+<small>(R)</small></li><li>$p - Name of part/section of a work
+<small>(R)</small></li><li>$5 - Institution to which field applies
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>246</strong></td>
+<td valign="top"><br><strong>0#$i</strong>Added title page title on some issues:<strong>$a</strong>Annual report</td>
+</tr>
+<tr><td valign="top"><br><strong>246</strong></td>
+<td valign="top"><br><strong>13$a</strong>California State Assembly file analysis</td>
+</tr>
+<tr><td valign="top"><br><strong>246</strong></td>
+<td valign="top"><br><strong>3#$a</strong>Four corners power review</td>
+</tr>
+<tr><td valign="top"><br><strong>246</strong></td>
+<td valign="top"><br><strong>1#$i</strong>Panel title:<strong>$a</strong>Welcome to
+big Wyoming</td>
+</tr>
+<tr><td valign="top"><br><strong>246</strong></td>
+<td valign="top"><br><strong>1#$i</strong>Also known as:<strong>$a</strong>COMPENDEX</td>
+</tr>
+<tr><td valign="top"><br><strong>246</strong></td>
+<td valign="top"><br><strong>1#$i</strong>Augmented title:<strong>$a</strong>Development of electro-optical laser
+velocimeter system for flame studies</td>
+</tr>
+<tr><td valign="top"><br><strong>246</strong></td>
+<td valign="top"><br><strong>30$a</strong>LRMP</td>
+</tr>
+<tr><td valign="top"><br><strong>246</strong></td>
+<td valign="top"><br><strong>31$a</strong>Nihon</td>
+</tr>
+<tr><td valign="top"><br><strong>246</strong></td>
+<td valign="top"><br><strong>12$a</strong>Creating jobs<strong>$f</strong>1980</td>
+</tr>
+<tr><td valign="top"><br><strong>246</strong></td>
+<td valign="top"><br><strong>15$a</strong>Murshid al-Sdn<strong>$f</strong>1982-
+1983</td>
+</tr>
+<tr><td valign="top"><br><strong>246</strong></td>
+<td valign="top"><br><strong>3#$a</strong>BEEC bulletin</td>
+</tr>
+<tr><td valign="top"><br><strong>246</strong></td>
+<td valign="top"><br><strong>17$a</strong>B.E.E.C. bulletin</td>
+</tr>
+<tr><td valign="top"><br><strong>246</strong></td>
+<td valign="top"><br><strong>04$a</strong>[variant title]<strong>$g</strong>(varies slightly)</td>
+</tr>
+<tr><td valign="top"><br><strong>246</strong></td>
+<td valign="top"><br><strong>1#$i</strong>At head of title:<strong>$a</strong>Science and public affairs<strong>$f</strong>Jan. 1970-Apr. 1974</td>
+</tr>
+<tr><td valign="top"><br><strong>246</strong></td>
+<td valign="top"><br><strong>1#$i</strong>Title on container:<strong>$a</strong>New Brunswick royal gazette</td>
+</tr>
+<tr><td valign="top"><br><strong>246</strong></td>
+<td valign="top"><br><strong>1#$i</strong>Alternate issues published with title:<strong>$a</strong>Chicago daily telegraph</td>
+</tr>
+<tr><td valign="top"><br><strong>246</strong></td>
+<td valign="top"><br><strong>3#$a</strong>[title of reissue];<strong>$5</strong>DLC</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb247">247 - FORMER TITLE
+<small>(R)</small></a>
+</h2>
+<p>A former title proper when one cataloging record represents several titles associated with an entity.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Title added entry<br>A value that indicates whether an added entry for the title is to be generated.
+<ul>
+<li>0 - No added entry</li></ul>
+
+<ul>
+<li>1 - Added entry</li></ul>
+</li><li>Second - Note controller<br>A value that indicates whether a note is displayed from
+data in the
+field.
+<ul>
+<li>0 - Display note<br><em>Title varies:</em> may be generated
+with the
+note for display.</li></ul>
+
+<ul>
+<li>1 - Do not display
+note<br>A textual note is contained in field 547 (Former Title
+Complexity Note).</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Title
+<small>(NR)</small></li><li>$b - Remainder of title
+<small>(NR)</small></li><li>$f - Date or sequential designation
+<small>(NR)</small><br>Dates or volume/issue numbers of the continuing resource that bore the
+former
+title.</li><li>$g - Miscellaneous information
+<small>(NR)</small></li><li>$h - Medium
+<small>(NR)</small></li><li>$n - Number of part/section of a work
+<small>(R)</small></li><li>$p - Name of part/section of a work
+<small>(R)</small></li><li>$x - International Standard Serial Number
+<small>(NR)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>247</strong></td>
+<td valign="top"><br><strong>10$a</strong>Everywoman's magazine<strong>$f</strong>v. 1-24, Jan. 1948-57.</td>
+</tr>
+<tr><td valign="top"><br><strong>247</strong></td>
+<td valign="top"><br><strong>10$a</strong>Journalism bulletin<strong>$f</strong>Mar. 1924-Nov. 1927</td>
+</tr>
+<tr><td valign="top"><br><strong>247</strong></td>
+<td valign="top"><br><strong>01$a</strong>[former title]<strong>$g</strong>(varies slightly)</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<hr><p><strong>Go to</strong>: <em><a href="ecbdhome.html">
+MARC 21 Concise Bibliographic Format</a></em> | <a href="http://www.loc.gov/marc/">
+MARC Home Page</a>
+</p><p></p><hr><img alt="Library of Congress" src="ecbdtils_files/lc2.gif">
+<strong>Library of Congress</strong>
+<address><a href="http://www.loc.gov/help/help-desk.html">Library of Congress Help Desk</a>  (
+<!-- #BeginDate format:Am3 -->05/07/2004<!-- #EndDate -->
+)
+</address>
+</body></html>

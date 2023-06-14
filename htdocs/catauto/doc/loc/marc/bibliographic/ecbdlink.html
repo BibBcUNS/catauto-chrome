@@ -1,0 +1,1810 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html40/loose.dtd"><html><head>
+
+<title>Linking Entry Fields (76X-78X)</title><!-- base href="http://www.loc.gov/marc/bibliographic/ecbdlink.html" -->
+<meta content="This document contains the Linking Entry Fields (76X-78X) section of the MARC 21 Concise Bibliographic format which includes all related data elements and many examples." name="description">
+<meta content="MARC 21 Concise, Linking Entry Fields (76X-78X), bibliographic format" name="keywords">
+<link type="text/css" rel="stylesheet" href="../marcdoc.css">
+</head>
+
+<body bgcolor="#ffffff">
+<a name="top"></a>
+<hr><h1><em>MARC 21 Concise Bibliographic: <br>
+  Linking Entry Fields (76X-78X) </em></h1>
+<hr><p>Fields 760-78X contain information that identifies other related
+bibliographic items.  Each of the linking entry fields specifies
+a different relationship between the 
+<a href="#termti">target item</a>
+ described in the
+record and a <a href="#termri">related item</a>
+.  These relationships fall
+into three categories: 1) related items that assist the user in
+continuing to search but are not physically required to obtain the
+target item (e.g., former entries for continuing resources, translations of the
+target item); 2) related items that have to be obtained physically
+in order to use the target item (e.g., the <a href="#termhi">host item</a>
+ for
+a <a href="#termcp">component part:</a>
+ a journal issue containing
+a specific article); 3) related items that are 
+<a href="#termcu">constituent
+units</a>
+ of a larger whole (e.g., the individual photographs contained in a visual
+material collection).  The linking entry fields are intended to generate a note in a display of the record in which
+they appear; provide machine linkage between the bibliographic record for the
+target item and the bibliographic record for the related item, if the related item is covered by
+a separate record; and/or facilitate indexing.</p><ul>
+<li><a href="#mrcbrec">RECORD LINKS AND NOTES--GENERAL INFORMATION</a>
+</li><li><a href="#mrcb760">760 - MAIN SERIES ENTRY</a>
+
+<small>(R)</small></li><li><a href="#mrcb762">762 - SUBSERIES ENTRY</a>
+
+<small>(R)</small></li><li><a href="#mrcb765">765 - ORIGINAL LANGUAGE ENTRY</a>
+
+<small>(R)</small></li><li><a href="#mrcb767">767 - TRANSLATION ENTRY</a>
+
+<small>(R)</small></li><li><a href="#mrcb770">770 - SUPPLEMENT/SPECIAL ISSUE ENTRY</a>
+
+<small>(R)</small></li><li><a href="#mrcb772">772 - SUPPLEMENT PARENT ENTRY</a>
+
+<small>(R)</small></li><li><a href="#mrcb773">773 - HOST ITEM ENTRY</a>
+
+<small>(R)</small></li><li><a href="#mrcb774">774 - CONSTITUENT UNIT ENTRY</a>
+
+<small>(R)</small></li><li><a href="#mrcb775">775 - OTHER EDITION ENTRY</a>
+
+<small>(R)</small></li><li><a href="#mrcb776">776 - ADDITIONAL PHYSICAL FORM ENTRY</a>
+
+<small>(R)</small></li><li><a href="#mrcb777">777 - ISSUED WITH ENTRY</a>
+
+<small>(R)</small></li><li><a href="#mrcb780">780 - PRECEDING ENTRY</a>
+
+<small>(R)</small></li><li><a href="#mrcb785">785 - SUCCEEDING ENTRY</a>
+
+<small>(R)</small></li><li><a href="#mrcb786">786 - DATA SOURCE ENTRY</a>
+
+<small>(R)</small></li><li><a href="#mrcb787">787 - NONSPECIFIC RELATIONSHIP ENTRY</a>
+
+<small>(R)</small></li></ul>
+<p><u>Information for Translators and Other Users</u><br>
+Items highlighted in <font color="#ff0000">red</font> indicate changes made after
+the 2002 edition of the <em>MARC 21 Concise Formats</em> was published and are
+included in the 2003 printed edition of the <em>MARC 21 Concise Formats</em>.
+</p><p>
+</p><hr>
+<p>Definitions of terms used in the Linking Entry fields:
+</p><dl><dt><a name="termti"><strong>Target item</strong></a>
+</dt><dd>a bibliographic
+item that is the
+principal or primary unit for the description of which the
+record was constructed.  The target item is the item to which
+the data in Leader/06 (Type of record) and /07 (Bibliographic
+level) apply.  The title of the target item is in the record's 245 field.</dd><dt><br>
+  <a name="termri"><strong>Related item</strong></a><strong>
+  </strong></dt><dd>a bibliographic
+item that has
+either a chronological, horizontal, or vertical relationship
+with a target item, and for which the linking entry field is
+formulated.</dd><dt><br>
+  <a name="termcp"><strong>Component part</strong></a>
+</dt><dd>a bibliographic
+item that is
+physically part of another bibliographic item such that the
+retrieval of the part is dependent on the physical
+identification and location of the host item (e.g., a chapter
+in a book, an article in a journal). (Field 774)</dd><dt><br>
+  <a name="termcu"><strong>Constituent unit</strong></a><strong>
+  </strong></dt><dd>a
+bibliographic item that is part of another item.  The constituent
+unit is physically separate from the item of which it is consider
+a part. (Fields 770, 774)</dd><dt><a name="termhi"><br>
+    <strong>  Host item</strong></a><strong>
+  </strong></dt><dd>a
+bibliographic item that either physically contains (as in the case of
+the component part), or bibliographically includes, (as in the case of
+a constituent unit), the subpart that is the target item for the
+record. For example: if a record describes a journal article, the host
+is the journal; if a record describes one digital item in a set, the
+host is the set. (Fields 772, 773)</dd><dt><br>
+    <a name="termcr"><strong>Chronological relationship</strong></a><strong>
+    </strong></dt><dd>the
+relationship
+in time between bibliographic items (e.g., the relation of a
+continuing resource to its predecessors and successors). (Fields 777, 780, 785)</dd><dt><br>
+  <a name="termhr"><strong>Horizontal relationship</strong></a>
+</dt><dd>the
+relationship
+between versions of a bibliographic item in different
+languages, format, media, etc. (Fields 765, 767, 775, 776)</dd><dt><a name="termvr"><br>
+    <strong>  Vertical relationship</strong></a><strong>
+  </strong></dt><dd>the
+hierarchical
+relationship of the whole to its parts and the parts to the
+whole (e.g., a journal article to the journal, subseries to
+main entry series). (Fields 760, 762, 770, 772, 773, 774</dd></dl>
+<p></p><hr><h2><a name="mrcbrec">RECORD LINKS AND NOTES</a>
+</h2>
+<p>The record-linking technique in MARC is described below.
+</p><dl><dt><strong>Linking Entry Fields (fields 760-787)</strong></dt><dd>These fields carry descriptive data concerning the
+related item, the control number for the record of the related
+item, or both.  Minimal content designation is provided for the
+data concerning the related item that is used in the linking entry
+fields.  For data operations requiring fuller content designation,
+such as indexing and sorting, subfield $w (the record control
+number for the related item) allows the system to follow that
+link to the related record to obtain fully content-designated
+data.  </dd><dd><br>
+  Moreover, the coded data in control subfield $7 allows
+some types of indexing without reference to the actual related
+record.  The value used in the first indicator position
+of a linking entry field determines whether a note is to be
+generated from the field.</dd><dt><br>
+  <strong>  Linking Entry Complexity Note (field 580)</strong></dt><dd>The Linking Entry Fields are designed to support
+generation of a note concerning the related item in a display
+of the record for the target item.  When the relationship is too
+complex to be expressed using a display constant and the data
+from the linking entry field or the linked record, the note is
+recorded in the Linking Entry Complexity Note field.  When used,
+this field appears in addition to any relevant 760-787 linking
+entry field, and no note is generated from the linking entry
+field.</dd><dt><br>
+  <strong>  Linked-Record Requirement (Leader/19)</strong></dt><dd>This data element indicates whether sufficient
+information is present in the linking entry field to support
+generation of an eye-readable note that identifies the related
+item or whether only a related record number is recorded.  If
+only a record number appears, the system will need to obtain
+the appropriate information from the related record to construct
+a standard display.</dd><dd><br>
+  The following subfields or subfield combinations are
+considered sufficient for display purposes:
+<ul>
+<li>Subfield $a (Main entry heading + Title)</li><li>Subfield $a + $s +t (Main entry heading + Uniform
+title)</li><li>Subfield $a (Main entry heading)</li><li>Subfield $t (Title)</li><li>Subfield $s (Uniform title)</li><li>Subfield $u (Standard Technical Report Number)</li><li>Subfield $r (Report number)</li></ul>
+</dd><dt><br>
+  <strong>  Added Entries (fields 700-730)</strong></dt><dd>When
+a cataloging code calls for an added entry for a title used in a
+linking field, the added entry is recorded in the appropriate
+700-730 field. Linking fields are not intended take the place
+of added entries. Likewise, an added entry in field 700-730 does
+not take the place of a linking field, as it cannot
+cause a note to be generated or carry a record link.</dd><dt><br>
+  <strong>  Component Parts/Constituent Units</strong></dt><dd>The linking entry field 773 (Host Item Entry) is used to
+link a target item that is an integral (component) part of another item to the
+  record for the other item. For example, in records for journal articles it
+  contains the identification of the journal. In
+subfield $g of field 773, the exact location of the article in
+the journal is recorded.
+    
+    <font color="#ff0000">The record for the host item or any larger bibliographic unit may include information
+about constituent units, recorded in the repeatable field 774 (Constituent Unit
+Entry). Information about each constituent would be recorded in a separate occurrence
+of field 774.</font></dd></dl>
+<p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb760">760 - MAIN SERIES ENTRY
+<small>(R)</small></a>
+</h2>
+<p>Information concerning the related main series when the target
+item is a
+subseries (vertical relationship).  When a note is generated
+from this field, the introductory phrase
+<em>Main series:</em> or
+<em>Subseries of:</em> may be generated based on the
+field tag for display.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Note controller
+<ul>
+<li>0 - Display note</li></ul>
+
+<ul>
+<li>1 - Do not display note<br>A textual note is contained in field 580 (Linking
+Entry
+Complexity Note).</li></ul>
+</li><li>Second - Display constant controller
+<ul>
+<li># - Main series</li></ul>
+
+<ul>
+<li>8 - No display constant generated</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Main entry heading
+<small>(NR)</small><br>The main entry heading from the 100 (Main Entry Personal
+Name), 110
+(Main Entry Corporate Name),
+ 111 (Main Entry Meeting Name), or 130 (Main Entry Uniform Title) field of the related record.</li><li>$b - Edition
+<small>(NR)</small><br>The name of the edition from field 250 (Edition
+Statement) of the
+related record.</li><li>$c - Qualifying information
+<small>(NR)</small><br>The parenthetical qualifying information from subfield $b
+(Qualifying information) of field 222 (Key Title) or other data needed to
+distinguish between two titles.</li><li>$d - Place, publisher, and date of
+publication
+<small>(NR)</small><br>Publication information from subfields $a, $b, and/or $c
+of field 260
+(Publication, Distribution, etc. (Imprint)) of the related
+record.</li><li>$g - Relationship information
+<small>(R)</small><br>Data that indicates the specific piece or pieces of the
+related item
+that are involved in the relationship with the target item, such
+as dates and
+volumes.  The relationship information includes the location of
+a component
+part in a target item.</li><li>$h - Physical description
+<small>(NR)</small></li><li>$i - Display text
+<small>(NR)</small></li><li>$m - Material-specific details
+<small>(NR)</small></li><li>$n - Note
+<small>(R)</small></li><li>$o - Other item identifier
+<small>(R)</small></li><li>$s - Uniform title
+<small>(NR)</small><br>The title from field 240 (Uniform Title) or field 243
+(Collective
+Uniform Title) of the related record.</li><li>$t - Title
+<small>(NR)</small><br>The title from subfields $a, $n, and $p of field 245
+(Title
+Statement) or subfield $a of field 222 (Key Title) of the
+related record.</li><li>$w - Record control number
+<small>(R)</small><br>The system control number of the related record preceded
+by the MARC code, enclosed in parentheses, for the agency to which the
+control number applies.<br>See <a href="ecbdorg.html">organization code sources</a>
+ for a listing of sources used in MARC 21 records.
+</li><li>$x - International Standard Serial Number
+<small>(NR)</small><br>The ISSN for a serial title from field 022 (International
+Standard Serial Number) in the related record.  The initialism
+<em>ISSN</em> may be generated for display.</li><li>$y - CODEN designation
+<small>(NR)</small><br>The CODEN designation from field 030 (CODEN Designation)
+in the
+related record.  The acronym
+<em>CODEN</em> may be
+generated for display.</li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li><a name="mrcbsf7">$7 - Control subfield
+<small>(NR)</small></a>
+<br>Four fixed-position character positions (designated as
+$7/0, $7/1, etc.) that indicate special characteristics of
+the linked entry.  Because the definitions of the codes in
+subfield $7 are dependent on the character position in
+which they occur, the coding of any character position mandates
+that each preceding character position contains a code or the
+fill character ( | ); succeeding character positions need
+not be used.
+<br>
+<ul>
+<li>/0 - Type of main entry heading<br>A one-character code that indicates the type of name
+contained in subfield $a.  The code corresponds to the
+1XX tag in the record for the related item.
+<ul>
+<li>p - Personal name</li><li>c - Corporate name</li><li>m - Meeting name</li><li>u - Uniform title
+</li><li>n - Not applicable<br>
+</li></ul>
+</li></ul>
+
+<ul>
+<li>/1 - Form of name<br>A one-character code that indicates the form of the
+name contained in subfield $a.  The code corresponds to
+the first indicator value in the 1XX field in the record
+for the related item and is interpreted in
+conjunction with the value in $7/0.<br><em>If $7/0 = p (Personal name):</em>
+<ul>
+<li>0 - Forename</li><li>1 - Single surname</li><li>2 - Multiple surname</li><li>3 - Family name</li></ul>
+<br><em>If $7/0 = c (Corporate name) or m
+(Meeting name):</em>
+<ul>
+<li>0 - Inverted name</li><li>1 - Jurisdiction name</li><li>2 - Name in direct order</li></ul>
+<br><em>If $7/0 = u (Uniform title) or n (Not
+applicable):</em>
+<ul>
+<li>n - Not applicable<br>
+</li></ul>
+</li></ul>
+
+<ul>
+<li>/2 - Type of record<br>A one-character code that indicates the type of record for the
+related item.  The code corresponds to that in Leader/06 (Type
+of record) in the record for the related item.
+<ul>
+<li>a - Language material</li><li>b - Archival and manuscripts control</li><li>c - Printed music</li><li>d - Manuscript music</li><li>e - Printed map</li><li>f - Manuscript map</li><li>g - Projected medium</li><li>i - Nonmusical sound recording</li><li>j - Musical sound recording</li><li>k - Two-dimensional nonprojectable graphic</li><li>m - Computer file</li><li>o - Kit</li><li>p - Mixed material</li><li>r - Three-dimensional artifact or
+naturally occurring object</li><li>t - Manuscript language material<br>
+</li></ul>
+</li></ul>
+
+<ul>
+<li>/3 - Bibliographic level<br>A one-character code that indicates the
+bibliographic level of the related item.  The code
+corresponds to that in Leader/07 (Bibliographic
+level) in the record for the related item.
+<ul>
+<li>a - Monographic component
+part</li><li>b - Serial component part</li><li>c - Collection</li><li>d - Subunit</li><li>m - Monograph/item</li><li>s - Serial</li><li><font color="#ff0000">i - Integrating resource</font>
+</li></ul>
+</li></ul>
+</li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Example</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>760</strong></td>
+<td valign="top"><br><strong>0#$7</strong>c1as<strong>$a</strong>United States. Geological Survey.<strong>$t</strong>Water supply papers</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb762">762 - SUBSERIES ENTRY
+<small>(R)</small></a>
+</h2>
+<p>Information concerning a related subseries when the target
+item is a main
+series or a parent subseries (vertical relationship).  When a
+note is
+generated from this field, the introductory phrase
+<em>Has subseries:</em> may be generated based on the field tag for display.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Note controller
+<ul>
+<li>0 - Display note</li></ul>
+
+<ul>
+<li>1 - Do not display
+note<br>A textual note is contained in field 580 (Linking
+Entry
+Complexity Note).</li></ul>
+</li><li>Second - Display constant controller
+<ul>
+<li># - Has subseries</li></ul>
+
+<ul>
+<li>8 - No display constant generated</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+<br><em>See the descriptions of the subfields
+under <a href="#mrcb760">field 760</a></em>.
+<ul>
+<li>$a - Main entry heading
+<small>(NR)</small></li><li>$b - Edition
+<small>(NR)</small></li><li>$c - Qualifying information
+<small>(NR)</small></li><li>$d - Place, publisher, and date of
+publication
+<small>(NR)</small></li><li>$g - Relationship information
+<small>(R)</small></li><li>$h - Physical description
+<small>(NR)</small></li><li>$i - Display text
+<small>(NR)</small></li><li>$m - Material-specific details
+<small>(NR)</small></li><li>$n - Note
+<small>(R)</small></li><li>$o - Other item identifier
+<small>(R)</small></li><li>$s - Uniform title
+<small>(NR)</small></li><li>$t - Title
+<small>(NR)</small></li><li>$w - Record control number
+<small>(R)</small></li><li>$x - International Standard Serial Number
+<small>(NR)</small></li><li>$y - CODEN designation
+<small>(NR)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$7 - Control subfield
+<small>(NR)</small><br><em>See the description of <a href="#mrcbsf7">subfield $7</a>
+ under field 760</em>.
+<ul>
+<li>/0 - Type of main entry heading</li></ul>
+
+<ul>
+<li>/1 - Form of name</li></ul>
+
+<ul>
+<li>/2 - Type of record</li></ul>
+
+<ul>
+<li>/3 - Bibliographic
+level</li></ul>
+</li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>762</strong></td>
+<td valign="top"><br><strong>0#$t</strong>Quality of surface waters of the United States</td>
+</tr>
+<tr><td valign="top"><br><strong>762</strong></td>
+<td valign="top"><br><strong>0#$t</strong>Evaporation control research</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb765">765 - ORIGINAL LANGUAGE ENTRY
+<small>(R)</small></a>
+</h2>
+<p>Information concerning the publication in its original
+language when the
+target item is a translation (horizontal relationship).  When a
+note is
+generated from this field, the introductory phrase
+<em>Translation of:</em> may be generated based on the field tag for display.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Note controller
+<ul>
+<li>0 - Display note</li></ul>
+
+<ul>
+<li>1 - Do not display
+note<br>A textual note is contained in field 580 (Linking
+Entry
+Complexity Note).</li></ul>
+</li><li>Second - Display constant controller
+<ul>
+<li># - Translation of</li></ul>
+
+<ul>
+<li>8 - No display constant generated</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+<em>See the descriptions of the subfields
+under <a href="#mrcb760">field 760</a></em>.
+<ul>
+<li>$a - Main entry heading
+<small>(NR)</small></li><li>$b - Edition
+<small>(NR)</small></li><li>$c - Qualifying information
+<small>(NR)</small></li><li>$d - Place, publisher, and date of
+publication
+<small>(NR)</small></li><li>$g - Relationship information
+<small>(R)</small></li><li>$h - Physical description
+<small>(NR)</small></li><li>$i - Display text
+<small>(NR)</small></li><li>$k - Series data for related item
+<small>(R)</small><br>The series entry from the 4XX (Series Statement) or 8XX
+(Series Added Entry) of the related record.</li><li>$m - Material-specific details
+<small>(NR)</small></li><li>$n - Note
+<small>(R)</small></li><li>$o - Other item identifier
+<small>(R)</small></li><li>$r - Report number
+<small>(R)</small><br>The report number from field 088 (Report Number) of the
+related
+record.</li><li>$s - Uniform title
+<small>(NR)</small></li><li>$t - Title
+<small>(NR)</small></li><li>$u - Standard Technical Report Number
+<small>(NR)</small><br>The STRN from field 027 (Standard Technical Report
+Number) of the
+related record.  The initialism
+<em>STRN:</em> may
+be
+generated for display.</li><li>$w - Record control number
+<small>(R)</small></li><li>$x - International Standard Serial Number
+<small>(NR)</small></li><li>$y - CODEN designation
+<small>(NR)</small></li><li>$z - International Standard Book Number
+<small>(R)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$7 - Control subfield
+<small>(NR)</small><br><em>See the description of <a href="#mrcbsf7">subfield $7</a>
+ under field 760</em>.
+<ul>
+<li>/0 - Type of main entry heading</li></ul>
+
+<ul>
+<li>/1 - Form of name</li></ul>
+
+<ul>
+<li>/2 - Type of record</li></ul>
+
+<ul>
+<li>/3 - Bibliographic level</li></ul>
+</li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>765</strong></td>
+<td valign="top"><br><strong>0#$t</strong>Astrofizicheskie issledovaniíà<strong>$w</strong>(DLC)###78648457#<strong>$w</strong>(OCoLC)4798581</td>
+</tr>
+<tr><td valign="top"><br><strong>765</strong></td>
+<td valign="top"><br><strong>1#$t</strong>Mashinovedenie<strong>$w</strong>(DLC)###90646274#<strong>$w</strong>(OCoLC)6258868</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb767">767 - TRANSLATION ENTRY
+<small>(R)</small></a>
+</h2>
+<p>Information concerning the publication in some other language
+other than the original when the target item is in the original language or
+is another translation (horizontal relationship).  When a note is generated
+from this field, the introductory phrase
+<em>Translated as:</em> may be
+generated based on the field tag for display.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Note controller
+<ul>
+<li>0 - Display note</li></ul>
+
+<ul>
+<li>1 - Do not display
+note<br>A textual note is contained in field 580 (Linking
+Entry
+Complexity Note).</li></ul>
+</li><li>Second - Display constant controller
+<ul>
+<li># - Translated as</li></ul>
+
+<ul>
+<li>8 - No display constant generated</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+<br><em>See the descriptions of the subfields
+under <a href="#mrcb760">field 760</a></em>.
+<ul>
+<li>$a - Main entry heading
+<small>(NR)</small></li><li>$b - Edition
+<small>(NR)</small></li><li>$c - Qualifying information
+<small>(NR)</small></li><li>$d - Place, publisher, and date of
+publication
+<small>(NR)</small></li><li>$g - Relationship information
+<small>(R)</small></li><li>$h - Physical description
+<small>(NR)</small></li><li>$i - Display text
+<small>(NR)</small></li><li>$k - Series data for related item
+<small>(R)</small><br>The series entry from the 4XX (Series Statement) or 8XX (Series Added Entry) of the
+related record.</li><li>$m - Material-specific details
+<small>(NR)</small></li><li>$n - Note
+<small>(R)</small></li><li>$o - Other item identifier
+<small>(R)</small></li><li>$r - Report number
+<small>(R)</small><br>The report number from field 088 (Report Number) of related record.</li><li>$s - Uniform title
+<small>(NR)</small></li><li>$t - Title
+<small>(NR)</small></li><li>$u - Standard Technical Report Number
+<small>(NR)</small><br>The STRN from field 027 (Standard Technical Report Number) of the related record.  The
+initialism
+<em>ISBN</em> may be generated for display.</li><li>$w - Record control number
+<small>(R)</small></li><li>$x - International Standard Serial Number
+<small>(NR)</small></li><li>$y - CODEN designation
+<small>(NR)</small></li><li>$z - International Standard Book Number
+<small>(R)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$7 - Control subfield
+<small>(NR)</small><br><em>See the description of <a href="#mrcbsf7">subfield $7</a>
+
+ under field 760</em>.
+<ul>
+<li>/0 - Type of main entry
+heading</li></ul>
+
+<ul>
+<li>/1 - Form of name</li></ul>
+
+<ul>
+<li>/2 - Type of record</li></ul>
+
+<ul>
+<li>/3 - Bibliographic
+level</li></ul>
+</li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>767</strong></td>
+<td valign="top"><br><strong>0#$t</strong>Astrofizicheskie issledovaniíà.English. Bulletin of the Special Astrophysical Observatory -- North Caucasus<strong>$x</strong>0190-2709<strong>$w</strong>
+(DLC)###86649325#<strong>$w</strong>(OCoLC)4698159</td>
+</tr>
+<tr><td valign="top"><br><strong>767</strong></td>
+<td valign="top"><br><strong>1#$t</strong>Finance &amp; development. Arabic. Tamwil wa-al-tanmiyah<strong>$x</strong>0250-7455</td>
+</tr>
+<tr><td valign="top"><br><strong>767</strong></td>
+<td valign="top"><br><strong>1#$t</strong>Finance &amp; development. French. Finances et développement<strong>$x</strong>0430-473X</td>
+</tr>
+<tr><td valign="top"><br><strong>767</strong></td>
+<td valign="top"><br><strong>1#$t</strong>Finance &amp; development. German. Finanzierung &amp; Entwicklung<strong>$x</strong>0250-7439</td>
+</tr>
+<tr><td valign="top"><br><strong>767</strong></td>
+<td valign="top"><br><strong>1#$t</strong>Finance &amp; development. Spanish. Finanzas y desarrollo<strong>$x</strong>0250-7447</td>
+</tr>
+<tr><td valign="top"><br><strong>767</strong></td>
+<td valign="top"><br><strong>1#$t</strong>Finance &amp; development. Portuguese. Finanças &amp; desenvolvimento<strong>$x</strong>0250-7404</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb770">770 - SUPPLEMENT/SPECIAL ISSUE ENTRY
+<small>(R)</small></a>
+</h2>
+<p>Information concerning the supplement or special issue
+associated with the
+target item but cataloged and/or input as a separate record
+(vertical relationship). When a note is generated from this field, the
+introductory phrase
+<em>Has supplement:</em> may be generated
+based on the
+field tag for display.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Note controller
+<ul>
+<li>0 - Display note</li></ul>
+
+<ul>
+<li>1 - Do not display
+note<br>A textual note is contained in field 580 (Linking
+Entry
+Complexity Note).</li></ul>
+</li><li>Second - Display constant controller
+<ul>
+<li># - Has supplement</li></ul>
+
+<ul>
+<li>8 - No display constant generated</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+<br><em>See the descriptions of the subfields
+under <a href="#mrcb760">field 760</a></em>.
+<ul>
+<li>$a - Main entry heading
+<small>(NR)</small></li><li>$b - Edition
+<small>(NR)</small></li><li>$c - Qualifying information
+<small>(NR)</small></li><li>$d - Place, publisher, and date of
+publication
+<small>(NR)</small></li><li>$g - Relationship information
+<small>(R)</small></li><li>$h - Physical description
+<small>(NR)</small></li><li>$i - Display text
+<small>(NR)</small></li><li>$k - Series data for related item
+<small>(R)</small><br>The series entry from the 4XX (Series Statement) or 8XX
+(Series Added Entry) of the related record.</li><li>$m - Material-specific details
+<small>(NR)</small></li><li>$n - Note
+<small>(R)</small></li><li>$o - Other item identifier
+<small>(R)</small></li><li>$r - Report number
+<small>(R)</small></li><li>$s - Uniform title
+<small>(NR)</small></li><li>$t - Title
+<small>(NR)</small></li><li>$u - Standard Technical Report Number
+<small>(NR)</small></li><li>$w - Record control number
+<small>(R)</small></li><li>$x - International Standard Serial Number
+<small>(NR)</small></li><li>$y - CODEN designation
+<small>(NR)</small></li><li>$z - International Standard Book Number
+<small>(R)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$7 - Control subfield
+<small>(NR)</small><br><em>See the description of <a href="#mrcbsf7">subfield $7</a>
+
+ under field 760</em>.
+<ul>
+<li>/0 - Type of main entry
+heading</li></ul>
+
+<ul>
+<li>/1 - Form of name</li></ul>
+
+<ul>
+<li>/2 - Type of record</li></ul>
+
+<ul>
+<li>/3 - Bibliographic
+level</li></ul>
+</li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>770</strong></td>
+<td valign="top"><br><strong>0#$t</strong>Directory: United States, territories, and Canada<strong>$w</strong>(DLC)###78646712#<strong>$w</strong>(OCoLC)4579783</td>
+</tr>
+<tr><td valign="top"><br><strong>770</strong></td>
+<td valign="top"><br><strong>0#$t</strong>Journal of cellular biochemistry. Supplement<strong>$x</strong>0733-1959</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb772">772 - SUPPLEMENT PARENT ENTRY
+<small>(R)</small></a>
+</h2>
+<p>Information concerning the related parent record when the
+target item is a
+single issue, supplement or special issue (vertical
+relationship) of the
+parent item. When a note is generated from this field, the
+introductory
+phrase
+<em>Supplement to:</em> may be generated
+based on the
+field tag for display.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Note controller
+<ul>
+<li>0 - Display note</li></ul>
+
+<ul>
+<li>1 - Do not display
+note<br>A textual note is contained in field 580 (Linking
+Entry
+Complexity Note).</li></ul>
+</li><li>Second - Display constant controller
+<ul>
+<li># - Supplement to</li></ul>
+
+<ul>
+<li>0 - Parent</li></ul>
+
+<ul>
+<li>8 - No display constant generated</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+<br><em>See the descriptions of the subfields
+under <a href="#mrcb760">field 760</a></em>.
+<ul>
+<li>$a - Main entry heading
+<small>(NR)</small></li><li>$b - Edition
+<small>(NR)</small></li><li>$c - Qualifying information
+<small>(NR)</small></li><li>$d - Place, publisher, and date of
+publication
+<small>(NR)</small></li><li>$g - Relationship information
+<small>(R)</small></li><li>$h - Physical description
+<small>(NR)</small></li><li>$i - Display text
+<small>(NR)</small></li><li>$k - Series data for related item
+<small>(R)</small><br>The series entry from the 4XX (Series Statement) or 8XX
+(Series Added Entry) of the related record.</li><li>$m - Material-specific details
+<small>(NR)</small></li><li>$n - Note
+<small>(R)</small></li><li>$o - Other item identifier
+<small>(R)</small></li><li>$r - Report number
+<small>(R)</small></li><li>$s - Uniform title
+<small>(NR)</small></li><li>$t - Title
+<small>(NR)</small></li><li>$u - Standard Technical Report Number
+<small>(NR)</small></li><li>$w - Record control number
+<small>(R)</small></li><li>$x - International Standard Serial Number
+<small>(NR)</small></li><li>$y - CODEN designation
+<small>(NR)</small></li><li>$z - International Standard Book Number
+<small>(R)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$7 - Control subfield
+<small>(NR)</small><br><em>See the description of <a href="#mrcbsf7">subfield $7</a>
+
+ under field 760</em>.
+<ul>
+<li>/0 - Type of main entry
+heading</li></ul>
+
+<ul>
+<li>/1 - Form of name</li></ul>
+
+<ul>
+<li>/2 - Type of record</li></ul>
+
+<ul>
+<li>/3 - Bibliographic
+level</li></ul>
+</li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>772</strong></td>
+<td valign="top"><br><strong>0#$t</strong>World agricultural situation (Washington, D.C. : 1970)<strong>$x</strong>0084-1358<strong>$w</strong>(DLC)sf#81008035#</td>
+</tr>
+<tr><td valign="top"><br><strong>772</strong></td>
+<td valign="top"><br><strong>1#$t</strong>Statistiques pour l'économie normande<strong>$g</strong>1979-<strong>$w</strong>(OCoLC)6260766</td>
+</tr>
+<tr><td valign="top"><br><strong>772</strong></td>
+<td valign="top"><br><strong>1#$t</strong>Aval<strong>$g</strong>[1982-]</td>
+</tr>
+<tr><td valign="top"><br><strong>772</strong></td>
+<td valign="top"><br><strong>1#$7</strong>unas<strong>$t</strong>Post boy (London, England)<strong>$w</strong>(OCoLC)1234567</td>
+</tr>
+<tr><td valign="top"><br><strong>772</strong></td>
+<td valign="top"><br><strong>1#$7</strong>p1as<strong>$a</strong>Silence, Timothy.<strong>$t</strong>Foundling hospital for wit</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb773">773 - HOST ITEM ENTRY
+<small>(R)</small></a>
+</h2>
+<p>Information concerning the host item for the constituent unit
+described in the
+record (vertical relationship). 
+
+  <font color="#ff0000">In
+the case of host items that are serial or multi-volume in nature,
+information in subfields $g and $q is necessary to point to the exact
+location of the component part within the bibliographic item.</font>
+</p><p>When a note is generated from this field, the introductory term
+<em>In</em> may be generated based on the field tag for display.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Note controller
+<ul>
+<li>0 - Display note</li></ul>
+
+<ul>
+<li>1 - Do not display
+note<br>A textual note is contained in field 580 (Linking
+Entry
+Complexity Note).</li></ul>
+</li><li>Second - Display constant controller
+<ul>
+<li># - In</li></ul>
+
+<ul>
+<li>8 - No display constant generated</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+<br><em>See the descriptions of the subfields
+under <a href="#mrcb760">field 760</a></em>.
+<ul>
+<li>$a - Main entry heading
+<small>(NR)</small></li><li>$b - Edition
+<small>(NR)</small></li><li>$d - Place, publisher, and date of
+publication
+<small>(NR)</small></li><li>$g - Relationship information
+<small>(R)</small></li><li>$h - Physical description
+<small>(NR)</small></li><li>$i - Display text
+<small>(NR)</small></li><li>$k - Series data for related item
+<small>(R)</small><br>The series entry from the 4XX (Series Statement) or 8XX
+(Series Added Entry) of the related record.</li><li>$m - Material-specific details
+<small>(NR)</small></li><li>$n - Note
+<small>(R)</small></li><li>$o - Other item identifier
+<small>(R)</small></li><li>$p - Abbreviated title
+<small>(NR)</small><br>The abbreviated title from field 210 (Abbreviated Title)
+of the
+related record.</li><li><font color="#ff0000">$q - Enumeration and first page
+    <small>(NR)</small></font>
+</li><li>$r - Report number
+<small>(R)</small></li><li>$s - Uniform title
+<small>(NR)</small></li><li>$t - Title
+<small>(NR)</small></li><li>$u - Standard Technical Report Number
+<small>(NR)</small></li><li>$w - Record control number
+<small>(R)</small></li><li>$x - International Standard Serial Number
+<small>(NR)</small></li><li>$y - CODEN designation
+<small>(NR)</small></li><li>$z - International Standard Book Number
+<small>(R)</small></li><li>$3 - Materials specified
+<small>(NR)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$7 - Control subfield
+<small>(NR)</small><br><em>See the description of <a href="#mrcbsf7">subfield $7</a>
+
+ under field 760</em>.
+<ul>
+<li>/0 - Type of main entry heading</li></ul>
+
+<ul>
+<li>/1 - Form of name</li></ul>
+
+<ul>
+<li>/2 - Type of record</li></ul>
+
+<ul>
+<li>/3 - Bibliographic
+level</li></ul>
+</li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>773</strong></td>
+<td valign="top"><br><strong>0#$t</strong>Horizon<strong>$g</strong>Vol. 17, no. 98 (Feb. 1948), p. 78-159</td>
+</tr>
+<tr><td valign="top"><br><strong>773</strong></td>
+<td valign="top"><br><strong>0#$g</strong>Vol. 2, no. 2 (Feb. 1976), p. 195-230<strong>$w</strong>(DLC)###75001234#</td>
+</tr>
+<tr><td valign="top"><br><strong>773</strong></td>
+<td valign="top"><br>
+<strong>0#$t</strong>Networks for networkers : critical issues in cooperative
+library development <strong>$w</strong>(DLC)###79024054#<strong> $w</strong>(Uk)8040016#</td>
+</tr>
+<tr><td valign="top"><br><strong>773</strong></td>
+<td valign="top"><br><strong>0#$7</strong>p1am<strong>$a</strong>Desio, Ardito, 1897-<strong>$t</strong>Geographical features of the Karakorum.<strong>$d</strong>Milano : ISMEO, 1991</td>
+</tr>
+<tr><td valign="top"><br><strong>773</strong></td>
+<td valign="top"><br><strong>0#$7</strong>p1am<strong>$a</strong>Hamilton, Milton W. (Milton Wheaton), 1901-<strong>$t</strong>Sir William Johnson and the Indians of New York.<strong>$d</strong>[Albany] : University of the State of New York, State Education Dept., Office of State History, 1967<strong>$w</strong>(DLC)###68066801#</td>
+</tr>
+<tr><td valign="top"><br><strong>773</strong></td>
+<td valign="top"><br><strong>0#$t</strong>Gilbert H. Grosvenor Collection of Photographs of the Alexander Graham Bell family</td>
+</tr>
+<tr><td valign="top"><br><strong>773</strong></td>
+<td valign="top"><br><strong>0#$t</strong>Entomologists' monthly magazine<strong>$p</strong>ENTOMOL MON MAG<strong>$d</strong>Wallingford : Gem Publishing Company<strong>$x</strong>0013-8908<strong>$y</strong>FNMMA</td>
+</tr>
+<tr><td valign="top"><br><strong>773</strong></td>
+<td valign="top"><br><strong>0#$7</strong>c2bc<strong>$a</strong>Massachusetts. Commission on Consumer Affairs<strong>$t</strong>Records<strong>$w</strong>(MaRG)170#</td>
+</tr>
+<tr><td valign="top"><font color="#ff0000"><br>
+      <strong>773</strong></font></td>
+<td valign="top"><font color="#ff0000"><br>
+    <strong>0#$7</strong>nnas<strong>$t</strong>California journal.<strong>$g</strong>Vol. 24, pt. B no. 9 (Sept. 1993), p. 235-48<strong>$q</strong>24:B:9&lt;235</font></td>
+</tr>
+<tr><td valign="top"><font color="#ff0000"><br>
+      <strong>773</strong></font></td>
+<td valign="top"><font color="#ff0000"><br>
+    <strong>0#$t</strong>Pacific rail news.<strong>$q</strong>279&lt;GM5</font></td>
+</tr>
+
+</tbody></table>
+<p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb774">774 - CONSTITUENT UNIT ENTRY
+<small>(R)</small></a>
+</h2>
+<p>Information concerning a constituent unit associated with a
+larger
+bibliographic unit (vertical relationship). When a note is generated from
+this field,
+the introductory term
+<em>Constituent unit:</em> may be generated
+based on the
+field tag for display.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Note controller
+<ul>
+<li>0 - Display note</li></ul>
+
+<ul>
+<li>1 - Do not display
+note<br>A textual note is contained in field 580 (Linking
+Entry
+Complexity Note).</li></ul>
+</li><li>Second - Display constant controller
+<ul>
+<li># - Constituent unit</li></ul>
+
+<ul>
+<li>8 - No display constant generated</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+<br><em>See the descriptions of the subfields
+under <a href="#mrcb760">field 760</a></em>.
+<ul>
+<li>$a - Main entry heading
+<small>(NR)</small></li><li>$b - Edition
+<small>(NR)</small></li><li>$c - Qualifying information
+<small>(NR)</small></li><li>$d - Place, publisher, and date of publication
+<small>(NR)</small></li><li>$g - Relationship information
+<small>(R)</small></li><li>$h - Physical description
+<small>(NR)</small></li><li>$i - Display text
+<small>(NR)</small></li><li>$k - Series data for related item
+<small>(R)</small><br>The series entry from the 4XX (Series Statement) or 8XX
+(Series Added Entry) of the related record.</li><li>$m - Material-specific details
+<small>(NR)</small></li><li>$n - Note
+<small>(R)</small></li><li>$o - Other item identifier
+<small>(R)</small></li><li>$r - Report number
+<small>(R)</small></li><li>$s - Uniform title
+<small>(NR)</small></li><li>$t - Title
+<small>(NR)</small></li><li>$u - Standard Technical Report Number
+<small>(NR)</small></li><li>$w - Record control number
+<small>(R)</small></li><li>$x - International Standard Serial Number
+<small>(NR)</small></li><li>$y - CODEN designation
+<small>(NR)</small></li><li>$z - International Standard Book Number
+<small>(R)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$7 - Control subfield
+<small>(NR)</small><br><em>See the description of <a href="#mrcbsf7">subfield $7</a>
+
+ under field 760</em>.
+<ul>
+<li>/0 - Type of main entry
+heading</li></ul>
+
+<ul>
+<li>/1 - Form of name</li></ul>
+
+<ul>
+<li>/2 - Type of record</li></ul>
+
+<ul>
+<li>/3 - Bibliographic
+level</li></ul>
+</li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>774</strong></td>
+<td valign="top"><br><strong>00</strong><strong>$8</strong>1\c<strong>$o</strong>.1993.010.00130.<strong>$n</strong>[DIAPimage]<strong>$t</strong>Map of area with highlighted street</td>
+</tr>
+<tr><td valign="top"><br><strong>774</strong></td>
+<td valign="top"><br><strong>00</strong><strong>$8</strong>2\c<strong>$o</strong>NYDA.1993.010.00131.<strong>$n</strong>[DIAPimage]<strong>$t</strong>View of Mill Brook Houses from one of the houses<strong>$d</strong>89/05</td>
+</tr>
+<tr><td valign="top"><br><strong>774</strong></td>
+<td valign="top"><br><strong>00</strong><strong>$8</strong>3\c<strong>$o</strong>NYDA.1993.010.00132.<strong>$n</strong>[DIAPimage]<strong>$t</strong>View SE from Mill Brook Houses on rooftop on Cypress Ave. Between 136th St. and 137th St.,<strong>$d</strong>93/05</td>
+</tr>
+<tr><td valign="top"><br><strong>774</strong></td>
+<td valign="top"><br><strong>00</strong><strong>$8</strong>4\c<strong>$o</strong>NYDA.1993.010.00133.<strong>$n</strong>[DIAPimage]<strong>$t</strong>View N from 136th St. roof top area between Bruckner Expressway and Cypress Ave.,<strong>$d</strong>93/06</td>
+</tr>
+<tr><td valign="top"><br><strong>774</strong></td>
+<td valign="top"><br><strong>00</strong><strong>$8</strong>5\c<strong>$o</strong>NYDA.1993.010.00134.<strong>$n</strong>[DIAPimage]<strong>$t</strong>View E from rooftop of garden bounded by Bruckner Expressway, 136th St. and 135th St.<strong>$d</strong>93/06</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb775">775 - OTHER EDITION ENTRY
+<small>(R)</small></a>
+</h2>
+<p>The entry for another available edition of the target item
+(horizontal
+relationship).  When a note is generated from this field, the
+introductory
+phrase
+<em>Other editions available:</em> may be
+generated based
+on the field tag for display.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Note controller
+<ul>
+<li>0 - Display note</li></ul>
+
+<ul>
+<li>1 - Do not display
+note<br>A textual note is contained in field 580 (Linking
+Entry
+Complexity Note).</li></ul>
+</li><li>Second - Display constant controller
+<ul>
+<li># - Other edition available</li></ul>
+
+<ul>
+<li>8 - No display constant generated</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+<br><em>See the descriptions of the subfields
+under <a href="#mrcb760">field 760</a></em>.
+<ul>
+<li>$a - Main entry heading
+<small>(NR)</small></li><li>$b - Edition
+<small>(NR)</small></li><li>$c - Qualifying information
+<small>(NR)</small></li><li>$d - Place, publisher, and date of
+publication
+<small>(NR)</small></li><li>$e - Language code
+<small>(NR)</small><br>The language code from field 008/35-37 (Language) of the
+related
+record.</li><li>$f - Country code
+<small>(NR)</small><br>The country code from field 008/15-17 (Place of
+publication,
+production, or execution) of the related record.</li><li>$g - Relationship information
+<small>(R)</small></li><li>$h - Physical description
+<small>(NR)</small></li><li>$i - Display text
+<small>(NR)</small></li><li>$k - Series data for related item
+<small>(R)</small><br>The series entry from the 4XX (Series Statement) or 8XX
+(Series Added Entry) of the related record.</li><li>$m - Material-specific details
+<small>(NR)</small></li><li>$n - Note
+<small>(R)</small></li><li>$o - Other item identifier
+<small>(R)</small></li><li>$r - Report number
+<small>(R)</small></li><li>$s - Uniform title
+<small>(NR)</small></li><li>$t - Title
+<small>(NR)</small></li><li>$u - Standard Technical Report Number
+<small>(NR)</small></li><li>$w - Record control number
+<small>(R)</small></li><li>$x - International Standard Serial Number
+<small>(NR)</small></li><li>$y - CODEN designation
+<small>(NR)</small></li><li>$z - International Standard Book Number
+<small>(R)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$7 - Control subfield
+<small>(NR)</small><br><em>See the description of <a href="#mrcbsf7">subfield $7</a>
+
+ under field 760</em>.
+<ul>
+<li>/0 - Type of main entry
+heading</li></ul>
+
+<ul>
+<li>/1 - Form of name</li></ul>
+
+<ul>
+<li>/2 - Type of record</li></ul>
+
+<ul>
+<li>/3 - Bibliographic
+level</li></ul>
+</li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>775</strong></td>
+<td valign="top"><br><strong>1#$t</strong>Cuba economic news<strong>$x</strong>0590-2932<strong>$e</strong>eng<strong>$w</strong>(OCoLC)2259984</td>
+</tr>
+<tr><td valign="top"><br><strong>775</strong></td>
+<td valign="top"><br><strong>1#$t</strong>Modern maturity<strong>$x</strong>0026-8046<strong>$w</strong>(DLC)###63047860#<strong>$w</strong>(OCoLC)1758471</td>
+</tr>
+<tr><td valign="top"><br><strong>775</strong></td>
+<td valign="top"><br><strong>1#$t</strong>Communist<strong>$f</strong>ilu</td>
+</tr>
+<tr><td valign="top"><br><strong>775</strong></td>
+<td valign="top"><br><strong>1#$t</strong>Modern maturity<strong>$b</strong>NRTA edition</td>
+</tr>
+<tr><td valign="top"><br><strong>775</strong></td>
+<td valign="top"><br><strong>1#<font color="#ff0000">$t</font></strong>Hospital practice (Office ed.)<strong>$x</strong>8750-2836</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb776">776 - ADDITIONAL PHYSICAL FORM ENTRY
+<small>(R)</small></a>
+</h2>
+<p>Information concerning another available physical form of the
+target item
+(horizontal relationship).  When a note is generated from this
+field, the
+introductory phrase
+<em>Available in other
+form:</em> may be
+generated based on the field tag for display.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Note controller
+<ul>
+<li>0 - Display note</li></ul>
+
+<ul>
+<li>1 - Do not display
+note<br>A textual note is contained in field 580 (Linking
+Entry
+Complexity Note).</li></ul>
+</li><li>Second - Display constant controller
+<ul>
+<li># - Available in another form</li></ul>
+
+<ul>
+<li>8 - No display constant generated</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+<br><em>See the descriptions of the subfields
+under <a href="#mrcb760">field 760</a></em>.
+<ul>
+<li>$a - Main entry heading
+<small>(NR)</small></li><li>$b - Edition
+<small>(NR)</small></li><li>$c - Qualifying information
+<small>(NR)</small></li><li>$d - Place, publisher, and date of
+publication
+<small>(NR)</small></li><li>$g - Relationship information
+<small>(R)</small></li><li>$h - Physical description
+<small>(NR)</small></li><li>$i - Display text
+<small>(NR)</small></li><li>$k - Series data for related item
+<small>(R)</small><br>The series entry from the 4XX (Series Statement) or 8XX
+(Series Added Entry) of the related record.</li><li>$m - Material-specific details
+<small>(NR)</small></li><li>$n - Note
+<small>(R)</small></li><li>$o - Other item identifier
+<small>(R)</small></li><li>$r - Report number
+<small>(R)</small></li><li>$s - Uniform title
+<small>(NR)</small></li><li>$t - Title
+<small>(NR)</small></li><li>$u - Standard Technical Report Number
+<small>(NR)</small></li><li>$w - Record control number
+<small>(R)</small></li><li>$x - International Standard Serial Number
+<small>(NR)</small></li><li>$y - CODEN designation
+<small>(NR)</small></li><li>$z - International Standard Book Number
+<small>(R)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control Subfields</a>
+</em></li><li>$7 - Control subfield
+<small>(NR)</small><br><em>See the description of <a href="#mrcbsf7">subfield $7</a>
+
+ under field 760</em>.
+<ul>
+<li>/0 - Type of main entry
+heading</li></ul>
+
+<ul>
+<li>/1 - Form of name</li></ul>
+
+<ul>
+<li>/2 - Type of record</li></ul>
+
+<ul>
+<li>/3 - Bibliographic
+level</li></ul>
+</li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>776</strong></td>
+<td valign="top"><br><strong>1#$t</strong>College English<strong>$x</strong>0010-0994<strong>$w</strong>(DLC)sc#84007753#<strong>$w</strong>(OCoLC)3546316</td>
+</tr>
+<tr><td valign="top"><br><strong>776</strong></td>
+<td valign="top"><br><strong>1#$t</strong>College English<strong>$x</strong>0010-0994<strong>$w</strong>(DLC)###41006180#<strong>$w</strong>(OCoLC)1564053</td>
+</tr>
+<tr><td valign="top"><br><strong>776</strong></td>
+<td valign="top"><br><strong>1#$t</strong>Americas<strong>$x</strong>0003-1615<strong>$w</strong>(OCoLC)8370205</td>
+</tr>
+<tr><td valign="top"><br><strong>776</strong></td>
+<td valign="top"><br><strong>1#$c</strong>Original<strong>$w</strong>(DLC)###24020326#</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb777">777 - ISSUED WITH ENTRY
+<small>(R)</small></a>
+</h2>
+<p>Information concerning the publication that is separately
+cataloged but
+that is issued with or included in the target item (horizontal
+relationship).  When a note is generated from this field, the introductory
+phrase
+<em>Issued with:</em> may be generated based on the
+field
+tag for display.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Note controller
+<ul>
+<li>0 - Display note</li></ul>
+
+<ul>
+<li>1 - Do not display
+note<br>A textual note is contained in field 580 (Linking
+Entry
+Complexity Note).</li></ul>
+</li><li>Second - Display constant controller
+<ul>
+<li># - Issued with</li></ul>
+
+<ul>
+<li>8 - No display constant generated</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+<br><em>See the descriptions of the subfields
+under <a href="#mrcb760">field 760</a></em>.
+<ul>
+<li>$a - Main entry heading
+<small>(NR)</small></li><li>$b - Edition
+<small>(NR)</small></li><li>$c - Qualifying information
+<small>(NR)</small></li><li>$d - Place, publisher, and date of
+publication
+<small>(NR)</small></li><li>$g - Relationship information
+<small>(R)</small></li><li>$h - Physical description
+<small>(NR)</small></li><li>$i - Display text
+<small>(NR)</small></li><li>$k - Series data for related item
+<small>(R)</small><br>The series entry from the 4XX (Series Statement) or 8XX
+(Series Added Entry) of the related record.</li><li>$m - Material-specific details
+<small>(NR)</small></li><li>$n - Note
+<small>(R)</small></li><li>$o - Other item identifier
+<small>(R)</small></li><li>$s - Uniform title
+<small>(NR)</small></li><li>$t - Title
+<small>(NR)</small></li><li>$w - Record control number
+<small>(R)</small></li><li>$x - International Standard Serial Number
+<small>(NR)</small></li><li>$y - CODEN designation
+<small>(NR)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$7 - Control subfield
+<small>(NR)</small><br><em>See the description of <a href="#mrcbsf7">subfield $7</a>
+
+ under field 760</em>.
+<ul>
+<li>/0 - Type of main entry
+heading</li></ul>
+
+<ul>
+<li>/1 - Form of name</li></ul>
+
+<ul>
+<li>/2 - Type of record</li></ul>
+
+<ul>
+<li>/3 - Bibliographic
+level</li></ul>
+</li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>777</strong></td>
+<td valign="top"><br><strong>1#$t</strong>Mythprint<strong>$x</strong>0146-9347</td>
+</tr>
+<tr><td valign="top"><br><strong>777</strong></td>
+<td valign="top"><br><strong>1#$t</strong>Current drug handbook<strong>$g</strong>1962-<strong>$x</strong>0070-1939<strong>$w</strong>(DLC)###58006390#<strong>$w</strong>(OCoLC)1565622</td>
+</tr>
+<tr><td valign="top"><br><strong>777</strong></td>
+<td valign="top"><br><strong>1#$t</strong>Drug, the nurse, the patient<strong>$w</strong>(DLC)###66015620#<strong>$w</strong>(OCoLC)3995456</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb780">780 - PRECEDING ENTRY
+<small>(R)</small></a>
+</h2>
+<p>Information concerning the immediate predecessor of the target
+item
+(chronological relationship).  When a note is generated from
+this field, the
+introductory term or phrase may be generated based on the value
+in the second
+indicator position for display.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Note controller
+<ul>
+<li>0 - Display note</li></ul>
+
+<ul>
+<li>1 - Do not display
+note<br>A textual note is contained in field 580 (Linking
+Entry
+Complexity Note).</li></ul>
+</li><li>Second - Type of relationship<br>A value that indicates the relationship between the
+target item and
+the preceding entry and which may be used to generate an
+introductory term or
+phrase.
+<ul>
+<li>0 - Continues<br><em>Continues:</em> may be
+generated for display.</li></ul>
+
+<ul>
+<li>1 - Continues in part<br><em>Continues in part:</em> may be
+generated for display.</li></ul>
+
+<ul>
+<li>2 - Supersedes<br><em>Supersedes:</em> may be
+generated for display.</li></ul>
+
+<ul>
+<li>3 - Supersedes in part<br><em>Supersedes in part:</em> may be
+generated for display.</li></ul>
+
+<ul>
+<li>4 - Formed by the union of... and
+...<br><em>Formed by the union:... and
+...</em> may be
+generated for display.</li></ul>
+
+<ul>
+<li>5 - Absorbed<br><em>Absorbed:</em> may be
+generated for display.</li></ul>
+
+<ul>
+<li>6 - Absorbed in part<br><em>Absorbed in part:</em> may be
+generated for display.</li></ul>
+
+<ul>
+<li>7 - Separated
+from<br><em>Separated from:</em> may be
+generated for display.</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+<br><em>See the descriptions of the subfields
+under <a href="#mrcb760">field 760</a></em>.
+<ul>
+<li>$a - Main entry heading
+<small>(NR)</small></li><li>$b - Edition
+<small>(NR)</small></li><li>$c - Qualifying information
+<small>(NR)</small></li><li>$d - Place, publisher, and date of
+publication
+<small>(NR)</small></li><li>$g - Relationship information
+<small>(R)</small></li><li>$h - Physical description
+<small>(NR)</small></li><li>$i - Display text
+<small>(NR)</small></li><li>$k - Series data for related item
+<small>(R)</small><br>The series entry from the 4XX (Series Statement) or 8XX
+(Series Added Entry) of the related record.</li><li>$m - Material-specific details
+<small>(NR)</small></li><li>$n - Note
+<small>(R)</small></li><li>$o - Other item identifier
+<small>(R)</small></li><li>$r - Report number
+<small>(R)</small></li><li>$s - Uniform title
+<small>(NR)</small></li><li>$t - Title
+<small>(NR)</small></li><li>$u - Standard Technical Report Number
+<small>(NR)</small></li><li>$w - Record control number
+<small>(R)</small></li><li>$x - International Standard Serial Number
+<small>(NR)</small></li><li>$y - CODEN designation
+<small>(NR)</small></li><li>$z - International Standard Book Number
+<small>(R)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$7 - Control subfield
+<small>(NR)</small><br><em>See the description of <a href="#mrcbsf7">subfield $7</a>
+
+ under field 760</em>.
+<ul>
+<li>/0 - Type of main entry
+heading</li></ul>
+
+<ul>
+<li>/1 - Form of name</li></ul>
+
+<ul>
+<li>/2 - Type of record</li></ul>
+
+<ul>
+<li>/3 - Bibliographic
+level</li></ul>
+</li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>780</strong></td>
+<td valign="top"><br><strong>00$a</strong>American Hospital Association.<strong>$t</strong>Bulletin of the American Hospital Association<strong>$w</strong>(OCoLC)1777831</td>
+</tr>
+<tr><td valign="top"><br><strong>780</strong></td>
+<td valign="top"><br><strong>01$t</strong>Annales scientifiques de l'Université de Besançon<strong>$w</strong>(OCoLC)6179013</td>
+</tr>
+<tr><td valign="top"><br><strong>780</strong></td>
+<td valign="top"><br><strong>03$t</strong>Elevage</td>
+</tr>
+<tr><td valign="top"><br><strong>780</strong></td>
+<td valign="top"><br><strong>14$t</strong>Annales de géophysique<strong>$x</strong>0003-4029<strong>$w</strong>(OCoLC)1481255<strong>$w</strong>(DLC)###52016346#</td>
+</tr>
+<tr><td valign="top"><br><strong>780</strong></td>
+<td valign="top"><br><strong>14$t</strong>Annali de geofisica<strong>$w</strong>(OCoLC)1847060<strong>$w</strong>(DLC)gs#49000041#</td>
+</tr>
+<tr><td valign="top"><br><strong>780</strong></td>
+<td valign="top"><br><strong>05$a</strong>American Society of International Law.<strong>$t</strong>Proceedings<strong>$g</strong>1971</td>
+</tr>
+<tr><td valign="top"><br><strong>780</strong></td>
+<td valign="top"><br><strong>06$t</strong>Graphic notices and supplemental data<strong>$w</strong>(OCoLC)4276671</td>
+</tr>
+<tr><td valign="top"><br><strong>780</strong></td>
+<td valign="top"><br><strong>07$a</strong>British Columbia. Ministry of Provincial Secretary and Government Services.<strong>$t</strong>Annual report<strong>$x</strong>0226-0883<strong>$w</strong>(OCoLC)6270433<strong>$w</strong>(DLC)###80649039#</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb785">785 - SUCCEEDING ENTRY
+<small>(R)</small></a>
+</h2>
+<p>Information concerning the immediate successor to the target
+item
+(chronological relationship).  When a note is generated from
+this field, the
+introductory phrase may be generated based on the value in the
+second
+indicator position for display.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Note controller
+<ul>
+<li>0 - Display note</li></ul>
+
+<ul>
+<li>1 - Do not display
+note<br>A textual note is contained in field 580 (Linking
+Entry
+Complexity Note).</li></ul>
+</li><li>Second - Type of relationship<br>A value that indicates the relationship between the
+target item and
+the succeeding entry and which may be used to generate an
+introductory
+phrase.
+<ul>
+<li>0 - Continued by<br><em>Continued by:</em> may be
+generated for display.</li></ul>
+
+<ul>
+<li>1 - Continued in part by<br><em>Continued in part by:</em> may be
+generated for display.</li></ul>
+
+<ul>
+<li>2 - Superseded by<br><em>Superseded by:</em> may be
+generated for display.</li></ul>
+
+<ul>
+<li>3 - Superseded in part by<br><em>Superseded in part by:</em> may be
+generated for display.</li></ul>
+
+<ul>
+<li>4 - Absorbed by<br><em>Absorbed by:</em> may be
+generated for display.</li></ul>
+
+<ul>
+<li>5 - Absorbed in part by<br><em>Absorbed in part by:</em> may be
+generated for display.</li></ul>
+
+<ul>
+<li>6 - Split into... and...<br><em>Split into:... and...</em> may be
+generated for display.</li></ul>
+
+<ul>
+<li>7 - Merged with... to form
+...<br><em>Merged with:... to form...</em>
+may be
+generated for display.</li></ul>
+
+<ul>
+<li>8 - Changed back
+to<br><em>Changed back to:</em> may be
+generated for display.</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+<br><em>See the descriptions of the subfields
+under <a href="#mrcb760">field 760</a></em>.
+<ul>
+<li>$a - Main entry heading
+<small>(NR)</small></li><li>$b - Edition
+<small>(NR)</small></li><li>$c - Qualifying information
+<small>(NR)</small></li><li>$d - Place, publisher, and date of
+publication
+<small>(NR)</small></li><li>$g - Relationship information
+<small>(R)</small></li><li>$h - Physical description
+<small>(NR)</small></li><li>$i - Display text
+<small>(NR)</small></li><li>$k - Series data for related item
+<small>(R)</small><br>The series entry from the 4XX (Series Statement) or 8XX
+(Series Added Entry) of the related record.</li><li>$m - Material-specific details
+<small>(NR)</small></li><li>$n - Note
+<small>(R)</small></li><li>$o - Other item identifier
+<small>(R)</small></li><li>$r - Report number
+<small>(R)</small></li><li>$s - Uniform title
+<small>(NR)</small></li><li>$t - Title
+<small>(NR)</small></li><li>$u - Standard Technical Report Number
+<small>(NR)</small></li><li>$w - Record control number
+<small>(R)</small></li><li>$x - International Standard Serial Number
+<small>(NR)</small></li><li>$y - CODEN designation
+<small>(NR)</small></li><li>$z - International Standard Book Number
+<small>(R)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$7 - Control subfield
+<small>(NR)</small><br><em>See the description of <a href="#mrcbsf7">subfield $7</a>
+
+ under field 760</em>.
+<ul>
+<li>/0 - Type of main entry
+heading</li></ul>
+
+<ul>
+<li>/1 - Form of name</li></ul>
+
+<ul>
+<li>/2 - Type of record</li></ul>
+
+<ul>
+<li>/3 - Bibliographic
+level</li></ul>
+</li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>785</strong></td>
+<td valign="top"><br><strong>00$t</strong>TEIC quarterly seismological bulletin<strong>$x</strong>0741-1898<strong>$w</strong>(DLC)sc#83007721#</td>
+</tr>
+<tr><td valign="top"><br><strong>785</strong></td>
+<td valign="top"><br><strong>10$t</strong>Learning in New York (University of the State of New York)<strong>$g</strong>1983<strong>$w</strong>(OCoLC)10120612</td>
+</tr>
+<tr><td valign="top"><br><strong>785</strong></td>
+<td valign="top"><br><strong>01$a</strong>Southeastern College Art Conference.<strong>$t</strong>SECAC newsletter<strong>$w</strong>(OCoLC)4973820</td>
+</tr>
+<tr><td valign="top"><br><strong>785</strong></td>
+<td valign="top"><br><strong>02$t</strong>British Columbia medical journal.<strong>$x</strong>0007-0556</td>
+</tr>
+<tr><td valign="top"><br><strong>785</strong></td>
+<td valign="top"><br><strong>04$t</strong>Business week<strong>$g</strong>Oct. 1940<strong>$x</strong>0007-7135<strong>$w</strong>(DLC)###31006225#</td>
+</tr>
+<tr><td valign="top"><br><strong>785</strong></td>
+<td valign="top"><br><strong>05$t</strong>Sheet metal worker<strong>$x</strong>0096-9249<strong>$w</strong>(OCoLC)2054610</td>
+</tr>
+<tr><td valign="top"><br><strong>785</strong></td>
+<td valign="top"><br><strong>16<font color="#ff0000">$t</font></strong>Hospital practice (Hospital ed.)<strong>$x</strong>8755-4542<strong>$w</strong>(DLC)sn#84001694#</td>
+</tr>
+<tr><td valign="top"><br><strong>785</strong></td>
+<td valign="top"><br>
+<strong>16<font color="#ff0000">$t</font></strong>Hospital practice (Office ed.)<strong>$x</strong>8750-2836<strong>$w</strong>(OCoLC)10716242</td>
+</tr>
+<tr><td valign="top"><br><strong>785</strong></td>
+<td valign="top"><br><strong>17$t</strong>Services correctionnels au Canada.<strong>$x</strong>0711-6810</td>
+</tr>
+<tr><td valign="top"><br><strong>785</strong></td>
+<td valign="top"><br><strong>17$t</strong>Adult correctional services in Canada.<strong>$x</strong>0715-2973</td>
+</tr>
+<tr><td valign="top"><br><strong>785</strong></td>
+<td valign="top"><br><strong>08$a</strong>Los Angeles (Calif.). Dept. of City Planning.<strong>$t</strong>Annual report of the Department of City Planning (1966)<strong>$w</strong>(DLC)sn#86032686#</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb786">786 - DATA SOURCE ENTRY
+<small>(R)</small></a>
+</h2>
+<p>Information pertaining to a data source to which the described
+item is related.  It may contain information about other files, printed sources, or collection
+procedures.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Note controller
+<ul>
+<li>0 - Display note</li></ul>
+
+<ul>
+<li>1 - Do not display
+note<br>A textual note is contained in field 580 (Linking
+Entry
+Complexity Note).</li></ul>
+</li><li>Second - Display constant controller
+<ul>
+<li># - Data source</li></ul>
+
+<ul>
+<li>8 - No display constant generated</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+<br><em>See the descriptions of the subfields
+under <a href="#mrcb760">field 760</a></em>.
+<ul>
+<li>$a - Main entry heading
+<small>(NR)</small></li><li>$b - Edition
+<small>(NR)</small></li><li>$c - Qualifying information
+<small>(NR)</small></li><li>$d - Place, publisher, and date of
+publication
+<small>(NR)</small></li><li>$g - Relationship information
+<small>(R)</small></li><li>$h - Physical description
+<small>(NR)</small></li><li>$i - Display text
+<small>(NR)</small></li><li>$j - Period of content
+<small>(NR)</small><br>The beginning, and if appropriate, the ending date(s) of the related item.  The
+information is recorded according to
+<em>Representation of Dates and Times</em> (ISO 8601)</li><li>$k - Series data for related item
+<small>(R)</small><br>The series entry from the 4XX (Series Statement) or 8XX
+(Series Added Entry) of the related record.</li><li>$m - Material-specific details
+<small>(NR)</small></li><li>$n - Note
+<small>(R)</small></li><li>$o - Other item identifier
+<small>(R)</small></li><li>$p - Abbreviated title
+<small>(NR)</small><br>The abbreviated title from field 210 (Abbreviated Title) of the related record.</li><li>$r - Report number
+<small>(R)</small></li><li>$s - Uniform title
+<small>(NR)</small></li><li>$t - Title
+<small>(NR)</small></li><li>$u - Standard Technical Report Number
+<small>(NR)</small></li><li>$v - Source Contribution
+<small>(NR)</small></li><li>$w - Record control number
+<small>(R)</small></li><li>$x - International Standard Serial Number
+<small>(NR)</small></li><li>$y - CODEN designation
+<small>(NR)</small></li><li>$z - International Standard Book Number
+<small>(R)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$7 - Control subfield
+<small>(NR)</small><br><em>See the description of <a href="#mrcbsf7">subfield $7</a>
+
+ under field 760</em>.
+<ul>
+<li>/0 - Type of main entry
+heading</li></ul>
+
+<ul>
+<li>/1 - Form of name</li></ul>
+
+<ul>
+<li>/2 - Type of record</li></ul>
+
+<ul>
+<li>/3 - Bibliographic
+level</li></ul>
+</li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Example</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>786</strong></td>
+<td valign="top"><br><strong>0#$a</strong>United States. Defense Mapping Agency.<strong>$t</strong>Reno, NV-CA west digital terrain elevation data<strong>$v</strong>Data for reformatting to DEM format</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb787">787 - NONSPECIFIC RELATIONSHIP ENTRY
+<small>(R)</small></a>
+</h2>
+<p>Information concerning the work related to the target item
+when the
+relationship does not fit any of those defined in fields
+760-785.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Note controller
+<ul>
+<li>0 - Display note</li></ul>
+
+<ul>
+<li>1 - Do not display
+note<br>A textual note is contained in field 580 (Linking
+Entry
+Complexity Note).</li></ul>
+</li><li>Second - Display constant controller
+<ul>
+<li># - Related item</li></ul>
+
+<ul>
+<li>8 - No display constant generated</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+<br><em>See the descriptions of the subfields
+under <a href="#mrcb760">field 760</a></em>.
+<ul>
+<li>$a - Main entry heading
+<small>(NR)</small></li><li>$b - Edition
+<small>(NR)</small></li><li>$c - Qualifying information
+<small>(NR)</small></li><li>$d - Place, publisher, and date of
+publication
+<small>(NR)</small></li><li>$g - Relationship information
+<small>(R)</small></li><li>$h - Physical description
+<small>(NR)</small></li><li>$i - Display text
+<small>(NR)</small></li><li>$k - Series data for related item
+<small>(R)</small><br>The series entry from the 4XX (Series Statement) or 8XX
+(Series Added Entry) of the related record.</li><li>$m - Material-specific details
+<small>(NR)</small></li><li>$n - Note
+<small>(R)</small></li><li>$o - Other item identifier
+<small>(R)</small></li><li>$r - Report number
+<small>(R)</small></li><li>$s - Uniform title
+<small>(NR)</small></li><li>$t - Title
+<small>(NR)</small></li><li>$u - Standard Technical Report Number
+<small>(NR)</small></li><li>$w - Record control number
+<small>(R)</small></li><li>$x - International Standard Serial Number
+<small>(NR)</small></li><li>$y - CODEN designation
+<small>(NR)</small></li><li>$z - International Standard Book Number
+<small>(R)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$7 - Control subfield
+<small>(NR)</small><br><em>See the description of <a href="#mrcbsf7">subfield $7</a>
+
+ under field 760</em>.
+<ul>
+<li>/0 - Type of main entry
+heading</li></ul>
+
+<ul>
+<li>/1 - Form of name</li></ul>
+
+<ul>
+<li>/2 - Type of record</li></ul>
+
+<ul>
+<li>/3 - Bibliographic
+level</li></ul>
+</li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>787</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Empire State report (1982)<strong>$x</strong>0747-0711<strong>$w</strong>(DLC)###84647292#<strong>$w</strong>(OCoLC)8541622</td>
+</tr>
+<tr><td valign="top"><br><strong>787</strong></td>
+<td valign="top"><br><strong>1#$t</strong>Empire State report weekly<strong>$x</strong>0745-8622<strong>$w</strong>(DLC)###84647299#<strong>$w</strong>(OCoLC)9403759</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<hr><p><strong>Go to</strong>: <em><a href="ecbdhome.html">
+MARC 21 Concise Bibliographic Format</a></em> | <a href="http://www.loc.gov/marc/">
+MARC Home Page</a></p><p></p><hr><img alt="Library of Congress" src="ecbdlink_files/lc2.gif">
+<strong>Library of Congress</strong>
+<address><a href="http://www.loc.gov/help/help-desk.html">Library of Congress Help Desk</a>  (
+<!-- #BeginDate format:Am3 -->05/07/2004<!-- #EndDate -->
+)
+</address>
+</body></html>

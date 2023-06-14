@@ -1,0 +1,43 @@
+h1 {
+	font-size: 16pt;
+	text-align: center;
+}
+h2 {
+	font-size: 14pt;
+	padding: 0px;
+	margin: 5px 0px 1px;
+	text-align: center;
+}
+h3 {
+	font-size: 13pt;
+	margin: 1px 0px;
+	padding: 0px;
+	text-align: center;
+}
+h4 {
+	font-size: 12pt;
+	margin: 1px 0px 10px;
+	padding: 0px;
+}
+h5 {
+	font-size: 11pt;
+	margin: 1px 0px;
+	padding: 0px;
+}
+.redtext {
+font-weight: bold;
+color: #990000;
+}
+.head-nav {
+	margin: 1px;
+	padding: 1px;
+}
+.title {
+	text-align:center;
+	margin-top: 5px;
+	margin-right: 0px;
+	margin-bottom: 1px;
+	margin-left: 0px;}	
+.table_title {font-weight: bold; text-align:center;}
+.subheading {margin-left:3em;}
+body {margin-left:  3em; margin-right: 3em;}

@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html40/loose.dtd"><html><head>
+
+<title>Introduction</title><!-- base href="http://www.loc.gov/marc/bibliographic/ecbdintr.html" -->
+<meta content="This document contains the Introduction section of the MARC 21 Concise Bibliographic format which includes all related data elements and many examples." name="description">
+<meta content="MARC 21 Concise, Introduction, bibliographic format" name="keywords">
+<link type="text/css" rel="stylesheet" href="../marcdoc.css">
+</head>
+
+<body bgcolor="#ffffff">
+<a name="top"></a>
+<hr>
+<h1><em>MARC 21 Concise Bibliographic: Introduction </em></h1>
+<hr><p>The <em>MARC 21 Format for Bibliographic Data</em> is designed
+to be a carrier for bibliographic
+information about printed and manuscript textual materials, computer files, maps, music, continuing resources,
+visual
+materials, and mixed materials.  Bibliographic data commonly includes titles, names, subjects,
+notes,
+publication data, and information about the physical description of an item.  The bibliographic
+format
+contains data elements for the following types of material:
+</p><dl><dt><strong>Books</strong></dt><dd>textual material that is monographic in
+nature.</dd><dt><strong>Continuing resources</strong></dt><dd>textual items with a recurring
+pattern of publication, e.g., periodicals, newspapers,
+yearbooks.  (<strong>Note</strong>:  Prior to 2002, continuing resources were referred to as serials.)</dd><dt><strong>Computer files</strong></dt><dd>used for computer
+software, numeric data,  computer-oriented multimedia,
+online systems or services.  Other classes of  electronic resources are coded for their most
+significant aspect.  Material  may be monographic or serial in
+nature.</dd><dt><strong>Maps</strong></dt><dd>all types of cartographic materials,
+including sheet maps and globes in printed, manuscript, electronic, and microform.</dd><dt><strong>Music</strong></dt><dd>printed and manuscript notated music.</dd><dt><strong>Sound recordings</strong></dt><dd>nonmusical sound recordings, and musical sound recordings.</dd><dt><strong>Visual materials</strong></dt><dd>projected media,
+two-dimensional graphics, three-dimensional artifacts or
+naturally occurring objects, and kits.  Used for archival visual materials when format or medium
+is being emphasized.</dd><dt><strong>Mixed materials</strong></dt><dd>primarily
+archival and manuscript collections of a mixture of forms of material. 
+Material may be monographic or serial in nature</dd></dl>
+<p></p><hr><h2>Kinds of Bibliographic Records</h2>
+<p>MARC bibliographic records are distinguished from all other types of MARC records by
+specific codes in Leader/06 (Type of record) which identifies the following bibliographic record
+types.</p><table>
+<tbody><tr valign="top"><td width="290"><br>
+  Language (textual) material</td>
+<td width="407"><br>
+  Nonmusical sound
+recording</td>
+</tr>
+<tr valign="top"><td><br>
+  Manuscript language (textual) material</td>
+<td><br>
+  Musical sound
+recording</td>
+</tr>
+<tr valign="top"><td><br>
+  Computer file</td>
+<td><br>
+  Projected medium</td>
+</tr>
+<tr valign="top"><td><br>
+  Cartographic material</td>
+<td><br>
+  Two-dimensional nonprojectable graphic</td>
+</tr>
+<tr valign="top"><td><br>
+  Manuscript cartographic material</td>
+<td><br>
+  Three-dimensional artifact or natural objects</td>
+</tr>
+<tr valign="top"><td><br>
+  Notated music</td>
+<td><br>
+  Kit</td>
+</tr>
+<tr valign="top"><td><br>
+  Manuscript music</td>
+<td><br>
+  Mixed material</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2>Fill Character</h2>
+<p>A fill character (hexadecimal value '7C'), represented in this document and ASCII as a
+vertical
+bar (|), may be used in bibliographic records in some positions in fields 006, 007 and 008, and
+subfield $7 of the linking entry fields (760-787).  A fill character may not be used anywhere in
+the leader, or in tags, indicators, or subfield codes.  The use of the fill character in records
+contributed to a national database may also be dependent upon the national level requirements
+specified for each data element.  The presence of a fill character in a bibliographic record
+indicates that the format specifies a code to be used but the creator of the record has decided
+not to attempt to supply a code.</p><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2>Typographical Conventions</h2>
+<p>Throughout this document, the following typographical conventions are used:
+0 - The graphic 0 represents the digit zero in tags, fixed-position
+character position citations, and indicator positions.  This character is distinct
+from an uppercase
+letter O used in examples or text.
+</p><dl><p>0 - The graphic 0 represents the digit zero in tags, fixed-position character
+    position citations, and indicator positions. This character is distinct from
+    an uppercase letter O used in examples or text.
+  </p><p> # - The graphic symbol # is used for a blank (hex 20) in coded fields and
+    in other special situations where the existence of the character blank might
+    be ambiguous.
+  </p><p>$ - The graphic symbol $ is used for the delimiter (hex 1F) portion of a
+    subfield code. Within the text, subfield codes are referred to as <em>subfield
+    $a</em>, for example.
+  </p><p>/ - Specific character positions of fixed-length data elements, such as
+    those in the Leader, Directory, and field 008, are expressed using a slash
+    and the number of the character position, e.g., Leader/06.
+  </p><p><font color="#ff0000">1 - The graphic 1 represents the digit one (hex 31). This character must
+    be distinguised from a lowercase roman alphabet letter l (el) and the uppercase
+    alphabetic letter I (eye) in examples or text.
+  </font>    </p><p>| - The graphic | represents a fill character (hex 7C).</p></dl>
+<p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2>Organization of the Electronic Version of the Concise Format</h2>
+<p>This electronic concise format is organized into parts that
+generally mirror the tabbed sections of the full printed format
+documentation. Each part is divided into chapters that usually
+cover a single field and all of the data elements possible within it
+(that is, character positions for
+fixed-length fields and indicators and subfield codes for variable
+length fields). The Leader and
+the Directory are described in the first main part, followed by parts
+containing the variable
+control fields and variable data fields arranged in numerical field tag
+order.</p><p>Obsolete and deleted content designators are not listed.  They are found in the full printed
+version of the format and in the electronic MARC field lists.
+</p><p><u>Information for Translators and Other Users<br>
+</u>Items highlighted in <font color="#ff0000">red</font> indicate changes made
+after the 2002 edition of the <i>MARC 21 Concise Formats</i> was published and
+are included in the 2003 printed edition of the <i>MARC 21 Concise Formats</i>.
+</p><p>For information about ordering the full <i>MARC 21 Format for Bibliographic
+     Data,</i> please
+  see: <a href="http://www.loc.gov/cds/marcdoc.html">Print</a> | <a href="http://www.loc.gov/cds/desktop/">CD-ROM</a>
+</p><p><a href="#top">Go to top of document</a></p>
+<hr><p><strong>Go to</strong>: <em><a href="ecbdhome.html">
+MARC 21 Concise Bibliographic Format</a></em> | <a href="http://www.loc.gov/marc/">
+MARC Home Page</a>
+</p><p></p><hr><img alt="Library of Congress" src="ecbdintr_files/lc2.gif">
+<strong>Library of Congress</strong>
+<address><a href="http://www.loc.gov/help/help-desk.html">Library of Congress Help Desk</a>  (
+<!-- #BeginDate format:Am3 -->05/07/2004<!-- #EndDate -->
+)
+</address>
+</body></html>

@@ -1,0 +1,446 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="pragma" content="no-cache">
+<title>Visualizaciones del registro</title>
+<link rel="stylesheet" type="text/css" href="../css/catalis.css">
+<link rel="stylesheet" type="text/css" href="../../common/css/aacr.css">
+<link rel="stylesheet" type="text/css" href="../../common/css/etiquetado.css">
+<link rel="stylesheet" type="text/css" href="../../common/css/wh.css">
+<link rel="stylesheet" type="text/css" href="../../opacmarc/css/opac.css">
+
+<script language="JavaScript" type="text/javascript">
+var callerWindowObject = dialogArguments;
+// window.onresize = function() { /* hacer algo para que el width tenga un mínimo razonable */ }
+ 
+
+
+// -----------------------------------------------------------------------------
+function setFocus()
+// Es llamada onunload
+// -----------------------------------------------------------------------------
+{
+	if ( callerWindowObject.selectedSubfieldBox ) {
+		callerWindowObject.selectedSubfieldBox.focus();
+	}
+}
+
+
+// -----------------------------------------------------------------------------
+function copyText(elementID)
+// -----------------------------------------------------------------------------
+// http://www.htmlgoodies.com/beyond/clipboard.html
+// ATENCION: IE only
+{
+	textHolder.innerText = document.getElementById(elementID + "Div").innerText;
+	Copied = textHolder.createTextRange();
+	Copied.execCommand("Copy");
+}
+
+
+// -----------------------------------------------------------------------------
+function makeVisible(elementId,flag)
+// Mostrar/ocultar descripción bibliográfica y campos de acceso.
+// TO-DO: en lugar de ocultar, cambiar el color del texto.
+// -----------------------------------------------------------------------------
+{
+	switch ( elementId ) {
+		case "Access" :
+			document.getElementById("tracings").style.visibility = (flag) ? "visible" : "hidden";
+			if ( document.getElementById("mainEntryHeading") ) {
+				document.getElementById("mainEntryHeading").style.visibility = (flag) ? "visible" : "hidden";
+			}
+			if ( document.getElementById("uniformTitle") ) {
+				document.getElementById("uniformTitle").style.visibility = (flag) ? "visible" : "hidden";
+			}
+			break;
+		case "Description" :
+			document.getElementById("Description").style.visibility = (flag) ? "visible" : "hidden";
+			break;
+	}
+}
+
+
+// -----------------------------------------------------------------------------
+function splitSubfields(flag) {
+// -----------------------------------------------------------------------------
+	var subfields = document.getElementById("marcDiv").getElementsByTagName("SPAN");
+	for (var i=0; i < subfields.length; i++) {
+		if ( "subfield" == subfields[i].className ) {
+			subfields[i].style.display = (flag) ? "block" : "inline";
+			subfields[i].parentNode.style.paddingLeft = (flag) ? "2em" : "0";
+			//subfields[i].parentNode.style.borderLeft = (flag) ? "1px solid #999" : "0";
+			subfields[i].style.textIndent = (flag) ? "-1.5em" : "0";
+		}
+	}
+}
+
+
+// -----------------------------------------------------------------------------
+function displayRecord(displayType)
+// -----------------------------------------------------------------------------
+{
+	event.srcElement.blur();
+	
+	if ( displayType.search(/etiq|breve/) != -1 ) {
+		
+		// ATENCION: si el registro no está grabado (f001 sin valor) ==> return
+		if ( callerWindowObject.document.getElementById("marcEditForm").f001.value.indexOf("[") != -1 ) {
+			document.getElementById("cartelMsg").innerHTML = "Para visualizar usando este estilo, debe antes grabar el registro.";
+			document.getElementById("cartel").style.display = "block";
+			document.getElementById("cartelBtn").style.display = "block";
+			return;
+		}
+		
+		
+		document.getElementById("cartelMsg").innerHTML = "Solicitando datos al servidor...";
+		document.getElementById("cartel").style.display = "block";
+		var database = callerWindowObject.g_activeDatabase.name;
+		var recordID = callerWindowObject.document.getElementById("marcEditForm").f001.value;
+		var tarea = ( displayType == "etiq" ) ? "ETIQUETADO" : "BREVE";
+		var myURL = callerWindowObject.SCRIPT_URL + "?IsisScript=catalis/xis/catalis.xis"
+			+ "&tarea=SEND_" + tarea
+			+ "&userid=" + "FG"
+			+ "&db=" + database
+			+ "&recordID=" + recordID
+			+ "&useModelessWindow=1";
+		frames.newHiddenIframe.location.href = myURL;
+	}
+	
+	var displayTypes = ["aacr","marc","etiq","breve"];
+
+	for (var i=0; i < displayTypes.length; i++) {
+		if ( displayType != displayTypes[i] ) {
+			document.getElementById(displayTypes[i] + "Div").style.display = "none";
+			document.getElementById(displayTypes[i] + "Toolbar").style.display = "none";
+			document.getElementById(displayTypes[i] + "Tab").className = "tab";
+		} else {
+			document.getElementById(displayTypes[i] + "Div").style.display = "block";
+			document.getElementById(displayTypes[i] + "Toolbar").style.display = "block";
+			document.getElementById(displayTypes[i] + "Tab").className += " activeTab";
+		}
+	}
+
+	// Deshabilitamos links internos (pensados para el OPAC)
+	var linksArray = document.getElementById(displayType + "Div").getElementsByTagName("a");
+	for (var i=0; i < linksArray.length; i++) {
+		if ( linksArray[i].href.indexOf("IsisScript") > 0 ) {
+			linksArray[i].onclick = function() {return false};
+		}
+	}
+	
+	callerWindowObject.updateDialogHeight(window);
+}
+
+//------------------------------------------------------------------------------
+function init()
+//------------------------------------------------------------------------------
+{
+	//window.onblur = setFocus;
+	document.onkeydown = function(evt) {
+		var evt = (evt) ? evt : window.event;
+		if ( evt.keyCode == 27 ) {
+			window.returnValue = "";
+			window.close();
+		}
+	}
+	
+	document.getElementById("chkSubfieldSplit").onclick = function() {
+		splitSubfields(this.checked);
+	}
+	
+	document.getElementById("chkDescription").onclick = function() {
+		makeVisible(this.id.substr(3),this.checked);
+	}
+	
+	document.getElementById("chkAccess").onclick = function() {
+		makeVisible(this.id.substr(3),this.checked);
+	}
+	
+	document.getElementById("btnClose").onclick = function() {
+		window.returnValue = "";
+		window.close();
+	}
+	
+	document.getElementById("btnUpdate").onclick = function() {
+		this.blur();
+		callerWindowObject.viewRecord();
+	}
+	
+	document.getElementById("aacrTab").onclick = function() {
+		displayRecord('aacr');
+	}
+	
+	document.getElementById("etiqTab").onclick = function() {
+		displayRecord('etiq');
+	}
+	
+	document.getElementById("breveTab").onclick = function() {
+		displayRecord('breve');
+	}
+	
+	document.getElementById("marcTab").onclick = function() {
+		displayRecord('marc');
+	}
+	
+	document.getElementById("showHiddenData").onclick = function() {
+		// completar
+	}
+	
+	window.focus();
+}
+
+window.onload = init;
+window.onunload = setFocus;
+</script>
+
+<style type="text/css">
+body {
+	margin: 4px;
+	background: #C9C7BA; /*#F3F3F3*/ /*#FEFEF0*/
+}
+
+#aacrDiv {
+	background: #FEFEF0; /*#FFF8DC*/
+	border: 1px solid #666;
+	border-top-width: 0;
+	padding: 1em 1.5em 1.5em 1.5em;
+	width: 100%; /* necesario! */
+}
+
+#marcDiv {
+	border: 1px solid #666;
+	border-top-width: 0;
+	background: #FEFEF0; /*#FFF8DC*/
+	padding: 6px 6px;
+	font-family: verdana;
+	font-size: 13px;
+	width: 100%;
+	/*margin-top: 2px;*/
+	display: none;
+}
+
+#etiqDiv {
+	border: 1px solid #666;
+	border-top-width: 0;
+	background: #F6F6F6; /*#FED*/ /*#FFF8DC*/
+	padding: 0;
+	font-family: verdana;
+	font-size: 14px;
+	width: 100%;
+	/*margin-top: 2px;*/
+	display: none;
+}
+
+#breveDiv {
+	border: 1px solid #666;
+	border-top-width: 0;
+	background: #FCFCFC; /*#FED*/ /*#FFF8DC*/
+	padding-bottom: 1em;
+	font-family: verdana;
+	font-size: 14px;
+	width: 100%;
+	/*margin-top: 2px;*/
+	display: none;
+}
+
+textarea#textHolder, iframe#newHiddenIframe {
+	display: none;
+}
+
+#marcToolbar {
+	background: #FED;
+	margin: -1px 0 0 0;
+	padding: 0 10px 2px 0;
+	border: 1px solid #666;
+	font-family: verdana;
+	font-size: 11px;
+	display: none;
+}
+
+#aacrToolbar {
+	background: #FED;
+	margin: -1px 0 0 0;
+	padding: 0 10px 2px 0;
+	border: 1px solid #666;
+	font-family: verdana;
+	font-size: 11px;
+}
+
+#etiqToolbar {
+	background: #FED;
+	margin: -1px 0 0 0;
+	padding: 0 10px 2px 0;
+	border: 1px solid #666;
+	font-family: verdana;
+	font-size: 11px;
+	display: none;
+}
+
+#breveToolbar {
+	background: #FED;
+	margin: -1px 0 0 0;
+	padding: 0 10px 2px 0;
+	border: 1px solid #666;
+	font-family: verdana;
+	font-size: 11px;
+	display: none;
+}
+
+div#tabs {
+	font-weight: bold;
+	font-size: 13px;
+	margin-top: 6px;
+	/*position: relative;*/
+	/*padding: 3px 6px;*/
+}
+
+button#aacrTab {
+	width: 80px;
+	font-weight: bold;
+}
+
+button#etiqTab {
+	width: 102px;
+	font-weight: bold;
+}
+
+button#breveTab {
+	width: 80px;
+	font-weight: bold;
+}
+
+button#marcTab {
+	width: 80px;
+	font-weight: bold;
+}
+
+button#btnUpdate {
+	position: absolute;
+	right: 68px;
+	margin-bottom: 3px;
+	display: none;
+}
+
+button#btnClose {
+	margin-bottom: 3px;
+	position: absolute;
+	right: 0px;
+	display: none;
+}
+
+a {
+	color: #009;
+}
+
+div#cartel {
+	width: 420px;
+	height: 90px;
+	background: #A07C60;
+	color: #FED;
+	font-size: 13px;
+	font-weight: bold;
+	position: absolute;
+	top: 40px;
+	left: 90px;
+	z-index: 1000;
+	display: none;
+}
+div#cartelHead {
+	background: #400000;
+	color: #FED;
+	padding: 3px 3px 3px 10px;
+	font-family: georgia;
+	font-size: 18px;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- Container para los elementos visibles. ATENCION: en IE 5.5 este div altera notablemente el valor de objWindow.document.body.scrollHeight, e impide que la altura de la ventana se ajuste correctamente -->
+<!--div style="position: absolute;"-->
+
+	<!-- TABS -->
+	<div id="tabs">
+		&nbsp;
+		<button id="aacrTab" class="tab activeTab" accesskey="A"><u>A</u>ACR2</button>
+		<button id="marcTab" class="tab" accesskey="M"><u>M</u>ARC</button>
+		<button id="etiqTab" class="tab" accesskey="E"><u>E</u>tiquetado</button>
+		<button id="breveTab" class="tab" accesskey="B"><u>B</u>reve</button>
+		
+		<!-- Botón que permite mostrar el iframe oculto para analizar su contenido -->
+		<button id="showHiddenData" tabindex="-1" accesskey="*" style="display: none;">*</button>
+		
+		<button id="btnUpdate" class="marcEditButton" title="Actualizar el contenido de esta ventana, en base a los datos del formulario">Actualizar</button>
+		<button id="btnClose" class="marcEditButton" title="Cerrar esta ventanita">Cerrar</button>
+	</div>
+	
+	<!-- AACR TOOLBAR -->
+	<div id="aacrToolbar" align="right">
+		<input id="chkDescription" type="checkbox" checked="checked"><label for="chkDescription">Descripción</label>
+		&nbsp;
+		<input id="chkAccess" type="checkbox" checked="checked"><label for="chkAccess">Puntos de acceso</label>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="#" onclick="copyText('aacr')" title="Puede copiar el texto de la ficha para luego pegarlo, p.ej. en un procesador de textos">Copiar</a>
+	</div>
+	
+	<!-- MARC TOOLBAR -->
+	<div id="marcToolbar" align="right">
+		<input id="chkSubfieldSplit" type="checkbox"><label for="chkSubfieldSplit">Separar subcampos</label>
+		&nbsp;&nbsp;&nbsp;
+		<a href="#" onclick="copyText('marc')" title="Puede copiar la lista de campos para luego pegarla, p.ej., en un procesador de textos">Copiar</a>
+	</div>
+	
+	<!-- ETIQ TOOLBAR -->
+	<div id="etiqToolbar" align="right">
+		<!-- nada por ahora -->
+	</div>
+	
+	<!-- BREVE TOOLBAR -->
+	<div id="breveToolbar" align="right">
+		<!-- nada por ahora -->
+	</div>
+	
+	<!-- DIVs para alojar el display del registro -->
+	<div id="aacrDiv"><!-- container para la ficha --></div>
+	<div id="marcDiv"><!-- container para el display marc-tagged --></div>
+	<div id="etiqDiv"><!-- container para el display etiquetado --></div>
+	<div id="breveDiv"><!-- container para el display breve --></div>
+
+<!--/div-->
+
+
+<!-- TEXTAREA auxiliar para poder copiar texto en el clipboard -->
+<textarea id="textHolder"></textarea>
+
+<!-- IFRAME oculto para recibir datos del servidor -->
+<iframe id="newHiddenIframe" name="newHiddenIframe"></iframe>
+
+<!-- Cartel para mensajes -->
+<div id="cartel" style="border-width: 1px; border-style: solid; border-top-color: #A07C60; border-right-color: #333; border-bottom-color: #333; border-left-color: #A07C60;">
+	<div style="border-width: 1px; border-style: solid; border-top-color: #FED; border-right-color: #805C40; border-bottom-color: #805C40; border-left-color: #FED; height: 100%;">
+		<div id="cartelHead">Catalis</div>
+		<div style="padding: 10px 15px 15px 15px;">
+			<div id="cartelMsg"></div>
+			<div align="center" style="margin-top: 12px;">
+				<button id="cartelBtn" class="marcEditButton" style="display: none;" accesskey="C"><u>C</u>errar</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script language="JavaScript" type="text/javascript">
+	document.getElementById("cartelBtn").onclick = function() {
+		this.style.display = "none";
+		document.getElementById("cartel").style.display = "none";
+	};
+</script>
+
+
+</body>
+</html>

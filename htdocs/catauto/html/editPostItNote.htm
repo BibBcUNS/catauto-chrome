@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="pragma" content="no-cache">
+<title>Anotaciones</title>
+<link rel="stylesheet" type="text/css" href="../css/catalis.css">
+<!--script language="JavaScript" type="text/javascript" src="../js/catalis.js"></script-->
+
+<script language="JavaScript" type="text/javascript">
+//--------------------------------------------------------
+function handleOK()
+//--------------------------------------------------------
+{
+	var notes = "";
+	var description = document.getElementById("postItNoteDescription").value.replace(/\^/g,"_ALT94_");
+	var access = document.getElementById("postItNoteAccess").value.replace(/\^/g,"_ALT94_");
+	var subject = document.getElementById("postItNoteSubject").value.replace(/\^/g,"_ALT94_");
+	var other = document.getElementById("postItNoteOther").value.replace(/\^/g,"_ALT94_");
+	notes += ( description != "" ) ? "^d" + description : "";
+	notes += ( access != "" ) ? "^a" + access : "";
+	notes += ( subject != "" ) ? "^s" + subject : "";
+	notes += ( other != "" ) ? "^o" + other : "";
+	window.returnValue = notes;
+	window.close();
+}
+
+//--------------------------------------------------------
+function handleCancel()
+//--------------------------------------------------------
+{
+	window.close();
+}
+
+//--------------------------------------------------------
+function init()
+//--------------------------------------------------------
+{
+	window.returnValue = null;
+
+	// Event handlers
+	document.onkeydown = function(evt) {
+		var evt = (evt) ? evt : window.event;
+		if ( evt.keyCode == 27 ) {
+			handleCancel();
+		}
+	}
+	document.getElementById("btnOK").onclick = handleOK;
+	document.getElementById("btnCancel").onclick = handleCancel;
+	document.getElementById("removeDescription").onclick = function() {
+		document.getElementById("postItNoteDescription").value = "";
+		this.blur();
+	}
+	
+	document.getElementById("removeAccess").onclick = function() {
+		document.getElementById("postItNoteAccess").value = "";
+		this.blur();
+	}
+	document.getElementById("removeSubject").onclick = function() {
+		document.getElementById("postItNoteSubject").value = "";
+		this.blur();
+	}
+	document.getElementById("removeOther").onclick = function() {
+		document.getElementById("postItNoteOther").value = "";
+		this.blur();
+	}
+	
+	var postItNote = window.dialogArguments;
+	if ( postItNote.search(/\^/) == -1 ) {
+		document.getElementById("postItNoteOther").value = postItNote;
+	} 
+	else {
+		var notas = postItNote.split(/\^/);
+		var whichNote = "";
+		for (var i=0; i < notas.length; i++) {
+			if ( "d" == notas[i].substr(0,1) )
+				whichNote = "Description";
+			else if ( "a" == notas[i].substr(0,1) )
+				whichNote = "Access";
+			else if ( "s" == notas[i].substr(0,1) )
+				whichNote = "Subject";
+			else if ( "o" == notas[i].substr(0,1) )
+				whichNote = "Other";
+				
+			document.getElementById("postItNote" + whichNote).value = notas[i].substr(1).replace(/_ALT94_/g,"^");
+		}
+	}
+	//document.getElementById("postItNote").value = postItNote;
+	document.getElementById("postItNoteDescription").focus();
+}
+
+window.onload = init;
+</script>
+
+<style type="text/css">
+	body, table {
+		font-family: verdana;
+		font-size: 13px;
+		background: #CDC7A9;
+	}
+	body {
+		margin: 3px;
+	}
+	textarea#postItNote {
+		width: 412px;
+		height: 232px;
+		font-family: verdana;
+		font-size: 13px;
+		font-weight: bold;
+		background: #FFA;
+	}
+	textarea {
+		width: 278px;
+		height: 140px;
+		font-family: verdana;
+		font-size: 13px;
+		font-weight: bold;
+		background: #FFA;
+	}
+	table#notes td {
+		position: relative; /* para poder posicionar los botones */
+		text-align: left;
+	}
+	button.removeNote {
+		width: 20px;
+		height: 18px;
+		margin-left: 1em;
+		margin-bottom: 2px;
+		line-height: 10px;
+		position: absolute;
+		right: 2px;
+		top: 0px;
+	}
+	span.noteLabel {
+		font-style: italic;
+		font-weight: bold;
+		padding-left: 4px;
+	}
+</style>
+
+</head>
+
+<body topmargin="1">
+
+<div style="padding-left: 8px;">
+	<b>Anotaciones sobre la catalogación</b>
+</div>
+
+<div align="center" style="margin: 3px 6px;">
+<table cellspacing="2" cellpadding="0" border="0">
+	<tr>
+		<td valign="top" style="font-size: 11px;">
+			<p style="width: 90%;">Anote aquí dificultades, dudas,
+			o comentarios que surjan durante su trabajo con este registro bibliográfico.
+			Las anotaciones son sólo para uso interno: 
+			no serán utilizadas en el OPAC ni al exportar el registro.</p>
+			
+			<!--p style="margin-top: -12px;"><b>Atención:</b> aquellas notas que &#8212;según AACR2&#8212;
+			sean aplicables a la obra catalogada, deben ir en los campos de notas
+			previstos por MARC.</p-->
+		</td>
+	</tr>
+	<tr>
+		<td valign="top">
+			<table id="notes" cellspacing="4" cellpadding="2" border="0">
+				<tr>
+					
+            <td> 
+              <!--textarea id="postItNote"></textarea-->
+              <span class="noteLabel">Descripción</span> <button id="removeDescription" class="marcEditButton removeNote" tabindex="2" title="Borrar esta anotación">x</button>
+              <br> <textarea id="postItNoteDescription"></textarea> </td>
+					
+            <td> <span class="noteLabel">Puntos de acceso</span> <button id="removeAccess" class="marcEditButton removeNote" tabindex="2" title="Borrar esta anotación">x</button>
+              <br> <textarea id="postItNoteAccess"></textarea> </td>
+				</tr>
+				<tr>
+					
+            <td> <span class="noteLabel">Análisis temático</span> <button id="removeSubject" class="marcEditButton removeNote" tabindex="2" title="Borrar esta anotación">x</button>
+              <br> <textarea id="postItNoteSubject"></textarea> </td>
+					
+            <td> <span class="noteLabel">Otros datos</span> <button id="removeOther" class="marcEditButton removeNote" tabindex="2" title="Borrar esta anotación">x</button>
+              <br> <textarea id="postItNoteOther"></textarea> </td>
+				</tr>
+			</table>
+			<!--a id="removeNote" href="#" tabindex="2">Borrar anotaciones</a-->
+		</td>
+		<!--td width="120" valign="top" style="font-size: 11px;">
+			<p>Utilice este espacio para anotar cualquier dificultad, duda,
+			o comentario que surja durante su trabajo con este registro bibliográfico.</p> 
+			
+			<p style="margin-top: -12px;">Las anotaciones ingresadas aquí son sólo para uso interno: 
+			no serán utilizadas en el OPAC ni al exportar el registro.</p>
+			
+			<!--p style="margin-top: -12px;"><b>Atención:</b> aquellas notas que &#8212;según AACR2&#8212;
+			sean aplicables a la obra catalogada, deben ir en los campos de notas
+			previstos por MARC.</p-->
+		<!--/td-->
+	</tr>
+</table>
+</div>
+
+<div align="center" style="margin-top: 6px">
+	<button id="btnOK" class="marcEditButton" accesskey="A"><u>A</u>ceptar</button>
+	<button id="btnCancel" class="marcEditButton" accesskey="C"><u>C</u>ancelar</button>
+</div>
+
+
+</body>
+</html>

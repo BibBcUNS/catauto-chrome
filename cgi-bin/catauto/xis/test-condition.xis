@@ -1,0 +1,177 @@
+<!-- ==========================================================
+	Catalis - test-condition.xis
+
+	Detecta registros que satisfacen una condición booleana.
+	
+	ATENCION: ¿es posible que al permitir la ejecución casi
+	arbitraria de formatos ISIS, esto represente un problema de
+	seguridad? Como una precaución algo grosera, podemos rechazar
+	condiciones que incluyan el string 'system'.
+	
+	(c)2003-2005  Fernando J. Gómez - CONICET - INMABB
+	Véase el archivo LICENCIA.TXT incluido en la distribución de Catalis
+	=========================================================== -->
+
+
+<display><htmlpft><pft>cat('HEAD-RECORD-LIST.HTM')</pft></htmlpft></display>
+
+<cgitable><pft>
+	'2070 condition'/   /* condición booleana a testear */
+	'2071 gr'/          /* grupo repetible */
+	'2072 maxMFN'/      /* máximo MFN */
+</pft></cgitable>
+
+
+<!-- v2070: la condición booleana -->
+<field action="replace" tag="2070"><pft>replace(v2070,'\','')</pft></field>
+
+<!-- Un intento por impedir ejecución de comandos en el sistema -->
+<field action="replace" tag="2070"><pft>replace(v2070,'system','[ATENCIÓN: system: término no permitido]')</pft></field>
+
+<!-- Hasta qué MFN procesar. ATENCION: revisar esta cota -->
+<field action="replace" tag="2072"><pft>v2072,"1000"n2072</pft></field>
+
+<!-- Verificamos la sintaxis del formato -->
+<field action="replace" tag="1011">
+<pft type="check">
+
+   <pft>'if ',v2070,' then , fi'</pft>
+</pft>
+</field>
+
+<flow action="jump"><pft>if val(v1011) = 0 then 'PFT_OK' fi</pft></flow>
+
+<!-- En caso de error, nos vamos -->
+<display><htmlpft>
+	<div style="font-weight: bold; font-family: verdana; font-size: 14px; text-align: center; padding: 1em;">
+		[pft]v2070[/pft]
+		<hr>
+		Hay un error de formato. Revise la condición usada.
+	</div>
+</htmlpft></display>
+<flow action=jump>END</flow>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>PFT_OK</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<do task="mfnrange">
+	<parm name="db">BIBLIO</parm>
+	<!--parm name="count"><pft>v2072</pft></parm-->
+	<define>1001 Isis_Current</define>
+	<proc>a1010~'HIT'~</proc>
+	<loop>
+		<field action="import" tag="list">1010,2070,2071</field>
+		<flow action="jump"><pft> <!-- Se cumple la condición: salto a HIT -->
+			<pft>
+				"("d2071,
+					'if ',v2070,' then ',v1010,', break, fi',
+				")"d2071
+			</pft>
+		</pft></flow>
+		<flow action="skip">Next</flow> <!-- No se cumple: pasamos al siguiente registro -->
+		
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<label>HIT</label>
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<list action="load" type="list"><pft>'^m',mfn</pft></list>
+	</loop>
+</do>
+
+<!-- Contamos los hits -->
+<do task="list">
+	<define>1 Isis_Item</define>
+	<define>1002 Isis_Total</define>
+	<parm name="count">1</parm>
+	<loop><!-- set v1002 --></loop>
+</do>
+
+<!-- Encabezamiento para la página de resultados -->
+<display><htmlpft>
+	<table width="100%" cellspacing="0" cellpadding="3" align="center" style="font-family: verdana; font-size: 13px; margin-bottom: 1px; table-layout: fixed;" border="0">
+		<tr>
+			<td style="text-align: right; border-top: 1px solid brown; background: #EEDFCC; width: 110px;">
+				Su búsqueda:
+			</td>
+			<td style="border-top: 1px solid brown; background: #EEDFCC; /*color: white;*/ padding-left: 6px; font-weight: bold;">
+				[pft]v2070, if v2071 = 'On' then ' <span style="font-weight: normal;">(grupo repetible)</span>' fi[/pft]
+			</td>
+		</tr>
+		<tr>
+			[pft]if val(v1002) = 0 then[/pft]
+				<td colspan="2" style="font-size: 14px; font-weight: bold; border-top: 1px solid brown; border-bottom: 1px solid brown; padding: 1em; background: #fed;">
+					No se encontraron registros.
+				</td>
+			[pft]else if val(v1002) > 1500 then[/pft]
+				<td colspan="2" style="font-size: 14px; font-weight: bold; border-top: 1px solid brown; border-bottom: 1px solid brown; padding: 1em; background: #fed;">
+					Se encontraron más de 1500 registros. Por favor acote su búsqueda.
+				</td>
+			[pft]else[/pft]
+				<td style="width: 110px; text-align: right; border-top: 1px solid brown; border-bottom: 1px solid brown; background: #EEDFCC;">
+					Mostrando:
+				</td>
+				<td style="background: #EEDFCC; /*color: white;*/ border-top: 1px solid brown; border-bottom: 1px solid brown; padding-left: 6px;">
+					[pft]
+						'<b>',v2006,'</b>..<b>',f(rmin(v1002,x1,f(val(v2006) + 20 - 1,1,0)),1,0),
+						'</b> de <b>', v1002 '</b> registro', if val(v1002) > 1 then 's' fi,
+					[/pft]
+				</td>
+			[pft]fi,fi[/pft]
+		</tr>
+	</table>
+</htmlpft></display>
+
+<flow action="jump"><pft>if val(v1002) > 1500 then 'END' fi</pft></flow>
+
+<display>
+	<script language="JavaScript" type="text/javascript">
+		top.resultSet = new Array(); // Borramos los datos de la búsqueda previa
+	</script>
+</display>
+
+<display>
+	<table id="resultTable" width="100%" cellspacing="0" cellpadding="6" border="0">
+</display>
+
+
+<do task="list">
+	<define>1 Isis_Item</define>
+	<define>1001 Isis_Current</define>
+	<define>1002 Isis_Total</define>
+	<loop>
+		<field action="import" tag="list">2000,2099,2104,6001</field>
+		<do task="mfnrange">
+			<parm name="db">BIBLIO</parm>
+			<parm name="from"><pft>v1^m</pft></parm>
+			<parm name="count">1</parm>
+			<loop>
+				<field action="import" tag="list">1001,1002,2000,2104,2099,6001</field>
+				<display><pft>
+					replace(
+							s(,@WH.PFT,),
+							'cid=',
+							s('tarea=EDITAR_REG',
+								'&mfn=',mfn(1),
+							 	'&&userid=',v2002,
+							 	'&&db=',v2104,
+							  '" onclick=top.viewRecordDetails(null,"',v001,'",top.g_RecordDisplayStyle);return(false)',
+							  ' target="hiddenIFRAME')
+					),
+				</pft></display>
+				
+				<display><htmlpft>
+					<script language="JavaScript" type="text/javascript">
+						top.resultSet.push("[pft]v001[/pft]");
+					</script>
+				</htmlpft></display>
+			</loop>
+		</do>
+	</loop>
+</do>
+
+<display>
+	</table>
+</display>
+
+

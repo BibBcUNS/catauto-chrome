@@ -1,0 +1,125 @@
+<!--
+	=======================================================================
+	Catalis - mfnrange.xis
+	
+	Presenta la lista de registros ordenados por MFN, a partir del 
+	MFN indicado.
+	
+	El target es el iframe para resultados de búsquedas.
+	
+	(c) 2003-2005  Fernando J. Gómez - CONICET - INMABB
+	Véase el archivo LICENCIA.TXT incluido en la distribución de Catalis
+	=======================================================================
+-->
+
+<display><htmlpft><pft>cat('HEAD-RECORD-LIST.HTM')</pft></htmlpft></display>
+
+<cgitable><pft>
+	'4000 mfn'/
+	'2006 from'/
+	
+</pft></cgitable>
+
+<field action="replace" tag="2006"><pft>
+	if a(v2006) then
+		f( rmax( f( val(v4000)-0,1,0 ),x1,'1' ),1,0 ),
+	fi
+</pft></field>
+
+
+<!-- v2012: máximo MFN en la base -->
+<field action="replace" tag="2012"><pft>ref(['BIBLIO']1,f(maxmfn-1,1,0))</pft></field>
+
+<display><htmlpft>
+	<div id="headerRecordList">
+		Listado por MFN, a partir del #[pft]v2006[/pft]
+	</div>
+	[pft]if val(v4000) > val(v2012) then [/pft]
+		<div class="mensaje">Atención: el máximo MFN en la base es [pft]v2012[/pft]</div>
+	[pft]fi[/pft]
+</htmlpft></display>
+
+<flow action="jump"><pft>if val(v4000) > val(v2012) then 'END' fi</pft></flow>
+
+<display>
+	<script language="JavaScript" type="text/javascript">
+		top.resultSet = new Array(); // Borramos los datos de la búsqueda previa
+	</script>
+</display>
+
+<display>
+	<table id="resultTable" width="100%" cellspacing="0" cellpadding="6" border="0">
+</display>
+
+<do task="mfnrange">
+	<parm name="db">BIBLIO</parm>
+	<parm name="from"><pft>v2006</pft></parm>
+	<!--parm name="to"><pft>if v2010 : '-' then v2011[2] fi</pft></parm-->
+	<parm name="count">20</parm>
+	<define>1001 Isis_Current</define>
+	<loop>
+		<field action="import" tag="list">2000,2002,2104,6001</field>  
+		
+		<!-- Control number instead of counter -->
+		<!--field action="replace" tag="1001"><pft>v001</pft></field-->
+		
+		<!-- v6001^t: mostrar Mención de responsabilidad -->
+		<!-- v6001^g: mostrar DGM -->
+		<!-- v6001^u: SCRIPT_URL -->
+		<!--field action="replace" tag="6001"><pft>'^g1^s1^t1^u',v6001^u</pft></field-->
+	
+		
+		<!--field action="replace" tag="1"><pft>( if v1[1]=v6005^t then v6005^*, break, fi )</pft></field-->
+		<!--parm name="buffersize">100000</parm-->
+		<display><pft>
+			/* Una vez más, WH.PFT adaptado de manera... ¿cómo decirlo? */
+			replace(
+					s(,@WH.PFT,),
+					'cid=',
+					s('tarea=EDITAR_REG',
+					  '&mfn=',mfn(1),
+					  '&userid=',v2002,
+					  '&db=',v2104,
+					  '" onclick=top.viewRecordDetails(null,"',v001,'",top.g_RecordDisplayStyle);return(false)',
+					  ' target="hiddenIFRAME')
+			),
+		</pft></display>
+		
+		<display><htmlpft>
+			<script language="JavaScript" type="text/javascript">
+				top.resultSet.push("[pft]v001[/pft]");
+			</script>
+		</htmlpft></display>
+	</loop>
+</do>
+
+<display><htmlpft>
+	</table>
+	<div style="margin: 10px; padding: 4px; border: 0px solid #999; text-align: center;">
+
+	<!-- Botón "ANTERIORES" -->
+	<form action="[pft]v6001^u[/pft]" method="get" style="display: inline;">
+		<input type="hidden" name="IsisScript" value="[pft]v2000[/pft]">
+		<input type="hidden" name="userid" value="[pft]v2002[/pft]">
+		<input type="hidden" name="tarea" value="MFN_RANGE">
+		<input type="hidden" name="db" value="[pft]v2104[/pft]">
+		<input type="hidden" name="from" value="[pft]f(rmax(f(val(v2006)-20,1,0),x1,'1'),1,0)[/pft]">
+		<button class="resultsButton" onclick="this.form.submit()"
+		        [pft]if val(v2006) = 1 then ' disabled="true" ' fi[/pft]
+		        >< Anteriores></button>
+	</form>
+
+	<!-- Botón "SIGUIENTES" -->
+	<form action="[pft]v6001^u[/pft]" method="get" style="display: inline;">
+		<input type="hidden" name="IsisScript" value="[pft]v2000[/pft]">
+		<input type="hidden" name="userid" value="[pft]v2002[/pft]">
+		<input type="hidden" name="tarea" value="MFN_RANGE">
+		<input type="hidden" name="db" value="[pft]v2104[/pft]">
+		<input type="hidden" name="from" value="[pft]f(val(v2006)+20,1,0)[/pft]">
+		<button class="resultsButton" onclick="this.form.submit()"
+		        [pft]if val(v2006) >= val(v2012) - 20 then ' disabled="true" ' fi[/pft]
+		        >Siguientes ></button>
+	</form>
+	
+	</div>
+</htmlpft></display>

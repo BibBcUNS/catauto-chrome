@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="pragma" content="no-cache">
+<title>Edición avanzada</title>
+<link rel="stylesheet" type="text/css" href="../css/catalis.css">
+
+<script language="JavaScript" type="text/javascript">
+	//------------------------------------------------------------------------------
+	function handleCancel()
+	// TO-DO: verificar si hubo modificaciones en los datos
+	//------------------------------------------------------------------------------
+	{
+		window.close();
+	}
+	
+	
+	//------------------------------------------------------------------------------
+	function handleOK()
+	//------------------------------------------------------------------------------
+	{
+		var newDataFields = document.getElementById("dataFields").value;
+		if ( newDataFields.search(UNK) != -1 ) {
+			alert("No se puede continuar mientras queden etiquetas inválidas.");
+		} else {
+			window.returnValue = newDataFields;
+			window.close();
+		}
+	}
+	
+	
+	//------------------------------------------------------------------------------
+	function rawEditHelp()
+	//------------------------------------------------------------------------------
+	{
+		//var oPopup = dialogWindow.createPopup();
+		//oPopup.show(10,10,10,10);
+		alert("Acá irá algún texto de ayuda");
+	}
+	
+	
+	//------------------------------------------------------------------------------
+	function init()
+	//------------------------------------------------------------------------------
+	{
+		window.returnValue = null;
+		var dataFields = window.dialogArguments.dataFields;
+		var aacrParsedData = window.dialogArguments.aacrParsedData;
+		UNK = "\u2666";
+		
+		var message;
+		if ( aacrParsedData ) {
+			message = "Estos son los datos extraídos de su asiento AACR2. Antes de continuar, debe asignar valores válidos a las etiquetas que no pudieron determinarse automáticamente.";
+		} else {
+			message = "<b>ATENCIÓN</b>: modifique el registro con cuidado, y sólo si sabe lo que está haciendo.";
+		}
+		document.getElementById("message").innerHTML = message;
+		
+		var textareaHeight = ( screen.width == 1024 ) ? "430px" : "322px";
+		document.getElementById("dataFields").style.height = textareaHeight;
+		document.getElementById("dataFields").value = dataFields;
+		
+		// Event handlers
+		document.onkeydown = function(evt) {
+			var evt = (evt) ? evt : window.event;
+			if ( evt.keyCode == 27 ) {
+				handleCancel();
+			}
+		}
+		document.getElementById("btnOK").onclick = handleOK;
+		document.getElementById("btnCancel").onclick = handleCancel;
+		if ( aacrParsedData ) {
+			document.getElementById("dataFields").onkeydown = function(evt) {
+				var evt = (evt) ? evt : window.event;
+				if ( evt.keyCode == 114 ) alert();  // ???
+			}
+		}
+	}
+	
+	window.onload = init;
+</script>
+
+<style type="text/css">
+	body {
+		margin: 6px 10px;
+		background: #CDC7A9;
+		font-size: 13px;
+	}
+	textarea {
+		/*
+		scrollbar-face-color: #666;
+		scrollbar-arrow-color: white;
+		scrollbar-track-color: #555;
+		scrollbar-shadow-color: '';
+		scrollbar-highlight-color: '';
+		scrollbar-3dlight-color: '';
+		scrollbar-darkshadow-Color: ''; 
+		*/
+	}
+	textarea#dataFields {
+		margin-top: 3px;
+		width: 100%;
+		background: rgb(15%,15%,15%); /*#ECFBEC*/ /*#444*/
+		color: #F0F0F0; /*#CF6*/
+		font-size: 16px;
+		font-weight: bold;
+		padding: 3px 6px;
+	}
+	div#message {
+		background: #FED;
+		padding: 2px 6px;
+		border: 1px solid black;
+	}
+</style>
+
+</head>
+
+<body>
+
+<div id="message"></div>
+
+<textarea id="dataFields"></textarea>
+
+<div align="center" style="margin-top: 12px">
+	<button id="btnOK" class="marcEditButton" accesskey="A"><u>A</u>ceptar</button>
+	<button id="btnCancel" class="marcEditButton" accesskey="C"><u>C</u>ancelar</button>
+</div>
+
+</body>
+</html>

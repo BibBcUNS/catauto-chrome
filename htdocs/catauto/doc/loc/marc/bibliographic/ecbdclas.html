@@ -1,0 +1,973 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html40/loose.dtd"><html><head>
+
+<title>Classification and Call Number Fields (05X-08X)</title><!-- base href="http://www.loc.gov/marc/bibliographic/ecbdclas.html" -->
+<meta content="This document contains the Classification and Call Number Fields (05X-08X) section of the MARC 21 Concise Bibliographic format which includes all related data elements and many examples." name="description">
+<meta content="MARC 21 Concise, Classification and Call Number Fields (05X-08X), bibliographic format" name="keywords">
+<link type="text/css" rel="stylesheet" href="../marcdoc.css">
+</head>
+
+<body bgcolor="#ffffff">
+<a name="top"></a>
+<hr><h1><em>MARC 21 Concise Bibliographic: <br>
+  Classification and Call Number Fields (05X-08X) </em></h1>
+<hr><p>Fields 050-08X fields contain classification and call numbers related
+to the item described in the bibliographic record.  Identification of
+the character sets used in encoding the bibliographic data is also
+provided for by a field in this group.</p><ul>
+<li><a href="#mrcb050">050 - LIBRARY OF CONGRESS CALL NUMBER</a>
+
+<small>(R)</small></li><li><a href="#mrcb051">051 - LIBRARY OF CONGRESS COPY, ISSUE, OFFPRINT
+STATEMENT</a>
+
+<small>(R)</small></li><li><a href="#mrcb052">052 - GEOGRAPHIC CLASSIFICATION</a>
+
+<small>(R)</small></li><li><a href="#mrcb055">055 - CLASSIFICATION NUMBERS ASSIGNED IN CANADA</a>
+
+<small>(R)</small></li><li><a href="#mrcb060">060 - NATIONAL LIBRARY OF MEDICINE CALL NUMBER</a>
+
+<small>(R)</small></li><li><a href="#mrcb061">061 - NATIONAL LIBRARY OF MEDICINE COPY STATEMENT</a>
+
+<small>(R)</small></li><li><a href="#mrcb066">066 - CHARACTER SETS PRESENT</a>
+
+<small>(NR)</small></li><li><a href="#mrcb070">070 - NATIONAL AGRICULTURAL LIBRARY CALL NUMBER</a>
+
+<small>(R)</small></li><li><a href="#mrcb071">071 - NATIONAL AGRICULTURAL LIBRARY COPY STATEMENT</a>
+
+<small>(R)</small></li><li><a href="#mrcb072">072 - SUBJECT CATEGORY CODE</a>
+
+<small>(R)</small></li><li><a href="#mrcb074">074 - GPO ITEM NUMBER</a>
+
+<small>(R)</small></li><li><a href="#mrcb080">080 - UNIVERSAL DECIMAL CLASSIFICATION NUMBER</a>
+
+<small>(R)</small></li><li><a href="#mrcb082">082 - DEWEY DECIMAL CLASSIFICATION NUMBER</a>
+
+<small>(R)</small></li><li><a href="#mrcb084">084 - OTHER CLASSIFICATION NUMBER</a>
+
+<small>(R)</small></li><li><a href="#mrcb086">086 - GOVERNMENT DOCUMENT CLASSIFICATION NUMBER</a>
+
+<small>(R)</small></li><li><a href="#mrcb088">088 - REPORT NUMBER</a>
+
+<small>(R)</small></li></ul>
+<p><u>Information for Translators and Other Users</u><br>
+Items highlighted in <font color="#ff0000">red</font> indicate changes made after
+the 2002 edition of the <em>MARC 21 Concise Formats</em> was published and are
+included in the 2003 printed edition of the <em>MARC 21 Concise Formats</em>.
+</p><hr><h2><a name="mrcb050">050 - LIBRARY OF CONGRESS CALL NUMBER
+<small>(R)</small></a>
+</h2>
+<p>A classification or call number that is taken from
+<em>Library of Congress Classification</em> or <em>LC Classification Additions and
+Changes.</em>  The brackets that customarily surround alternate class/call
+numbers are not carried in the MARC record; they may be generated based on the
+presence of repeated $a subfields.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Existence in LC collection<br>Indicates whether the item is in the LC
+collections.
+<ul>
+<li># - No information provided<br>A call number assigned by an organization other than
+LC.</li></ul>
+
+<ul>
+<li>0 - Item is in LC<br>May be used by organizations transcribing from LC copy
+on which
+the call number is neither enclosed within brackets nor preceded
+by a Maltese
+cross.</li></ul>
+
+<ul>
+<li>1 - Item is not in LC<br>May be used by organizations transcribing from LC copy
+on which
+the call number is enclosed within brackets or is preceded by a
+Maltese
+cross.  The brackets that customarily surround call numbers for
+items not in
+LC are not carried in the MARC record; they may be
+generated for display.</li></ul>
+</li><li>Second - Source of call number<br>A value that indicates whether the call number has been
+assigned by
+the Library of Congress or another organization.
+<ul>
+<li>0 - Assigned by LC<br>May be used by organizations transcribing from LC
+copy.</li></ul>
+
+<ul>
+<li>4 - Assigned by agency other than
+LC</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Classification number
+<small>(R)</small></li><li>$b - Item number
+<small>(NR)</small><br>Organizations that use the
+<em>Cutter-Sanborn
+Three-Figure
+Author Table</em> may conform to LC item number practice by
+applying
+<em>Subject Cataloging Manual: Shelflisting</em>
+procedures.</li><li>$3 - Materials specified
+<small>(NR)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>050</strong></td>
+<td valign="top"><br><strong>#4$a</strong>NB933.F44<strong>$b</strong>T6</td>
+</tr>
+<tr><td valign="top"><br><strong>050</strong></td>
+<td valign="top"><br><strong>10$a</strong>BJ1533.C4<strong>$b</strong>L49</td>
+</tr>
+<tr><td valign="top"><br><strong>050</strong></td>
+<td valign="top"><br><strong>00$a</strong>JK609<strong>$b</strong>.M2</td>
+</tr>
+<tr><td valign="top"><br><strong>050</strong></td>
+<td valign="top"><br><strong>00$a</strong>Z7164.N3<strong>$b</strong>L34 no. 9<strong>$a</strong>Z7165.R42<strong>$a</strong>HC517.R42</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb051">051 - LIBRARY OF CONGRESS COPY, ISSUE, OFFPRINT
+STATEMENT
+<small>(R)</small></a>
+</h2>
+<p>Information added to a bibliographic record by LC that relates
+to copies,
+issues, and/or offprints of the described item that are in its
+collections.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Classification number
+<small>(NR)</small></li><li>$b - Item number
+<small>(NR)</small></li><li>$c - Copy information
+<small>(NR)</small></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>051</strong></td>
+<td valign="top"><br><strong>##$a</strong>QE75<strong>$b</strong>.G4<strong>$c</strong>2d set.</td>
+</tr>
+<tr><td valign="top"><br><strong>051</strong></td>
+<td valign="top"><br><strong>##$a</strong>Microfilm<strong>$b</strong>3741 HV<strong>$c</strong>Microfilm.</td>
+</tr>
+<tr><td valign="top"><br><strong>051</strong></td>
+<td valign="top"><br><strong>##$a</strong>RC310<strong>$b</strong>.W59<strong>$c</strong>Offprint. Cover dated 1947.</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb052">052 - GEOGRAPHIC CLASSIFICATION
+<small>(R)</small></a>
+</h2>
+<p>A code for the main geographic area and any applicable subareas
+associated with the item.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Code source
+<ul>
+<li># - Library of Congress Classification</li></ul>
+
+<ul>
+<li>1 - U.S. Dept. of Defense Classification</li></ul>
+
+<ul>
+<li>7 - Source specified in subfield $2</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Geographic classification area code
+<small>(NR)</small><br>A four- to six-character numeric code for the main
+geographic area
+associated with the item.  The code is derived from the LC class
+G schedule
+by dropping the letter G.</li><li>$b - Geographic classification subarea code
+<small>(R)</small><br>An alphanumeric code, assigned from expanded Cutter lists,
+that
+represents a subarea of the geographic area coded in subfield $a.
+Cutter
+numbers for places in the U.S. are published in
+<em>Geographic
+Cutters</em> that is maintained by the Library of
+Congress.</li><li>$d - Populated place name
+<small>(R)</small><br>May contain the name of the geographic area</li><li>$2 - Code source
+<small>(NR)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>052</strong></td>
+<td valign="top"><br><strong>##$a</strong>3810</td>
+</tr>
+<tr><td valign="top"><br><strong>052</strong></td>
+<td valign="top"><br><strong>1#$a</strong>BK</td>
+</tr>
+<tr><td valign="top"><br><strong>052</strong></td>
+<td valign="top"><br><strong>##$a</strong>4034<strong>$b</strong>R4<strong>$b</strong>R8</td>
+</tr>
+<tr><td valign="top"><br><strong>052</strong></td>
+<td valign="top"><br><strong>##$a</strong>4033<strong>$b</strong>F65</td>
+</tr>
+<tr><td valign="top"><br><strong>052</strong></td>
+<td valign="top"><br><strong>1#$a</strong>US<strong>$b</strong>51</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb055">055 - CLASSIFICATION NUMBERS ASSIGNED IN CANADA
+
+<small>(R)</small></a>
+</h2>
+<p>A classification or call number that is assigned by the National
+Library of
+Canada or a contributing Canadian library.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Existence in NLC collection<br>A value that indicates whether the item is in the NLC
+collections.
+<ul>
+<li># - Information not provided<br>A call/class number assigned by an organization other
+than
+NLC.</li></ul>
+
+<ul>
+<li>0 - Work held by NLC</li></ul>
+
+<ul>
+<li>1 - Work not held by
+NLC</li></ul>
+</li><li>Second - Type, completeness, source of
+class/call
+number<br>A value that indicates whether the number is a complete or
+incomplete
+LC number assigned by NLC or a contributing library, an LC-based
+number
+assigned by NLC or a contributing library, or a class/call number
+assigned by
+NLC or a contributing library from a classification scheme other
+than the LC,
+NLM (field 060), Universal Decimal (field 080), or Dewey (field
+082) schemes.
+<ul>
+<li>0 - LC-based call number assigned by
+NLC</li></ul>
+
+<ul>
+<li>1 - Complete LC class number assigned
+by
+NLC</li></ul>
+
+<ul>
+<li>2 - Incomplete LC class number assigned
+by
+NLC</li></ul>
+
+<ul>
+<li>3 - LC-based call number assigned by
+the
+contributing library</li></ul>
+
+<ul>
+<li>4 - Complete LC class number assigned
+by the
+contributing library</li></ul>
+
+<ul>
+<li>5 - Incomplete LC class number assigned
+by the
+contributing library</li></ul>
+
+<ul>
+<li>6 - Other call number assigned by
+NLC</li></ul>
+
+<ul>
+<li>7 - Other class number assigned by
+NLC</li></ul>
+
+<ul>
+<li>8 - Other call number assigned by the
+contributing library</li></ul>
+
+<ul>
+<li>9 - Other class number assigned by the
+contributing library</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Classification number
+<small>(NR)</small></li><li>$b - Item number
+<small>(NR)</small></li><li>$2 - Source of call/class number
+<small>(NR)</small><br>A MARC code that identifies the classification scheme
+used to
+assign the call/class number when the second indicator position
+contains
+value 6, 7, 8, or 9.  Code from: 
+<em><a href="../relators/relahome.html">MARC Code Lists
+for Relators, Sources, Description Conventions</a>
+.</em></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>055</strong></td>
+<td valign="top"><br><strong>#5$a</strong>HT154</td>
+</tr>
+<tr><td valign="top"><br><strong>055</strong></td>
+<td valign="top"><br><strong>01$a</strong>M1679.18</td>
+</tr>
+<tr><td valign="top"><br><strong>055</strong></td>
+<td valign="top"><br><strong>12$a</strong>TS800</td>
+</tr>
+<tr><td valign="top"><br><strong>055</strong></td>
+<td valign="top"><br><strong>00$a</strong>JK609<strong>$b</strong>M2</td>
+</tr>
+<tr><td valign="top"><br><strong>055</strong></td>
+<td valign="top"><br><strong>01$a</strong>M1679.18</td>
+</tr>
+<tr><td valign="top"><br><strong>055</strong></td>
+<td valign="top"><br><strong>#3$a</strong>DS598 S7<strong>$b</strong>.B34</td>
+</tr>
+<tr><td valign="top"><br><strong>055</strong></td>
+<td valign="top"><br><strong>18$a</strong>KF385 ZB5<strong>$b</strong>C6<strong>$2</strong>kfmod</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb060">060 - NATIONAL LIBRARY OF MEDICINE CALL NUMBER
+<small>(R)</small></a>
+</h2>
+<p>A classification or call number that is taken from
+<em>National
+Library of Medicine Classification</em> schedules QS-QZ and W or
+from
+<em>Library of Congress Classification</em> schedules as
+used by NLM
+for peripheral and related topics.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Existence in NLM collection
+<ul>
+<li># - No information provided<br>A call number assigned by an organization other than
+NLM.</li></ul>
+
+<ul>
+<li>0 - Item is in NLM</li></ul>
+
+<ul>
+<li>1 - Item is not in
+NLM</li></ul>
+</li><li>Second - Source of call number
+<ul>
+<li>0 - Assigned by NLM</li></ul>
+
+<ul>
+<li>4 - Assigned by agency other than
+NLM</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Classification number
+<small>(R)</small></li><li>$b - Item number
+<small>(NR)</small><br>NLM uses the
+<em>Cutter-Sanborn Three-Figure
+Author
+Table</em> and a special numbering scheme in classes W1 and W3
+to create
+item numbers.</li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>060</strong></td>
+<td valign="top"><br><strong>#4$a</strong>W1<strong>$b</strong>JO706M</td>
+</tr>
+<tr><td valign="top"><br><strong>060</strong></td>
+<td valign="top"><br><strong>00$a</strong>WM 270<strong>$b</strong>MP16 no. 4 1969</td>
+</tr>
+<tr><td valign="top"><br><strong>060</strong></td>
+<td valign="top"><br><strong>10$a</strong>WA 540 AA1<strong>$b</strong>B8p 1972</td>
+</tr>
+<tr><td valign="top"><br><strong>060</strong></td>
+<td valign="top"><br><strong>00$a</strong>W3<strong>$b</strong>NU36 no. 28 1993</td>
+</tr>
+<tr><td valign="top"><br><strong>060</strong></td>
+<td valign="top"><br><strong>00$a</strong>W1<strong>$b</strong>DE111AL v.4 pt.A 1990<strong>$a</strong>TP 248.2 D293b 1990</td>
+</tr>
+<tr><td valign="top"><br><strong>060</strong></td>
+<td valign="top"><br><strong>00$a</strong>KK1110<strong>$a</strong>WD 320</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb061">061 - NATIONAL LIBRARY OF MEDICINE COPY STATEMENT
+<small>(R)</small></a>
+</h2>
+<p>Information added to a bibliographic record by NLM that relates
+to second
+copies or sets of the described item that are in its
+collections.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Classification number
+<small>(R)</small></li><li>$b - Item number
+<small>(NR)</small></li><li>$c - Copy information
+<small>(NR)</small></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb066">066 - CHARACTER SETS PRESENT
+<small>(NR)</small></a>
+</h2>
+<p>Information that indicates that the character set present in a
+record is
+other than ISO 10646 (or Unicode).  A detailed description of the
+standard escape sequences used in MARC records is provided in
+<em><a href="http://www.loc.gov/marc/specifications/">MARC 21
+Specifications for Record Structure, Character Sets, and Exchange
+Media</a>
+.</em>
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Primary G0 character set
+<small>(NR)</small><br>The Intermediate and Final characters of the escape
+sequence that
+designates and invokes the default G0 character
+set.</li><li>$b - Primary G1 character set
+<small>(NR)</small><br>The Intermediate and Final characters of the escape
+sequence that designates and invokes the default G1 character
+set.</li><li>$c - Alternate G0 or G1 character set
+<small>(R)</small><br>The Intermediate and Final characters of each escape
+sequence that
+designates an alternate G0 or G1 character set used in a
+record.</li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>066</strong></td>
+<td valign="top"><br><strong>##$a</strong>(N</td>
+</tr>
+<tr><td valign="top"><br><strong>066</strong></td>
+<td valign="top"><br><strong>##$b</strong>$)1</td>
+</tr>
+<tr><td valign="top"><br><strong>066</strong></td>
+<td valign="top"><br><strong>##$a</strong>$1</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb070">070 - NATIONAL AGRICULTURAL LIBRARY CALL NUMBER
+<small>(R)</small></a>
+</h2>
+<p>A classification or call number that is assigned by the National
+Agricultural Library.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Existence in NAL collection
+<ul>
+<li>0 - Item is in NAL</li></ul>
+
+<ul>
+<li>1 - Item is not in
+NAL</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Classification number
+<small>(R)</small></li><li>$b - Item number
+<small>(NR)</small></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>070</strong></td>
+<td valign="top"><br><strong>0#$a</strong>105.2<strong>$b</strong>W122</td>
+</tr>
+<tr><td valign="top"><br><strong>070</strong></td>
+<td valign="top"><br><strong>1#$a</strong>HD281.I5<strong>$b</strong>no. 5</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb071">071 - NATIONAL AGRICULTURAL LIBRARY COPY STATEMENT
+<small>(R)</small></a>
+</h2>
+<p>Information added to a bibliographic record by NAL that relates
+to second
+copies or sets of the described item that are in its
+collections.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Classification number
+<small>(R)</small></li><li>$b - Item number
+<small>(NR)</small></li><li>$c - Copy information
+<small>(NR)</small></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb072">072 - SUBJECT CATEGORY CODE
+<small>(R)</small></a>
+</h2>
+<p>A code for the subject category that is associated with the
+described
+item.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li><li>Second - <font color="#ff0000">Source specified in subfield $2
+  </font>
+  <ul>
+<li>0 - NAL subject category code list<br>The subject category code is taken from
+<em>AGRIS:
+Subject Categories</em> that is maintained by
+NAL.</li></ul>
+
+<ul>
+<li>7 - Source specified in subfield $2
+</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Subject category code
+<small>(NR)</small><br>The code for the broad subject associated with the
+item.</li><li>$x - Subject category code subdivision
+<small>(R)</small><br>The level of specificity within the broader subject coded
+in subfield
+$a.
+</li><li>$2 - <font color="#ff0000">Source </font><small>(NR)</small><br>
+A MARC code that identifies the thesaurus used to assign
+the
+subject category code when the second indicator position contains
+value 7.  Code from: 
+<em><a href="../relators/relahome.html">MARC Code Lists
+for Relators, Sources, Description Conventions</a>
+</em>.</li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>072</strong></td>
+<td valign="top"><br><strong>#0$a</strong>K800</td>
+</tr>
+<tr><td valign="top"><br><strong>072</strong></td>
+<td valign="top"><br><strong>#7$a</strong>E5<strong>$x</strong>.510<strong>$2</strong>mesh</td>
+</tr>
+<tr><td valign="top"><br><strong>072</strong></td>
+<td valign="top"><br><strong>#7$a</strong>17<strong>$x</strong>02.1<strong>$2</strong>cosatisc</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb074">074 - GPO ITEM NUMBER
+<small>(R)</small></a>
+</h2>
+<p>A number assigned by the U.S. Government Printing Office to
+publications to
+manage their distribution within its Depository Library
+System.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - GPO item number
+<small>(NR)</small><br>The number is assigned from
+<em>List of Classes
+of United
+States Government Publications Available for Selection by
+Depository
+Libraries</em> that is maintained by GPO. 
+<em>GPO
+Item No.
+:</em> may be generated for display.</li><li>$z - Canceled/invalid GPO item number
+<small>(R)</small></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>074</strong></td>
+<td valign="top"><br><strong>##$a</strong>334-C-1</td>
+</tr>
+<tr><td valign="top"><br><strong>074</strong></td>
+<td valign="top"><br><strong>##$a</strong>277-A-2 (MF)</td>
+</tr>
+<tr><td valign="top"><br><strong>074</strong></td>
+<td valign="top"><br><strong>##$a</strong>1022-A<strong>$z</strong>1012-A</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb080">080 - UNIVERSAL DECIMAL CLASSIFICATION NUMBER
+<small>(R)</small></a>
+</h2>
+<p>A number taken from the
+<em>Universal Decimal
+Classification</em> scheme.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Code</h3>
+
+<ul>
+<li>$a - Universal Decimal Classification number
+<small>(NR)</small></li><li>$b - Item number
+<small>(NR)</small></li><li>$x - Common auxiliary subdivision
+<small>(R)</small><br>A number that qualifies the concept represented
+by the main number.</li><li>$2 - Edition identifier
+<small>(NR)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>080</strong></td>
+<td valign="top"><br><strong>##$a</strong>971.1/.2</td>
+</tr>
+<tr><td valign="top"><br><strong>080</strong></td>
+<td valign="top"><br><strong>##$a</strong>631.321:631.411.3</td>
+</tr>
+<tr><td valign="top"><br><strong>080</strong></td>
+<td valign="top"><br><strong>##$a</strong>821.113.1<strong>$x</strong>(494)<strong>$2</strong>[edition information]</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb082">082 - DEWEY DECIMAL CLASSIFICATION NUMBER
+<small>(R)</small></a>
+</h2>
+<p><font color="#ff0000">The classification number is taken from
+    <em>Dewey Decimal Classification</em> <em>and Relative Index</em>, the 
+    <em>Abridged Dewey Decimal Classification</em> <em>and Relative Index</em>, and
+electronic updates to either edition. Through 1997, updates where issued in <em>DC&amp;:
+Dewey Decimal Classification Additions, Notes and
+Decisions</em>.
+</font>
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Type of edition
+<ul>
+<li>0 - Full edition</li></ul>
+
+<ul>
+<li>1 - Abridged edition</li></ul>
+</li><li>Second - Source of classification number<br>
+A value that indicates whether the classification number has been assigned by
+  the Library of
+Congress or another organization.
+  <ul>
+<li># - No information provided</li></ul>
+
+<ul>
+<li>0 - Assigned by LC<br>May be used by organizations transcribing from LC copy.</li></ul>
+
+<ul>
+<li>4 - Assigned by agency other than LC</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Classification number
+<small>(R)</small></li><li>$b - Item number
+<small>(NR)</small></li><li>$2 - Edition number
+<small>(NR)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>082</strong></td>
+<td valign="top"><br><strong>00$a</strong>388/.0919<strong>$2</strong><font color="#ff0000">22</font></td>
+</tr>
+<tr><td valign="top"><br><strong>082</strong></td>
+<td valign="top"><br><strong>10$a</strong>914.3<strong>$2</strong><font color="#ff0000">13</font></td>
+</tr>
+<tr><td valign="top"><br><strong>082</strong></td>
+<td valign="top"><br>
+<strong>00$a</strong>343.7306/8<strong>$a</strong>347.30368<strong>$2</strong>20</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb084">084 - OTHER CLASSIFICATION NUMBER
+<small>(R)</small></a>
+</h2>
+<p>A classification number from a scheme not covered by one of the other number fields.  The field should not be
+used for classification numbers assigned from a source for which a
+subfield $2 source of number code would not be assigned.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Classification number
+<small>(R)</small></li><li>$b - Item number
+<small>(NR)</small></li><li>$2 - Source of number
+<small>(NR)</small><br>Code from: 
+<em><a href="../relators/relahome.html">MARC Code Lists
+for
+Relators, Sources, Description Conventions</a>
+</em></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>084</strong></td>
+<td valign="top"><br><strong>##$a</strong>016<strong>$a</strong>014<strong>$a</strong>018<strong>$a</strong>122<strong>$2</strong>frbnpnav</td>
+</tr>
+<tr><td valign="top"><br><strong>084</strong></td>
+<td valign="top"><br><strong>##$a</strong>KB112.554<strong>$b</strong>U62 1980<strong>$2</strong>laclaw</td>
+</tr>
+<tr><td valign="top"><br><strong>084</strong></td>
+<td valign="top"><br><strong>##$a</strong>8501(043)<strong>$2</strong>rueskl</td>
+</tr>
+<tr><td valign="top"><br><strong>084</strong></td>
+<td valign="top"><br><strong>##$a</strong>CA2 PQ C07 81P52<strong>$2</strong>cacodoc</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb086">086 - GOVERNMENT DOCUMENT CLASSIFICATION NUMBER
+<small>(R)</small></a>
+</h2>
+<p>The classification number assigned to documents by designated
+agencies in
+countries that have a government documents classification
+program.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Number source<br>A value that indicates the source of the classification
+number.
+<ul>
+<li># - Source specified in subfield
+$2<br>A classification number other than the U.S. or Canadian scheme.</li></ul>
+
+<ul>
+<li>0 - Superintendent of Documents
+Classification
+System<br>Assigned by the U.S Government Printing Office. 
+<em>Supt. of Docs. no.:</em> may be
+generated for display.</li></ul>
+
+<ul>
+<li>1 - Government of Canada Publications:
+Outline
+of Classification</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Classification number
+<small>(NR)</small></li><li>$z - Canceled/invalid classification number
+<small>(R)</small></li><li>$2 - Number source
+<small>(NR)</small><br>A MARC code that identifies the government document
+classification
+scheme used to assign the number when the first indicator
+position contains value #.  The code may be used to generate a display constant to
+identify the source of the classification number.  Code from: 
+<em><a href="../relators/relahome.html">MARC Code Lists
+for
+Relators, Sources, Description Conventions</a>
+</em>.</li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>086</strong></td>
+<td valign="top"><br><strong>##$a</strong>HEU/G74.3C49<strong>$2</strong>ordocs</td>
+</tr>
+<tr><td valign="top"><br><strong>086</strong></td>
+<td valign="top"><br><strong>0#$a</strong>A13.28:F 61/2/981 Glacier</td>
+</tr>
+<tr><td valign="top"><br><strong>086</strong></td>
+<td valign="top"><br><strong>0#$a</strong>HE 20.6209:13/45</td>
+</tr>
+<tr><td valign="top"><br><strong>086</strong></td>
+<td valign="top"><br><strong>0#$a</strong>ITC 1.12:TA-503 (A)-18 AND 332-279</td>
+</tr>
+<tr><td valign="top"><br><strong>086</strong></td>
+<td valign="top"><br><strong>0#$a</strong>A 1.1:<strong>$z</strong>A 1.1/3:984</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb088">088 - REPORT NUMBER
+<small>(R)</small></a>
+</h2>
+<p>A report number that is not a Standard Technical Report Number (field 027)
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Report number
+<small>(NR)</small></li><li>$z - Canceled/invalid report number
+<small>(R)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>088</strong></td>
+<td valign="top"><br><strong>##$a</strong>STRATLAB-71-98</td>
+</tr>
+<tr><td valign="top"><br><strong>088</strong></td>
+<td valign="top"><br><strong>##$a</strong>NASA-RP-1124-REV-3<strong>$z</strong>NASA-RP-1124-REV-2</td>
+</tr>
+<tr><td valign="top"><br><strong>088</strong></td>
+<td valign="top"><br><strong>##$z</strong>NASA-TN-D-8008</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<hr><p><strong>Go to</strong>: <em><a href="ecbdhome.html">
+MARC 21 Concise Bibliographic Format</a></em> | <a href="http://www.loc.gov/marc/">
+MARC Home Page</a></p><p></p><hr><img alt="Library of Congress" src="ecbdclas_files/lc2.gif">
+<strong>Library of Congress</strong>
+<address><a href="http://www.loc.gov/help/help-desk.html">Library of Congress Help Desk</a>  (
+<!-- #BeginDate format:Am3 -->05/07/2004<!-- #EndDate -->
+)
+</address>
+</body></html>

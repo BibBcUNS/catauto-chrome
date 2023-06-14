@@ -1,0 +1,127 @@
+<!--
+	=======================================================================
+	Catalis - borrar.xis
+	
+	(c) 2003-2005  Fernando J. Gómez - CONICET - INMABB
+	Véase el archivo LICENCIA.TXT incluido en la distribución de Catalis
+	=======================================================================
+-->
+
+
+<field action="cgi" tag="4001">recordID</field>
+
+<!-- Identificamos el registro a borrar -->
+<field action="replace" tag="4000"><pft>
+	if npost(['BIBLIO']'-NC='v4001) > 0 then  /* ¿npost = 1? */
+		f(l(['BIBLIO']'-NC='v4001),1,0),
+	else
+		'*',
+	fi,
+</pft></field>
+
+
+<!-- Si encontramos el registro, pasamos a la validación -->
+<flow action="jump"><pft>if v4000 <> '*' then 'VALIDATE_DELETE' fi</pft></flow>
+
+<!-- Mensaje de error si no lo encontramos -->
+<display><htmlpft>
+	<html>
+	<head>
+		<script type="text/javascript">
+			errorMessage = "<br><br>ERROR AL BORRAR";
+			errorMessage += "<br> recordID: [pft]v4001[/pft]";
+			errorMessage += "<br> [pft]'-NC='v4001,' tiene ', f(npost(['BIBLIO']'-NC='v4001),1,0),' postings.'[/pft]";
+			top.document.getElementById("cartelMsg").innerHTML += errorMessage;
+			top.document.getElementById("cartelBtn").style.display = "block";
+		</script>
+	</head>
+	</html>
+</htmlpft></display>
+<flow action="jump">END</flow>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>VALIDATE_DELETE</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- v5210: Nivel de autorización del usuario para esta base -->
+<field action="replace" tag="5210" split="occ"><pft>
+	ref(['USERS']l(['USERS']v2002),(v5/)), /* listas de bases + permisos */
+</pft></field>
+<field action="replace" tag="5210"><pft>
+	(,
+		if v5210^* = v2104[1] then v5210^p, break, fi,
+	),
+</pft></field>
+
+<!-- v5211: Creador de este registro -->
+<field action="replace" tag="5211"><pft>
+	if val(v4000) > 0 then ref(['BIBLIO']val(v4000),v991) fi
+</pft></field>
+
+<flow action="jump"><pft>
+	if v5210 = '3' or ( v5210 = '2' and v2002 = v5211 ) then
+		'DELETE',
+	fi
+</pft></flow>
+
+<!-- Mensaje de error si no hay permiso para borrar -->
+<display><htmlpft>
+	<html>
+	<head>
+		<script type="text/javascript">
+			errorMessage = "<br><br>ERROR AL BORRAR";
+			errorMessage += "<br> recordID: [pft]v4001[/pft]";
+			errorMessage += "<br> Usted no tiene autorización para borrar este registro.";
+			top.document.getElementById("cartelMsg").innerHTML += errorMessage;
+			top.document.getElementById("cartelBtn").style.display = "block";
+		</script>
+	</head>
+	</html>
+</htmlpft></display>
+<flow action="jump">END</flow>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>DELETE</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<do task="update">
+	<parm name="db">BIBLIO</parm>
+	<parm name="mfn"><pft>v4000</pft></parm>
+	<parm name="fst"><pft>,cat('BIBLIO.FST'),</pft></parm>
+	<!--parm name="stw"><pft></pft></parm--> <!-- STW ? -->
+	<parm name="expire"><pft>v6001^x</pft></parm>
+	<parm name="lockid"><pft>v2002,'@'getenv('REMOTE_ADDR')</pft></parm> <!-- lockid es obligatorio -->
+	<!-- ¿Podríamos usar HTTP_X_FORWARDED_FOR para el lockid? --> 
+	<define>1102 Isis_Status</define>
+	<define>1106 Isis_Lock</define>
+
+	<update>
+		<!-- Dejamos los datos, para poder eventualmente des-borrar el registro. -->
+		<!-- ATENCION: ¿podríamos agregar un campo con info sobre fecha y autor del borrado? -->
+		<write>Delete</write>
+		<field action="export" tag="list">1102</field>
+	</update>
+</do>
+
+<!-- Si Isis_Status es cero, seguimos adelante -->
+<flow action="jump"><pft>if val(v1102) = 0 then 'DISPLAY_HTML_DELETE' fi</pft></flow>
+
+<!-- Isis_Status <> 0 : error al borrar -->
+<display><htmlpft>
+	<html>
+	<head>
+		<script type="text/javascript">
+			errorMessage = "<br><br>ERROR AL BORRAR <br> MFN: [pft]v4000[/pft] <br> Isis_Status: [pft]v1102[/pft]";
+			//alert(errorMessage);
+			top.document.getElementById("cartelMsg").innerHTML += errorMessage;
+			top.document.getElementById("cartelBtn").style.display = "block";
+		</script>
+	</head>
+	</html>
+</htmlpft></display>
+<flow action="jump">END</flow>
+
+<label>DISPLAY_HTML_DELETE</label>
+<!-- ATENCION: ¿Qué deberíamos mostrar en la pantalla luego de BORRAR un registro? -->
+<display><htmlpft><pft>cat('DELETED-RECORD.HTM')</pft></htmlpft></display>

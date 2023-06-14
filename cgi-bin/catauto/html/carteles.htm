@@ -1,0 +1,108 @@
+<!-- Carteles: el contenido de los popups o mensajes al usuario -->
+
+<div style="display: none;">
+
+	<div id="registroDuplicado">
+		El registro ha sido duplicado. Recién será almacenado en la base de datos cuando Ud. lo grabe.
+	</div>
+	
+	<div id="solicitandoListado">
+		Solicitando registros...
+	</div>
+	
+	<div id="solicitandoRegistro">
+		Solicitando el registro
+	</div>
+	
+	<div id="solicitandoTerminos">
+		Solicitando términos
+	</div>
+	
+	<div id="maxMfnActualizado">
+		<div style="border: 1px solid black; height: 60px; background: #BEB; padding: 20px; font: 15px verdana; text-align: center;">
+			<b>Actualizado.</b>
+		</div>
+	</div>
+
+	<div id="cambiandoBase">
+		Cambiando de base...
+	</div>
+	
+	<div id="grabandoRegistro">
+		Grabando el registro...
+	</div>
+
+	<div id="registroGrabado">
+		El registro fue grabado.
+	</div>
+
+	<div id="borrandoRegistro">
+		Borrando el registro...
+	</div>
+	
+	<div id="registroBorrado">
+		El registro fue borrado.
+	</div>
+	
+	<div id="searchHelp">
+		<div id="searchMessage" style="border: 1px solid black; background: #FAEBD7; padding: 0.5em; font: 12px verdana; line-height: 17px;">
+		</div>
+	</div>
+
+	<div id="keyword_searchHelpMessage">
+		Use la sintaxis estándar de Isis:
+		<br>&nbsp;&nbsp;<b>historia * argentina</b>&nbsp;&nbsp;o&nbsp;&nbsp;<b>historia and argentina</b>
+		<br>&nbsp;&nbsp;<b>africa or asia</b>&nbsp;&nbsp;o&nbsp;&nbsp;<b>africa + asia</b>
+		<p>Por comodidad, los términos son conectados por defecto con el operador <b>AND</b>, y a todos ellos se les agrega el operador de truncamiento <b>$</b>.
+		<p>No es necesario prestar atención a acentos u otros diacríticos, ni a las mayúsculas.
+		<p>Por el momento, sólo están disponibles en el diccionario <b>palabras individuales</b>, por lo tanto en lugar de <b>Pérez, José</b> puede escribir <b>perez jose</b>.
+		<p><b>Campos indizados:</b> 020, 022, 041, 1xx, 240, 245, 4xx, 6xx, 7xx, más leader/06 y algunas porciones del campo 008.
+		<p>Algunos prefijos:
+		<br>&nbsp;&nbsp;<b>-F=1984</b> -> fecha de publicación 1984
+		<br>&nbsp;&nbsp;<b>-LANG=fre</b> -> idioma francés
+		<br>&nbsp;&nbsp;<b>-SN=0123456789</b> -> Standard Number (ISBN, ISSN)
+		<br>&nbsp;&nbsp;<b>-TYPE=j</b> -> tipo de registro = grabación musical, según Leader/06
+		<!--br>&nbsp;&nbsp;<b>!POSTITNOTE</b> -> notas de catalogación-->
+		<br><br>Para recorrer el diccionario, haga click en la solapa "Índice".
+	</div>
+
+	<div id="mfn_searchHelpMessage">
+		Para ver un listado de registros, en el orden de ingreso en la base de datos,
+		escriba el MFN inicial (un número entre 1 y el máximo número de registros disponibles en la base).
+		Si presiona <b>Mostrar</b> sin ingresar un número, verá el listado a partir del primer registro.
+	</div>
+	
+	<div id="testcondition_searchHelpMessage">
+		Puede buscar registros que satisfagan una determinada condición,
+		expresada como una expresión booleana válida en el lenguaje de
+		formato CISIS. (Es lo que en MicroIsis/WinIsis se conoce como búsqueda en
+		texto libre.)
+		Tenga en
+		cuenta que en este tipo de búsquedas no se usa el diccionario, sino que se
+		recorre en forma secuencial el archivo maestro, y por lo tanto hay una
+		demora mayor.
+		<p>Ejemplos:
+		<ul style="margin: 3px 2em;">
+			<li><b>p(v240)</b> (campo 240 presente)
+			<li><b>nocc(v246) > 1</b> (más de una ocurrencia del campo 246)
+			<li><b>v008*35.3=&#39;spa&#39; and v245^a.3 = &#39;El &#39; and v245*1.1&lt;&gt;&#39;3&#39;</b> (2o. indicador incorrecto en el campo 245)
+			<li><b>v245 : ' ='</b> (posible presencia de títulos paralelos)
+		</ul>
+	</div>
+	
+	<div id="dictionary_keysHelpMessage">
+		Atención: el número que precede a cada término del diccionario, es la cantidad de <i>postings</i> del mismo, que es mayor o igual que la cantidad de <i>registros</i> donde el término aparece.<br><br>(A propósito, ¿alguien conoce una manera sencilla de obtener la cantidad de <i>registros</i>?)
+	</div>
+	
+	<div id="valid_ISBN">
+		<div style="border: 1px solid #999; font: bold 13px/20px verdana; height: 23px; padding: 2px 12px; text-align: center; color: #000; background: #FF9;">
+			ISBN&nbsp;válido
+		</div>
+	</div>
+
+	<div id="valid_ISSN">
+		<div style="border: 1px solid #999; font: bold 13px/20px verdana; height: 23px; padding: 2px 12px; text-align: center; color: #000; background: #FF9;">
+			ISSN&nbsp;válido
+		</div>
+	</div>
+</div>

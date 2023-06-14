@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!-- 
+	=======================================================================
+	Encabezamiento para las listas de resultados (search, mfnrange).
+	
+	(c) 2003-2004  Fernando J. Gómez - CONICET - INMABB
+	
+	ATENCION: el uso de "http://www.w3.org/TR/REC-html40/loose.dtd" en
+	el DOCTYPE hace que IE6 deje de funcionar (2004-04-10)
+	=======================================================================
+-->
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="pragma" content="no-cache">
+<title>Resultados</title>
+
+
+<link rel="stylesheet" href="[pft]v6003^h[/pft]css/wh.css">
+<!--link rel="stylesheet" href="[pft]v6003^h[/pft]catalis/css/catalis.css"-->
+
+<style type="text/css">
+	body {
+		margin: 2px 1px 2px 1px;
+		background: #F6F6F6;
+	}
+	
+	a {
+		text-decoration: none;
+	}
+	
+	a:hover {
+		text-decoration: underline;
+	}
+	
+	a:link {
+		color: #00C;
+	}
+
+	a:visited {
+		color: #800080; /*#69F;*/ /*#39F*/ 
+	}
+
+	.resultsButton { /* ver .marcEditButton */
+		background: #E2DFD0;
+		font: bold 12px verdana;
+		border: 1px solid black;
+		margin: 0px 1px;
+		padding: 1px 0px;
+		height: 23px;
+	}
+	
+	div#headerRecordList {
+		background: blue;
+		color: #FED;
+		font-family: verdana;
+		font-size: 13px;
+		font-weight: bold;
+		border-bottom: 2px solid #777;
+		padding: 3px 8px;
+		margin-bottom: 3px;
+	}
+
+	table#resultTable {
+		line-height: 1.3em;
+		font-family: verdana;
+		font-size: 13px;
+	}
+	
+	/* Resaltado de términos. ATENCION: para que coincida con el OPAC, usar un .css externo */
+	.hl {
+		font-weight: bold;
+		background: #888;
+		color: #F0F0F0;
+		padding: 0 2px;
+	}
+</style>
+
+
+<script language="JavaScript" type="text/javascript" src="[pft]v6003^h[/pft]js/disable-keys.js"></script>
+
+<script language="JavaScript" type="text/javascript">
+	
+	// La lista de resultados llega sin ningún registro resaltado
+	top.g_HighlightRowId = "";
+	
+	// Estilo para presentar los detalles del registro al hacer click en
+	// el listado breve.
+	// ATENCION: 1. ver dónde sería el mejor lugar para definir esta variable
+	//           2. el estilo a aplicar es siempre el último que pidió el usuario
+	//var RECORD_DISPLAY_STYLE = top.g_RecordDisplayStyle;  // opciones: "aacr", "marc"
+	
+	
+	function selectFirstRecord() {
+		// Hace click en el primer resultado de la lista, para poder ver los detalles
+		// en el panel inferior.
+		var rows = document.getElementsByTagName("tr");
+		var resultCounter = 0;
+		// Contemos los resultados
+		for (var i=0; i < rows.length; i++) {
+			if ( "resultRow" == rows[i].id.substr(0,9) ) {
+				resultCounter += 1;
+				if ( 1 == resultCounter ) {
+					var selectedRow = rows[i];
+				}
+			}
+		}
+		
+		if ( resultCounter == 0 ) return;
+		
+		var tarea = "[pft]v2001[/pft]";
+		//var clickOnFirstResult = 1 == resultCounter || tarea == "NEW_RECORDS";
+		var clickOnFirstResult = true;
+		if ( clickOnFirstResult ) {
+			selectedRow.getElementsByTagName("A")[0].onclick();
+			// ATENCION: esto no es siempre lo más recomendable, pues presupone que el
+			// link que nos interesa es siempre el *primero* que aparece en la fila.
+			// ATENCION: onclick() o click() son IE only?
+			// ATENCION: esto esta(ba) trayendo problemas con el uso de F5 (pero no con CTRL F5)
+		}
+	}
+	
+	function init() {
+		disableKeys();
+		selectFirstRecord();
+		top.document.getElementById("cartel").style.display = "none";
+	}
+	
+	window.onload = init;
+	window.onerror = top.handleErrors;   // funciona?
+</script>
+
+<body>

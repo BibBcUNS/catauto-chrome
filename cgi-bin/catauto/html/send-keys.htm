@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!-- 
+	===========================================================================
+	sendKeys.htm
+	
+	Esta página va al IFRAME oculto.
+	Trae desde el servidor una lista de términos del diccionario.
+	Al cargarse, invoca a la función que presentará los datos en la pantalla.
+	
+	(c) 2003-2004 Fernando J. Gómez - INMABB - CONICET
+	===========================================================================
+-->
+
+<html>
+
+	<head>
+		<title></title>
+
+		<script language="JavaScript" type="text/javascript">
+			function init() {
+				var dictionaryKeys = new Array();
+				[pft]
+				(
+				[/pft]
+						var newKey = new Object();
+						newKey.key = "[pft]replace(v2027^k,'"','\"')[/pft]";
+						newKey.postings = "[pft]v2027^p[/pft]";
+						dictionaryKeys.push(newKey);
+				[pft]
+				)
+				[/pft]
+				var reverse = "[pft]v2021[/pft]";
+				parent.showDictionaryKeys(dictionaryKeys,reverse);
+			}
+			
+			window.onload = init;
+		</script>
+	</head>
+	
+	<body><!-- empty body --></body>
+
+</html>

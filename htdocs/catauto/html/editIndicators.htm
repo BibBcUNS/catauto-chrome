@@ -1,0 +1,366 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="pragma" content="no-cache">
+<title>Indicadores</title>
+<link rel="stylesheet" type="text/css" href="../css/catalis.css">
+
+<!--script language="JavaScript" type="text/javascript" src="../js/catalis.js"></script-->
+
+<script language="JavaScript" type="text/javascript">
+// -----------------------------------------------------------------------------
+function handleOK()
+// -----------------------------------------------------------------------------
+{
+	window.returnValue = indValues();
+	
+	window.close();
+}
+
+// -----------------------------------------------------------------------------
+function handleCancel()
+// -----------------------------------------------------------------------------
+{
+	window.close();
+}
+
+
+// -----------------------------------------------------------------------------
+function indValues()
+// Devuelve los indicadores que están seleccionados
+// -----------------------------------------------------------------------------
+{
+	var indicators = new Array("#","#");
+	for (var pos=1; pos <= 2; pos++) {
+		if ( isDefined[pos] ) {
+			switch (formElement[pos]) {
+				case "SELECT" :
+					var selectObj = document.getElementById("ind" + pos);
+					indicators[pos-1] = selectObj.options[selectObj.selectedIndex].value;
+					break;
+					
+				case "RADIO" :
+					var radioButtons = document.getElementById("ind" + pos).getElementsByTagName("INPUT");
+					for (var i=0; i < radioButtons.length; i++) {
+						if ( radioButtons[i].checked ) {
+							indicators[pos-1] = radioButtons[i].getAttribute("value");
+							break;
+						}
+					}
+					break;
+					
+				case "MIX" :
+					var selectObj = document.getElementById("filingInd");
+					indicators[pos-1] = selectObj.options[selectObj.selectedIndex].value;
+					break;
+			}
+		}
+	}
+	var indValues = indicators[0].concat(indicators[1]);
+	return indValues;
+	//alert(indValues);
+}
+
+
+// -----------------------------------------------------------------------------
+function changeOffset(offset)
+// -----------------------------------------------------------------------------
+{
+	for (var i=activeOffset; i <= 9; i++) {
+		document.getElementById("offsetCell" + i).style.backgroundColor = "";
+	}
+	for (var i=offset; i <= 9; i++) {
+		document.getElementById("offsetCell" + i).style.backgroundColor = "#ffa";
+	}
+	document.getElementById("filingInd").selectedIndex = offset; 
+	activeOffset = offset; 
+}
+
+
+// -----------------------------------------------------------------------------
+function handleOptionChange()
+// -----------------------------------------------------------------------------
+{
+	document.getElementById("btnOK").focus();
+}
+
+
+
+// -----------------------------------------------------------------------------
+function renderIndicators()
+// -----------------------------------------------------------------------------
+{
+	var path;
+	
+	// Creamos una celda para cada pos que tenga un indicador asociado
+	for (var pos=1; pos <= 2; pos++) {
+		
+		// Si no hay indicador definido, seguimos de largo
+		path = "indicator[@pos='" + pos + "']/i";
+		if ( xmlDatafield.selectNodes(path).length == 0 ) {
+			isDefined[pos] = false;
+			continue;
+		}
+		
+		isDefined[pos] = true;
+		var newRow = document.createElement("tr");
+		var newCell = document.createElement("td");
+		newCell.vAlign = "top";
+		path = "indicator[@pos='" + pos + "']/@label-eng";
+		var label = xmlDatafield.selectNodes(path)[0].value;
+		newCell.innerHTML = '<b>' + pos + '. ' + label + '</b>';
+		path = "indicator[@pos='" + pos + "']/i";
+		var nodes = xmlDatafield.selectNodes(path);
+		
+		// Tipo de elemento a usar para este indicador
+		var tagpos = tag + "~" + pos;
+		if ( tagpos.search(/130~1|222~2|240~2|242~2|245~2|440~2|630~1|730~1|740~1|830~2/) != -1 ) {
+			formElement[pos] = "MIX";     // filing indicators
+		} else if ( tagpos.search(/041~.|210~1|240~1|242~1|245~1|362~1|490~1|505~2|740~2|773~1/) != -1 ) {
+			formElement[pos] = "RADIO";   // binary options (e.g. "added entry" vs. "no added entry")
+		} else {
+			formElement[pos] = "SELECT";  // all the rest
+		}
+		
+		switch (formElement[pos]) {
+			case "SELECT" :
+				var newDiv = document.createElement("div");
+				newDiv.style.marginLeft = "16px";
+				var newSelect = document.createElement("select");
+				newSelect.id = "ind" + pos;
+				newSelect.onchange = handleOptionChange;
+				for (var j=0; j < nodes.length; j++) {
+					var newOption = document.createElement("OPTION");
+					newOption.value = nodes[j].getAttribute("value");
+					if ( ind[pos] == nodes[j].getAttribute("value") ) {
+						//newOption.defaultSelected = true;
+						newOption.selected = true;  // seems necessary on IE
+					}
+					newOption.innerText = nodes[j].getAttribute("value").replace(" ","#") + " - " + nodes[j].getAttribute("label-eng");
+					newSelect.appendChild(newOption);
+				}
+				newDiv.appendChild(newSelect);
+				newCell.appendChild(newDiv);
+				break;
+				
+			case "RADIO" :
+				var newDiv = document.createElement("div");
+				newDiv.id = "ind" + pos;
+				newDiv.className = "radio";
+				
+				// Loop over possible values for this indicator
+				for (var j=0; j < nodes.length; j++) {
+					if ( document.all ) {
+						// IE limitation: The NAME attribute cannot be set at run time
+						// on elements dynamically created with the createElement method.
+						var newRadio = document.createElement("<input type='radio' name='radio" + pos + "'>");
+					} else {
+						var newRadio = document.createElement("input");
+						newRadio.type = "radio";
+						newRadio.name = "radio" + pos;
+					}
+					newRadio.id = "ind" + pos + "value" + j;
+					newRadio.value = nodes[j].getAttribute("value");
+					newRadio.onclick = handleOptionChange;
+					var checkedState = ( ind[pos] == nodes[j].getAttribute("value") );
+					newRadio.defaultChecked = checkedState;  // seems necessary on IE
+					//newRadio.checked = checkedState;
+					newLabel = document.createElement("label");
+					newLabel.htmlFor = "ind" + pos + "value" + j;
+					newLabel.innerText = nodes[j].getAttribute("value").replace(" ","#") + " - " + nodes[j].getAttribute("label-eng");
+					newDiv.appendChild(newRadio);
+					newDiv.appendChild(newLabel);
+					var newBr = document.createElement("br");
+					newDiv.appendChild(newBr);
+				}
+				newCell.appendChild(newDiv);
+				break;
+				
+			case "MIX" :   // filing indicators (select + table)
+				var newTable1 = document.createElement("table");
+				newTable1.border = 0;
+				newTable1.style.marginLeft = "16px";
+				var newTbody1 = document.createElement("tbody");
+				var newRow1 = document.createElement("tr");
+				
+				// Celda para el select
+				var newCell1 = document.createElement("td");
+				var newSelect = document.createElement("select");
+				newSelect.id = "filingInd";
+				newSelect.onchange = function() {
+					changeOffset(this.options[this.selectedIndex].value);
+					handleOptionChange();
+				}
+				for (var i=0; i <= 9; i++) {
+					var newOption = document.createElement("option");
+					newOption.value = i;
+					if ( ind[pos] == nodes[i].getAttribute("value") ) {
+						newOption.defaultSelected = true;
+						//newOption.selected = true;
+					}
+					newOption.innerHTML = "&nbsp;" + i + "&nbsp;";
+					newSelect.appendChild(newOption);
+				}
+				newCell1.appendChild(newSelect);
+				newRow1.appendChild(newCell1);
+				
+				// Celda para el título
+				newCell1 = document.createElement("td");
+				var newTable2 = document.createElement("table");
+				newTable2.border = 0;
+				newTable2.cellSpacing = 0;
+				newTable2.cellPadding = 0; 
+				newTable2.id = "titleTable";
+				var newTbody2 = document.createElement("tbody");
+				var newRow2 = document.createElement("tr");
+				for (var offset=0; offset <= 9; offset++) {
+					var newCell2 = document.createElement("td");
+					newCell2.id = "offsetCell" + offset;
+					newCell2.className = "offsetCell";
+					newCell2.onclick = function() {
+						changeOffset(this.id.substr(10));
+					}
+					newCell2.innerHTML = titleFragment.substr(offset,1).replace(" ","&nbsp;");
+					newRow2.appendChild(newCell2);
+					if ( ind[pos] == offset ) {
+						activeOffset = offset;
+					}
+				}
+				newTbody2.appendChild(newRow2);
+				newTable2.appendChild(newTbody2);
+				
+				newCell1.appendChild(newTable2);
+				newRow1.appendChild(newCell1);
+				newTbody1.appendChild(newRow1);
+				newTable1.appendChild(newTbody1);
+				
+				newCell.appendChild(newTable1);
+				
+				break;
+		}
+		
+		newRow.appendChild(newCell);
+		document.getElementById("indicators").appendChild(newRow);
+	}  // end for pos
+	
+}
+
+
+//------------------------------------------------------------------------------
+function init()
+//------------------------------------------------------------------------------
+{
+	window.returnValue = null;
+	
+	// Event handlers
+	document.onkeydown = function(evt) {
+		var evt = (evt) ? evt : window.event;
+		if ( evt.keyCode == 27 ) {
+			handleCancel();
+		}
+	}
+	document.getElementById("btnOK").onclick = handleOK;
+	document.getElementById("btnCancel").onclick = handleCancel;
+
+	// Arguments received from main window
+	ind = new Array();
+	ind[1] = window.dialogArguments.ind.substr(0,1);
+	ind[2] = window.dialogArguments.ind.substr(1,1);
+	tag = window.dialogArguments.tag;
+	document.title += " :: Campo " + tag;
+	xmlDatafield = window.dialogArguments.xmlDatafield;
+	titleFragment = window.dialogArguments.title;
+	if ( typeof titleFragment != "undefined" && titleFragment.length < 10 ) {
+		titleFragment += "          ";
+	}
+	
+	// Global variables
+	activeOffset = null;
+	isDefined = new Array();
+	formElement = new Array();
+	
+	// Display form controls
+	renderIndicators();
+	
+	if ( activeOffset != null ) {
+		changeOffset(activeOffset);
+	}
+	
+	callingWindowObject = dialogArguments.window;
+	// Ajustamos la altura
+	callingWindowObject.updateDialogHeight(window);
+	// Ajustamos el ancho
+	callingWindowObject.updateDialogWidth(window);
+	
+	window.focus();
+}
+
+window.onload = init;
+</script>
+
+<style type="text/css">
+	body {
+		margin: 2px 2px 6px 2px;
+	}
+	body, table {
+		font-family: verdana;
+		font-size: 13px;
+		background: #CDC7A9;
+	}
+	select.indSelect {
+		border: 1px solid #999;
+		background: wheat;
+	}
+	.indOption {
+		background: wheat;
+	}
+	select {
+		font-family: verdana;
+		font-size: 13px;
+		background: #F0F0F0;
+		border: 1px solid #999;
+	}
+	div.radio {
+		background: #ECECEC;
+		border: 1px solid #999;
+		padding: 2px;
+		margin-left: 16px;
+	}
+	#filingInd {
+		font-family: verdana;
+		font-size: 14px;
+		background: #F0F0F0;
+	}
+	.offsetCell {
+		padding: 2px 6px;
+		border-left: 1px solid #999;
+	}
+	#titleTable {
+		font-family: courier new;
+		font-size: 16px;
+		background: #F0F0F0;
+		display: inline;
+	}
+</style>
+
+</head>
+
+<body>
+
+<table width="100%" cellpadding="0" cellspacing="4" border="0">
+	<tbody id="indicators">
+	<!-- contents generated onload -->
+	</tbody>
+</table>
+
+
+<div align="center" style="margin-top: 4px">
+	<button id="btnOK" class="marcEditButton" accesskey="A"><u>A</u>ceptar</button>
+	<button id="btnCancel" class="marcEditButton" accesskey="C"><u>C</u>ancelar</button>
+</div>
+
+</body>
+</html>

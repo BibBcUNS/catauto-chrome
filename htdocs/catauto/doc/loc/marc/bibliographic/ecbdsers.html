@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html40/loose.dtd"><html><head>
+
+<title>Series Statement Fields (4XX)</title><!-- base href="http://www.loc.gov/marc/bibliographic/ecbdsers.html" -->
+<meta content="This document contains the Series Statement Fields (4XX) section of the MARC 21 Concise Bibliographic format which includes all related data elements and many examples." name="description">
+<meta content="MARC 21 Concise, Series Statement Fields (4XX), bibliographic format" name="keywords">
+<link type="text/css" rel="stylesheet" href="../marcdoc.css">
+</head>
+
+<body bgcolor="#ffffff">
+<a name="top"></a>
+<hr><h1><em>MARC 21 Concise Bibliographic: <br>
+  Series Statement Fields (4XX) </em></h1>
+<hr><p>Fields 440 and 490 contain series statements.  Field 440 also provides an added entry for
+the
+series.  A series statement is recorded in field 490 when either it is given no added entry in the
+record
+(an untraced series) or is given an added entry in a form that differs from the series statement
+appearing on the item.  One of fields 800-830 (Series added entries) is used in conjunction with
+field
+490 when the series is to be traced differently.</p><p>The parentheses that customarily enclose a series statement and the tracing
+<em>Series.</em>, preceded by
+a roman numeral, in some displays for field 440 are not carried in the MARC record.  They
+may be
+generated based on the field tag.</p><ul>
+<li><a href="#mrcb440">440 - SERIES STATEMENT/ADDED ENTRY--TITLE</a>
+
+<small>(R)</small></li><li><a href="#mrcb490">490 - SERIES STATEMENT </a>
+
+<small>(R)</small></li></ul>
+<p><u>Information for Translators and Other Users</u><br>
+Items highlighted in <font color="#ff0000">red</font> indicate changes made after
+the 2002 edition of the <em>MARC 21 Concise Formats</em> was published and are
+included in the 2003 printed edition of the <em>MARC 21 Concise Formats</em>.
+</p><hr><h2><a name="mrcb440">440 - SERIES STATEMENT/ADDED ENTRY--TITLE
+<small>(R)</small></a>
+</h2>
+<p>A series statement consisting of a series title alone.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li><li>Second - Nonfiling characters
+<ul>
+<li>0-9 - Number of nonfiling characters </li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Title
+<small>(NR)</small></li><li>$n - Number of part/section of a work
+<small>(R)</small><br>A number designation of a part/section of a series.</li><li>$p - Name of part/section of a work
+<small>(R)</small><br>A name designation of a part/section of a series.</li><li>$v - Volume number/sequential designation 
+<small>(NR)</small></li><li>$x - International Standard Serial Number 
+<small>(NR)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>440</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Collection africaine</td>
+</tr>
+<tr><td valign="top"><br><strong>440</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Ökonomische Studien ;<strong>$v</strong>Bd. 22</td>
+</tr>
+<tr><td valign="top"><br><strong>440</strong></td>
+<td valign="top"><br><strong>#4$a</strong>The Pediatric clinics of North America ;<strong>$v</strong>v. 2, no. 4</td>
+</tr>
+<tr><td valign="top"><br><strong>440</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Journal of polymer science.<strong>$n</strong>Part C,<strong>$p</strong>Polymer symposia ;<strong>$v</strong>no. 39</td>
+</tr>
+<tr><td valign="top"><br><strong>440</strong></td>
+<td valign="top"><br><strong>#4$a</strong>The Rare book tapes.<strong>$n</strong>Series 1 ;<strong>$v</strong>5</td>
+</tr>
+<tr><td valign="top"><br><strong>440</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Janua linguarum.<strong>$p</strong>Series maior,<strong>$x</strong>0075-3114 ;<strong>$v</strong>100</td>
+</tr>
+<tr><td valign="top"><br><strong>440</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Romanica Gothoburgensia,<strong>$x</strong>0080-3863 ;<strong>$v</strong>12, 16</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb490">490 - SERIES STATEMENT
+<small>(R)</small></a>
+</h2>
+<p>A series statement for which no series added entry is traced or for which the added entry
+is traced in one of the 800-830 fields in a form different from the form contained in field
+490.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Specifies whether series is traced<br>A value that indicates whether the record contains a corresponding 800-830 series added
+entry field.
+<ul>
+<li>0 - Series not traced</li></ul>
+
+<ul>
+<li>1 - Series traced differently</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Series statement
+<small>(R)</small><br>A series title that may also contain a statement of responsibility, other title information,
+dates, or volume numbers
+preceding or appearing as part of the title.</li><li>$l - Library of Congress call number
+<small>(NR)</small><br>An LC series call number that is used for a continuing resource that has been issued as part of the
+series.</li><li>$v - Volume number/sequential designation 
+<small>(R)</small></li><li>$x - International Standard Serial Number 
+<small>(NR)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control Subfields</a>
+</em></li><li>$8 - Field link and sequence number 
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>490</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Pelican books</td>
+</tr>
+<tr><td valign="top"><br><strong>490</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Uniform crime reports</td>
+</tr>
+<tr><td valign="top"><br><strong>490</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Department of the Army pamphlet ;<strong>$v</strong>27-50</td>
+</tr>
+<tr><td valign="top"><br><strong>490</strong></td>
+<td valign="top"><br><strong>1#$a</strong>[1981-]: Reference works</td>
+</tr>
+<tr><td valign="top"><br><strong>490</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Department of State publication ;<strong>$v</strong>7846.<strong>$a</strong>Department and Foreign Service series ;<strong>$v</strong>128</td>
+</tr>
+<tr><td valign="top"><br><strong>490</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Bulletin / U.S. Department of Labor, Bureau of Labor Statistics</td>
+</tr>
+<tr><td valign="top"><br><strong>490</strong></td>
+<td valign="top"><br><strong>1#$a</strong>v. 9-[10]: MPCHT art and anthropological monographs ;<strong>$v</strong>no. 35</td>
+</tr>
+<tr><td valign="top"><br><strong>490</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Annual census of manufactures =<strong>$a</strong>Recensement des manufactures<font color="#ff0000">,</font><strong>$x</strong>0315-5587</td>
+</tr>
+<tr><td valign="top"><br><strong>490</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Bulletin / Engineering Experiment Station ;<strong>$v</strong>no. 50<strong>$l</strong>(TA7.O74)</td>
+</tr>
+<tr><td valign="top"><br><strong>490</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Map / Geological Survey of Alabama ;<strong>$v</strong>158, plate 3</td>
+</tr>
+<tr><td valign="top"><br><strong>490</strong></td>
+<td valign="top"><br><strong>1#$a</strong>West Virginia University bulletin ;<strong>$v</strong>ser. 74, no. 11-3.<strong>$a</strong>Bulletin / Experiment Station, West Virginia University ;<strong>$v</strong>111</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<hr><p><strong>Go to</strong>: <em><a href="ecbdhome.html">
+MARC 21 Concise Bibliographic Format</a></em> | <a href="http://www.loc.gov/marc/">
+MARC Home Page</a></p><p></p><hr><img alt="Library of Congress" src="ecbdsers_files/lc2.gif">
+<strong>Library of Congress</strong>
+<address><a href="http://www.loc.gov/help/help-desk.html">Library of Congress Help Desk</a>  (
+<!-- #BeginDate format:Am3 -->05/07/2004<!-- #EndDate -->
+)
+</address>
+</body></html>

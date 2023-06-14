@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!-- 
+	===========================================================================
+	Catalis - deleted-record.htm
+	
+	Esta página va al IFRAME oculto.
+	Informa al catalogador que el registro ha sido borrado.
+	
+	(c) 2003-2005  Fernando J. Gómez - CONICET - INMABB
+	===========================================================================
+-->
+
+<html>
+<head>
+<title></title>
+
+<script type="text/javascript">
+	function init() {
+		top.document.getElementById("cartelMsg").innerHTML += "<br><br>" + parent.document.getElementById("registroBorrado").innerHTML;
+		setTimeout("top.document.getElementById(\"cartel\").style.display = \"none\"",1500);
+	}
+	
+	
+	window.onload = init;
+</script>
+</head>
+
+<body></body>
+
+</html>

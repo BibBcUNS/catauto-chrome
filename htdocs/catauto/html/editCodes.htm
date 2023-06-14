@@ -1,0 +1,529 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="pragma" content="no-cache">
+<title>Selección de códigos</title>
+<link rel="stylesheet" type="text/css" href="../css/catalis.css">
+
+<script language="JavaScript" type="text/javascript">
+// -----------------------------------------------------------------------------
+function handleOK()
+// -----------------------------------------------------------------------------
+{
+	var selectedCode = new Object();
+	if ( g_codeType == "multiple" ) {
+		selectedCode = multipleCodeChange();
+	} else {
+		selectedCode = singleCodeChange();
+	}
+	window.returnValue = selectedCode;
+	window.close();
+}
+
+
+
+// -----------------------------------------------------------------------------
+function handleCancel()
+// -----------------------------------------------------------------------------
+{
+	window.close();
+}
+
+
+//------------------------------------------------------------------------------
+function singleCodeChange()
+//------------------------------------------------------------------------------
+{
+	var selectedCode = new Object();
+	var menu = document.getElementById("codeList");
+	selectedCode.value = menu.options[menu.selectedIndex].value;
+	selectedCode.description = menu.options[menu.selectedIndex].innerHTML;
+	return selectedCode;
+}
+
+
+//------------------------------------------------------------------------------
+function multipleCodeChange()
+//------------------------------------------------------------------------------
+{
+	var newCodes = "";
+	var allInputs = document.getElementsByTagName("input");
+	for (var i=0; i < allInputs.length; i++) {
+		if ( "checkbox" == allInputs[i].type && allInputs[i].checked ) {
+			newCodes += allInputs[i].value;
+		}
+	}
+	
+	if ( "|" == newCodes ) {
+		newCodes = "||||||".substr(0,g_maxCodes);
+	} else {
+		newCodes = newCodes.concat("######").substr(0,g_maxCodes);   // ATENCION: concat no es estandar?
+	}
+	
+	var selectedCode = new Object();
+	selectedCode.value = newCodes;
+	selectedCode.description = "";
+	
+	return selectedCode;
+}
+
+
+//------------------------------------------------------------------------------
+function updateEnabledOptions(checkbox)
+// Habilita/deshabilita códigos, en base al número de códigos ya seleccionados
+// y al número máximo permitido.
+//------------------------------------------------------------------------------
+{
+	var allInputs = document.getElementsByTagName("input");
+
+	if ( checkbox.value.search(/[\|#]/) != -1 ) {
+		// Al seleccionar (resp. des-seleccionar) alguna de las opciones
+		// "No illustrations", "No attempt to code", "No specified nature of contents",
+		// etc., las restantes opciones quedan deshabilitadas (resp. habilitadas).
+		for (var i=0; i < allInputs.length; i++) {
+			if ( "checkbox" == allInputs[i].type && allInputs[i] != checkbox ) {
+				allInputs[i].checked = false;
+				allInputs[i].disabled = ( checkbox.checked );
+				allInputs[i].parentNode.style.backgroundColor = "";
+			}
+		}
+		g_checkCount = 0;
+	} else {
+		// Para cualquier otra opción, verificamos si se llegó al número máximo
+		g_checkCount = ( checkbox.checked ) ? g_checkCount + 1 : g_checkCount - 1;
+		var disabledStatus = (g_maxCodes == g_checkCount);
+		for (var i=0; i < allInputs.length; i++) {
+			if ( "checkbox" == allInputs[i].type && !allInputs[i].checked ) {
+				allInputs[i].disabled = disabledStatus;
+			}
+		}
+	}
+	
+	// Resaltado de opciones seleccionadas
+	checkbox.parentNode.style.backgroundColor = (checkbox.checked) ? "#FF9" : "";
+}
+
+
+//-----------------------------------------------------------
+function adjustWindowSize()
+// Ajusta las dimensiones de la ventana en función de su contenido.
+//-----------------------------------------------------------
+{
+	// Ajustamos la altura
+	callingWindowObject.updateDialogHeight(window);
+	// Ajustamos el ancho
+	callingWindowObject.updateDialogWidth(window);
+	// Ajustamos la altura
+	callingWindowObject.updateDialogHeight(window);
+	// (Sí, parece necesario repetir el primer tipo de ajuste)
+	
+	/*
+	var labelWidth = document.getElementById("winLabel").offsetWidth;
+	var optionsWidth = document.getElementById("codeList").offsetWidth;
+	var theWidth = Math.max(labelWidth,optionsWidth);
+	if ( "SELECT" == document.getElementById("codeList").tagName.toUpperCase() ) {
+		theWidth += 20;
+	} else {
+		theWidth += 40;
+	}
+	theWidth = Math.max(theWidth,210);  // con menos de 210px no entran bien los botones, y hay problemas con Leader/19
+	dialogWidth = theWidth + "px";
+	dialogLeft = screen.width + "px"; // la ventana se ubica contra el extremo derecho de la pantalla
+	*/
+}
+
+
+//-----------------------------------------------------------
+function useEquivalentCodes(dataElement) {
+// Aprovechamos el hecho de que algunos elementos se repiten
+// para distintos tipos de material.
+//-----------------------------------------------------------
+	switch ( dataElement ) {
+		
+		// Audiencia
+		case "f008_CF_22" :
+		case "f008_MU_22" :
+		case "f008_VM_22" :
+			dataElement = "f008_BK_22";
+			break;
+			
+		// Forma del ítem
+		case "f008_MP_29" :
+		case "f008_MU_23" :
+		case "f008_CR_23" :
+		case "f008_VM_29" :
+		case "f008_MIX_23" :
+			dataElement = "f008_BK_23";
+			break;
+		
+		// Publicación gubernamental
+		case "f008_VM_28" :
+		case "f008_CF_28" :
+		case "f008_MP_28" :
+		case "f008_CR_28" :
+			dataElement = "f008_BK_28";
+			break;
+		
+		// Publicación de conferencia
+		case "f008_CR_29" :
+			dataElement = "f008_BK_29";
+			break;
+		
+		// Índice
+		case "f008_MP_31" :
+			dataElement = "f008_BK_31";
+			break;
+	}
+	
+	return dataElement;
+}
+
+
+//-----------------------------------------------------------
+function readCodesAndTitle(dataElement)
+// Lee la lista de códigos, y el título para la ventana.
+//-----------------------------------------------------------
+{
+	xmlFixedField = callingWindowObject.xmlFixedField;
+	
+	switch ( dataElement ) {
+		
+		/*
+		case "f008_06" :
+			Para Continuing Resources podemos agregar "/ estado de publicación"
+		*/
+		
+		case "f008_15_17" :
+		case "f044" :
+			xmlCodes = callingWindowObject.xmlCountryCodes;
+			Codes = xmlCodes.selectNodes("/" + "/country");
+			title = "008/15-17 · Lugar de publicación";
+			break;
+			
+		case "f008_35_37" :
+		case "f041" :
+			xmlCodes = callingWindowObject.xmlLanguageCodes;
+			Codes = xmlCodes.selectNodes("/" + "/language");
+			title = "008/35-37 · Idioma";
+			break;
+			
+		case "relator" :
+			// TO-DO: pensar de qué manera se puede acotar la larga lista, en función del tipo
+			// de documento (video, musica, libro, etc.)
+			xmlCodes = callingWindowObject.xmlRelatorCodes;
+			Codes = xmlCodes.selectNodes("/" + "/relator");
+			title = "Relator codes";
+			break;
+		
+		default :
+			Codes = xmlFixedField.selectNodes("/" + "/dataElement[@pos='" + dataElement + "']/option");
+			title = xmlFixedField.selectNodes("/" + "/dataElement[@pos='" + dataElement + "']/@name")[0].nodeValue;
+			break;
+	}
+	
+	try {
+		var path = "/" + "/dataElement[@pos='" + dataElement + "']/@maxcodes";
+		g_maxCodes = xmlFixedField.selectSingleNode(path).nodeValue;
+	}
+	catch(err) {}
+	
+	document.getElementById("winLabel").innerHTML = title;
+}
+
+
+//-----------------------------------------------------------------
+function renderMenu(dataElement,activeCode,sortBy)
+// Genera el menú de opciones al abrirse la ventana.
+//
+// activeCode: las opciones que deben aparecer seleccionadas.
+// sortBy: criterio para ordenar la lista (code o text)
+//-----------------------------------------------------------------
+{
+	switch (g_codeType) {
+	
+		case "single" :
+			
+			/*if ( "f008_15_17" == dataElement ) {
+				document.getElementById("alphabet").style.display = "block";
+			}*/
+			
+			var newSelect = document.createElement("select");
+			newSelect.id = "codeList";
+			newSelect.size = (Codes.length <= 15) ? Codes.length : 8; //Math.min(15,Codes.length)
+			// ATENCION: existe el riesgo de que al mostrar 3 códigos (cuando hay
+			// 4 o más) algún usuario inexperto crea que sólo puede elegir
+			// entre esos 3. 
+			
+			document.getElementById("codesContainer").appendChild(newSelect);
+			//newSelect.onchange = singleCodeChange;
+			for (var i=0; i < Codes.length; i++) {
+				var newOption = document.createElement("option");
+				newOption.value = Codes[i].getAttribute("code");
+				newOption.selected = (newOption.value == activeCode);
+				newSelect.appendChild(newOption);
+				
+				var myValue = newOption.value.replace(/([^^#])#/g,"$1 "); // "mx#" se muestra como "mx "; la expr.reg. podría quizás cambiarse por /(\w)#/g
+				//var myText = Codes[i].getAttribute("name") + " (" + myValue + ")";
+				var myText = myValue + " : " + Codes[i].getAttribute("name");
+				var newText = document.createTextNode(myText);
+				newOption.appendChild(newText);
+			}
+			
+			//alert(document.getElementById("codesContainer").innerHTML);
+			break;
+		
+		case "multiple" :
+			var newDiv = document.createElement("div");
+			newDiv.id = "multiple";
+			document.getElementById("codesContainer").appendChild(newDiv);
+			
+			var newTable = document.createElement("table");
+			newTable.id = "codeList";
+			newTable.width = "100%";
+			//newTable.border = 1;
+			newTable.cellSpacing = 0;
+			newTable.cellPadding = 1;
+			newDiv.appendChild(newTable);
+			
+			var newTbody = document.createElement("tbody");
+			newTable.appendChild(newTbody);
+			
+			// Loop sobre todos los posibles códigos
+			for (var i=0; i < Codes.length; i++) {
+				var newRow = document.createElement("tr");
+				newTbody.appendChild(newRow);
+				var newCell = document.createElement("td");
+				newRow.appendChild(newCell);
+				
+				// El checkbox
+				var newInput = document.createElement("input");
+				newInput.type = "checkbox";
+				newInput.value = Codes[i].getAttribute("code");
+				newInput.id = "code" + newInput.value;
+				// ATENCION: un click sobre el elemento <label> es tomado como un click sobre el <input>?
+				newInput.onclick = function() {
+					updateEnabledOptions(this);
+				}
+				newCell.appendChild(newInput);
+				
+				// La etiqueta para el checkbox
+				var newLabel = document.createElement("label");
+				newLabel.htmlFor = newInput.id;
+				newLabel.style.whiteSpace = "nowrap";
+				newCell.appendChild(newLabel);
+				var myText = newInput.value + " - " + Codes[i].getAttribute("name");
+				var newText = document.createTextNode(myText);
+				newLabel.appendChild(newText);
+			}
+			
+			// Marcamos los códigos presentes en activeCode
+			g_checkCount = 0;
+			var disableUnchecked = false;
+			if ( "######".substr(0,g_maxCodes) == activeCode || "||||||".substr(0,g_maxCodes) == activeCode ) {
+				var code = activeCode.substr(0,1);
+				document.getElementById("code" + code).checked = true;
+				document.getElementById("code" + code).parentNode.style.backgroundColor = "#FF9";
+				disableUnchecked = true;
+			} else {
+				for (var i=0; i < activeCode.length; i++) {
+					var code = activeCode.substr(i,1);
+					if ( "#" != code && "|" != code ) {
+						document.getElementById("code" + code).checked = true;
+						document.getElementById("code" + code).parentNode.style.backgroundColor = "#FF9";
+						g_checkCount++;
+					}
+				}
+				if ( g_maxCodes == g_checkCount ) disableUnchecked = true;
+			}
+			
+			// Si corresponde, deshabilitamos los checkboxes no marcados
+			if ( disableUnchecked ) {
+				var allInputs = document.getElementsByTagName("input");
+				for (var i=0; i < allInputs.length; i++) {
+					if ( "checkbox" == allInputs[i].type && !allInputs[i].checked ) {
+						allInputs[i].disabled = true;
+					}
+				}
+			}
+			
+			break;  /* end case "multiple" */
+	}
+}
+
+
+/*	
+	Options sorting adapted from:
+	Q916 How can I dynamically sort the options in a select form field?
+	http://developer.irt.org/script/916.htm
+*/
+
+
+var g_sortBy = "";
+
+//--------------------------------------------------------
+function deleteOption(object,index) {
+//--------------------------------------------------------
+    object.options[index] = null;
+}
+
+//--------------------------------------------------------
+function addOption(object,text,value,selected) {
+//--------------------------------------------------------
+    var defaultSelected = false;
+    //var selected = false;
+    var optionName = new Option(text, value, defaultSelected, selected)
+    object.options[object.length] = optionName;
+    //object.options[object.length-1].selected = false;
+}
+
+//--------------------------------------------------------
+function sortOptions() {
+//--------------------------------------------------------
+	var what = document.getElementById("codeList");
+	
+	var copyOption = new Array();
+    for (var i = 0; i < what.options.length; i++)
+        copyOption[i] = new Array(what[i].value,what[i].text.replace(/^[^:]+: /,""),what[i].selected);
+
+    if ( g_sortBy != "value" ) {
+		// Sort by option value
+		g_sortBy = "value";
+		copyOption.sort(function(a,b) { return a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0; });
+	} else {
+		// Sort by option text
+		g_sortBy = "text";
+		copyOption.sort(function(a,b) { return a[1] < b[1] ? -1 : a[1] > b[1] ? 1 : 0; });
+	}
+	
+    for (var i = what.options.length-1; i > -1; i--) {
+        deleteOption(what,i);
+	}
+
+    for (var i=0; i < copyOption.length; i++) {
+        addOption(what,copyOption[i][0] + " : " + copyOption[i][1],copyOption[i][0],copyOption[i][2]);
+	}
+}
+
+
+//--------------------------------------------------------
+function init()
+//--------------------------------------------------------
+{
+	window.returnValue = null;
+	callingWindowObject = dialogArguments[0];
+	var dataElement = dialogArguments[1];
+	var activeCode = dialogArguments[2];
+	g_codeType = dialogArguments[3];
+	
+	var xmlCodes, Codes, title;
+	dataElement = useEquivalentCodes(dataElement);
+	readCodesAndTitle(dataElement);
+	renderMenu(dataElement,activeCode,"code");
+	
+	adjustWindowSize();
+	
+	// Event handlers
+	document.getElementById("btnOK").onclick = handleOK;
+	document.getElementById("btnCancel").onclick = handleCancel;
+	document.getElementById("btnSort").onclick = sortOptions;
+	document.getElementById("codeList").ondblclick = handleOK;  // TO-DO: usar sólo para SELECT y no para CHECKBOXes?
+	document.onkeydown = function(evt) { 
+		var evt = (evt) ? evt : window.event;
+		if ( evt.keyCode == 27 ) {
+			handleCancel();
+		}
+	}
+	/*document.getElementById("letterA").onclick = function() {
+		renderMenu();
+	}*/
+	
+
+	document.getElementById("codeList").focus();
+	
+	// En el caso de códigos múltiples, el primero de los checkboxes
+	// seleccionados debe quedar visible al abrir la ventana.
+	// TO-DO: omitir el loop cuando sólo aparece "#"
+	if ( "multiple" == g_codeType ) {
+		var allInputs = document.getElementsByTagName("input");
+		for (var i=allInputs.length-1; i >= 0 ; i--) {
+			if ( "checkbox" == allInputs[i].type && allInputs[i].checked ) {
+				allInputs[i].focus();
+			}
+		}
+		// Quitamos el punteado alrededor del último <label> enfocado
+		document.getElementById("codeList").focus();
+	}
+}
+
+window.onload = init;
+</script>
+
+<style type="text/css">
+	body {
+		margin: 8px 10px;
+		background: #CDC7A9;
+	}
+	div#winLabel {
+		font-weight: bold;
+		margin-bottom: 6px;
+		font-size: 13px;
+		font-family: verdana;
+		white-space: nowrap;
+	}
+	#btnOK, #btnCancel {
+		height: 22px;
+	}
+	select#codeList {
+		background: #FFEBCD;    /*#F0F0F0*/ 
+		font-family: "lucida console", verdana;
+		font-size: 14px;   /* verdana 13px, lucida console 14px */
+	}
+	table#codeList {             /* ATENCION: id duplicado (pero no en un mismo documento!) */
+		background: #FFEBCD;
+		font-family: "lucida console", verdana;
+		font-size: 14px;   /* verdana 13px, lucida console 14px */
+	}
+	div#multiple {
+		overflow: auto;
+		height: 140px;
+		border: 1px solid #999;
+	}
+	#btnSort {
+		display: none;
+	}
+</style>
+
+</head>
+
+<body>
+
+<div id="winLabel"><!-- container para el título de la lista --></div>
+
+<!-- Menú alfabético para navegar por listados largos (country & language) -->
+<div id="alphabet" style="display: none;">
+	<table border="1">
+		<tr>
+			<td id="letterA">A</td>
+			<td id="letterB">B</td>
+			<td id="letterC">C</td>
+			<td id="letterD">D</td>
+			<!-- completar... -->
+		</tr>
+	</table>
+</div>
+
+<div id="codesContainer"><!-- container para la lista de códigos --></div>
+
+<button id="btnSort" class="marcEditButton" accesskey=""><u></u>Ordenar</button>
+
+
+<div align="center" style="margin-top: 6px; white-space: nowrap;">
+  <button id="btnOK" class="marcEditButton" accesskey="A"><u>A</u>ceptar</button><!--
+  -->&nbsp;<button id="btnCancel" class="marcEditButton" accesskey="C"><u>C</u>ancelar</button>
+</div>
+
+</body>
+</html>

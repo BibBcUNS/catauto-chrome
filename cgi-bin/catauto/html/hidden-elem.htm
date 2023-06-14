@@ -1,0 +1,30 @@
+
+<!-- IFRAME oculto, para recibir datos del servidor -->
+
+
+
+<iframe name="hiddenIFRAME" id="hiddenIFRAME" style="height: 0; width: 0; border: 0; display: none;"></iframe>
+
+
+<!-- Formulario oculto para enviar datos de diversas tareas al servidor -->
+<!-- MUCHA ATENCION: el uso de un formulario común, hace que sea imprescindible
+	prestar atención al valor de todas las propiedades relevantes del formulario,
+	antes de proceder al submit, pues existe la posibilidad de que un uso previo
+	del formulario haya dejado cargados valores que ya no son correctos. -->
+<form id="hiddenFORM"
+		action="[pft]v6001^u[/pft]"
+		method=""
+		target=""
+		style="display: none;">
+	<input type="hidden" name="IsisScript" value="[pft]v2000[/pft]">
+	<input type="hidden" name="userid" value="[pft]v2002[/pft]">
+	
+	<input type="hidden" name="db" value="[pft]v2104[/pft]">
+	<input type="hidden" name="tarea" value="">
+	<input type="hidden" name="mfn" value="">
+	<input type="hidden" name="recordID" value="">
+	<input type="hidden" name="debug" value="">
+	<!-- TEXTAREA usado para enviar el registro MARC al servidor -->
+	<textarea name="marcFields" style="display: none;" -id="recordTextarea"></textarea>
+</form>
+

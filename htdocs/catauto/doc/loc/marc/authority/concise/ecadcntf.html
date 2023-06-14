@@ -1,0 +1,399 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html40/loose.dtd">
+<html>
+   
+<!-- Mirrored from www.loc.gov/marc/authority/ecadcntf.html by HTTrack Website Copier/3.x [XR&CO'2003], Tue, 03 Jun 2008 14:54:38 GMT -->
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>MARC 21 Format for Authority Data: Appendix A: Control Subfields (Network Development and MARC Standards Office, Library of Congress)
+      </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <meta name="description" content="This page contains appendix A that describes the control subfields  (Network Development and MARC Standards Office, Library of Congress)">
+      <meta name="keywords" content="marc, marc21, marc standards">
+      <meta name="author" content="Library of Congress Network Development and MARC Standards Office">
+      <link href="http://www.loc.gov/marc/marc-generic.css" rel="stylesheet" type="text/css"><style type="text/css">
+					body {margin-left:.5em; margin-right:.5em;} 
+					h1 {font-family:Arial, Helvetica, sans-serif;}
+					h3 {text-align:left;}
+					h4 {margin-top:.5em; margin-bottom:.5em;}
+					p {text-align:justify; margin-left:2em; margin-right:2em;}
+					.formatname {font-weight:bold; font-family:Arial, Helvetica, sans-serif; margin-left:.5em}
+					.datename {font-weight:bold; text-align:right; font-family:Arial, Helvetica, sans-serif; margin-top:-1.2em;}
+					.font_small {font-size:9pt;}
+					.fieldtoc {margin-left:2em;}
+					.subfieldtoc {margin-left:3em;}
+					.box {font-family:ZapfDingbats;}
+					.description {text-align:justify; margin-left:2em;}
+					.description2  {text-align:justify; margin-top:1em; margin-bottom:1em;}
+					.description3 {text-align:justify; margin-top:1em; margin-bottom:1em; margin-left:2em;}
+					.indicator {text-align:left; margin-top:1em; margin-bottom:1em;}
+					.indicatorvalue {margin-left:2em; margin-top:1em; margin-bottom:1em;}
+					.subfieldvalue {margin-left:2em; margin-top:1em; margin-bottom:1em;}
+					.subfield {text-align:left; margin-top:1em; margin-bottom:1em; margin-left:2em;}
+					.characterposition {text-align:left; margin-top:1em; margin-bottom:1em; margin-left:2em;}
+					.charactervalue {margin-left:2em; margin-top:1em; margin-bottom:1em;}
+					.characterpositionhistory {text-align:left; margin-top:.5em; margin-bottom:.5em; margin-left:2em;}
+					.charactervaluehistory {margin-left:2em; margin-top:.1em; margin-bottom:.1em;}
+					.example {margin-left:4em;}
+					.changed {color: #FF0000;}
+					.captiontext {font-style:italic;}
+					.displaytext {font-style:italic; margin-bottom:.5em; margin-top:.5em;}
+					.displaycontent {text-align:left;}
+					.table {margin-left:2em; margin-top:1em; margin-bottom:1em;}
+					.head-nav {font-family:Arial, Helvetica, sans-serif; font-size:9pt;}
+					.summary {margin-left:2em;}
+					.summarytable {margin-left:4em;}
+					.update {text-align:center; font-weight:bold; margin-top:1em; margin-bottom:1em;}
+					.changebox {font-style:italic; margin-top:.5em;}
+					.changesection {text-align:left; margin-left:2em; font-weight:bold; margin-top:.5em;}
+					.changefield {text-align:left; margin-left:1em; font-weight:bold;}
+					.changefieldlabel {margin-left:3em; font-weight:bold;}
+					.changeindicator {margin-left:3em;}
+					.changeindicatorfieldname {margin-left:2em;}
+					.changeindicatorvalue {margin-left:4em; font-weight:bold;}
+					.changesubfield {margin-left:3em; font-weight:bold;}
+					.changesubfieldname {margin-left:1em; font-weight:bold;}
+					.changesubfieldlocation {text-align:justify; font-weight:normal;}
+					.glossaryentry {margin-left:2em; margin-top:1em; font-weight:bold;}
+					.glossaryentrydescription {margin-left:4em; margin-bottom:1em; text-align:justify;}
+					.citationaddress {margin-left:2em; text-align:justify;}
+					.citationinternet {margin-left:2em; text-align:justify;}
+					.citationname {font-style:italic; margin-top:1em;}
+				</style><script type='text/javascript' src='http://www.loc.gov/global/triggerParams.js'></script><script type='text/javascript' src='http://www.loc.gov/global/stdLauncher.js'></script><script type='text/javascript'>Poll();</script></head>
+   <body bgcolor="#ffffff">
+      <div class="head-nav"><a href="http://www.loc.gov/">Library of Congress</a> &gt;&gt; <a href="http://www.loc.gov/marc/">MARC</a> &gt;&gt; <a href="index.html">Authority</a> &gt;&gt; <strong>Appendix A</strong></div>
+      <hr><a name="skip_menu"></a><h1>Appendix A - Control Subfields</h1>
+      <hr>
+      <div class="formatname">MARC 21 Authority</div>
+      <div class="datename">October 2003</div>
+      <hr>
+      <table width="100%">
+         <tr vAlign="top">
+            <td valign="top" width="50%" align="left"></td>
+            <td valign="top" width="50%" align="left"></td>
+         </tr>
+         <tr vAlign="top">
+            <td colspan="2"><strong>Subfield Codes</strong><br></td>
+         </tr>
+         <tr vAlign="top">
+            <td colspan="1">$0 - Record Control Number <br>$5 - Institution to which Field Applies <br></td>
+            <td colspan="1">$6 - Linkage <br>$8 - Field Link and Sequence Number <br></td>
+         </tr>
+   </table>
+      <hr>
+      <p>Descriptions of four subfields that are used to link field data to specific
+         institutions, to other records, or to other fields. These subfields are defined for
+         several ($0 (Record control number) and $5 (Institution to which
+         field applies)) or most ($6 (Linkage), and $8 (Field link and
+         sequence number)) fields in the format, thus their descriptions are brought together in
+         this appendix. The subfields are included in field level subfield lists wherever they
+         are defined, with pointers to this appendix.      </p>
+      <hr>
+      <h4><span class="box">&#9632;</span> SUBFIELD CODES
+      </h4>
+      <div class="subfield"><strong>$0 - Record Control Number</strong> <div class="description">System control number of the related authority record preceded by the MARC code,
+                              enclosed in parentheses, for the organization to which the control number applies.
+         </div>
+		 <div class="description">
+         <div class="description2">See <em><a href="ecadorg.html">Organization Code
+                                          Sources</a></em> for a listing of sources used in MARC 21 records. 
+         </div></div>
+         <div class="example">
+            <table width="100%">
+               <tr>
+                  <td valign="top" width="5%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="15%" align="left"></td>
+               </tr>
+               <tr>
+                  <td vAlign="top" colspan="1" align="left">710</td>
+                  <td vAlign="top" colspan="9" align="left">20$aRoyal Society of Medicine Services (Great Britain)$0(DLC)n##86108151#</td>
+               </tr>
+               <tr>
+                  <td vAlign="top" colspan="1" align="left">511</td>
+                  <td vAlign="top" colspan="9" align="left">20$aCongr&egrave;s europ&eacute;en de droit rural$0(DLC)n##82111965#</td>
+               </tr>
+               <tr>
+                  <td vAlign="top" colspan="1" align="left">730</td>
+                  <td vAlign="top" colspan="9" align="left">#0$aDead Sea scrolls$0(DLC)n##79071139#</td>
+               </tr>
+               <tr>
+                  <td vAlign="top" colspan="1" align="left">751</td>
+                  <td vAlign="top" colspan="9" align="left">#0$aZimbabwe$0(DLC)n##80089993#</td>
+               </tr>
+            </table>
+         </div>
+      </div>
+      <div class="subfield"><strong>$5 - Institution to which Field Applies</strong> <div class="description">MARC code of the institution or organization that has added a tracing, reference,
+                              or linking entry field to an authority file record. It is used for
+                              institution-specific information that may or may not apply to the universal use of
+                              the authority record.
+         </div>
+		 <div class="description">
+         <div class="description2">See <em><a href="ecadorg.html">Organization Code
+                                          Sources</a></em> for a listing of sources used in MARC 21 records.
+         </div></div>
+         <div class="example">
+            <table width="100%">
+               <tr>
+                  <td valign="top" width="5%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="15%" align="left"></td>
+               </tr>
+               <tr>
+                  <td vAlign="top" colspan="1" align="left">400</td>
+                  <td vAlign="top" colspan="9" align="left">1#$aKing, Kennedy$5NNU</td>
+               </tr>
+               <tr>
+                  <td vAlign="top" colspan="1" align="left">485</td>
+                  <td vAlign="top" colspan="9" align="left">##$vArt songs$5NjP</td>
+               </tr>
+               <tr>
+                  <td vAlign="top" colspan="1" align="left">585</td>
+                  <td vAlign="top" colspan="9" align="left">##$vAcronyms$5DLC</td>
+               </tr>
+               <tr>
+                  <td vAlign="top" colspan="1" align="left">700</td>
+                  <td vAlign="top" colspan="9" align="left">05$wa$aFrancis, of Assisi,$cSaint,$d1182-1226$5CaOONL</td>
+               </tr>
+            </table>
+         </div>
+      </div>
+      <div class="subfield"><strong>$6 - Linkage</strong> <div class="description">Data that links fields that are different script representations of each other.
+                              Subfield $6 may contain the tag number of an associated field, an
+                              occurrence number, a code that identifies the first script encountered in a
+                              left-to-right scan of the field, and an indication that the orientation for a
+                              display of the field data is right-to-left. A regular (non-880) field may be
+                              linked to one or more 880 fields that all contain different script representations
+                              of the same data. Subfield $6 is structured as follows:
+         </div>
+		 <div class="description">
+         <div class="description2">$6[linking tag]-[occurrence number]/[script identification code]/[field
+                              orientation code]
+         </div></div>
+		 <div class="description">
+         <div class="description2">Subfield $6 is always the first subfield in the field.</div></div>
+		 <div class="description">
+         <div class="description2">Descriptions of multiscript records, with examples, are in <em><a href="ecadmulti.html">Multiscript
+                                       Records</a></em>; specifications for field 880 are under that field; specifications for
+                              character sets and repertoires for scripts are found in <em><a href="http://www.loc.gov/marc/specifications/spechome.html">MARC 21
+                                          Specifications for Record Structure, Character Sets, and Exchange Media</a></em>.
+         </div></div>
+         <div class="description2">
+            <div class="description"><em>Linking tag</em> part contains the tag number of the associated field. This
+                                 part is followed immediately by a hyphen and the two-digit <em>occurrence
+                                    number</em> part. A different occurrence number is assigned to each set of
+                                 associated fields within a single record. The function of an <em>occurrence
+                                    number</em> is to permit the matching of the associated fields (not to sequence
+                                 the fields within the record). An <em>occurrence number</em> may be assigned at
+                                 random for each set of associated fields. An <em>occurrence number</em> of less
+                                 than two digits is right justified and the unused position contains a zero.
+            </div>
+			<div class="description">
+            <div class="description2">When there is no associated field to which a field 880 is linked, the
+                                    <em>occurrence number</em> in subfield $6 is 00. It is used if an
+                                 agency wants to separate scripts in a record (See <em><a href="ecadmulti.html">Multiscript
+                                          Records</a></em>). The <em>linking tag</em> part of subfield $6 will contain the
+                                 tag that the associated regular field would have had if it had existed in the
+                                 record.
+            </div></div>
+         </div>
+         <div class="example">
+            <table width="100%">
+               <tr>
+                  <td valign="top" width="5%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="15%" align="left"></td>
+               </tr>
+               <tr>
+                  <td vAlign="top" colspan="1" align="left">100</td>
+                  <td vAlign="top" colspan="9" align="left">1#$6880-01$a Heading in Latin script] </td>
+               </tr>
+               <tr>
+                  <td vAlign="top" colspan="1" align="left">880</td>
+                  <td vAlign="top" colspan="9" align="left">1#$6100-01/(2/r$a [Heading in Hebrew script] </td>
+               </tr>
+               <tr>
+                  <td vAlign="top" colspan="1" align="left">880</td>
+                  <td vAlign="top" colspan="9" align="left">##$6675-00/(2/r$a [Source citation in Hebrew script] <br><em>[The second 880 field is not linked to an associated field. The occurrence
+                                             number is 00.] </em></td>
+               </tr>
+            </table>
+         </div>
+         <div class="description2">
+            <div class="description">Occurrence number is followed immediately by a slash (/) and the <em>script
+                                       identification code</em>. This code identifies the alternate script found in
+                                 the field. The following codes are used:
+            </div>
+            <div class="table">
+               <table>
+                  <tr>
+                     <td width="65" align="left" valign="top"><em>Code</em></td>
+                     <td width="530" align="left" valign="top"><em>Script</em></td>
+                  </tr>
+                  <tr>
+                     <td valign="top" align="left">(3</td>
+                     <td valign="top" align="left">Arabic</td>
+                  </tr>
+                  <tr>
+                     <td valign="top" align="left">(B</td>
+                     <td valign="top" align="left">Latin</td>
+                  </tr>
+                  <tr>
+                     <td valign="top" align="left">$1</td>
+                     <td valign="top" align="left">Chinese, Japanese, Korean</td>
+                  </tr>
+                  <tr>
+                     <td valign="top" align="left">(N</td>
+                     <td valign="top" align="left">Cyrillic</td>
+                  </tr>
+                  <tr>
+                     <td valign="top" align="left">(S</td>
+                     <td valign="top" align="left">Greek</td>
+                  </tr>
+                  <tr>
+                     <td valign="top" align="left">(2</td>
+                     <td valign="top" align="left">Hebrew</td>
+                  </tr>
+               </table>
+            </div>
+         </div>
+         <div class="example">
+            <table width="100%">
+               <tr>
+                  <td valign="top" width="5%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="15%" align="left"></td>
+               </tr>
+               <tr>
+                  <td vAlign="top" colspan="1" align="left">880</td>
+                  <td vAlign="top" colspan="9" align="left">1#$6100-01/(N$a [Heading in Cyrillic script] </td>
+               </tr>
+            </table>
+         </div>
+         <div class="description2">
+            <div class="description">The entire field need not be in the script identified in subfield $6.
+                                 If more than one script is present in the field, subfield $6 will
+                                 contain the identification of the <em>first</em> alternate script encountered in a
+                                 left-to-right scan of the field.
+            </div>
+			<div class="description">
+            <div class="description2">Note also that the <em>script identification code</em> is used in field 880,
+                                 subfield $6, but this data element is not generally used for subfield
+                                 $6 of the associated regular field. In the associated field, the data
+                                 is assumed to be the primary script(s) for the record.
+            </div></div>
+         </div>
+         <div class="description2">
+            <div class="description">In a MARC record, the contents of field 880 are always recorded in their logical
+                                 order, from the first character to the last, regardless of field orientation. For
+                                 a display of the field, the default field orientation is left-to-right. When the
+                                 field contains text that has a right-to-left orientation, the <em>script
+                                       identification code</em> is followed by a slash (/) and the field
+                                    <em>orientation code</em>. The MARC field <em>orientation code</em> for
+                                 right-to-left scripts is the letter r. The <em>orientation code</em> is only
+                                 included in fields with right-to-left orientation, since left-to-right orientation
+                                 is the default orientation in 880 fields. (See <em><a href="http://www.loc.gov/marc/specifications/spechome.html">MARC 21
+                                             Specifications for Record Structure, Character Sets, and Exchange Media</a></em> for a detailed description of field orientation.)
+            </div>
+         </div>
+         <div class="example">
+            <table width="100%">
+               <tr>
+                  <td valign="top" width="5%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="10%" align="left"></td>
+                  <td valign="top" width="15%" align="left"></td>
+               </tr>
+               <tr>
+                  <td vAlign="top" colspan="1" align="left">880</td>
+                  <td vAlign="top" colspan="9" align="left">##$6675-00/(2/r$a [Source citation in Hebrew script] <br><em>[The r indicates the right-to-left orientation of the Hebrew script.]
+                                          </em></td>
+               </tr>
+            </table>
+         </div>
+         <div class="description2">
+            <div class="description">Note that the <em>orientation code</em> is used in field 880, subfield
+                                 $6, but this data element is not generally used for subfield
+                                 $6 of the associated regular field. In the associated field, the data
+                                 is assumed to be the usual orientation of the primary script(s) for the
+                              record.
+            </div>
+         </div>
+      </div>
+      <div class="subfield"><strong>$8 - Field Link and Sequence Number</strong> <div class="description">Data that identifies linked fields and may also propose a sequence for the linked
+                              fields. Subfield $8 may be repeated to link a field to more than one
+                              other group of fields. The structure and syntax for the field link and sequence
+                              number subfield is:
+         </div>
+		 <div class="description">
+         <div class="description2">$8[linking number].[sequence number]\[field link type]</div></div>
+		 <div class="description">
+         <div class="description2"><strong>Linking number</strong> is the first data element in the subfield and
+                              required if the subfield is used. It is a variable-length whole number that occurs
+                              in subfield $8 in all fields that are to be linked. Fields with the
+                              same linking number are considered linked.
+         </div></div>
+		 <div class="description">
+         <div class="description2"><strong>Sequence number</strong> is separated from the linking number by a period
+                              "." and is optional. It is a variable- length whole number that may be used to
+                              indicate the relative order for display of the linked fields (lower sequence
+                              numbers displaying before higher ones). If it is used it must occur in all
+                              $8 subfields containing the same linking number.
+         </div></div>
+		 <div class="description">
+         <div class="description2"><strong>Field link type</strong> is separated from preceding data by a reverse
+                              slash "\". It is a code indicating the reason for the link and it follows the link
+                              number, or sequence number if present. No field link types have been defined in
+                              the <em>MARC 21 Format for Authority Data.</em></div>
+      </div></div>
+      <hr>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+         <tr valign="bottom">
+            <td>
+               <div class="head-nav"><a href="http://www.loc.gov/">Library of
+                     								Congress</a> &gt;&gt; <a href="http://www.loc.gov/marc/">MARC</a> &gt;&gt; <a href="index.html">Authority</a> 
+                  							&gt;&gt;    <a href="ad7xx.html"></a><strong>Appendix A</strong></div> 
+               (03/07/2008) 
+            </td>
+            <td align="right"><a href="mailto:ndmso@loc.gov">Contact Us</a></td>
+         </tr>
+      </table>
+   <script type='text/javascript' src='http://www.loc.gov/global/s_code.js'></script></body>
+
+<!-- Mirrored from www.loc.gov/marc/authority/ecadcntf.html by HTTrack Website Copier/3.x [XR&CO'2003], Tue, 03 Jun 2008 14:54:38 GMT -->
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html40/loose.dtd"><html><head>
+
+<title>Control Fields (001-006)</title><!-- base href="http://www.loc.gov/marc/bibliographic/ecbdcntr.html" -->
+<meta content="This document contains the Control Fields (001-006) section of the MARC 21 Concise Bibliographic format which includes all related data elements and many examples." name="description">
+<meta content="MARC 21 Concise, Control Fields (001-006), bibliographic format" name="keywords">
+<link type="text/css" rel="stylesheet" href="../marcdoc.css">
+</head>
+
+<body bgcolor="#ffffff">
+<a name="top"></a>
+<hr><h1><em>MARC 21 Concise Bibliographic: <br>
+  Control Fields (001-006) </em></h1>
+<hr><p>Fields 001-006
+ contain control numbers and
+other control and coded information that are used in processing
+MARC bibliographic records.  Each control field is identified
+by a field tag in the Directory and contains either a single
+data element or a series of fixed-length data elements
+identified by relative character position.  Variable control
+fields contain neither indicator positions nor subfield
+codes.</p><ul>
+<li><a href="#mrcb001">001 - CONTROL NUMBER</a>
+
+<small>(NR)</small></li><li><a href="#mrcb003">003 - CONTROL NUMBER IDENTIFIER</a>
+
+<small>(NR)</small></li><li><a href="#mrcb005">005 - DATE AND TIME OF LATEST TRANSACTION</a>
+
+<small>(NR)</small></li><li><a href="#mrcb006">006 - FIXED-LENGTH DATA ELEMENTS--ADDITIONAL
+MATERIAL CHARACTERISTICS--GENERAL INFORMATION</a>
+
+<small>(R)</small></li><li><a href="#mrcb006at">006--BOOKS</a>
+</li><li><a href="#mrcb006m">006--COMPUTER FILES/ELECTRONIC RESOURCES</a>
+</li><li><a href="#mrcb006ef">006--MAPS</a>
+</li><li><a href="#mrcb006p">006--MIXED MATERIALS</a>
+</li><li><a href="#mrcb006cdij">006--MUSIC</a>
+</li><li><a href="#mrcb006s">006--CONTINUING RESOURCES</a>
+</li><li><a href="#mrcb006gkor">006--VISUAL MATERIALS</a>
+</li></ul>
+<p><u>Information for Translators and Other Users</u><br>
+Items highlighted in <font color="#ff0000">red</font> indicate changes made after
+the 2002 edition of the <em>MARC 21 Concise Formats</em> was published and are
+included in the 2003 printed edition of the <em>MARC 21 Concise Formats</em>.
+</p><hr><h2><a name="mrcb001">001 - CONTROL NUMBER
+<small>(NR)</small></a>
+</h2>
+<p>The control number assigned by the organization creating,
+using, or distributing the record.  The MARC code for the
+organization is contained in field 003 (Control Number
+Identifier).
+</p><h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>001</strong></td>
+<td valign="top"><br>###86104385#</td>
+</tr>
+<tr><td valign="top"><br><strong>001</strong></td>
+<td valign="top"><br>ocm14919759</td>
+</tr>
+<tr><td valign="top"><br><strong>001</strong></td>
+<td valign="top"><br>#####9007496</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb003">003 - CONTROL NUMBER IDENTIFIER
+<small>(NR)</small></a>
+</h2>
+<p>The MARC code for the organization whose control number is
+contained in field 001 (Control Number).</p><p><font color="#ff0000">See <a href="ecbdorg.html">organization code sources</a>
+ for a listing of sources used in MARC 21 records.
+</font>
+</p><h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>003</strong></td>
+<td valign="top"><br>DLC</td>
+</tr>
+<tr><td valign="top"><br><strong>003</strong></td>
+<td valign="top"><br>OCoLC</td>
+</tr>
+<tr><td valign="top"><br><strong>003</strong></td>
+<td valign="top"><br>DNLM</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb005">005 - DATE AND TIME OF LATEST TRANSACTION
+<small>(NR)</small></a>
+</h2>
+<p>Sixteen characters that indicate the date and time of the
+latest record transaction and serve as a version identifier for
+the record.  They are recorded according to
+<em>Representation of Dates and Times</em> (ISO 8601).  The date
+requires 8 numeric characters in the pattern
+<em>yyyymmdd</em>.  The time requires 8 numeric characters in the pattern
+<em>hhmmss.f,</em> expressed in terms of the 24-hour (00-23)
+clock.
+</p><h3>Example</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>005</strong></td>
+<td valign="top"><br>19940223151047.0</td>
+</tr>
+<tr><td valign="top"><br></td>
+<td valign="top"><br><em>[February 23, 1994, 3:10:47 P.M.]</em></td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb006">006 - FIXED-LENGTH DATA ELEMENTS--ADDITIONAL
+MATERIAL CHARACTERISTICS--GENERAL INFORMATION
+<small>(R)</small></a>
+</h2>
+<p>This field contains 18 character positions (00-17)
+that provide for coding information about special
+aspects of the item being cataloged that cannot be coded
+in field 008 (Fixed-Length Data Elements).  It is used
+in cases when an item has multiple characteristics.  It
+is also used to record the coded serial aspects of
+nontextual continuing resources.</p><p>The field has a tree structure, whereby the code given in
+006/00 (Form of material) determines the data elements
+defined for subsequent character positions.  Except for code s
+(Serial/Integrating resource), the codes in field 006/00 correspond to those in
+Leader/06 (Type of record).  For each occurrence of field 006,
+the codes defined for character positions 01-17 will be the same
+as those defined in the corresponding field 008, character
+positions 18-34.  Configurations
+of field 006 are given in the following order: books, computer files/electronic resources,
+maps, music, continuing resources, visual materials, and mixed materials.</p><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb006at">006--BOOKS</a>
+</h2>
+<p>For descriptions of character positions 01-17, see
+the descriptions of corresponding character positions
+18-34 in the <a href="ecbd008s.html#mrcb008b">008--BOOKS</a>
+
+section of Control Field 008.
+</p><h3>Character Positions</h3>
+
+<ul>
+<li>00 - Form of material
+<ul>
+<li>a - Language material</li></ul>
+
+<ul>
+<li>t - Manuscript language material</li></ul>
+</li><li>01-04 - Illustrations<br>See the description of positions 18-21 (Illustrations)
+under
+<em><a href="ecbd008s.html#mrcb008b">008--BOOKS</a>
+</em></li><li>05 - Target audience<br>See the description of position 22 (Target audience)
+under
+<em><a href="ecbd008s.html#mrcb008b">008--BOOKS</a>
+</em></li><li>06 - Form of item<br>See the description of position 23 (Form of item) under
+<em><a href="ecbd008s.html#mrcb008b">008--BOOKS</a>
+</em></li><li>07-10 - Nature of contents<br>See the description of positions 24-27 (Nature of
+contents) under
+<em><a href="ecbd008s.html#mrcb008b">008--BOOKS</a>
+</em></li><li>11 - Government publication<br>See the description of position 28 (Government
+publication) under
+<em><a href="ecbd008s.html#mrcb008b">008--BOOKS</a>
+</em></li><li>12 - Conference publication<br>See the description of position 29 (Conference
+publication) under
+<em><a href="ecbd008s.html#mrcb008b">008--BOOKS</a>
+</em></li><li>13 - Festschrift<br>See the description of position 30 (Festschrift) under
+<em><a href="ecbd008s.html#mrcb008b">008--BOOKS</a>
+</em></li><li>14 - Index<br>See the description of position 31 (Index) under
+<em><a href="ecbd008s.html#mrcb008b">008--BOOKS</a>
+</em></li><li>15 - Undefined
+<ul>
+<li>Contains a blank (#) or a fill ( | )
+character</li></ul>
+</li><li>16 - Literary form<br>See the description of position 33 (Literary form) under
+<em><a href="ecbd008s.html#mrcb008b">008--BOOKS</a>
+</em></li><li>17 - Biography<br>See the description of position 34 (Biography) under
+<em><a href="ecbd008s.html#mrcb008b">008--BOOKS</a>
+</em></li></ul><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb006m">006--COMPUTER FILES/ELECTRONIC RESOURCES</a>
+</h2>
+<p>For descriptions of character positions 01-17, see
+the descriptions of corresponding character positions
+18-34 in the <a href="ecbd008s.html#mrcb008c">008--COMPUTER FILES</a>
+
+section of Control Field 008.
+</p><h3>Character Positions</h3>
+
+<ul>
+<li>00 - Form of material
+<ul>
+<li>m - Computer file/Electronic resource</li></ul>
+</li><li>01-04 - Undefined
+<ul>
+<li>Each contains a blank (#) or a fill ( | )
+character</li></ul>
+</li><li>05 - Target audience<br>See the description of position 22 (Target audience)
+under <em><a href="ecbd008s.html#mrcb008c">008--COMPUTER FILES</a>
+</em></li><li>06-08 - Undefined
+<ul>
+<li>Each contains a blank (#) or a fill ( | )
+character</li></ul>
+</li><li>09 - Type of computer file<br>See the description of position 26 (Type of computer
+file) under
+<em><a href="ecbd008s.html#mrcb008c">008--COMPUTER FILES</a>
+</em></li><li>10 - Undefined
+<ul>
+<li>Contains a blank (#) or a fill ( | )
+character</li></ul>
+</li><li>11 - Government publication<br>See the description of position 28 (Government
+publication) under 
+<em><a href="ecbd008s.html#mrcb008c">008--COMPUTER FILES</a>
+</em></li><li>12-17 - Undefined
+<ul>
+<li>Each contains a blank (#) or a fill ( | )
+character</li></ul>
+</li></ul><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb006ef">006--MAPS</a>
+</h2>
+<p>For descriptions of character positions 01-17, see
+the descriptions of corresponding character positions
+18-34 in the <a href="ecbd008s.html#mrcb008p">008--MAPS</a>
+
+section of Control Field 008.
+</p><h3>Character Positions</h3>
+
+<ul>
+<li>00 - Form of material
+<ul>
+<li>e - Cartographic material</li></ul>
+
+<ul>
+<li>f - Manuscript
+cartographic material</li></ul>
+</li><li>01-04 - Relief<br>See the description of positions 18-21 (Relief) under
+<em><a href="ecbd008s.html#mrcb008p">008--MAPS</a>
+</em></li><li>05-06 - Projection<br>See the description of positions 22-23 (Projection) under
+<em><a href="ecbd008s.html#mrcb008p">008--MAPS</a>
+</em></li><li>07 - Undefined
+<ul>
+<li>Contains a blank (#) or a fill ( | )
+character</li></ul>
+</li><li>08 - Type of cartographic material<br>See the description of position 25 (Type of cartographic
+material) under 
+<em><a href="ecbd008s.html#mrcb008p">008--MAPS</a>
+</em></li><li>09-10 - Undefined
+<ul>
+<li>Each contains a blank (#) or a fill ( | )
+character</li></ul>
+</li><li>11 - Government publication<br>See the description of position 28 (Government
+publication) under 
+<em><a href="ecbd008s.html#mrcb008p">008--MAPS</a>
+</em></li><li>12 - Form of item<br>See the description of position 29 (Form of item) under 
+<em><a href="ecbd008s.html#mrcb008p">008--MAPS</a>
+</em></li><li>13 - Undefined
+<ul>
+<li>Contains a blank (#) or a fill ( | )
+character</li></ul>
+</li><li>14 - Index<br>See the description of position 31 (Index) under 
+<em><a href="ecbd008s.html#mrcb008p">008--MAPS</a>
+</em></li><li>15 - Undefined
+<ul>
+<li>Contains a blank (#) or a fill ( | )
+character</li></ul>
+</li><li>16-17 - Special format
+characteristics<br>See the description of positions 33-34 (Special format
+characteristics) under 
+<em><a href="ecbd008s.html#mrcb008p">008--MAPS</a>
+</em></li></ul><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb006p">006--MIXED MATERIALS</a>
+</h2>
+<p>For descriptions of character positions 01-17, see
+the descriptions of corresponding character positions
+18-34 in the <a href="ecbd008s.html#mrcb008x">008--MIXED MATERIALS</a>
+
+section of Control Field 008.
+</p><h3>Character Positions</h3>
+
+<ul>
+<li>00 - Form of material
+<ul>
+<li>p - Mixed
+material</li></ul>
+</li><li>01-05 - Undefined
+<ul>
+<li>Each contains a blank (#) or a fill ( | )
+character</li></ul>
+</li><li>06 - Form of item<br>See the description of position 23 (Form of item) under
+<em><a href="ecbd008s.html#mrcb008x">008--MIXED MATERIALS</a>
+</em></li><li>07-17 - Undefined
+<ul>
+<li>Each contains a blank (#) or a fill ( | )
+character</li></ul>
+</li></ul><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb006cdij">006--MUSIC</a>
+</h2>
+<p>For descriptions of character positions 01-17, see
+the descriptions of corresponding character positions
+18-34 in the <a href="ecbd008s.html#mrcb008m">008--MUSIC</a>
+
+section of Control Field 008.
+</p><h3>Character Positions</h3>
+
+<ul>
+<li>00 - Form of material
+<ul>
+<li>c - Notated music</li></ul>
+
+<ul>
+<li>d - Manuscript notated music</li></ul>
+
+<ul>
+<li>i - Nonmusical sound
+recording</li></ul>
+
+<ul>
+<li>j - Musical sound
+recording</li></ul>
+</li><li>01-02 - Form of composition<br>See the description of positions 18-19 (Form of
+composition) under <em><a href="ecbd008s.html#mrcb008m">008--MUSIC</a>
+</em></li><li>03 - Format of music<br>See the description of position 20 (Format of music)
+under <em><a href="ecbd008s.html#mrcb008m">008--MUSIC</a>
+</em></li><li>04 - Music parts<br>See the description of position 21 (Music parts)
+under <em><a href="ecbd008s.html#mrcb008m">008--MUSIC</a>
+</em></li><li>05 - Target audience<br>See the description of position 22 (Target audience)
+under <em><a href="ecbd008s.html#mrcb008m">008--MUSIC</a>
+</em></li><li>06 - Form of item<br>See the description of position 23 (Form of item) under
+<em><a href="ecbd008s.html#mrcb008m">008--MUSIC</a>
+</em></li><li>07-12 - Accompanying matter<br>See the description of positions 24-29 (Accompanying matter) under
+<em><a href="ecbd008s.html#mrcb008m">008--MUSIC</a>
+</em></li><li>13-14 - Literary text for sound
+recordings<br>See the description of positions 30-31 (Literary text for sound recordings) under
+<em><a href="ecbd008s.html#mrcb008m">008--MUSIC</a>
+</em></li><li>15 - Undefined
+<ul>
+<li>Contains a blank (#) or a fill ( | ) character</li></ul>
+</li><li>16 - Transposition and arrangement<br>See the description of position 33 (Transposition and arrangement)under
+<em><a href="ecbd008s.html#mrcb008m">008--MUSIC</a>
+</em></li><li>17 - Undefined
+<ul>
+<li>Contains a blank (#) or a fill ( | )
+character</li></ul>
+</li></ul><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb006s">006--CONTINUING RESOURCES</a>
+</h2>
+<p>For descriptions of character positions 01-17, see
+the descriptions of corresponding character positions
+18-34 in the <a href="ecbd008s.html#mrcb008s">008--CONTINUING RESOURCES</a>
+
+section of Control Field 008.
+</p><h3>Character Positions</h3>
+
+<ul>
+<li>00 - Form of material
+<ul>
+<li>s - Serial/Integrating resource</li></ul>
+</li><li>01 - Frequency<br>See the description of position 18 (Frequency) under
+<em><a href="ecbd008s.html#mrcb008s">008--CONTINUING RESOURCES</a>
+</em></li><li>02 - Regularity<br>See the description of position 19 (Regularity) under
+<em><a href="ecbd008s.html#mrcb008s">008--CONTINUING RESOURCES</a>
+</em></li><li><font color="#ff0000">03 - Undefined</font>
+  <ul>
+    <li><font color="#ff0000">Contains a blank (#) or a fill ( | ) character</font>
+    </li>
+  </ul>
+</li><li>04 - Type of continuing resource<br>See the description of position 21 (Type of continuing resource) under
+<em><a href="ecbd008s.html#mrcb008s">008--CONTINUING RESOURCES</a>
+</em></li><li>05 - Form of original item<br>See the description of position 22 (Form of original
+item) under
+<em><a href="ecbd008s.html#mrcb008s">008--CONTINUING RESOURCES</a>
+</em></li><li>06 - Form of item<br>See the description of position 23 (Form of item) under
+<em><a href="ecbd008s.html#mrcb008s">008--CONTINUING RESOURCES</a>
+</em></li><li>07 - Nature of entire work<br>See the description of position 24 (Nature of entire
+work) under
+<em><a href="ecbd008s.html#mrcb008s">008--CONTINUING RESOURCES</a>
+</em></li><li>08-10 - Nature of contents<br>See the description of positions 25-27 (Nature of
+contents) under
+<em><a href="ecbd008s.html#mrcb008s">008--CONTINUING RESOURCES</a>
+</em></li><li>11 - Government publication<br>See the description of position 28 (Government
+publication) under
+<em><a href="ecbd008s.html#mrcb008s">008--CONTINUING RESOURCES</a>
+</em></li><li>12 - Conference publication<br>See the description of position 29 (Conference
+publication) under
+<em><a href="ecbd008s.html#mrcb008s">008--CONTINUING RESOURCES</a>
+</em></li><li>13-15 - Undefined
+<ul>
+<li>Each contains a blank (#) or a fill ( | )
+character</li></ul>
+</li><li>16 - Original alphabet or script of title<br>See the description of position 33 (Original alphabet or script of title) under
+<em><a href="ecbd008s.html#mrcb008s">008--CONTINUING RESOURCES</a>
+</em></li><li>17 - Entry convention<br>See the description of position 34 (Entry convention) under
+<em><a href="ecbd008s.html#mrcb008s">008--CONTINUING RESOURCES</a>
+</em></li></ul>
+<p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb006gkor">006--VISUAL MATERIALS</a>
+</h2>
+<p>For descriptions of character positions 01-17, see
+the descriptions of corresponding character positions
+18-34 in the <a href="ecbd008s.html#mrcb008v">008--VISUAL
+MATERIALS</a>
+
+section of Control Field 008.
+</p><h3>Character Positions</h3>
+
+<ul>
+<li>00 - Form of material
+<ul>
+<li>g - Projected
+medium</li></ul>
+
+<ul>
+<li>k - Two-dimensional nonprojectable
+graphic</li></ul>
+
+<ul>
+<li>o - Kit</li></ul>
+
+<ul>
+<li>r - Three-dimensional artifact or
+naturally occurring object</li></ul>
+</li><li>01-03 - Running time<br>See the description of positions 18-20 (Running time) under
+<em><a href="ecbd008s.html#mrcb008v">008--VISUAL MATERIALS</a>
+</em></li><li>04 - Undefined
+<ul>
+<li>Contains a blank (#) or a fill ( | )
+character</li></ul>
+</li><li>05 - Target audience<br>See the description of position 22 (Target audience)
+under
+<em><a href="ecbd008s.html#mrcb008v">008--VISUAL MATERIALS</a>
+</em></li><li>06-10 - Undefined
+<ul>
+<li>Each contains a blank (#) or a fill ( | )
+character</li></ul>
+</li><li>11 - Government publication<br>See the description of position 28 (Government
+publication) under
+<em><a href="ecbd008s.html#mrcb008v">008--VISUAL MATERIALS</a>
+</em></li><li>12 - Form of item<br>See the description of position 29 (Form of item) under
+<em><a href="ecbd008s.html#mrcb008v">008--VISUAL MATERIALS</a>
+</em></li><li>13-15 - Undefined
+<ul>
+<li>Each contains a blank (#) or a fill ( | )
+character</li></ul>
+</li><li>16 - Type of visual material<br>See the description of position 33 (Type of visual
+material) under
+<em><a href="ecbd008s.html#mrcb008v">008--VISUAL MATERIALS</a>
+</em></li><li>17 - Technique<br>See the description of position 34 (Technique) under
+<em><a href="ecbd008s.html#mrcb008v">008--VISUAL MATERIALS</a>
+</em></li></ul><p><a href="#top">Go to top of document</a></p>
+<hr><p><strong>Go to</strong>: <em><a href="ecbdhome.html">
+MARC 21 Concise Bibliographic Format</a></em> | <a href="http://www.loc.gov/marc/">
+MARC Home Page</a></p><p></p><hr><img alt="Library of Congress" src="ecbdcntr_files/lc2.gif">
+<strong>Library of Congress</strong>
+<address><a href="http://www.loc.gov/help/help-desk.html">Library of Congress Help Desk</a>  (
+<!-- #BeginDate format:Am3 -->05/07/2004<!-- #EndDate -->
+)
+</address>
+</body></html>

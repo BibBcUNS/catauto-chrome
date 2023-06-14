@@ -1,0 +1,677 @@
+<IsisScript>
+
+<!--
+===========================================================================
+	catalis.xis
+	
+	Este script recibe todas las llamadas del cliente, y luego deriva el
+	control a un .xis específico.
+	
+	ATENCION: cada vez que wxis procesa este script, lee también *todos*
+	los .xis de los <include>. Quizás sería mejor que el cliente invocara
+	en cada caso al .xis específico que corresponde ejecutar, y que cada uno
+	de estos .xis tuviera un <include> para la porción de código que 
+	comparten todos ellos (headers, cipar, log, etc.). Esto exige modificar
+	el valor del parámetro IsisScript en todas las llamadas.
+	
+	(c) 2003-2005  Fernando J. Gómez - CONICET - INMABB
+	Véase el archivo LICENCIA.TXT incluido en la distribución de Catalis
+===========================================================================
+-->
+
+
+
+<section>
+
+<!--
+	buffersize: 2500000 ha sido hasta ahora un buen valor.
+	ATENCION: ¿cómo saber cuál es un valor "seguro" para este parámetro?
+-->
+<parm name="buffersize">250000</parm>
+
+<!-- HTTP headers -->
+<display><pft>
+	/*
+	
+	'Cache-control: private, no-cache'/  
+	'Expires: Mon, 01 Jan 1990 05:00:00 GMT'/
+	'Pragma: no-cache'/
+	*/
+	'Content-type: text/html; charset=ISO-8859-1'/#
+
+</pft></display>
+
+<!-- Parámetros CGI básicos (hay otros, que van apareciendo a su debido tiempo) -->
+<!-- ATENCION: ¿sería mejor pasar userid y db por medio de cookies? Sí, ya sé, el
+	camino correcto es usar PHP sessions... -->
+<cgitable><pft>
+	'2000 IsisScript'/     /* nombre del script */
+	'2001 tarea'/          /* tarea que debe realizar el script */
+	'2002 userid'/         /* identificación del usuario */
+	'2104 db'/             /* base de datos */
+	'2019 trace'/
+	
+</pft></cgitable>
+
+<!-- Descartamos una espuria 2da ocurrencia de v2000 en Linux (TO-DO: volver a revisar este extraño fenómeno) -->
+<field action="replace" tag="2000"><pft>v2000[1]</pft></field>
+
+<!-- trace es activado mediante un parámetro CGI -->
+<trace><pft>v2019</pft></trace>
+
+<!-- Normalizamos el userid (mayúsculas) -->
+<field action="replace" tag="2002"><pft>mpu,v2002</pft></field>
+
+<!-- Lectura del archivo de configuración. Los parámetros van al campo 6001 -->
+<!-- ATENCION: ¿podríamos utilizar variables de ambiente? (putenv + getenv) -->
+<field action="replace" tag="6000" split="occ"><pft>,cat(getenv('PATH_WXIS'),'catauto/config/catalis.conf'),</pft></field>
+
+<!-- 6001: opciones varias -->
+<field action="replace" tag="6001"><pft>
+	(,
+		,if v6000.1 = '#' then /* ignorar líneas de comentarios */
+		,else if v6000 : 'USE_FIELD_BLOCKS='      then '^b',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,else if v6000 : 'DEBUG_MSG='             then '^d',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,else if v6000 : 'SHOW_245h='             then '^g',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,else if v6000 : 'DOC_LC_REMOTE='         then '^l',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,else if v6000 : 'SHOW_245c='             then '^m',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,else if v6000 : 'AUTOMATIC_PUNCTUATION=' then '^p',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,else if v6000 : 'DISPLAY_DOC_TYPE='      then '^t',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,else if v6000 : 'SCRIPT_URL='            then '^u',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,else if v6000 : 'LOCK_EXPIRE='           then '^x',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,else if v6000 : 'MAIN_ENTRY_TOP='        then '^1',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,fi,fi,fi,fi,fi,fi,fi,fi,fi,fi,fi,
+	),
+</pft></field>
+
+<!-- 6003: paths -->
+<field action="replace" tag="6003"><pft>
+	(,
+		,if v6000.1 = '#' then /* ignorar líneas de comentarios */
+		,else if v6000 : 'PATH_DB='          then '^b',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,else if v6000 : 'PATH_CGI-BIN='     then '^c',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,else if v6000 : 'PATH_HTDOCS='      then '^h',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,else if v6000 : 'PATH_CISIS='       then '^i',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,else if v6000 : 'PATH_LOGS='        then '^l',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,else if v6000 : 'PATH_TEMP='        then '^t',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,fi,fi,fi,fi,fi,fi,fi,
+	),
+</pft></field>
+
+
+<!-- 6004: otros -->
+<field action="replace" tag="6004"><pft>
+	(,
+		,if v6000.1 = '#' then /* ignorar líneas de comentarios */
+		,else if v6000 : 'REPORT_JS_ERRORS='    then '^e',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,else if v6000 : 'ADMIN_EMAIL='         then '^m',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,fi,fi,fi,
+	),
+</pft></field>
+
+
+<!--
+	Base de datos inicial para este catalogador.
+	TO-DO: El catalogador con acceso a más de una base, debería poder 
+	configurar su "base favorita" como base inicial.
+	ATENCION: no usamos un nombre lógico de la base USERS porque
+	aún no se ha leído el CIPAR, y no podemos leer el CIPAR antes pues éste
+	necesita el nombre de la base bibliográfica a usar (base que recién
+	conoceremos una vez consultada la base USERS!)
+-->
+<field action="replace" tag="2104"><pft>
+	if v2001 = 'INICIAR_SESION' and a(v2104) then
+		/* Buscamos la primera base en la lista de bases para este usuario */
+		ref(
+			[v6003^b,'/users/users']
+			l([v6003^b,'/users/users']v2002),
+			v5^*[1],
+		)
+	fi
+</pft></field>
+
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!--                       CIPAR                        -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<parm name="cipar"><pft>
+	/* ----- BASE DE DATOS (BIBLIOGRÁFICA) ----- */
+	'BIBLIO.*=',          v6003^b,'/',v2104,'/biblio.*'/
+	'CONTROL-NUMBER.TXT=',v6003^b,'/',v2104,'/cn.txt'/
+	'DB-DESCR.TXT=',      v6003^b,'/',v2104,'/db-descr.txt'/
+	
+	/* ----- BASE DE DATOS (CLASIFICACION) ----- */
+	'MSC.*=',             v6003^b,'/opacmarc/msc2000/msc.*'/
+	
+	/* ----- ACTUALIZACION DEL ARCHIVO INVERTIDO (archivos compartidos con el OPAC) ----- */
+	'AC-ANSI.TAB=',       v6003^b,'/common/ac-ansi.tab'/
+	'BIBLIO.FST=',        v6003^b,'/common/biblio.fst'/
+	'BIBLIO.STW=',        v6003^b,'/common/biblio.stw'/
+	'COUNTRY.*=',         v6003^b,'/common/country.*'/
+	'UC-ANSI.TAB=',       v6003^b,'/common/uc-ansi.tab'/
+	
+	/* ----- ARCHIVOS HTML ----- */
+	'CARTELES.HTM=',        v6003^c,'/html/carteles.htm'/
+	'DELETED-RECORD.HTM=',  v6003^c,'/html/deleted-record.htm'/
+	'DISPLAY-RECORD.HTM=',  v6003^c,'/html/display-record.htm'/
+	'EDITION-FORM.HTM=',    v6003^c,'/html/edition-form.htm'/
+	'ERROR-IP-NUMBER.HTM=', v6003^c,'/html/error-ip-number.htm'/
+	'HEAD.HTM=',            v6003^c,'/html/head.htm'/
+	'HEAD-RECORD-LIST.HTM=',v6003^c,'/html/head-recordList.htm'/
+	'HIDDEN-ELEM.HTM=',     v6003^c,'/html/hidden-elem.htm'/
+	'LOGIN.HTM=',           v6003^c,'/html/login.htm'/
+	'SAVED-RECORD.HTM=',    v6003^c,'/html/saved-record.htm'/
+	'SEARCH-PANEL.HTM=',    v6003^c,'/html/search-panel.htm'/
+	'SEND-KEYS.HTM=',       v6003^c,'/html/send-keys.htm'/
+	'TOOLBAR.HTM=',         v6003^c,'/html/toolbar.htm'/
+	'UPD-MAXMFN.HTM=',      v6003^c,'/html/updMaxMfn.htm'/
+	
+	/* ----- Usuarios, permisos ----- */
+	/*'IP-TABLE=',            v6003^c,'/catalis/config/ip-table.txt'/*/
+	'USERS.*=',             v6003^b,'/users/users.*'/
+	
+	/* ----- PFT (compartidos con el OPAC) ----- */
+	'DOCUMENT-TYPE.PFT=', v6003^c,'/pft/doc-type.pft'/
+	'ETIQUETADO.PFT=',    v6003^c,'/pft/etiquetado.pft'/
+	'URLENCODE.PFT=',     v6003^c,'/pft/urlencode.pft'/
+	'WH.PFT=',            v6003^c,'/pft/wh.pft'/
+
+	'BIB-LIST-HEAD.HTM=', v6003^c,'/opacmarc/html/bib-list-head.htm'/
+	
+	/* ----- Archivo de logs (uno por fecha) ----- */
+	'LOGFILE.TXT=',v6003^l,'log-',s(date).8,'.txt'/
+	
+	/* ----- Directorio para archivos temporales ----- */
+	'CI_TEMPDIR=',v6003^t,/
+</pft></parm>
+
+<!-- ATENCION -->
+<flow action="jump"><pft>if p(v2002) or a(v2001) then 'USERID_PRESENT' fi</pft></flow>
+<display>ERROR: USERID ausente</display>
+<flow action="jump">END</flow>
+
+
+<!-- ----------------------------------------- -->
+<label>USERID_PRESENT</label>
+<!-- ----------------------------------------- -->
+<!--display><pft>'Tu número IP es: ',getenv('REMOTE_ADDR'),</pft></display-->
+
+<flow action="jump">DISPATCH</flow>
+
+<!-- Mensaje de "acceso denegado" [suspendido] -->
+<!--display><htmlpft><pft>,cat('HEAD.HTM'),</pft></htmlpft></display>
+<display><htmlpft><pft>,cat('ACCESO_DENEGADO.HTM'),</pft></htmlpft></display>
+<flow action="jump">END</flow-->
+
+
+<!-- ----------------------------------------------------------------- -->
+<label>DISPATCH</label>
+<!-- ----------------------------------------------------------------- -->
+<!-- Tareas a realizar por el script -->
+<field action="replace" tag="2101"><pft>
+	'~FORM_LOGIN'          /* presenta el formulario de login */      
+	'~INICIAR_SESION'      /* verifica los datos del login */
+	'~MAIN_PAGE'           /* presenta la página principal de la aplicación */
+	'~BUSCAR'              /* realiza una búsqueda y presenta los resultados */
+	'~EDITAR_REG'          /* envía un registro al formulario de edición */
+	'~GRABAR_REG'          /* graba un registro en la base bibliográfica */
+	'~BORRAR_REG'          /* borra un registro de la base bibliográfica */
+	'~NEW_RECORDS'         /* muestra un listado de registros recientes */
+	'~MFN_RANGE'           /* muestra un listado de MFNs sucesivos */
+	'~FIN_SESION'          /* muestra la pantalla de sesión finalizada */ 
+	'~UPD_MAXMFN'          /* envía el número actual de registros de la base */
+	'~SEND_RECORD'         /* envía un registro para ser presentado en la pantalla de búsqueda */
+	'~SHOW_KEYS'           /* envía listado de términos del diccionario */
+	'~SEND_ETIQUETADO'     /* envía visualización en estilo Etiquetado */
+	'~SEND_BREVE'          /* envía visualización en estilo Breve (WH) */
+	'~TEST_CONDITION'      /* hace una búsqueda libre */
+	'~',
+</pft></field>
+
+<!-- Ejecutamos la tarea, si es alguna de las de arriba -->
+<flow action="jump"><pft>
+	if v2101 : s('~',v2001,'~') then v2001, fi
+</pft></flow>
+
+
+<!-- ----------------------------------------------------------------- -->
+<label>FORM_LOGIN</label>
+<!-- ----------------------------------------------------------------- -->
+
+<!-- Si no se indica una tarea de la lista de arriba, se presenta el formulario
+	para el inicio de sesión -->
+<display><htmlpft><pft>,cat('HEAD.HTM'),</pft></htmlpft></display>
+<display><htmlpft><pft>,cat('LOGIN.HTM'),</pft></htmlpft></display>
+<flow action="jump">END</flow>
+
+
+<!-- ----------------------------------------------------------------- -->
+<label>INICIAR_SESION</label>
+<!-- ----------------------------------------------------------------- -->
+
+<!-- Verifica los datos del login -->
+<field action="cgi" tag="2003">pw</field>
+<field action="replace" tag="2005"><pft>
+	if l(['USERS']v2002) = 0   /* el usuario no existe */
+		then 'FAILED-ACCESS',
+	else if ref(['USERS']l(['USERS']v2002),v3) <> v2003  /* el passwd no es correcto */
+		then 'FAILED-ACCESS',
+	fi,fi
+</pft></field>
+
+<flow action="jump"><pft>
+	if v2005 = 'FAILED-ACCESS' then
+		'FORM_LOGIN',
+	else
+		'MAIN_PAGE',
+	fi
+</pft></flow>
+
+
+<!-- ----------------------------------------------------------------- -->
+<label>MAIN_PAGE</label>
+<!-- ----------------------------------------------------------------- -->
+
+<!--parm name="buffersize">150000</parm-->
+
+<display><htmlpft><pft>
+	,cat('HEAD.HTM'),          /* encabezamiento */
+	,cat('CARTELES.HTM'),      /* contenido de los popups con mensajes al usuario */
+	,cat('HIDDEN-ELEM.HTM'),   /* FORM & IFRAME ocultos */
+	,cat('TOOLBAR.HTM'),       /* barra de herramientas/menúes */
+	,cat('SEARCH-PANEL.HTM'),  /* pantalla de búsquedas */
+	,cat('EDITION-FORM.HTM'),  /* pantalla de edición */
+</pft></htmlpft></display>
+
+<flow action="jump">END</flow>
+
+
+
+<!-- ----------------------------------------------------------------- -->
+<label>NEW_RECORDS</label>
+<!-- ----------------------------------------------------------------- -->
+<include>catauto/xis/new-records.xis</include>
+<flow action="jump">END</flow>
+
+
+<!-- ----------------------------------------------------------------- -->
+<label>BUSCAR</label>
+<!-- ----------------------------------------------------------------- -->
+<include>catauto/xis/buscar.xis</include>
+<flow action="jump">END</flow>
+
+
+<!-- ----------------------------------------------------------------- -->
+<label>MFN_RANGE</label>
+<!-- ----------------------------------------------------------------- -->
+<include>catauto/xis/mfnrange.xis</include>
+<flow action="jump">END</flow>
+
+
+<!-- ----------------------------------------------------------------- -->
+<label>EDITAR_REG</label>
+<!-- ----------------------------------------------------------------- -->
+<!-- Presenta el formulario de carga, con los datos del registro cuyo
+	recordID viene en v4001.
+	También bloquea el registro (sólo lo pide el "dueño") -->
+	
+<!-- ATENCION: en EDITAR_REG o en SEND_RECORD: es posible que se reciba la 
+	solicitud de un registro BORRADO, pues al borrarse un registro, puede
+	quedar una referencia al mismo desde la pantalla de búsquedas. -->
+
+<field action="cgi" tag="4001">recordID</field>
+
+<!-- ¿Encontramos el registro? -->
+<flow action="jump"><pft>if npost(['BIBLIO']'-NC='v4001) > 0 then 'RECORD_LOCK' fi</pft></flow>
+
+<!-- Mensaje de error si no lo encontramos -->
+<display><htmlpft>
+	<html>
+	<head>
+		<script type="text/javascript">
+			errorMessage = "<br><br>ERROR AL BUSCAR EL REGISTRO";
+			errorMessage += "<br> recordID: [pft]v4001[/pft]";
+			errorMessage += "<br> [pft]'-NC='v4001,' tiene ', f(npost(['BIBLIO']'-NC='v4001),1,0),' postings.'[/pft]";
+			top.document.getElementById("cartelMsg").innerHTML += errorMessage;
+			top.document.getElementById("cartelBtn").style.display = "block";
+		</script>
+	</head>
+	</html>
+</htmlpft></display>
+<flow action="jump">END</flow>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>RECORD_LOCK</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- Averiguamos el MFN del registro solicitado para editar -->
+<field action="replace" tag="4000"><pft>f(l(['BIBLIO']'-NC='v4001),1,0)</pft></field>
+
+<!-- ATENCION: mensaje de error si no se encuentra el registro! -->
+
+<!-- v5210: Nivel de autorización del usuario para esta base -->
+<field action="replace" tag="5210" split="occ"><pft>
+	ref(['USERS']l(['USERS']v2002),(v5/)), /* listas de bases + permiso */
+</pft></field>
+<field action="replace" tag="5210"><pft>
+	(,
+		if v5210^* = v2104[1] then v5210^p, break, fi,
+	),
+</pft></field>
+
+<!-- v5211: Creador de este registro -->
+<field action="replace" tag="5211"><pft>
+	ref(['BIBLIO']val(v4000),v991)
+</pft></field>
+
+<!--
+	condicion para aplicar bloqueo: userLevel = 3 or (userLevel = 2 and user = creator)
+	condicion para omitir bloqueo: userLevel <> 3 and (userLevel <> 2 or v2002 <> creator)
+-->
+<flow action="jump"><pft>
+	if v5210 <> '3' and ( v5210 <> '2' or v2002 <> v5211 ) then 
+		'SEND_RECORD',
+	fi
+</pft></flow>
+
+<!-- Intentamos el bloqueo del registro -->
+<do task="update">
+	<parm name="db">BIBLIO</parm>
+	<parm name="mfn"><pft>v4000</pft></parm>
+	<parm name="lockid"><pft>v2002,'@'getenv('REMOTE_ADDR')</pft></parm>
+	<!-- Se puede usar HTTP_X_FORWARDED_FOR? Sirve para algo? --> 
+	<parm name="expire"><pft>v6001^x</pft></parm>
+	<define>1102 Isis_Status</define>
+	<define>1106 Isis_Lock</define>
+	<update>
+		<write>Lock</write>
+		<field action="export" tag="list">1102</field>
+	</update>
+</do>
+
+<!-- Si Isis_Status es cero, seguimos adelante -->
+<flow action="jump"><pft>if val(v1102) = 0 then 'SEND_RECORD' fi</pft></flow>
+
+<!-- Si Isis_Status es diferente de cero, el registro no se puede editar -->
+<display><htmlpft>
+	<html>
+	<head>
+		<script type="text/javascript">
+			errorMessage = "<br><br>El registro [pft]v4001[/pft] no está disponible para ser editado en este momento.";
+			[pft]if val(v1102) = 5 then[/pft]
+				errorMessage += " Ha sido bloqueado por el usuario [pft]ref(['BIBLIO']val(v4000),v1106^i)[/pft].<br>";
+			[pft]fi[/pft]
+			errorMessage += "<br><span style=font-weight:normal>MFN: [pft]v4000[/pft]";
+			errorMessage += " &nbsp;&nbsp;&nbsp; Isis_Status: [pft]v1102[/pft]</span>";
+			top.document.getElementById("cartelMsg").innerHTML += errorMessage;
+			top.document.getElementById("cartelBtn").style.display = "block";
+		</script>
+	</head>
+	</html>
+</htmlpft></display>
+<flow action="jump">END</flow>
+
+
+<!-- ----------------------------------------- -->
+<label>SEND_RECORD</label>
+<!-- ----------------------------------------- -->
+<field action="delete" tag="list">4000,4001</field> <!-- necesario para EDITAR_REG (?) -->
+<!--field action="cgi" tag="4000">mfn</field-->
+<field action="cgi" tag="4001">recordID</field>
+
+<!-- Si encontramos el registro, lo mostramos -->
+<flow action="jump"><pft>if npost(['BIBLIO']'-NC='v4001) > 0 then 'DISPLAY_RECORD' fi</pft></flow>
+
+<!-- Mensaje de error si no lo encontramos -->
+<display><htmlpft>
+	<html>
+	<head>
+		<script type="text/javascript">
+			errorMessage = "<br><br>ERROR AL BUSCAR EL REGISTRO";
+			errorMessage += "<br> recordID: [pft]v4001[/pft]";
+			errorMessage += "<br> [pft]'-NC='v4001,' tiene ', f(npost(['BIBLIO']'-NC='v4001),1,0),' postings.'[/pft]";
+			top.document.getElementById("cartelMsg").innerHTML += errorMessage;
+			top.document.getElementById("cartelBtn").style.display = "block";
+		</script>
+	</head>
+	</html>
+</htmlpft></display>
+<flow action="jump">END</flow>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>DISPLAY_RECORD</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<field action="replace" tag="4000"><pft>f(l(['BIBLIO']'-NC='v4001),1,0)</pft></field>
+<!-- ATENCION: error si v4000 no tiene valor -->
+
+<do task="mfnrange">
+	<parm name="db">BIBLIO</parm>
+	<parm name="from"><pft>v4000</pft></parm> 
+	<parm name="count">1</parm>
+	<loop>
+		<field action="import" tag="list">2000,2001,2002,2104</field> <!-- IsisScript, tarea, userid, db -->
+		
+		<!-- Listado de campos del registro -->
+		<field action="replace" tag="2082" split="flddir"><pft>ALL</pft></field>
+		<field action="replace" tag="3082" split="occ"><pft>v2082</pft></field>
+		
+		<!-- Paso 1: Omitimos campos de control (tag < 010) y "virtuales" (tag > 999);
+		     sustituimos indicadores en blanco -->
+		<field action="replace" tag="3082" split="occ"><pft>
+			(,
+				if v3082.4 = '0000' or v3082.2 <> '00' then
+					,,   /* los omitimos */
+				else
+					v3082*2.4,                  /* tag + espacio */
+					replace(v3082*6.2,' ','#'), /* indicadores */
+					v3082*8/,                   /* subcampos */
+				fi,
+			),
+		</pft></field>
+		<!--proc><pft>'d008a008~',replace(v008,' ','#'),'~'</pft></proc-->
+		<!-- ATENCION: lo mismo que con el 008, hay que hacer con tag <= 010 ? -->
+		<!--parm name="buffersize">100000</parm--> <!-- El .htm era truncado en 32KB -->
+		
+		<!-- Paso 2: aislamos los datafields: cada datafield genera una occ de v3083 -->
+		<field action="replace" tag="3083" split="occ"><pft>
+			(,
+				/* if size(v3082) > 3 and not '~859~905~906~907~908~909~917~918~919~980~981~991~992~' : s('~'v3082.3'~') and not '1106' : v3082.4 then */
+				
+				if size(v3082) > 3   /* ¿podríamos tener size <= 3? */
+					/* and not '~859~' : s('~',v3082.3,'~')   omitimos el 859 */
+					and v3082.1 <> '9'  /* omitimos los 9xx */
+					then 
+					if '~100~700~' : s('~'v3082.3'~') and v3082 : '^9' then
+						/* Tomamos datos de "base de autoridades" (nombres personales) 	*/
+						v3082.4,
+						ref(['AUTH']l(['AUTH']v3082^9),v100),
+						'^9',v3082^9,
+					else
+						/* Sustituciones necesarias porque luego esto irá a un string de Javascript */
+						replace(replace(v3082,
+							'\','\\'),
+							'"','\"'),
+					fi,
+					/    /* salto de línea --> nueva occ */
+				fi
+			),
+		</pft></field>
+		
+		<!-- Paso 3: campos de holdings -->
+		<field action="replace" tag="859" split="occ"><pft>
+			(,
+				replace(replace(v859,
+					'\','\\'),
+					'"','\"'),
+				/    /* salto de línea --> nueva occ */
+			),
+		</pft></field>
+			
+		<!-- Esto va al IFRAME oculto. Contiene los datos del registro, e invoca
+		a la función que presenta los datos en el formulario -->
+		<display><htmlpft>
+			<pft>cat('DISPLAY-RECORD.HTM')</pft>
+		</htmlpft></display>
+	</loop>
+</do>
+
+<flow action="jump">END</flow>
+
+
+<!-- ----------------------------------------------------------------- -->
+<label>GRABAR_REG</label>
+<!-- ----------------------------------------------------------------- -->
+<include>catauto/xis/grabar.xis</include>
+<flow action="jump">END</flow>
+
+
+<!-- ----------------------------------------------------------------- -->
+<label>TEST_CONDITION</label>
+<!-- ----------------------------------------------------------------- -->
+<include>catauto/xis/test-condition.xis</include>
+<flow action="jump">END</flow>
+
+
+<!-- ----------------------------------------------------------------- -->
+<label>ERROR_IP_NUMBER</label>
+<!-- ----------------------------------------------------------------- -->
+<display><htmlpft><pft>cat('ERROR-IP-NUMBER.HTM')</pft></htmlpft></display>
+<flow action="jump">END</flow>
+
+
+<!-- ----------------------------------------------------------------- -->
+<label>BORRAR_REG</label>
+<!-- ----------------------------------------------------------------- -->
+<include>catauto/xis/borrar.xis</include>
+<flow action="jump">END</flow>
+
+
+<!-- ----------------------------------------------------------------- -->
+<label>SHOW_KEYS</label>
+<!-- ----------------------------------------------------------------- -->
+<include>catauto/xis/showkeys.xis</include>
+<flow action="jump">END</flow>
+
+
+<!-- ----------------------------------------------------------------- -->
+<label>UPD_MAXMFN</label>
+<!-- ----------------------------------------------------------------- -->
+<display><htmlpft><pft>,cat('UPD-MAXMFN.HTM'),</pft></htmlpft></display>
+<flow action="jump">END</flow>
+
+
+<!-- ----------------------------------------------------------------- -->
+<label>SEND_ETIQUETADO</label>
+<!-- ----------------------------------------------------------------- -->
+<label>SEND_BREVE</label>
+<!-- ----------------------------------------------------------------- -->
+<!-- Envía el display Etiquetadoo Breve de un registro, para ser presentado en
+	la ventana de edición, o en la de búsquedas -->
+
+<!-- TO-DO: generar solamente la versión solicitada (y no las dos) -->
+
+<field action="replace" tag="6019"><pft>
+	if v2001 : 'ETIQ' then 'etiq' else 'breve' fi
+</pft></field>
+
+<field action="cgi" tag="4001">recordID</field>
+<field action="cgi" tag="4002">useModelessWindow</field>
+<do task="search">
+	<parm name="db">BIBLIO</parm>
+	<parm name="expression"><pft>'-NC=',v4001</pft></parm>
+	<loop>
+		<field action="import" tag="list">2000,4002,6001,6019</field>
+		
+		<display><htmlpft>
+			<div id="etiq">
+				[pft],@ETIQUETADO.PFT,[/pft]
+			</div>
+		</htmlpft></display>
+		
+		<display><div id="breve"></display>
+		<display><htmlpft><pft>cat('BIB-LIST-HEAD.HTM')</pft></htmlpft></display>
+		<!--proc><pft>'a1001~ ~'</pft></proc--> <!-- el contador -->
+		<display><pft>@WH.PFT</pft></display>
+		<display></table></div></display>
+		
+		<display><htmlpft>
+			<script>
+				[pft]if v4002 = '1' then[/pft]
+					// El registro se muestra en la ventana auxiliar de visualización
+					top.document.getElementById("cartel").style.display = "none";
+					top.document.getElementById("[pft]v6019[/pft]Div").innerHTML = document.getElementById("[pft]v6019[/pft]").innerHTML;
+					top.callerWindowObject.updateDialogHeight(top.window);
+				[pft]else[/pft]
+					// El registro se muestra en la pantalla de búsquedas
+					var receivedRecord = new Object();
+					receivedRecord.etiq = document.getElementById("etiq").innerHTML;
+					receivedRecord.f001 = "[pft]v001[/pft]";
+					top.showRecordDetails(receivedRecord);
+				[pft]fi[/pft]
+			</script>
+		</htmlpft></display>
+	</loop>
+</do>
+<flow action="jump">END</flow>
+
+
+<!-- ----------------------------------------------------------------- -->
+<label>FIN_SESION</label>
+<!-- ----------------------------------------------------------------- -->
+<display><htmlpft><pft>cat('HEAD.HTM')</pft></htmlpft></display>
+<display><htmlpft><pft>cat('LOGIN.HTM')</pft></htmlpft></display>
+<flow action="jump">END</flow>
+
+
+<!-- ----------------------------------------------------------------- -->
+<label>END</label>
+<!-- ----------------------------------------------------------------- -->
+<!-- Guardamos información sobre la tarea realizada por el script -->
+<!-- ATENCION: deberíamos registrar cuando se abandona el script por un error -->
+<!-- Sería deseable poder guardar también información sobre lo que sucede en 
+	el cliente -->
+	
+<!-- TO-DO: colocar un jump en base al IP, *antes* del <file> -->
+
+<file action="append" type="output">LOGFILE.TXT</file>
+<display><pft>
+/*
+if not '200.49.229.48~' : s(getenv('HTTP_X_FORWARDED_FOR'),'~')
+   and not '200.49.229.48~' : s(getenv('REMOTE_ADDR'),'~') then 
+*/
+	'!ID 0'/      /* 'ID 0', pues usando id2i con create/app, no nos preocupamos por el MFN */
+	'!v5!',s(date).15/    /* fecha */
+	'!v10!',getenv('REMOTE_ADDR')/
+	'!v11!',getenv('HTTP_X_FORWARDED_FOR')/
+	"!v2000!"v2000/      /* IsisScript */
+	"!v2001!"v2001/      /* tarea */
+	"!v2002!"v2002/      /* userid */
+	"!v2003!"v2003/      /* pw */
+	"!v2104!"v2104/      /* base bibliográfica */
+	"!v2005!"v2005/      /* failed login */
+	"!v2006!"v2006/      /* from */
+	"!v2010!"v2010/      /* mfn_list */
+	"!v2019!"v2019/      /* trace */
+	"!v2020!"v2020/      /* dictkey */
+	"!v2021!"v2021/      /* reverse */
+	"!v2022!"v2022/      /* index_type */
+	"!v2070!"v2070/      /* condition */
+	"!v3005!"v3005/      /* query (kw) */
+	"!v3006!"v3006/      /* entidad catalogadora?  */
+	"!v4000!"v4000/      /* mfn */
+	"!v4001!"v4001/      /* recordID */
+	/#
+/*
+fi
+*/
+</pft></display>
+<file action="close" type="output">LOGFILE.TXT</file>
+
+<flow action="exit">1</flow>
+
+</section>
+</IsisScript>

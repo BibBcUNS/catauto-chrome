@@ -1,0 +1,324 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html40/loose.dtd"><html><head>
+
+<title>Series Added Entry Fields (80X-830)</title><!-- base href="http://www.loc.gov/marc/bibliographic/ecbdsrae.html" -->
+<meta content="This document contains the Series Added Entry Fields (80X-830) section of the MARC 21 Concise Bibliographic format which includes all related data elements and many examples." name="description">
+<meta content="MARC 21 Concise, Series Added Entry Fields (80X-830), bibliographic format" name="keywords">
+<link type="text/css" rel="stylesheet" href="../marcdoc.css">
+</head>
+
+<body bgcolor="#ffffff">
+<a name="top"></a>
+<hr><h1><em>MARC 21 Concise Bibliographic: <br>
+  Series Added Entry Fields (80X-830) </em></h1>
+<hr><p>Fields 800-830 contain a name/title or a title used as a series added entry when the series
+statement is contained in field 490 (Series Statement) or field 500 (General Note) and a series
+added entry is required for the bibliographic record.  No 8XX series added entry field is used in
+conjunction with a series statement in the 440 field because it functions both as part
+of the bibliographic description and as a series added entry.</p><p>The roman numeral and the word <em>Series:</em> that precede a series added entry field
+in some displays are not carried in the MARC record.  They may be generated based on the
+field tag.</p><ul>
+<li><a href="#mrcb800">800 - SERIES ADDED ENTRY--PERSONAL NAME</a>
+
+<small>(R)</small></li><li><a href="#mrcb810">810 - SERIES ADDED ENTRY--CORPORATE NAME</a>
+
+<small>(R)</small></li><li><a href="#mrcb811">811 - SERIES ADDED ENTRY--MEETING NAME</a>
+
+<small>(R)</small></li><li><a href="#mrcb830">830 - SERIES ADDED ENTRY--UNIFORM TITLE</a>
+
+<small>(R)</small></li></ul>
+<p><u>Information for Translators and Other Users</u><br>
+Items highlighted in <font color="#ff0000">red</font> indicate changes made after
+the 2002 edition of the <em>MARC 21 Concise Formats</em> was published and are
+included in the 2003 printed edition of the <em>MARC 21 Concise Formats</em>.
+</p><hr><h2><a name="mrcb800">800 - SERIES ADDED ENTRY--PERSONAL NAME
+<small>(R)</small></a>
+</h2>
+<p>An author/title series added entry in which the author portion is a personal name.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Type of personal name entry element<br><em>See the description of the first indicator under <a href="ecbdmain.html#mrcb100">field 100</a>
+</em>.
+<ul>
+<li>0 - Forename</li></ul>
+
+<ul>
+<li>1 - Surname</li></ul>
+
+<ul>
+<li>3 - Family name</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Personal name
+<small>(NR)</small></li><li>$b - Numeration
+<small>(NR)</small></li><li>$c - Titles and other words associated with a name 
+<small>(R)</small></li><li>$d - Dates associated with a name
+<small>(NR)</small></li><li>$e - Relator term
+<small>(R)</small></li><li>$f - Date of a work
+<small>(NR)</small></li><li>$g - Miscellaneous information
+<small>(NR)</small></li><li>$h - Medium
+<small>(NR)</small><br>A media qualifier.</li><li>$j - Attribution qualifier
+<small>(R)</small><br>Attribution information for names when the responsibility is unknown, uncertain, fictitious, or pseudonymous.  </li><li>$k - Form subheading
+<small>(R)</small></li><li>$l - Language of a work
+<small>(NR)</small></li><li>$m - Medium of performance for music
+<small>(R)</small></li><li>$n - Number of part/section of a work 
+<small>(R)</small></li><li>$o - Arranged statement for music
+<small>(NR)</small></li><li>$p - Name of part/section of a work
+<small>(R)</small></li><li>$q - Fuller form of name
+<small>(NR)</small></li><li>$r - Key for music
+<small>(NR)</small></li><li>$s - Version
+<small>(NR)</small></li><li>$t - Title of a work
+<small>(NR)</small></li><li>$u - Affiliation
+<small>(NR)</small></li><li>$v - Volume/sequential designation 
+<small>(NR)</small></li><li>$4 - Relator code
+<small>(R)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number 
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em><br><em>See the descriptions of subfields $a, $b, $d, $e, $f, $g, $l, $n, $p, $t, $u,
+and $4 under <a href="ecbdmain.html#mrcb100">field 100</a>
+.</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>800</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Berenholtz, Jim,<strong>$d</strong>1957-<strong>$t</strong>Teachings of the feathered serpent ;<strong>$v</strong>bk. 1</td>
+</tr>
+<tr><td valign="top"><br><strong>800</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Poe, EdgarAllan,<strong>$d</strong>1809-1849.<strong>$t</strong>Works.<strong>$l</strong>German.<strong>$f</strong>1922.<strong>$s</strong>Rosl ;<strong>$v</strong>1. Bd.</td>
+</tr>
+<tr><td valign="top"><br><strong>800</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Joyce, James,<strong>$d</strong>1882- 1941.<strong>$t</strong>James Joyce archive.</td>
+</tr>
+<tr><td valign="top"><br><strong>800</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Darnell, Jack.<strong>$t</strong>Edible wild plants of the planet earth.</td>
+</tr>
+<tr><td valign="top"><br><strong>800</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Armstrong, Louis,<strong>$d</strong>1900-1971.<strong>$4</strong>prf<strong>$t</strong>Louie Armstrong (Universal City Studios) ;<strong>$v</strong>6.</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb810">810 - SERIES ADDED ENTRY--CORPORATE NAME
+<small>(R)</small></a>
+</h2>
+<p>An author/title series added entry in which the author portion is a corporate name.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Type of corporate name entry element<br><em>See the description of the first indicator under <a href="ecbdmain.html#mrcb110">field 110</a>
+</em>.
+<ul>
+<li>0 - Inverted name</li></ul>
+
+<ul>
+<li>1 - Jurisdiction name</li></ul>
+
+<ul>
+<li>2 - Name in direct order</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Corporate name or jurisdiction name as entry element
+<small>(NR)</small></li><li>$b - Subordinate unit
+<small>(R)</small></li><li>$c - Location of meeting
+<small>(NR)</small></li><li>$d - Date of meeting or treaty signing 
+<small>(R)</small></li><li>$e - Relator term
+<small>(R)</small></li><li>$f - Date of a work
+<small>(NR)</small></li><li>$g - Miscellaneous information
+<small>(NR)</small></li><li>$h - Medium
+<small>(NR)</small><br>A media qualifier.</li><li>$k - Form subheading
+<small>(R)</small></li><li>$l - Language of a work
+<small>(NR)</small></li><li>$m - Medium of performance for music
+<small>(R)</small></li><li>$n - Number of part/section/meeting
+<small>(R)</small></li><li>$o - Arranged statement for music
+<small>(NR)</small></li><li>$p - Name of part/section of a work
+<small>(R)</small></li><li>$r - Key for music
+<small>(NR)</small></li><li>$s - Version
+<small>(NR)</small></li><li>$t - Title of a work
+<small>(NR)</small></li><li>$u - Affiliation
+<small>(NR)</small></li><li>$v - Volume/sequential designation 
+<small>(NR)</small></li><li>$4 - Relator code
+<small>(R)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number 
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em><br><em>See the descriptions of subfields $e, $f, $l, $p, $t, $u, and $4 under <a href="ecbdmain.html#mrcb100">field 100</a>
+ and subfields $a, $b, $c, $d, $g, and $n under <a href="ecbdmain.html#mrcb110">field 110</a>
+.</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>810</strong></td>
+<td valign="top"><br><strong>2#$a</strong>John Bartholomew and Son.<strong>$t</strong>Bartholomew world travel series ;<strong>$v</strong>10.</td>
+</tr>
+<tr><td valign="top"><br><strong>810</strong></td>
+<td valign="top"><br><strong>2#$a</strong>Central Institute of Indian Languages.<strong>$t</strong>CIIL linguistic atlas series ;<strong>$v</strong>1.</td>
+</tr>
+<tr><td valign="top"><br><strong>810</strong></td>
+<td valign="top"><br><strong>2#$a</strong>European Court of Human Rights.<strong>$t</strong>Publications de la Cour européenne des droits de l'homme.<strong>$n</strong>Série A,<strong>$p</strong>Arrêts et décisions ;<strong>$v</strong>vol. 48.</td>
+</tr>
+<tr><td valign="top"><br><strong>810</strong></td>
+<td valign="top"><br><strong>1#$a</strong>United States.<strong>$b</strong>Army Map Service.<strong>$t</strong>A.M.S.,<strong>$v</strong>Z201.</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb811">811 - SERIES ADDED ENTRY--MEETING NAME
+<small>(R)</small></a>
+</h2>
+<p>An author/title series added entry in which the author portion is a meeting name.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Type of meeting name entry element<br><em>See the description of the first indicator under <a href="ecbdmain.html#mrcb111">field 111</a>
+</em>.
+<ul>
+<li>0 - Inverted name</li></ul>
+
+<ul>
+<li>1 - Jurisdiction name</li></ul>
+
+<ul>
+<li>2 - Name in direct order</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Meeting name or jurisdiction name as entry element
+<small>(NR)</small></li><li>$c - Location of meeting
+<small>(NR)</small></li><li>$d - Date of meeting
+<small>(NR)</small></li><li>$e - Subordinate unit
+<small>(R)</small></li><li>$f - Date of a work
+<small>(NR)</small></li><li>$g - Miscellaneous information
+<small>(NR)</small></li><li>$h - Medium
+<small>(NR)</small><br>A media qualifier.</li><li>$k - Form subheading
+<small>(R)</small></li><li>$l - Language of a work
+<small>(NR)</small></li><li>$n - Number of part/section/meeting
+<small>(R)</small></li><li>$p - Name of part/section of a work
+<small>(R)</small></li><li>$q - Name of meeting following jurisdiction name entry element
+<small>(NR)</small></li><li>$s - Version
+<small>(NR)</small></li><li>$t - Title of a work
+<small>(NR)</small></li><li>$u - Affiliation
+<small>(NR)</small></li><li>$v - Volume/sequential designation 
+<small>(NR)</small></li><li>$4 - Relator code
+<small>(R)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number 
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em><br><em>See the descriptions of subfields $f, $g, $l, $p, $t, $u, and $4 under <a href="ecbdmain.html#mrcb100">field 100</a>
+; subfields $c and $n under <a href="ecbdmain.html#mrcb110">field 110</a>
+ and subfields $a, $e, and $q under  <a href="ecbdmain.html#mrcb111">field 111</a>
+.</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>811</strong></td>
+<td valign="top"><br><strong>2#$a</strong>International Congress of Romance Linguistics and Philology<strong>$n</strong>(17th :<strong>$d</strong>1983 :<strong>$c</strong>Aix-en-Provence, France).<strong>$t</strong>Actes du XVIIème Congrès international de linguistique et philologie romanes ;<strong>$v</strong>vol. no. 5.</td>
+</tr>
+<tr><td valign="top"><br><strong>811</strong></td>
+<td valign="top"><br><strong>2#$a</strong>International Congress of Nutrition<strong>$n</strong>(11th :<strong>$d</strong>1978 :<strong>$c</strong>Rio de Janeiro, Brazil).<strong>$t</strong>Nutrition and food science ;<strong>$v</strong>v. 1.</td>
+</tr>
+<tr><td valign="top"><br><strong>811</strong></td>
+<td valign="top"><br><strong>2#$a</strong>Delaware Symposium on Language Studies.<strong>$t</strong>Delaware symposia on language studies ;<strong>$v</strong>4.</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb830">830 - SERIES ADDED ENTRY--UNIFORM TITLE
+<small>(R)</small></a>
+</h2>
+<p>A series added entry consisting of a series title alone.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li><li>Second - Nonfiling characters
+<ul>
+<li>0-9 - Number of nonfiling characters </li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Uniform title
+<small>(NR)</small></li><li>$d - Date of treaty signing
+<small>(R)</small></li><li>$f - Date of a work
+<small>(NR)</small></li><li>$g - Miscellaneous information
+<small>(NR)</small></li><li>$h - Medium
+<small>(NR)</small><br>A media qualifier.</li><li>$k - Form subheading
+<small>(R)</small></li><li>$l - Language of a work
+<small>(NR)</small></li><li>$m - Medium of performance for music
+<small>(R)</small></li><li>$n - Number of part/section of a work 
+<small>(R)</small></li><li>$o - Arranged statement for music
+<small>(NR)</small></li><li>$p - Name of part/section of a work
+<small>(R)</small></li><li>$r - Key for music
+<small>(NR)</small></li><li>$s - Version
+<small>(NR)</small></li><li>$t - Title of a work
+<small>(NR)</small><br>A title-page title of a work.</li><li>$v - Volume/sequential designation 
+<small>(NR)</small></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number 
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em><br><em>See the descriptions of subfields $f, $g, $l, $n, and $p under  <a href="ecbdmain.html#mrcb100">field 100</a>
+.</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>830</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Resources information series.</td>
+</tr>
+<tr><td valign="top"><br><strong>830</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Imago (Series)</td>
+</tr>
+<tr><td valign="top"><br><strong>830</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Serie Mariano Azvela ;<strong>$v</strong>2.</td>
+</tr>
+<tr><td valign="top"><br><strong>830</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Sport (International Union of Students. Physical Education and Sports Dept.) ;<strong>$v</strong>v. 10.</td>
+</tr>
+<tr><td valign="top"><br><strong>830</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Monograph (University of California, Los Angeles. Dept. of Continuing Education in Health Sciences).</td>
+</tr>
+<tr><td valign="top"><br><strong>830</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Musica da camera (Oxford University Press) ;<strong>$v</strong>72.</td>
+</tr>
+<tr><td valign="top"><br><strong>830</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Basic nursing skills (Robert J. Brady Company) ;<strong>$v</strong>tape 14.</td>
+</tr>
+<tr><td valign="top"><br><strong>830</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Teenage years.<strong>$h</strong>[Videorecording]</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<hr><p><strong>Go to</strong>: <em><a href="ecbdhome.html">
+MARC 21 Concise Bibliographic Format</a></em> | <a href="http://www.loc.gov/marc/">
+MARC Home Page</a></p><p></p><hr><img alt="Library of Congress" src="ecbdsrae_files/lc2.gif">
+<strong>Library of Congress</strong>
+<address><a href="http://www.loc.gov/help/help-desk.html">Library of Congress Help Desk</a>  (
+<!-- #BeginDate format:Am3 -->05/07/2004<!-- #EndDate -->
+)
+</address>
+</body></html>

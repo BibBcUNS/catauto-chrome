@@ -1,0 +1,308 @@
+<!--
+	=======================================================================
+	Catalis - grabar.xis
+	
+	(c) 2003-2005  Fernando J. Gómez - CONICET - INMABB
+	Véase el archivo LICENCIA.TXT incluido en la distribución de Catalis
+	=======================================================================
+-->
+
+
+
+<!-- ATENCION: esta sección de la aplicación es crítica: ¿cómo sabemos
+	que la grabación la está haciendo un usuario autorizado, en la base
+    "correcta", y que no está dañando los datos?
+-->
+
+<!-- Verificamos que la grabación se intenta hacer desde un IP autorizado -->
+<!--field action="replace" tag="6011" split="occ"><pft>cat('IP-TABLE')</pft></field>
+<display><pft>v2104/v6011</pft></display>
+
+<field action="replace" tag="6012"><pft>
+	(,
+		if v6011^b = v2104[1] and ( v6011^i : getenv('REMOTE_ADDR') or v6011^i : getenv('HTTP_X_FORWARDED_FOR') )
+		then 'IP_NUMBER_OK', break,
+		fi,
+	),
+</pft></field>
+<flow action="jump"><pft>if v6012 <> 'IP_NUMBER_OK' then 'ERROR_IP_NUMBER' fi</pft></flow-->
+
+
+<!-- Identificamos el registro a grabar (nuevo o existente) -->
+<field action="cgi" tag="4001">recordID</field>
+<field action="replace" tag="4000"><pft>
+	if '~New~[pendiente]~[duplicado]~' : s('~',v4001,'~') then
+		'New',
+	else if npost(['BIBLIO']'-NC='v4001) > 0 then  /* ¿npost = 1? */
+		f(l(['BIBLIO']'-NC='v4001),1,0),
+	else
+		'*',
+	fi,fi
+</pft></field>
+
+<!-- ¿Encontramos el registro? -->
+<flow action="jump"><pft>if v4000 <> '*' then 'VALIDATE_SAVE' fi</pft></flow>
+
+<!-- Mensaje de error si no lo encontramos -->
+<display><htmlpft>
+	<html>
+	<head>
+		<script type="text/javascript">
+			errorMessage = "<br><br>ERROR AL GRABAR";
+			errorMessage += "<br> recordID: [pft]v4001[/pft]";
+			errorMessage += "<br> [pft]'-NC='v4001,' tiene ', f(npost(['BIBLIO']'-NC='v4001),1,0),' postings.'[/pft]";
+			top.document.getElementById("cartelMsg").innerHTML += errorMessage;
+			top.document.getElementById("cartelBtn").style.display = "block";
+		</script>
+	</head>
+	</html>
+</htmlpft></display>
+<flow action="jump">END</flow>
+
+<!--display><htmlpft>
+	<script type="text/javascript">
+		debugMessage = "";
+		debugMessage += "---- MENSAJES PARA DEPURACION (ignórelos) ----\n\n";
+		debugMessage += "SCRIPT_URL: [pft]v6001^u[/pft]\n\n";
+		debugMessage += "ANTES DE ENTRAR EN EL UPDATE\n";
+		debugMessage += "recordID: [pft]v4001[/pft]\n";
+		debugMessage += "mfn: [pft]v4000[/pft]\n";
+	</script>
+</htmlpft></display-->
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>VALIDATE_SAVE</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- Validación pre-grabación:
+	1. si el registro ya existe, el usuario debe tener permiso para modificarlo.
+	2. si el registro es nuevo, el usuario debe tener permiso para crear.
+-->
+
+<!-- v5210: Nivel de autorización del usuario para esta base -->
+<field action="replace" tag="5210" split="occ"><pft>
+	ref(['USERS']l(['USERS']v2002),(v5/)), /* listas de bases + permisos */
+</pft></field>
+<field action="replace" tag="5210"><pft>
+	(,
+		if v5210^* = v2104[1] then v5210^p, break, fi,
+	),
+</pft></field>
+
+<!-- v5211: Creador de este registro -->
+<field action="replace" tag="5211"><pft>
+	if val(v4000) > 0 then ref(['BIBLIO']val(v4000),v991) fi
+</pft></field>
+
+<flow action="jump"><pft>
+	if v5210 = '3' or ( v5210 = '2' and ( v4000 = 'New' or v2002 = v5211 ) ) then
+		'SAVE'
+	fi
+</pft></flow>
+
+<!-- Mensaje de error si no hay permiso para grabar -->
+<display><htmlpft>
+	<html>
+	<head>
+		<script type="text/javascript">
+			errorMessage = "<br><br>ERROR AL GRABAR";
+			errorMessage += "<br> recordID: [pft]v4001[/pft]";
+			errorMessage += "<br> Usted no tiene autorización para grabar este registro.";
+			top.document.getElementById("cartelMsg").innerHTML += errorMessage;
+			top.document.getElementById("cartelBtn").style.display = "block";
+		</script>
+	</head>
+	</html>
+</htmlpft></display>
+<flow action="jump">END</flow>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>SAVE</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<do task="update">
+	<parm name="db">BIBLIO</parm>
+	<parm name="mfn"><pft>v4000</pft></parm>
+	<parm name="fst"><pft>cat('BIBLIO.FST')</pft></parm>
+	<parm name="stw">BIBLIO.STW</parm>
+	<parm name="actab"><pft>cat('AC-ANSI.TAB')</pft></parm>
+	<parm name="uctab"><pft>cat('UC-ANSI.TAB')</pft></parm>
+	
+	<!-- ATENCION: comparemos con la línea siguiente:
+		mx biblio gizmo=DICTGIZ fst=@BIBLIO.FST actab=AC-ANSI.TAB uctab=UC-ANSI.TAB stw=@BIBLIO.STW fullinv=biblio
+		usada para generar el archivo invertido con MX. ¿Qué pasa con stw & gizmo?
+	-->
+	<parm name="lockid"><pft>v2002,'@'getenv('REMOTE_ADDR')</pft></parm> <!-- lockid es obligatorio -->
+	<!-- ¿Podríamos usar HTTP_X_FORWARDED_FOR para el lockid ? --> 
+	<parm name="expire"><pft>v6001^x</pft></parm>
+	<define>1102 Isis_Status</define>
+	<define>1106 Isis_Lock</define>
+
+	<update>
+		
+		<!-- Limpiamos el registro antes de construir los campos. -->
+		<!-- ATENCION: Preservamos el campo 001, y campos con tag > 999, si los hubiese.
+			(el bloqueo se almacena en el 1106). -->
+		<field action="delete" tag="list">2/999</field>
+		
+		<!-- Campo 001: Control number -->
+		<flow action="jump"><pft>if p(v001) then 'CONTROL_NUM_PRESENT' fi</pft></flow>
+		
+		<!-- Generamos número de control para un registro nuevo -->
+		<!-- ATENCION: ¿necesitamos aquí un mecanismo de bloqueo sobre el archivo cn.txt? -->
+		<field action="replace" tag="001"><pft>
+			replace(s(f(val(cat('CONTROL-NUMBER.TXT'))+1,6,0)),' ','0')
+		</pft></field>
+		<!-- Guardamos el nuevo número en el archivo cn.txt -->
+		<file action="create" type="output">CONTROL-NUMBER.TXT</file>
+		<display><pft>v001</pft></display>
+		<file action="close" type="output">CONTROL-NUMBER.TXT</file>
+		
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<label>CONTROL_NUM_PRESENT</label>
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		
+		<!-- Los campos recibidos desde el cliente -->
+		<field action="cgi" tag="3001">marcFields</field>
+		
+		<!-- Cada campo recibido pasa a ser una ocurrencia del v3003 -->
+		<field action="replace" tag="3003" split="occ"><pft>v3001</pft></field>
+		
+		<!--display><htmlpft>
+			<script type="text/javascript">
+				debugMessage = "\nCAMPOS RECIBIDOS\n";
+				debugMessage += "[pft]( replace(v3003,'"','\"'), '\n')[/pft]\n\n";
+				alert(debugMessage);
+			</script>
+		</htmlpft></display-->
+		
+		<!-- Creamos los campos de nuestro registro -->
+		<proc><pft>
+			(,
+				if size(v3003) < 3 then 
+					continue,                       /* líneas en blanco */ 
+				else
+					'a',v3003.3,'¦',v3003*4,'¦',    /* ATENCION: suponemos que '¦' no será parte de los datos! */
+				fi,
+			),
+		</pft></proc>
+		<proc>d3001d3003</proc>
+		
+		<!-- Campo 008/00-05: fecha de creación, para registros nuevos -->
+		<!-- ATENCION: ¿usamos val(v8.6)=0 como condición? -->
+		<proc><pft>
+			if v008.6 = '######' then
+				'd008a008~', s(date)*2.6, v008*6, '~',
+			fi
+		</pft></proc>
+		
+		<!-- Campo 005: fecha y hora de esta grabación -->
+		<field action="replace" tag="005">
+			<pft>s(date).8, s(date)*9.6, '.0'</pft>
+		</field>
+		
+		<!-- Campo 859: colocamos datestamp/userID en los campos 859 que fueron modificados -->
+		<field action="cgi" tag="2002">userid</field>
+		<field action="replace" tag="859" split="occ"><pft>
+			(,
+				replace(replace(v859,
+					'#HOY#',s(date).8),
+					'#USERID#',v2002[1]),
+				/
+			),
+		</pft></field>
+		<proc>d2002</proc>
+		
+		<!--display><htmlpft>
+			<script type="text/javascript">
+				debugMessage += "\nDENTRO DEL UPDATE, ANTES DEL WRITE\n"
+				debugMessage += "mfn: [pft]mfn[/pft]\n";
+				debugMessage += "001: [pft]v001[/pft]\n";
+				debugMessage += "005: [pft]v005[/pft]\n";
+			</script>
+		</htmlpft></display-->
+		
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<!-- ACÁ ES DONDE GRABAMOS -->
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<!-- Opciones de bloqueo:
+			a) volvemos a generar un nuevo bloqueo (Lock),
+			b) preservamos la información del bloqueo previo (NoUnlock),
+			c) Quitamos el bloqueo (Unlock)
+			ATENCION: usando 'Lock' hay problemas: no graba, pero queda Isis_Status = 0;
+			intentamos con una segunda grabación más abajo -->
+		<write>Unlock</write>
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		
+		<!--display><htmlpft>
+			<script type="text/javascript">
+				debugMessage += "\nDENTRO DEL UPDATE, DESPUES DEL WRITE\n"
+				debugMessage += "Isis_Status: [pft]v1102[/pft]\n";
+			</script>
+		</htmlpft></display-->
+		
+		<!-- Guardamos el MFN, para poder luego acceder al registro -->
+		<field action="replace" tag="4000"><pft>mfn(1)</pft></field>
+		
+		<!-- Generamos una clave muy sencilla para testear si algo salió mal al
+			hacer la grabación -->
+		<field action="replace" tag="4009"><pft>v001,'--',v100^a</pft></field>
+		
+		<field action="export" tag="list">1102,4000,4009</field>
+		
+	</update>
+	
+	<!-- Debido al problema con el 'Lock' más arriba, volvemos a intentar acá.
+		El file action=close no parece necesario; está tomado de wxis-modules -->
+	<file action="close" type="database">BIBLIO</file>
+	<parm name="db">BIBLIO</parm>
+	<parm name="mfn"><pft>v4000</pft></parm>
+	<update>
+		<write>Lock</write>
+		<field action="export" tag="list">1102</field>
+	</update>
+</do>
+
+<!-- Si Isis_Status es cero, seguimos adelante -->
+<flow action="jump"><pft>if val(v1102) = 0 then 'POOR_MAN_VERIFICATION' fi</pft></flow>
+
+<!-- Isis_Status <> 0 : error al grabar -->
+<display><htmlpft>
+	<html>
+	<head>
+		<script type="text/javascript">
+			errorMessage = "<br><br>ERROR AL GRABAR <br> MFN: [pft]v4000[/pft] <br> Isis_Status: [pft]v1102[/pft]";
+			top.document.getElementById("cartelMsg").innerHTML += errorMessage;
+			top.document.getElementById("cartelBtn").style.display = "block";
+		</script>
+	</head>
+	</html>
+</htmlpft></display>
+<flow action="jump">END</flow>
+
+
+<label>POOR_MAN_VERIFICATION</label>
+<!-- Aquí usamos esa clave sencilla construida unas líneas más arriba -->
+<flow action="jump"><pft>if ref(['BIBLIO']val(v4000),v001,'--',v100^a) = v4009 then 'DISPLAY_HTML_SAVE' fi</pft></flow>
+<display><htmlpft>
+	<html>
+	<head>
+		<script type="text/javascript">
+			errorMessage = "<br><br>ERROR AL GRABAR <br> MFN: [pft]v4000[/pft] <br> Isis_Status: [pft]v1102[/pft]";
+			errorMessage += "<br><br>001--100^a, en la base:<br>&nbsp;&nbsp;[pft]replace(s(ref(['BIBLIO']val(v4000),v001,'--',v100^a)),'"','\"')[/pft]";
+			errorMessage += "<br>001--100^a, antes de grabar:<br>&nbsp;&nbsp;[pft]replace(v4009,'"','\"')[/pft]";
+			top.document.getElementById("cartelMsg").innerHTML += errorMessage;
+			top.document.getElementById("cartelBtn").style.display = "block";
+		</script>
+	</head>
+	</html>
+</htmlpft></display>
+<flow action="jump">END</flow>
+
+
+<label>DISPLAY_HTML_SAVE</label>
+<!-- Generamos el contenido del iframe que confirma la grabación del 
+	registro y se ocupa de actualizar el formulario de edición -->
+<display><htmlpft><pft>cat('SAVED-RECORD.HTM')</pft></htmlpft></display>
+

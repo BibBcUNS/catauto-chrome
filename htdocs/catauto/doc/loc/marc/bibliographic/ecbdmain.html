@@ -1,0 +1,614 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html40/loose.dtd"><html><head>
+
+<title>Main Entry Fields (1XX)</title><!-- base href="http://www.loc.gov/marc/bibliographic/ecbdmain.html" -->
+<meta content="This document contains the Main Entry Fields (1XX) section of the MARC 21 Concise Bibliographic format which includes all related data elements and many examples." name="description">
+<meta content="MARC 21 Concise, Main Entry Fields (1XX), bibliographic format" name="keywords">
+<link type="text/css" rel="stylesheet" href="../marcdoc.css">
+</head>
+
+<body bgcolor="#ffffff">
+<a name="top"></a>
+<hr><h1><em>MARC 21 Concise Bibliographic: <br>
+  Main Entry Fields (1XX) </em></h1>
+<hr><p>Fields 1XX contain a name or a uniform title heading used
+as a main entry in bibliographic records.  Except for the
+definitions of indicator positions and subfield codes that are
+field specific, the content designation for each type of name
+and for uniform titles is consistent for Main Entry 
+(100-130), Series Statement  
+(440-490), Subject Access (600-630),
+ Added Entry (700-730), and Series Added Entry (800-830) fields.</p><ul>
+<li><a href="#mrcb100">100 - MAIN ENTRY--PERSONAL NAME</a>
+
+<small>(NR)</small></li><li><a href="#mrcb110">110 - MAIN ENTRY--CORPORATE NAME</a>
+
+<small>(NR)</small></li><li><a href="#mrcb111">111 - MAIN ENTRY--MEETING NAME</a>
+
+<small>(NR)</small></li><li><a href="#mrcb130">130 - MAIN ENTRY--UNIFORM TITLE</a>
+
+<small>(NR)</small></li></ul>
+<p><u>Information for Translators and Other Users</u><br>
+  Items highlighted in <font color="#ff0000">red</font> indicate changes made
+  after the 2002 edition of the <em>MARC 21 Concise Formats</em> was published
+  and are included in the 2003 printed edition of the <em>MARC 21 Concise Formats</em>.
+</p><hr><h2><a name="mrcb100">100 - MAIN ENTRY--PERSONAL NAME
+<small>(NR)</small></a>
+</h2>
+<p>A personal name used as a main entry in a bibliographic
+record.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Type of personal name entry element
+<ul>
+<li>0 - Forename<br>The name is a forename or is a name consisting of
+words, initials, letters, etc., that are formatted in direct
+order.</li></ul>
+
+<ul>
+<li>1 - Surname<br>The name is a single or multiple surname formatted in inverted
+order or a single name without forenames that is known to be a
+surname.</li></ul>
+
+<ul>
+<li>3 - Family name<br>The name represents a family, clan, dynasty, house,
+or other
+such group and may be formatted in direct or inverted
+order.</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Personal name
+<small>(NR)</small><br>A surname and/or forename; letters, initials,
+abbreviations, phrases,
+or numbers used in place of a name; or a family
+name.</li><li>$b - Numeration
+<small>(NR)</small><br>A roman numeral or a roman numeral and a subsequent part
+of a
+forename when the first indicator value is 0.</li><li>$c - Titles and other words associated with
+a name
+<small>(R)</small></li><li>$d - Dates associated with a name
+<small>(NR)</small><br>Dates of birth, death, or flourishing, or any other date
+associated
+with a name.</li><li>$e - Relator term
+<small>(R)</small><br>Describes the relationship between a name and
+a work.</li><li>$f - Date of a work
+<small>(NR)</small><br>A date of publication used with a title of a work in a
+name/title field.</li><li>$g - Miscellaneous information
+<small>(NR)</small><br>A data element not more appropriately contained in
+another defined
+subfield.</li><li>$j - Attribution qualifier
+<small>(R)</small><br>Attribution information for names when the responsibility is unknown, uncertain, fictitious or pseudonymous.</li><li>$k - Form subheading
+<small>(R)</small></li><li>$l - Language of a work
+<small>(NR)</small><br>The name of a language(s) used with a title of a work in
+a name/title
+field.</li><li>$n - Number of part/section of a work
+<small>(R)</small><br>A number designation for a part or section of a work used
+with a
+title in a name/title field.</li><li>$p - Name of part/section of a work
+<small>(R)</small><br>A name designation of a part or section of a work used
+with a title
+in a name/title field.</li><li>$q - Fuller form of name
+<small>(NR)</small><br>A more complete form of the name contained in subfield
+$a.</li><li>$t - Title of a work
+<small>(NR)</small><br>A uniform title, a title page title of a work, or a
+series title used
+in a name/title field.</li><li>$u - Affiliation
+<small>(NR)</small><br>An affiliation or address of the name.</li><li>$4 - Relator code
+<small>(R)</small><br>A MARC code for the relationship between a name and a
+work.  Code from: 
+<em><a href="../relators/relahome.html">MARC Code Lists
+for Relators, Sources, Description Conventions</a>
+</em></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>0#$a</strong>John,<strong>$c</strong>the Baptist, Saint.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>0#$a</strong>John<strong>$b</strong>II Comnenus,<strong>$c</strong>Emperor of the East,<strong>$d</strong>1088-1143.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>0#$a</strong>110908.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Dr. X.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Author of The diary of a physician,<strong>$d</strong>1807-1877.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Claude,<strong>$c</strong>d'Abbeville, pere,<strong>$d</strong>d. 1632.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Howard.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Fitzgerald, David.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Chiang, Kai-shek,<strong>$d</strong>1887-1975.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Watson,<strong>$c</strong>Rev.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Q., Mike.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Blackbeard, Author of,<strong>$d</strong>1777-1852.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Le Conte, John Eatton,<strong>$d</strong>1784-1860.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$a</strong>El-Abiad, Ahmed H.,<strong>$d</strong>1926-</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>0#$a</strong>John Paul<strong>$b</strong>II,<strong>$c</strong>Pope,<strong>$d</strong>1920-</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Seuss,<strong>$c</strong>Dr.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Churchill, Winston,<strong>$c</strong>Sir,<strong>$d</strong>1874-1965.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Ward, Humphrey,<strong>$c</strong>Mrs.,<strong>$d</strong>1851-1920.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Walle-Lissnijder,<strong>$c</strong>vande.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Thomas,<strong>$c</strong>Aquinas, Saint,<strong>$d</strong>1225?-1274.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Black Foot,<strong>$c</strong>Chief,<strong>$d</strong>d. 1877<strong>$c</strong>(Spirit)</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Levi, James,<strong>$d</strong>fl. 1706-1739.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Joannes Aegidius, Zamorensis,<strong>$d</strong>1240 or 41-ca. 1316.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>0#$a</strong>H. D.<strong>$q</strong>(Hilda Doolittle),<strong>$d</strong>1886-1961.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Gresham, G. A.<strong>$q</strong>(Geoffrey Austin)</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Smith, Elizabeth<strong>$q</strong>(Ann Elizabeth)</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Beeton,<strong>$c</strong>Mrs.<strong>$q</strong>(Isabella Mary),<strong>$d</strong>1836-1865.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$a</strong>`Atthawimonbandit (To),<strong>$c</strong>Phra,<strong>$d</strong>1883-1973.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Brown, B. F.<strong>$u</strong>Chemistry Dept., American University.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>3#$a</strong>Farquhar family.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Morgan, John Pierpont,<strong>$d</strong>1837-1913,<strong>$e</strong>collector.</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>0#$a</strong>E.S.,<strong>$c</strong>Meister,<strong>$d</strong>15th cent.,<strong>$j</strong>Follower of</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Reynolds, Joshua,<strong>$c</strong>Sir,<strong>$d</strong>1723-1792,<strong>$j</strong>Pupil of</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb110">110 - MAIN ENTRY--CORPORATE NAME
+<small>(NR)</small></a>
+</h2>
+<p>A corporate name used as a main entry in a bibliographic
+record.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Type of corporate name entry
+element
+<ul>
+<li>0 - Inverted name<br>The corporate name begins with a personal name in
+inverted
+order.</li></ul>
+
+<ul>
+<li>1 - Jurisdiction name<br>The entry element is a name of a jurisdiction that
+is also an
+ecclesiastical entity or is a jurisdiction name under which a
+corporate name
+or a title of a work is entered.</li></ul>
+
+<ul>
+<li>2 - Name in direct
+order</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Corporate name or jurisdiction name as
+entry
+element
+<small>(NR)</small><br>A name of a corporate body or the first entity when
+subordinate units
+are present; a jurisdiction name under which a corporate body,
+city section,
+or a title of a work is entered; or a jurisdiction name that is
+also an
+ecclesiastical entity.</li><li>$b - Subordinate unit
+<small>(R)</small><br>A name of a subordinate corporate unit, a name of a city
+section, or
+a name of a meeting entered under a corporate or jurisdiction
+name.</li><li>$c - Location of meeting
+<small>(NR)</small><br>A place name or a name of an institution where a meeting
+was
+held.</li><li>$d - Date of meeting or treaty signing
+<small>(R)</small><br>The date a meeting was held or, in a name/title field,
+the date a treaty was signed.</li><li>$e - Relator term
+<small>(R)</small><br>Describes the relationship between a name and a work.</li><li>$f - Date of a work
+<small>(NR)</small><br>A date of publication used with a title of a work in a name/title field.</li><li>$g - Miscellaneous information
+<small>(NR)</small><br>The name of the
+<em>other party</em> to a
+treaty in a name/title field; a subelement that is not more appropriately
+contained in subfield $c, $d, or $n in a meeting entered under a corporate
+name; or a data element that is not more appropriately contained in another
+defined subfield in any other type of corporate name field.</li><li>$k - Form subheading
+<small>(R)</small></li><li>$l - Language of a work
+<small>(NR)</small><br>A name designation of a part or section of a work used with a title in a name/title
+field.</li><li>$n - Number of part/section/meeting
+<small>(R)</small><br>A number designation for a meeting entered under a
+corporate name or
+for a part or section of a work used with a title in a
+name/title
+field.</li><li>$p - Name of part/section of a work
+<small>(R)</small><br>A name designation of a part or section of a work used with a title in a name/title
+field.</li><li>$t - Title of a work
+<small>(NR)</small><br>A uniform title, a title page title of a work, or a series title used in a name/title
+field.</li><li>$u - Affiliation
+<small>(NR)</small><br>An affiliation or address of the name.</li><li>$4 - Relator code
+<small>(R)</small><br>A MARC code for the relationship between a name and a
+work.  Code from: 
+<em><a href="../relators/relahome.html">MARC Code Lists
+for
+Relators, Sources, Description Conventions</a>
+</em></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Newman (Jean and Dorothy) Industrial
+Relations Library.</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>2#$a</strong>J.C. Penney Co.</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Cyprus (Archdiocese)</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Pennsylvania.<strong>$b</strong>State
+Board of Examiners of Nursing Home
+Administrators.</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Jalisco (Mexico).<strong>$t</strong>Ley
+que aprueba el plan regional urbano de Guadalajara, 1979-1983.</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>1#$a</strong>United States.<strong>$b</strong>President (1981-1989 :
+Reagan)</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>2#$a</strong>PRONAPADE (Firm)</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Birmingham (Ala.)</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>2#$a</strong>Scientific Society of San Antonio (1892-
+1894)</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>2#$a</strong>St. James Church (Bronx, New York,
+N.Y.)</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>1#$a</strong>United States.<strong>$b</strong>Congress.<strong>$b</strong>Joint
+Committee on the Library.</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Paris.<strong>$b</strong>Montmartre.</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>2#$a</strong>Catholic Church.<strong>$b</strong>Concilium Plenarium Americae Latinae<strong>$d</strong>(1899 :<strong>$c</strong>Rome, Italy)</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>2#$a</strong>International Labour Organisation.<strong>$b</strong>European Regional Conference<strong>$n</strong>(2nd :<strong>$d</strong>1968 :<strong>$c</strong>Geneva, Switzerland)</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>2#$a</strong>Eastman Kodak Company,<strong>$e</strong>defendant-appellant.</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Minnesota.<strong>$b</strong>Constitutional Convention<strong>$d</strong>(1857 :<strong>$g</strong>Republican)</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>1#$a</strong>United States.<strong>$b</strong>Congress<strong>$n</strong>(97th, 2nd session :<strong>$d</strong>1982).<strong>$b</strong>House.</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>2#$a</strong>New York Public Library.<strong>$k</strong>Manuscript<strong>$p</strong>Aulendorf Codex.</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>1#$a</strong>United States.<strong>$b</strong>National Technical Information Service.<strong>$u</strong>5205 Port Royal Road, Springfield, VA 22161.</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>2#$a</strong>J.H. Bufford &amp; Co.<strong>$4</strong>pop</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>1#$a</strong>United States.<strong>$b</strong>Court of Appeals (2nd Circuit)</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>1#$a</strong>United States.<strong>$k</strong>Treaties, etc.<strong>$g</strong>France,<strong>$d</strong>July 28, 1967.</td>
+</tr>
+<tr><td valign="top"><br><strong>110</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Bombay.<strong>$k</strong>Court rules.<strong>$g</strong>Civil Court.</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb111">111 - MAIN ENTRY--MEETING NAME
+<small>(NR)</small></a>
+</h2>
+<p>A meeting name used as a main entry in a bibliographic
+record.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Type of meeting name entry
+element
+<ul>
+<li>0 - Inverted name<br>The meeting name begins with a personal name in
+inverted
+order.</li></ul>
+
+<ul>
+<li>1 - Jurisdiction name<br>The entry element is a jurisdiction name under
+which a meeting
+name is entered.</li></ul>
+
+<ul>
+<li>2 - Name in direct
+order</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Meeting name 
+or jurisdiction name as
+entry element
+<small>(NR)</small><br>A name of a meeting, or the first entity when subordinate
+units are
+present; or a jurisdiction name under which a meeting name is
+entered.</li><li>$c - Location of meeting
+<small>(NR)</small><br>A place name or a name of an institution where a meeting was held.</li><li>$d - Date of meeting
+<small>(NR)</small></li><li>$e - Subordinate unit
+<small>(R)</small><br>The name of a subordinate unit entered under a meeting
+name.</li><li>$f - Date of a work
+<small>(NR)</small><br>A date of publication used with a title of a work in a name/title field.</li><li>$g - Miscellaneous information
+<small>(NR)</small><br>A data element not more appropriately contained in another defined
+subfield.</li><li>$k - Form subheading
+<small>(R)</small></li><li>$l - Language of a work
+<small>(NR)</small><br>The name of a language(s) used with a title of a work in a name/title
+field.</li><li>$n - Number of part/section/meeting
+<small>(R)</small><br>A number designation for a meeting entered under a corporate name or for a part or
+section of a work used with a title in a name/title field</li><li>$p - Name of part/section of a work
+<small>(R)</small><br>A name designation of a part or section of a work used with a title in a name/title
+field.</li><li>$q - Name of meeting following jurisdiction
+name entry
+element
+<small>(NR)</small><br>The name of a meeting that is entered under a
+jurisdiction name
+contained in subfield $a.</li><li>$t - Title of a work
+<small>(NR)</small><br>A uniform title, a title page of a work, or a series title used in a name/title
+field.</li><li>$u - Affiliation
+<small>(NR)</small><br>An affiliation or address of the name.</li><li>$4 - Relator code
+<small>(R)</small><br>A MARC code for the relationship between a name and a
+work.  Code from: 
+<em><a href="../relators/relahome.html">MARC Code Lists
+for
+Relators, Sources, Description Conventions</a>
+</em></li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>111</strong></td>
+<td valign="top"><br><strong>2#$a</strong>Symposium Internacional "Manuel Pedroso" In
+Memoriam
+<strong>$d</strong>(1976 : <strong>$c</strong>Guanajuato, Mexico)</td>
+</tr>
+<tr><td valign="top"><br><strong>111</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Chicago.<strong>$q</strong>Cartography Conference.</td>
+</tr>
+<tr><td valign="top"><br><strong>111</strong></td>
+<td valign="top"><br><strong>2#$a</strong>Governor's Conference on Aging (N.Y.)<strong>$d</strong>(1982 :<strong>$c</strong>Albany, N.Y.)</td>
+</tr>
+<tr><td valign="top"><br><strong>111</strong></td>
+<td valign="top"><br><strong>2#$a</strong>Esto '84<strong>$d</strong>(1984 :<strong>$c</strong>Toronto, Ont).<strong>$e</strong>Raamatunäituse Komitee.</td>
+</tr>
+<tr><td valign="top"><br><strong>111</strong></td>
+<td valign="top"><br><strong>2#$a</strong>World Peace Conference<strong>$n</strong>(1st :<strong>$d</strong>1949 :<strong>$c</strong>Paris, France and Prague, Czechoslovakia)</td>
+</tr>
+<tr><td valign="top"><br><strong>111</strong></td>
+<td valign="top"><br><strong>2#$a</strong>White House Conference on Library and
+Information Services
+<strong>$d</strong>(1979 :<strong>$c</strong>Washington, D.C.).<strong>$e</strong>Ohio Conference Delegation.</td>
+</tr>
+<tr><td valign="top"><br><strong>111</strong></td>
+<td valign="top"><br><strong>2#$a</strong>International Symposium on Quality Control (1974- )</td>
+</tr>
+<tr><td valign="top"><br><strong>111</strong></td>
+<td valign="top"><br><strong>2#$a</strong>National Conference on Physical Measurement
+of the Disabled,<strong>$n</strong>2nd,<strong>$c</strong>Mayo Clinic,<strong>$d</strong>1981,<strong>$g</strong>Projected, not held.</td>
+</tr>
+<tr><td valign="top"><br><strong>111</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Paris.<strong>$q</strong>Peace Conference,<strong>$d</strong>1919.</td>
+</tr>
+<tr><td valign="top"><br><strong>111</strong></td>
+<td valign="top"><br><strong>2#$a</strong>Symposium on the Underground Disposal of Radioactive Wastes <strong>$d</strong>(1979 :<strong>$c</strong>Otaniemi, Finland)<strong>$4</strong>fnd</td>
+</tr>
+<tr><td valign="top"><br><strong>111</strong></td>
+<td valign="top"><br><strong>2#$a</strong>Expo '70<strong>$c</strong>(Osaka, Japan)</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb130">130 - MAIN ENTRY--UNIFORM TITLE
+<small>(NR)</small></a>
+</h2>
+<p>A uniform title used as a main entry in a bibliographic
+record.
+</p><h3>Indicators</h3>
+
+<ul>
+<li>First - Nonfiling characters<br>A value that indicates the number
+of character positions associated with an initial definite or
+indefinite article at the beginning of a main entry that are to be
+disregarded in sorting and filing processes. <ul>
+<li>0-9 - Number of nonfiling characters</li></ul>
+</li><li>Second - Undefined
+<ul>
+<li># - Undefined</li></ul>
+</li></ul>
+<h3>Subfield Codes</h3>
+
+<ul>
+<li>$a - Uniform title
+<small>(NR)</small></li><li>$d - Date of treaty signing
+<small>(R)</small></li><li>$f - Date of a work
+<small>(NR)</small><br>
+<font color="#ff0000">A date of publication used with a title of a work in a name/title field.</font></li><li>$g - Miscellaneous information
+<small>(NR)</small>
+</li><li>$h - Medium
+<small>(NR)</small><br>A media qualifier.</li><li>$k - Form subheading
+<small>(R)</small></li><li>$l - Language of a work
+<small>(NR)</small></li><li>$m - Medium of performance for music
+<small>(R)</small></li><li>$n - Number of part/section of a work
+<small>(R)</small></li><li>$o - Arranged statement for music
+<small>(NR)</small></li><li>$p - Name of part/section of a work
+<small>(R)</small></li><li>$r - Key for music
+<small>(NR)</small></li><li>$s - Version
+<small>(NR)</small></li><li>$t - Title of a work
+<small>(NR)</small><br>A title-page title of an item.</li><li>$6 - Linkage
+<small>(NR)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li><li>$8 - Field link and sequence number
+<small>(R)</small>
+<em>See <a href="ecbdcntf.html">Control
+Subfields</a>
+</em></li></ul>
+<h3>Examples</h3>
+<table>
+<tbody><tr><td valign="top"><br><strong>130</strong></td>
+<td valign="top"><br>
+  <strong>0#$a</strong>Elektroshlakovyi pereplav.
+</td>
+</tr>
+<tr><td valign="top"><br><strong>130</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Siège d'Orléans (Mystery
+play)</td>
+</tr>
+<tr><td valign="top"><br><strong>130</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Beowulf.</td>
+</tr>
+<tr><td valign="top"><br><strong>130</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Dialogue (Montreal, Quebec : 1962).<strong>$l</strong>English.</td>
+</tr>
+<tr><td valign="top"><br><strong>130</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Tosefta.<strong>$l</strong>English.<strong>$f</strong>1977.</td>
+</tr>
+<tr><td valign="top"><br><strong>130</strong></td>
+<td valign="top"><br><strong>0#$a</strong>King Kong (1933)</td>
+</tr>
+<tr><td valign="top"><br><strong>130</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Gone with the wind (Motion picture).<strong>$h</strong>Sound recording.</td>
+</tr>
+<tr><td valign="top"><br><strong>130</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Bible.<strong>$p</strong>O.T.<strong>$p</strong>Five Scrolls.<strong>$l</strong>Hebrew.<strong>$s</strong>Biblioteca apostolica vaticana.<strong>$k</strong>Manuscript.<strong>$n</strong>Urbiniti Hebraicus 1.<strong>$f</strong>1980.</td>
+</tr>
+<tr><td valign="top"><br><strong>130</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Convention for the Protection of Human
+Rights and Fundamental Freedoms<strong>$d</strong>(1950).<strong>$k</strong>Protocols, etc.,<strong>$d</strong>1963 Sept. 16.</td>
+</tr>
+<tr><td valign="top"><br><strong>130</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Portrait and biographical album of Isabella
+County, Mich.<strong>$k</strong>Selections.</td>
+</tr>
+<tr><td valign="top"><br><strong>130</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Vedas.<strong>$p</strong>Rgveda.<strong>$l</strong>Italian &amp; Sanskrit.<strong>$k</strong>Selections.</td>
+</tr>
+<tr><td valign="top"><br><strong>130</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Concertos,<strong>$m</strong>violin,string orchestra,<strong>$r</strong>D major.</td>
+</tr>
+<tr><td valign="top"><br><strong>130</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Annale Universiteit van Stellenbosch.<strong>$n</strong>Serie A2,<strong>$p</strong>Söologie.</td>
+</tr>
+<tr><td valign="top"><br><strong>130</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Bible.<strong>$p</strong>N.T.<strong>$p</strong>Philippians.<strong>$l</strong>English.<strong>$s</strong>Revised
+Standard.<strong>$f</strong>1980.</td>
+</tr>
+<tr><td valign="top"><br><strong>130</strong></td>
+<td valign="top"><br><strong>0#$a</strong>Kathy (Motion picture : 1981)</td>
+</tr>
+<tr><td valign="top"><font color="#ff0000"><br>
+      <strong>130</strong></font></td>
+<td valign="top"><font color="#ff0000"><br>
+    <strong>0#$a</strong>Songs, unacc.</font></td>
+</tr>
+
+</tbody></table>
+<p><a href="#top">Go to top of document</a></p>
+<hr><p><strong>Go to</strong>: <em><a href="ecbdhome.html">
+MARC 21 Concise Bibliographic Format</a></em> | <a href="http://www.loc.gov/marc/">
+MARC Home Page</a></p><p></p><hr><img alt="Library of Congress" src="ecbdmain_files/lc2.gif">
+<strong>Library of Congress</strong>
+<address><a href="http://www.loc.gov/help/help-desk.html">Library of Congress Help Desk</a>  (
+<!-- #BeginDate format:Am3 -->05/07/2004<!-- #EndDate -->
+)
+</address>
+</body></html>

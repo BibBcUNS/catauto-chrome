@@ -1,0 +1,32 @@
+/* --------------------------------------
+ * Tipo de documento
+ * --------------------------------------
+ */
+
+if v907 = 'a' and v773^7*2.2 = 'as' then  /* monographic component of a serial language material */
+	'ARTICULO de REVISTA',  /* ¿y recorte de diario? */
+	
+else if v907 = 'a' and v773^7*2.2 = 'am' then  /* monographic component of a monographic language material */
+	'CAPITULO o PARTE de LIBRO',
+	
+else if p(v502) then  /* TO-DO: usar 008 */
+	'TESIS',
+	
+else if v906 = 'a' and v907 = 'm' then
+	'LIBRO',   /* TO-DO: un artículo/ensayo publicado en un sitio web personal, cómo queda? */
+	
+else if v907 = 'i' and v008*21.1 = 'w' then  /* integrating resource, updating Web site */
+	'SITIO WEB',
+	
+else if v907 = 's' and v008*21.1 = 'p' then  /* serial, periodical */
+	'PUBLICACION PERIODICA',
+	
+else if v907 = 's' and v008*21.1 = 'n' then  /* serial, newspaper */
+	'DIARIO',
+	
+else if v907 = 's' and v008*21.1 = 'm' then  /* serial, monographic series */
+	'SERIE MONOGRAFICA',
+	
+else
+	'&nbsp;'
+fi,fi,fi,fi,fi,fi,fi,fi,

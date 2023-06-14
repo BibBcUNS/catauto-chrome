@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>Catalis - Catauto</title>
+<script type="text/javascript">
+<!--
+function openWin(folder) {
+	var str = "left=0,screenX=0,top=0,screenY=0,resizable=0";
+	var ah = screen.availHeight - 28;
+	var aw = screen.availWidth - 10;
+	str += ",height=" + ah;
+	str += ",innerHeight=" + ah;
+	str += ",width=" + aw;
+	str += ",innerWidth=" + aw;
+	
+	//var arguments = 'resizable=0,toolbar=0,location=0,directories=0,addressbar=0,scrollbars=0,status=0,menubar=0,top=0,left=0,screenX='+x+',screenY='+y+',width='+screen.availWidth+',height='+screen.availHeight;
+	var SCRIPT_URL = "cgi-bin/wxis.exe";
+	
+	window.open(SCRIPT_URL + '?IsisScript='  +  folder + '/xis/catalis.xis','',str);
+}
+//-->
+</script>
+
+<style type="text/css">
+dl {margin-left: 2em;}
+dt {margin-top: 1em;}
+</style>
+
+</head>
+
+<body style="background: #F3F3F3; font-family: 'trebuchet ms', sans-serif;">
+
+<div style="background-color: brown; color: #FED; padding: 6px 16px; border: 1px solid brown;">
+	<h1 style="font-size: 48px; margin-top: 2px; margin-bottom: 0px; border: 0px solid black; font-family: georgia, 'times new roman', serif;">
+		Catalis - Catauto
+	</h1>
+	<h4 style="font-family: 'trebuchet ms', arial, sans-serif; font-size: 16px; font-weight: 600; border-top: 2px solid #fed; padding-top: 6px; line-height: 1.2em; margin-top: 0px; margin-bottom: 4px;">
+		Una herramienta web para crear catálogos bibliográficos y de Autoridades basados en MARC&nbsp;21 y AACR2
+	</h4>
+</div>
+
+<dl style="font-size: 106%;">
+	<dt><a href="#" onclick="openWin('biblio'); return false">Trabajar con Catalis Bibliográfico</a></dt>
+	<dd>Abre una ventana para usar Catalis</dd>
+	
+	<dt><a href="#" onclick="openWin('auto'); return false">Trabajar con Catalis Autoridad asdfasdf(Catauto)</a></dt>
+	<dd>Abre una ventana para usar Catauto</dd>
+
+	<dt><a href="http://inmabb.criba.edu.ar/catalis/">Sitio web de Catalis</a></dt>
+	<dd>Información general y acceso a la versión más reciente</dd>
+	
+	<dt><a href="http://groups.google.com.ar/group/catalis">Catalis, en Grupos de Google</a></dt>
+	<dd>Lista de discusión</dd>
+	
+	<dt><a href="http://catalis.uns.edu.ar/wiki/">CatalisWiki</a></dt>
+	<dd>Sitio colaborativo con documentación y artículos sobre Catalis y temas afines</dd>
+</dl>
+
+<p style="font-size: 90%; font-family: 'trebuchet ms', arial, sans-serif; text-align: center; border: 1px solid #ccc; padding: 0.3em; background: white;">
+Copyright &copy; 2003-2005 Fernando J. Gómez, CONICET e Instituto de Matemática de Bahía Blanca (INMABB)
+</p>
+<p style="font-size: 90%; font-family: 'trebuchet ms', arial, sans-serif; text-align: center; border: 1px solid #ccc; padding: 0.3em; background: white;">
+
+</p>
+
+</body>
+</html>

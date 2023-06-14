@@ -1,0 +1,388 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html40/loose.dtd">
+<html>
+   
+<!-- Mirrored from www.loc.gov/marc/authority/ecadmulti.html by HTTrack Website Copier/3.x [XR&CO'2003], Tue, 03 Jun 2008 14:54:38 GMT -->
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>MARC 21 Format for Authority Data: Appendix C: Multiscript Records (Network Development and MARC Standards Office, Library of Congress)
+      </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <meta name="description" content="This page describes multiscript records (Network Development and MARC Standards Office, Library of Congress)">
+      <meta name="keywords" content="marc, marc21, marc standards">
+      <meta name="author" content="Library of Congress Network Development and MARC Standards Office">
+      <link href="http://www.loc.gov/marc/marc-generic.css" rel="stylesheet" type="text/css"><style type="text/css">
+					body {margin-left:.5em; margin-right:.5em;} 
+					h1 {font-family:Arial, Helvetica, sans-serif;}
+					h3 {text-align:left;}
+					h4 {margin-top:.5em; margin-bottom:.5em;}
+					p {text-align:justify; margin-left:2em; margin-right:2em;}
+					.formatname {font-weight:bold; font-family:Arial, Helvetica, sans-serif; margin-left:.5em}
+					.datename {font-weight:bold; text-align:right; font-family:Arial, Helvetica, sans-serif; margin-top:-1.2em;}
+					.font_small {font-size:9pt;}
+					.fieldtoc {margin-left:2em;}
+					.subfieldtoc {margin-left:3em;}
+					.box {font-family:ZapfDingbats;}
+					.description {text-align:justify; margin-left:2em;}
+					.description2  {text-align:justify; margin-top:1em; margin-bottom:1em;}
+					.description3 {text-align:justify; margin-top:1em; margin-bottom:1em; margin-left:2em;}
+					.indicator {text-align:left; margin-top:1em; margin-bottom:1em;}
+					.indicatorvalue {margin-left:2em; margin-top:1em; margin-bottom:1em;}
+					.subfieldvalue {margin-left:2em; margin-top:1em; margin-bottom:1em;}
+					.subfield {text-align:left; margin-top:1em; margin-bottom:1em; margin-left:2em;}
+					.characterposition {text-align:left; margin-top:1em; margin-bottom:1em; margin-left:2em;}
+					.charactervalue {margin-left:2em; margin-top:1em; margin-bottom:1em;}
+					.characterpositionhistory {text-align:left; margin-top:.5em; margin-bottom:.5em; margin-left:2em;}
+					.charactervaluehistory {margin-left:2em; margin-top:.1em; margin-bottom:.1em;}
+					.example {margin-left:4em;}
+					.changed {color: #FF0000;}
+					.captiontext {font-style:italic;}
+					.displaytext {font-style:italic; margin-bottom:.5em; margin-top:.5em;}
+					.displaycontent {text-align:left;}
+					.table {margin-left:2em; margin-top:1em; margin-bottom:1em;}
+					.head-nav {font-family:Arial, Helvetica, sans-serif; font-size:9pt;}
+					.summary {margin-left:2em;}
+					.summarytable {margin-left:4em;}
+					.update {text-align:center; font-weight:bold; margin-top:1em; margin-bottom:1em;}
+					.changebox {font-style:italic; margin-top:.5em;}
+					.changesection {text-align:left; margin-left:2em; font-weight:bold; margin-top:.5em;}
+					.changefield {text-align:left; margin-left:1em; font-weight:bold;}
+					.changefieldlabel {margin-left:3em; font-weight:bold;}
+					.changeindicator {margin-left:3em;}
+					.changeindicatorfieldname {margin-left:2em;}
+					.changeindicatorvalue {margin-left:4em; font-weight:bold;}
+					.changesubfield {margin-left:3em; font-weight:bold;}
+					.changesubfieldname {margin-left:1em; font-weight:bold;}
+					.changesubfieldlocation {text-align:justify; font-weight:normal;}
+					.glossaryentry {margin-left:2em; margin-top:1em; font-weight:bold;}
+					.glossaryentrydescription {margin-left:4em; margin-bottom:1em; text-align:justify;}
+					.citationaddress {margin-left:2em; text-align:justify;}
+					.citationinternet {margin-left:2em; text-align:justify;}
+					.citationname {font-style:italic; margin-top:1em;}
+				</style><script type='text/javascript' src='http://www.loc.gov/global/triggerParams.js'></script><script type='text/javascript' src='http://www.loc.gov/global/stdLauncher.js'></script><script type='text/javascript'>Poll();</script></head>
+   <body bgcolor="#ffffff">
+      <div class="head-nav"><a href="http://www.loc.gov/">Library of Congress</a> &gt;&gt; <a href="http://www.loc.gov/marc/">MARC</a> &gt;&gt; <a href="index.html">Authority</a> &gt;&gt; <strong>Appendix C</strong></div>
+      <hr><a name="skip_menu"></a><h1>Appendix C - Multiscript Records</h1>
+      <hr>
+      <div class="formatname">MARC 21 Authority</div>
+      <div class="datename">October 2001</div>
+      <hr>
+      <p>Describes and illustrates models for recording data in multiple scripts in MARC records.
+         One script may be considered the primary script of the <em>data content</em> of the
+         record, even though other scripts are also used for data content. (Note: ASCII is used
+         for the structural elements of the record, and most coded data are also specified within
+                     the ASCII range of characters.) The general models for multiscript data that are
+                     followed with MARC 21 are described below.      </p>
+      <ul>
+         <li class="nobullet"><a href="#modela">Model A</a>: <em>Vernacular and transliteration.</em> The regular
+                           fields may contain data in different scripts and in the vernacular or transliteration
+                           of the data. Fields 880 are used when data needs to be duplicated to express it in
+                              <em>both</em> the original vernacular script and transliterated into one or more
+                           scripts. There may be unlinked 880 fields.
+                              <br>
+                              <br>
+         </li>
+         <li class="nobullet"><a href="#modelb">Model B</a>: <em>Simple multiscript records</em>. All data is
+                           contained in regular fields and script varies depending on the requirements of the
+                           data. Repeatability specifications of all fields should be followed. Although the
+                           Model B record may contain transliterated data, Model A is preferred if the same data
+                           is recorded in both the original vernacular script and transliteration. Field 880 is
+                           not used.
+         </li>
+      </ul>
+      <p>Model A data in the regular fields is linked to the data in 880 fields by a subfield
+                     $6 that occurs in both of the associated fields. Specifications for field 880
+                     are under that field; description of subfield $6 is in <em><a href="ecadcntf.html">Control Subfields</a></em>; specifications for character sets and repertoires for scripts are found in <em><a href="http://www.loc.gov/marc/specifications/spechome.html">MARC 21 Specifications
+                                 for Record Structure, Character Sets, and Exchange Media</a></em>.
+      </p>
+      <p>Although the data in the following records are taken from actual authority records,
+                     these records are included for illustration only and are not necessarily usable for
+                     authority purposes. The creator of the authority records is not specified in these
+                     sample records. Escape sequences are not included in the example records.      </p>
+      <hr>
+      <h4><span class="box">&#9632;</span> <a name="modela">MODEL A - VERNACULAR AND TRANSLITERATION      </a></h4>
+      <p>The following example of a multiscript record follows Model A. In this example the
+                     language of cataloging is English (Latin script) and the language of the name heading
+                     is Russian (Cyrillic script). The cataloging agency provides transliteration of some
+                     Cyrillic script data into the Latin script and prefers to carry only Latin script in
+                     the regular fields, with Cyrillic script data in occurrences of field 880. The notes
+                     are in English.
+      </p>
+   <div class="example">
+         <table width="100%">
+            <tr>
+               <td valign="top" width="6%" align="left"></td>
+               <td valign="top" width="9%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="15%" align="left"></td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">040</td>
+               <td vAlign="top" colspan="9" align="left">##$a***$beng$c***</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">066</td>
+               <td vAlign="top" colspan="9" align="left">##$c(N</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">100</td>
+               <td vAlign="top" colspan="9" align="left">1#$6880-01$aZemtsovski&#301;, I. I.$q(Izali&#301; Iosifovich)</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">400</td>
+               <td vAlign="top" colspan="9" align="left">1#$aZemtsovski&#301;, Izali&#301;
+                                    Iosifovich
+               </td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">400</td>
+               <td vAlign="top" colspan="9" align="left">1#$aZemtsovskiy, I.</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">670</td>
+               <td vAlign="top" colspan="9" align="left">##$aNarodna&iacute;&agrave; muzyka SSSR i sovremennost&acute;, 1982 (a.e.)$cverso t.p. (Zemtsovski&#301;, I. I.) colophon
+                                       (Izali&#301; Iosifovich Zemtsovski&#301;) p. 184 (I.
+                                       Zemtsovski&#301;)
+               </td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">670</td>
+               <td vAlign="top" colspan="9" align="left">##$aNarodna&iacute;&agrave; pesn&iacute;&agrave;, 1983:$cverso t.p. (doktor iskusstvovedeni&iacute;&agrave; I.I.
+                                       Zemtsovski&#301;
+               </td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">670</td>
+               <td vAlign="top" colspan="9" align="left">##$aNarodna&iacute;&agrave; muzyka, istori&iacute;&agrave; i tipologi&iacute;&agrave;, 1989:$ct.p. verso ( I. Zemtsovskiy in rom. )</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">880</td>
+               <td vAlign="top" colspan="9" align="left">1#$6100-01/(N$a[Cyrillic script])</td>
+            </tr>
+         </table>
+      </div>
+      <p>The following example of a multiscript record follows Model A. In this example the
+                     language of cataloging is English (Latin script) and the heading is provided in
+                     English (Latin script), Hebrew (Hebrew script) and Russian (Cyrillic script).Directionality of the Hebrew text in the examples is right-to-left within each
+                     subfield, but the subfields themselves have been recorded left-to-right. The actual
+                     input of all the data is in logical order (first-to-last), parts of which may be
+                     displayed in various directions depending upon the script and the display
+                  interface.
+      </p>
+      <div class="example">
+         <table width="100%">
+            <tr>
+               <td valign="top" width="6%" align="left"></td>
+               <td valign="top" width="9%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="15%" align="left"></td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">040</td>
+               <td vAlign="top" colspan="9" align="left">##$a***$beng$c***</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">066</td>
+               <td vAlign="top" colspan="9" align="left">##$c(2$c(N</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">100</td>
+               <td vAlign="top" colspan="9" align="left">0#$6880-02$aMoses$c(Biblical leader)</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">400</td>
+               <td vAlign="top" colspan="9" align="left">0#$aMus&aacute;$c(Biblical leader)</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">400</td>
+               <td vAlign="top" colspan="9" align="left">0#$aMosheh$c(Biblical leader)</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">400</td>
+               <td vAlign="top" colspan="9" align="left">0#$aMoiseI$c(Biblical leader)</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">880</td>
+               <td vAlign="top" colspan="9" align="left">0#$6100-02/(2/r$a[Hebrew script]$c(Biblical leader)</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">880</td>
+               <td vAlign="top" colspan="9" align="left">0#$6100-02/(N$a[Cyrillic Script]$c(Biblical leader)</td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <h4><span class="box">&#9632;</span> <a name="modelb">MODEL B - SIMPLE MULTISCRIPT RECORDS</a></h4>
+      <p>The following example is a multiscript record that follows Model B. In this example
+                     the language of cataloging is English (Latin script), thus the notes are in English,
+                     however, the established form of the name in the authority record and source
+                     citations are given in the original vernacular (Cyrillic) script.
+      </p>
+   <div class="example">
+         <table width="100%">
+            <tr>
+               <td valign="top" width="5%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="15%" align="left"></td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">040</td>
+               <td vAlign="top" colspan="9" align="left">##$a***$beng$c***</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">100</td>
+               <td vAlign="top" colspan="9" align="left">1#$a[Cyrillic script],[Cyrillic script]$q([Cyrillic script])</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">400</td>
+               <td vAlign="top" colspan="9" align="left">1#$aZemtsovskbi&#301;, I. I.$q(Izali&#301; Iosifovich)</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">400</td>
+               <td vAlign="top" colspan="9" align="left">1#$aZemtsovskiy, I.$q(Izaliy)</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">670</td>
+               <td vAlign="top" colspan="9" align="left">##$a[Cyrillic script], 1982 (a.e.)$cverso t.p. ([Cyrillic script]) colophon ([Cyrillic
+                                       script]) p. 184 ([Cyrillic script])
+               </td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">670</td>
+               <td vAlign="top" colspan="9" align="left">##$a[Cyrillic script], 1983:$bverso t.p. ([Cyrillic script])</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">670</td>
+               <td vAlign="top" colspan="9" align="left">##$a[Cyrillic script], 1989:$bt.p. verso ( I. Zemtsovskiy, in rom.)</td>
+            </tr>
+         </table>
+      </div>
+      <p>The following example is a multiscript record that follows Model B. In this example
+                     the language of cataloging is Russian (Cyrillic script). The established form of the
+                     name in the authority record is also given in the Cyrillic script.
+      </p>
+      <div class="example">
+         <table width="100%">
+            <tr>
+               <td valign="top" width="5%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="15%" align="left"></td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">040</td>
+               <td vAlign="top" colspan="9" align="left">##$a***$brus$c***</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">100</td>
+               <td vAlign="top" colspan="9" align="left">1#$a[Cyrillic script]$q([Cyrillic script])</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">400</td>
+               <td vAlign="top" colspan="9" align="left">1#$a[Cyrillic script]</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">400</td>
+               <td vAlign="top" colspan="9" align="left">1#$aVasniev, K. S.$q(Kaplan Saferbievich)</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">400</td>
+               <td vAlign="top" colspan="9" align="left">1#$aVasniev, Kaplan Saferbievich</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">670</td>
+               <td vAlign="top" colspan="9" align="left">##$a[Cyrillic script], 1992:$b[Cyrillic script] ([Cyrillic script]) ([Cyrillic script];
+                                       Kaplan Saferbievich Vasniev)
+               </td>
+            </tr>
+         </table>
+      </div>
+      <p>The following example is a multiscript record that follows Model B. In this example,
+                     the language of cataloging is English (Latin script), thus the notes are in English.
+                     The established form of the name in the authority record is in the vernacular
+                     (Arabic) script. This authority record comes from a file that has established forms
+                     for names in the vernacular (non-Latin) script and the Latin script. The equivalent
+                     Latin script form of heading is shown in a 7XX heading linking entry field.      </p>
+      <div class="example">
+         <table width="100%">
+            <tr>
+               <td valign="top" width="5%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="10%" align="left"></td>
+               <td valign="top" width="15%" align="left"></td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">040</td>
+               <td vAlign="top" colspan="9" align="left">##$a***$beng$c***</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">100</td>
+               <td vAlign="top" colspan="9" align="left">1#$a[Arabic script]</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">400</td>
+               <td vAlign="top" colspan="9" align="left">0#$a[Arabic script]</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">400</td>
+               <td vAlign="top" colspan="9" align="left">1#$a[Cyrillic script], [Cyrillic script]</td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">670</td>
+               <td vAlign="top" colspan="9" align="left">##$a[Cyrillic script], 1988:$bt.p. (Cyrillic script) parallel t.p. ([Arabic
+                                    script])
+               </td>
+            </tr>
+            <tr>
+               <td vAlign="top" colspan="1" align="left">700</td>
+               <td vAlign="top" colspan="9" align="left">17$aMunir, Dawud Sulayman$0 [record control number] $2 [thesaurus source code] </td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+         <tr valign="bottom">
+            <td>
+               <div class="head-nav"><a href="http://www.loc.gov/">Library of
+                     								Congress</a> &gt;&gt; <a href="http://www.loc.gov/marc/">MARC</a> &gt;&gt; <a href="index.html">Authority</a> 
+                  							&gt;&gt;    <a href="ad7xx.html"></a><strong>Appendix C</strong></div> 
+               (03/07/2008) 
+            </td>
+            <td align="right"><a href="mailto:ndmso@loc.gov">Contact Us</a></td>
+         </tr>
+      </table>
+   <script type='text/javascript' src='http://www.loc.gov/global/s_code.js'></script></body>
+
+<!-- Mirrored from www.loc.gov/marc/authority/ecadmulti.html by HTTrack Website Copier/3.x [XR&CO'2003], Tue, 03 Jun 2008 14:54:38 GMT -->
+</html>

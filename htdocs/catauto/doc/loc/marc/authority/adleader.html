@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html40/loose.dtd">
+<html><head>
+
+   
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>MARC 21 Format for Authority Data: Leader (Network Development and MARC Standards Office, Library of Congress)</title>
+      
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <meta name="description" content="This field contains the leader (Network Development and MARC Standards Office, Library of Congress)">
+      <meta name="keywords" content="marc, marc21, marc standards">
+      <meta name="author" content="Library of Congress Network Development and MARC Standards Office">
+      <link href="adleader_archivos/marc-generic.css" rel="stylesheet" type="text/css"><style type="text/css">
+					body {margin-left:.5em; margin-right:.5em;} 
+					h1 {font-family:Arial, Helvetica, sans-serif;}
+					h3 {text-align:left;}
+					h4 {margin-top:.5em; margin-bottom:.5em;}
+					p {text-align:justify; margin-left:2em; margin-right:2em;}
+					.formatname {font-weight:bold; font-family:Arial, Helvetica, sans-serif; margin-left:.5em}
+					.datename {font-weight:bold; text-align:right; font-family:Arial, Helvetica, sans-serif; margin-top:-1.2em;}
+					.font_small {font-size:9pt;}
+					.fieldtoc {margin-left:2em;}
+					.subfieldtoc {margin-left:3em;}
+					.box {font-family:ZapfDingbats;}
+					.description {text-align:justify; margin-left:2em;}
+					.description2  {text-align:justify; margin-top:1em; margin-bottom:1em;}
+					.description3 {text-align:justify; margin-top:1em; margin-bottom:1em; margin-left:2em;}
+					.indicator {text-align:left; margin-top:1em; margin-bottom:1em;}
+					.indicatorvalue {margin-left:2em; margin-top:1em; margin-bottom:1em;}
+					.subfieldvalue {margin-left:2em; margin-top:1em; margin-bottom:1em;}
+					.subfield {text-align:left; margin-top:1em; margin-bottom:1em; margin-left:2em;}
+					.characterposition {text-align:left; margin-top:1em; margin-bottom:1em; margin-left:2em;}
+					.charactervalue {margin-left:2em; margin-top:1em; margin-bottom:1em;}
+					.characterpositionhistory {text-align:left; margin-top:.5em; margin-bottom:.5em; margin-left:2em;}
+					.charactervaluehistory {margin-left:2em; margin-top:.1em; margin-bottom:.1em;}
+					.example {margin-left:4em;}
+					.changed {color: #FF0000;}
+					.captiontext {font-style:italic;}
+					.displaytext {font-style:italic; margin-bottom:.5em; margin-top:.5em;}
+					.displaycontent {text-align:left;}
+					.table {margin-left:2em; margin-top:1em; margin-bottom:1em;}
+					.head-nav {font-family:Arial, Helvetica, sans-serif; font-size:9pt;}
+					.summary {margin-left:2em;}
+					.summarytable {margin-left:4em;}
+					.update {text-align:center; font-weight:bold; margin-top:1em; margin-bottom:1em;}
+					.changebox {font-style:italic; margin-top:.5em;}
+					.changesection {text-align:left; margin-left:2em; font-weight:bold; margin-top:.5em;}
+					.changefield {text-align:left; margin-left:1em; font-weight:bold;}
+					.changefieldlabel {margin-left:3em; font-weight:bold;}
+					.changeindicator {margin-left:3em;}
+					.changeindicatorfieldname {margin-left:2em;}
+					.changeindicatorvalue {margin-left:4em; font-weight:bold;}
+					.changesubfield {margin-left:3em; font-weight:bold;}
+					.changesubfieldname {margin-left:1em; font-weight:bold;}
+					.changesubfieldlocation {text-align:justify; font-weight:normal;}
+					.glossaryentry {margin-left:2em; margin-top:1em; font-weight:bold;}
+					.glossaryentrydescription {margin-left:4em; margin-bottom:1em; text-align:justify;}
+					.citationaddress {margin-left:2em; text-align:justify;}
+					.citationinternet {margin-left:2em; text-align:justify;}
+					.citationname {font-style:italic; margin-top:1em;}
+				</style><script type="text/javascript" src="adleader_archivos/triggerParams.js"></script><script type="text/javascript" src="adleader_archivos/stdLauncher.js"></script><script type="text/javascript">Poll();</script></head><body bgcolor="#ffffff">
+      <div class="head-nav"><a href="http://www.loc.gov/">Library of Congress</a> &gt;&gt; <a href="http://www.loc.gov/marc/">MARC</a> &gt;&gt; <a href="http://www.loc.gov/marc/authority/">Authority</a> &gt;&gt; <strong>Leader</strong> </div>
+      <hr><a name="skip_menu"></a><h1>Leader (NR)</h1>
+      <hr>
+      <div class="formatname">MARC 21 Authority</div>
+      <div class="datename">October 2002</div>
+      <hr>
+	  <strong>Indicators and Subfield Codes</strong><div class="description">
+         No indicators or subfield codes; the data elements are positionally defined.
+      </div>
+      <table width="100%">
+         <tbody><tr valign="top">
+            <td width="45%"><strong>Character Positions</strong><br>
+              <strong>00-04 - Record length </strong><br>
+              <br>
+              <strong>05 - Record status</strong> <br>
+              a - Increase in encoding level <br>c - Corrected or revised <br>d - Deleted <br>n - New <br>o - Obsolete <br>s - Deleted; heading split into two or more headings <br>x - Deleted; heading replaced by another heading <br><br>
+              <strong>06 - Type of record </strong><br>
+              z - Authority data <br><br>
+              <strong>07-08 - Undefined character positions </strong><br>
+              # - Undefined <br><br>
+              <strong>09 - Character coding scheme</strong> <br>
+              # - MARC-8 <br>a - UCS/Unicode <br><br>
+              <strong>10 - Indicator count </strong><br>
+              2 - Number of character positions used for indicators <br><br>
+              <strong>11 - Subfield code length </strong><br>
+              2 - Number of character positions used for a subfield code <br><br></td>
+            <td width="45%"><strong><br>
+            12-16 - Base address of data</strong> <br>
+              [number] - Length of Leader and Directory <br><br>
+              <strong>17 - Encoding level </strong><br>n - Complete authority record <br>o - Incomplete authority record <br><br>
+              <strong>18-19 - Undefined character positions</strong> <br># - Undefined <br><br>
+              <strong>20 - Length of the length-of-field portion </strong><br>4 - Number of characters in the length-of-field portion of a Directory entry <br><br>
+              <strong>21 - Length of the starting-character-position portion</strong> <br>5 - Number of characters in the starting-character-position portion of a Directory
+           entry <br><br>
+           <strong>22 - Length of the implementation-defined portion </strong><br>0 - Number of characters in the implementation-defined portion of a Directory entry <br><br>
+           <strong>23 - Undefined </strong><br>0 - Undefined <br><br></td>
+         </tr>
+   </tbody></table>
+      <hr>
+      <h3>FIELD DEFINITION AND SCOPE</h3>
+      <p>First field of an authority record. It is fixed in length at 24 character positions
+                     (00-23). The Leader consists of data elements that contain numbers or coded values that
+                     define the parameters for the processing of the record.
+      </p>
+      <p>Character positions 20-23 comprise the Entry map for the Directory. They contain four
+                     one-character numbers that specify the structure of the entries in the Directory. More
+                     detailed information about the structure of the Leader is contained in <em><a href="http://www.loc.gov/marc/specifications/">MARC 21 Specifications for Record
+                                 Structure, Character Sets, and Exchange Media</a></em>.      </p>
+      <hr>
+      <h3>GUIDELINES FOR APPLYING CONTENT DESIGNATORS</h3>
+      <h4><span class="box">■</span> CHARACTER POSITIONS
+      </h4>
+      <div class="characterposition"><strong>00-04 - Record length  </strong><div class="description">Computer-generated, five-character number equal to the length of the entire
+                              record, including itself and the record terminator. The number is right justified
+                              and unused positions contain zeros.
+         </div>
+      </div>
+      <hr>
+      <div class="characterposition"><strong>05 - Record status  </strong><div class="description">Relationship of the record to a file.</div>
+         <div class="description2">
+            <div class="description">Used for file maintenance purposes.</div>
+         </div>
+         <div class="charactervalue"><strong>a - Increase in encoding level</strong> <div class="description">Encoding level (Leader/17) of the record has been changed from o (Incomplete
+                                    authority record) to n (Complete authority record).
+            </div>
+         </div>
+         <div class="charactervalue"><strong>c - Corrected or revised</strong> <div class="description">Addition/change other than in the Encoding level code has been made to the
+                                    record.
+            </div>
+         </div>
+         <div class="charactervalue"><strong>d - Deleted</strong> <div class="description">Used when neither code s nor code x is applicable, or when an organization
+                                    chooses not to use code s or x.
+            </div>
+            <div class="description2">
+               <div class="description">Some level of manual intervention may be needed to affect the change in
+                                       bibliographic records because the deleted heading may or may not be carried as
+                                       a 4XX See From Tracing field in other authority records and a 682 field
+                                       explaining the delete may be present in the record marked for deletion.
+               </div>
+            </div>
+            <div class="example">
+               <table width="100%">
+                  <tbody><tr>
+                     <td align="left" valign="top" width="5%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="15%"></td>
+                  </tr>
+                  <tr>
+                     <td colspan="2" align="left" valign="top">Leader/05</td>
+                     <td colspan="8" align="left" valign="top">d</td>
+                  </tr>
+                  <tr>
+                     <td colspan="1" align="left" valign="top">150</td>
+                     <td colspan="9" align="left" valign="top">##$aFruit processing</td>
+                  </tr>
+                  <tr>
+                     <td colspan="1" align="left" valign="top">682</td>
+                     <td colspan="9" align="left" valign="top">##$iThis heading has been replaced by the heading$aFruit-Processing,$ia heading not distributed because it uses a
+                                                   freefloating subdivision controlled by a pattern heading.
+                     </td>
+                  </tr>
+               </tbody></table>
+            </div>
+         </div>
+         <div class="charactervalue"><strong>n - New</strong> <div class="description">Record is a newly input record.</div>
+         </div>
+         <div class="charactervalue"><strong>o - Obsolete</strong> <div class="description">Record content is obsolete, but the record has not been deleted from a
+                                 file.
+            </div>
+         </div>
+         <div class="charactervalue"><strong>s - Deleted; heading split into two or more headings</strong> <div class="description">Record has been deleted from a file because the heading has been split into two
+                                    or more headings, requiring a new authority record for each. The heading from
+                                    the deleted record is included in each of the new authority records as a
+                                    tracing in a 4XX See From Tracing field. This specialized delete value supports
+                                    use of automated systems to carry out any necessary reviews, since when a
+                                    heading is split, a computer cannot automatically replace the old heading in
+                                    bibliographic records.
+            </div>
+            <div class="example">
+               <table width="100%">
+                  <tbody><tr>
+                     <td align="left" valign="top" width="5%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="15%"></td>
+                  </tr>
+                  <tr>
+                     <td colspan="2" align="left" valign="top">Leader/05</td>
+                     <td colspan="8" align="left" valign="top">s</td>
+                  </tr>
+                  <tr>
+                     <td colspan="1" align="left" valign="top">150</td>
+                     <td colspan="9" align="left" valign="top">##$aBuddha and Buddhism</td>
+                  </tr>
+               </tbody></table>
+            </div>
+            <div class="example">
+               <table width="100%">
+                  <tbody><tr>
+                     <td align="left" valign="top" width="5%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="15%"></td>
+                  </tr>
+                  <tr>
+                     <td colspan="2" align="left" valign="top">Leader/05</td>
+                     <td colspan="8" align="left" valign="top">n</td>
+                  </tr>
+                  <tr>
+                     <td colspan="1" align="left" valign="top">100</td>
+                     <td colspan="9" align="left" valign="top">0#$aGautama Buddha</td>
+                  </tr>
+                  <tr>
+                     <td colspan="1" align="left" valign="top">450</td>
+                     <td colspan="9" align="left" valign="top">##$aBuddha and Buddhism</td>
+                  </tr>
+               </tbody></table>
+            </div>
+            <div class="example">
+               <table width="100%">
+                  <tbody><tr>
+                     <td align="left" valign="top" width="5%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="15%"></td>
+                  </tr>
+                  <tr>
+                     <td colspan="2" align="left" valign="top">Leader/05</td>
+                     <td colspan="8" align="left" valign="top">n</td>
+                  </tr>
+                  <tr>
+                     <td colspan="1" align="left" valign="top">150</td>
+                     <td colspan="9" align="left" valign="top">##$aBuddhism</td>
+                  </tr>
+                  <tr>
+                     <td colspan="1" align="left" valign="top">450</td>
+                     <td colspan="9" align="left" valign="top">##$aBuddha and Buddhism</td>
+                  </tr>
+               </tbody></table>
+            </div>
+         </div>
+         <div class="charactervalue"><strong>x - Deleted; heading replaced by another heading</strong> <div class="description">Record has been deleted from a file and that a new authority record in which
+                                    the heading from the deleted record appears as a 4XX See From Tracing field has
+                                    been added to the file. (In a system where authority control is linked to the
+                                    bibliographic file, a computer can affect the one-to-one replacement indicated
+                                    by code x without manual intervention.)
+            </div>
+            <div class="example">
+               <table width="100%">
+                  <tbody><tr>
+                     <td align="left" valign="top" width="5%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="15%"></td>
+                  </tr>
+                  <tr>
+                     <td colspan="2" align="left" valign="top">Leader/05</td>
+                     <td colspan="8" align="left" valign="top">x</td>
+                  </tr>
+                  <tr>
+                     <td colspan="1" align="left" valign="top">150</td>
+                     <td colspan="9" align="left" valign="top">##$aOleomargarine</td>
+                  </tr>
+               </tbody></table>
+            </div>
+            <div class="example">
+               <table width="100%">
+                  <tbody><tr>
+                     <td align="left" valign="top" width="5%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="10%"></td>
+                     <td align="left" valign="top" width="15%"></td>
+                  </tr>
+                  <tr>
+                     <td colspan="2" align="left" valign="top">Leader/05</td>
+                     <td colspan="8" align="left" valign="top">n</td>
+                  </tr>
+                  <tr>
+                     <td colspan="1" align="left" valign="top">150</td>
+                     <td colspan="9" align="left" valign="top">##$aMargarine</td>
+                  </tr>
+                  <tr>
+                     <td colspan="1" align="left" valign="top">450</td>
+                     <td colspan="9" align="left" valign="top">##$aOleomargarine</td>
+                  </tr>
+               </tbody></table>
+            </div>
+         </div>
+      </div>
+      <hr>
+      <div class="characterposition"><strong>06 - Type of record  </strong><div class="description">Characteristics and definitions of the components of the record.</div>
+         <div class="charactervalue"><strong>z - Authority data</strong> <div class="description">Content of the record constitutes an authority record. The specific kind of
+                                    authority record is identified by the code in 008/09 (Kind of record).
+            </div>
+         </div>
+      </div>
+      <hr>
+      <div class="characterposition"><strong>07-08 - Undefined character positions  </strong><div class="description">Both are undefined; each contains a blank (#).</div>
+   </div>
+      <hr>
+      <div class="characterposition"><strong>09 - Character coding scheme  </strong><div class="description">Coding scheme used affects the number of octets needed per character, the
+                              placement of non-spacing characters, and the use of escape sequences and may
+                              affect the character repertoire. Detailed information on the character sets used
+                              in MARC 21 records is contained in <em><a href="http://www.loc.gov/marc/specifications/spechome.html">MARC 21
+                                          Specifications for Record Structure, Character Sets, and Exchange Media</a></em>.
+         </div>
+         <div class="charactervalue"><strong># - MARC-8</strong> <div class="description">Character coding in the record uses the 8-bit character sets described in <em><a href="http://www.loc.gov/marc/specifications/spechome.html">MARC 21
+                                                Specifications for Record Structure, Character Sets, and Exchange
+                                             Media</a></em>. Non-default character sets used are identified in field 066.
+            </div>
+         </div>
+         <div class="charactervalue"><strong>a - UCS/Unicode</strong> <div class="description">Makes use of characters from the Universal Coded Character Set (UCS) (ISO
+                                    10646), or Unicode™, an industry subset.
+            </div>
+         </div>
+      </div>
+      <hr>
+      <div class="characterposition"><strong>10 - Indicator count  </strong><div class="description">Computer-generated number 2 that indicates the number of indicators occurring in
+                              each variable data field.
+         </div>
+         <div class="description2">
+            <div class="description">(An indicator character position contains a code which conveys information that
+                                 interprets or supplements the data found in the field.) In MARC 21, two character
+                                 positions at the beginning of each variable data field are reserved for
+                                 indicators; therefore, the Indicator count is always 2.
+            </div>
+         </div>
+         <div class="charactervalue"><strong>2 - Number of character positions used for indicators</strong> </div>
+      </div>
+      <hr>
+      <div class="characterposition"><strong>11 - Subfield code length  </strong><div class="description">Computer-generated number 2 that indicates the number of character positions used
+                              for each subfield code in a variable data field.
+         </div>
+         <div class="description2">
+            <div class="description">(Each data element in a variable data field is identified by a subfield code.) In
+                                 MARC 21, a subfield code consists of a delimiter ($) and a lowercase
+                                 alphabetic or numeric data element identifier; therefore, the Subfield code count
+                                 is always 2.
+            </div>
+         </div>
+         <div class="charactervalue"><strong>2 - Number of character positions used for a subfield code</strong> </div>
+      </div>
+      <hr>
+      <div class="characterposition"><strong>12-16 - Base address of data  </strong><div class="description">Computer-generated, five-character numeric string that specifies the first
+                              character position of the first variable control field in a record. The number is
+                              right justified and each unused position contains a zero.
+         </div>
+         <div class="description2">
+            <div class="description">Number is the base from which the starting character position of all the other
+                                 fields in the record is addressed in the Directory. (The starting character
+                                 position in the Directory entry for each field of the record is relative to the
+                                 first character of the first variable control field rather than the beginning of
+                                 the record.) The Base address of data is equal to the sum of the lengths of the
+                                 Leader and the Directory, including the field terminator character at the end of
+                                 the Directory.
+            </div>
+         </div>
+         <div class="charactervalue"><strong>[number] - Length of Leader and Directory</strong> </div>
+      </div>
+      <hr>
+      <div class="characterposition"><strong>17 - Encoding level  </strong><div class="description">Whether the authority record is complete.</div>
+         <div class="description2">
+            <div class="description">A record, where complete or incomplete, that is being considered for modification
+                                 after its initial creation is identified by code b (Record is being updated) in
+                                 field 008/31 (Record update in process).
+            </div>
+         </div>
+         <div class="charactervalue"><strong>n - Complete authority record</strong> <div class="description">Record meets national-level record requirements for content and content
+                                    designation.
+            </div>
+         </div>
+         <div class="charactervalue"><strong>o - Incomplete authority record</strong> <div class="description">Authority record is incomplete because it does not yet contain all the
+                                    information needed for a complete record. The record may or may not meet the
+                                    national-level record requirements.
+            </div>
+         </div>
+      </div>
+      <hr>
+      <div class="characterposition"><strong>18-19 - Undefined character positions  </strong><div class="description">Both are undefined; each contains a blank (#).</div>
+   </div>
+      <hr>
+      <div class="characterposition"><strong>20 - Length of the length-of-field portion  </strong><div class="description">Always a 4.</div>
+         <div class="charactervalue"><strong>4 - Number of characters in the length-of-field portion of a Directory entry</strong> </div>
+      </div>
+      <hr>
+      <div class="characterposition"><strong>21 - Length of the starting-character-position portion  </strong><div class="description">Always a 5.</div>
+         <div class="charactervalue"><strong>5 - Number of characters in the starting-character-position portion of a Directory
+                                 entry</strong> </div>
+      </div>
+      <hr>
+      <div class="characterposition"><strong>22 - Length of the implementation-defined portion  </strong><div class="description">In MARC 21, a Directory entry does not contain an implementation-defined
+                           portion.
+         </div>
+         <div class="description2">
+            <div class="description">Always a 0.</div>
+         </div>
+         <div class="charactervalue"><strong>0 - Number of characters in the implementation-defined portion of a Directory entry</strong> </div>
+      </div>
+      <hr>
+      <div class="characterposition"><strong>23 - Undefined  </strong>
+        <div class="description">Undefined; always contains a 0.</div>
+   </div>
+      <hr>
+      <h3>INPUT CONVENTIONS</h3>
+   <div class="description2"><strong>System-Generated Elements</strong> - The following Leader elements are usually system generated:
+         <div class="table">
+            <table>
+               <tbody><tr>
+                  <td align="left" valign="top" width="89">00-04</td>
+                  <td align="left" valign="top" width="356">Logical record length</td>
+               </tr>
+               <tr>
+                  <td align="left" valign="top">07-08</td>
+                  <td align="left" valign="top">Undefined character positions</td>
+               </tr>
+               <tr>
+                  <td align="left" valign="top">09</td>
+                  <td align="left" valign="top">Character coding scheme</td>
+               </tr>
+               <tr>
+                  <td align="left" valign="top">10</td>
+                  <td align="left" valign="top">Indicator count</td>
+               </tr>
+               <tr>
+                  <td align="left" valign="top">11</td>
+                  <td align="left" valign="top">Subfield code count</td>
+               </tr>
+               <tr>
+                  <td align="left" valign="top">12-16</td>
+                  <td align="left" valign="top">Base address of data</td>
+               </tr>
+               <tr>
+                  <td align="left" valign="top">20-23</td>
+                  <td align="left" valign="top">Entry map</td>
+               </tr>
+            </tbody></table>
+         </div>
+               It is common for default values in other Leader elements to be generated automatically
+                  as well.   </div>
+      <div class="description2"><strong>Capitalization</strong> - Alphabetic codes are input as lower case letters.
+      </div>
+      <hr>
+      <h3>CONTENT DESIGNATOR HISTORY</h3>
+      <div class="font_small"><em>05 - Record status</em>
+        <div class="charactervaluehistory"><em>d - Record deleted because heading is replaced by another heading [REDEFINED, 1983] [USMARC only]</em></div>
+         <div class="charactervaluehistory"><em>d - Record deleted because heading is replaced by another heading [REDEFINED, 1997] [CAN/MARC only]</em></div>
+         <div class="charactervaluehistory"><em>o - Obsolete [NEW, 2002]</em></div>
+         <div class="charactervaluehistory"><em>x - Record deleted for reason not covered by other codes [REDEFINED, 1983] [USMARC only]</em></div>
+         <div class="charactervaluehistory"><em>x - Record deleted (explanation may be present in field 682) [REDEFINED, 1997] [CAN/MARC only]</em></div>
+         <br><em>17 - Encoding level</em><div class="charactervaluehistory"><em>0 - Full level [OBSOLETE, 1997] [CAN/MARC only]</em></div>
+         <div class="charactervaluehistory"><em>1 - RECON record [OBSOLETE, 1997] [CAN/MARC only]</em></div>
+         <div class="charactervaluehistory"><em>3 - Incomplete record [OBSOLETE, 1997] [CAN/MARC only]</em></div>
+   </div>
+      <hr>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+         <tbody><tr valign="bottom">
+            <td>
+               <div class="head-nav"><a href="http://www.loc.gov/">Library of
+                     								Congress</a> &gt;&gt; <a href="http://www.loc.gov/marc/">MARC</a> &gt;&gt; <a href="http://www.loc.gov/marc/authority/">Authority</a> &gt;&gt;<strong> Leader </strong></div> 
+               (03/01/2008) 
+            </td>
+            <td align="right"><a href="mailto:ndmso@loc.gov">Contact Us</a></td>
+         </tr>
+      </tbody></table>
+   <script type="text/javascript" src="adleader_archivos/s_code.js"></script><img src="adleader_archivos/s67087165703351.gif" name="s_i_locgovprod" alt="" border="0" height="1" width="1"></body></html>

@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="pragma" content="no-cache">
+<title>Agregar subcampos</title>
+<link rel="stylesheet" type="text/css" href="../css/catalis.css">
+<!--script language="JavaScript" type="text/javascript" src="../js/catalis.js"></script-->
+
+<script language="JavaScript" type="text/javascript">
+// Argumentos pasados a la ventana de diálogo
+if ( opener && opener.dialogWin && opener.dialogWin.args ) {
+	dialogArguments = opener.dialogWin.args;
+}
+var xmlDatafield = dialogArguments[0];
+var LANG = dialogArguments[1];
+var disabledCodes = dialogArguments[2];
+
+
+// -----------------------------------------------------------------------------
+function selectedCodes()
+// -----------------------------------------------------------------------------
+{ 
+	codes = new Array();
+	if (document.getElementById("codeBox").value.search(/[a-z1-9]/) != -1) {
+		codes = document.getElementById("codeBox").value.split(/\s+|\s*,\s*/);
+	}
+	var allCodes = document.getElementsByTagName("INPUT");
+	for (var i=0; i<allCodes.length; i++) {
+		if ( "checkbox" == allCodes[i].type && allCodes[i].checked ) { 
+			codes.push(allCodes[i].value);
+		}
+	}
+	return codes;
+}
+
+// -----------------------------------------------------------------------------
+function handleOK()
+// -----------------------------------------------------------------------------
+{
+	returnValue = selectedCodes();
+	window.close();
+}
+
+// -----------------------------------------------------------------------------
+function handleCancel()
+// -----------------------------------------------------------------------------
+{
+	window.close();
+}
+
+//------------------------------------------------------------------------------
+function init()
+//------------------------------------------------------------------------------
+{
+	window.returnValue = null;
+
+	// ESC ==> handleCancel()
+	document.onkeydown = function(evt) {
+		var evt = (evt) ? evt : window.event;
+		if ( evt.keyCode == 27 ) {
+			handleCancel();
+		}
+	}
+	document.getElementById("btnOK").onclick = handleOK;
+	document.getElementById("btnCancel").onclick = handleCancel;
+	document.getElementById("theForm").onsubmit = function() {
+		handleOK();
+		return false;
+	}
+}
+
+window.onload = init;
+</script>
+
+<style type="text/css">
+	body,table {
+		font-family: verdana;
+		font-size: 13px;
+		background: #CDC7A9;
+	}
+	body {
+		margin: 2px 12px;
+	}
+	.fieldBlock{
+		display: none;
+		font-family: verdana;
+		font-size: 13px;
+	}
+
+	.blockNav{
+		font-family: verdana;
+		font-size: 13px;
+		font-weight: bold;
+		color: #666;
+		border: 1px solid #999;
+		padding: 4px 8px;
+		cursor: hand;
+	}
+	.blockNavNormal{
+		background: #F5F5DC;
+	}
+	.blockNavOver{
+		background: #FFFACD;
+	}
+	.blockNavActive{
+		background: #F5DEB3;
+		border-right-width: 0px;
+	}
+</style>
+
+</head>
+
+<body>
+
+<script language="JavaScript" type="text/javascript">
+var tag = xmlDatafield.selectNodes("@tag")[0].value;
+var fieldLabel = xmlDatafield.selectNodes("@label-"+LANG)[0].value; 
+document.write("<div style='font-size: 17px; padding: 6px 0px;'>" + tag + " - " + fieldLabel + "</div>");
+</script>
+
+<form id="theForm" action="javascript:void(0)" style="margin:3px">
+
+<b>Escriba el código de subcampo:&nbsp;&nbsp;<input type="text" id="codeBox" size="3">
+&nbsp;o seleccione de la lista:</b>
+
+<p>
+
+<div style="background: #E6E3BC; padding: 0.3em 0.7em; border: solid 1px #999; height: 300px; overflow: auto;">
+<table width="100%" cellpadding="1" border="0" style="background: #E6E3BC;">
+<script language="JavaScript">
+		var codeList = xmlDatafield.selectNodes("subfield/@code");
+		for (var j=0; j<codeList.length; j++) {
+			var code = codeList[j].value;
+			//alert("subfield[@code='" + code + "']/@label-eng");
+			var disabled = (disabledCodes[code]) ? "disabled" : "";
+			var labelClass = (disabledCodes[code]) ? "disabledLabel" : "";
+			var subfieldLabel = xmlDatafield.selectNodes("subfield[@code='" + code + "']/@label-"+LANG)[0].value;
+			var repet = xmlDatafield.selectNodes("subfield[@code='" + code + "']/@repet")[0].value;
+			// TO-DO: reescribir usando DOM
+			var HTMLstring = "<tr><td valign='top' width='20'>" 
+							+ "<input type='checkbox' value='" + code + "' id='f" + code + "'" + disabled + "></td>"
+							+ "<td valign='top' align='right' width='12' style='padding-right: 3px;'>"
+							+ "<label for='f" + code + "' class='" + labelClass + "'>"
+							+ "<b>" + code + "</b></label></td>"
+							+ "<td valign='top'>"
+							+ "<label for='f" + code + "' class='" + labelClass + "'>"
+							+ subfieldLabel
+							+ "</label>"
+							//+ " (" + repet + ")"
+							+ "</td></tr>";
+			document.write(HTMLstring);
+		}
+</script>
+</table>
+</div>
+
+<p>
+
+<div align="center">
+	<button id="btnOK" class="marcEditButton" onclick="handleOK()" accesskey="A"><u>A</u>ceptar</button>
+	<button id="btnCancel" class="marcEditButton" onclick="handleCancel()" accesskey="C"><u>C</u>ancelar</button>
+</div>
+
+</form>
+
+</body>
+</html>

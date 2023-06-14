@@ -1,0 +1,2374 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html40/loose.dtd"><html><head>
+
+<title>Control Field 008</title><!-- base href="http://www.loc.gov/marc/bibliographic/ecbd008s.html" -->
+<meta content="This document contains the Control Field 008 section of the MARC 21 Concise Bibliographic format which includes all related data elements and many examples." name="description">
+<meta content="MARC 21 Concise, Control Field 008, bibliographic format" name="keywords">
+<link type="text/css" rel="stylesheet" href="../marcdoc.css">
+</head>
+
+<body bgcolor="#ffffff">
+<a name="top"></a>
+<hr><h1><em>MARC 21 Concise Bibliographic: Control Field 008</em></h1>
+<hr><ul>
+<li><a href="#mrcb008">008 - FIXED-LENGTH DATA ELEMENTS--GENERAL
+INFORMATION</a>
+
+<small>(NR) </small>
+</li><li><a href="#mrcb008a">008--ALL MATERIALS</a>
+</li><li><a href="#mrcb008b">008--BOOKS</a>
+</li><li><a href="#mrcb008c">008--COMPUTER FILES</a>
+</li><li><a href="#mrcb008p">008--MAPS</a>
+</li><li><a href="#mrcb008m">008--MUSIC</a>
+</li><li><a href="#mrcb008s">008--CONTINUING RESOURCES</a>
+</li><li><a href="#mrcb008v">008--VISUAL MATERIALS</a>
+</li><li><a href="#mrcb008x">008--MIXED MATERIALS</a>
+</li></ul>
+<p><u>Information for Translators and Other Users</u><br>
+Items highlighted in <font color="#ff0000">red</font> indicate changes made after
+the 2002 edition of the <em>MARC 21 Concise Formats</em> was published and are
+included in the 2003 printed edition of the <em>MARC 21 Concise Formats</em>.
+</p><hr><h2><a name="mrcb008">008 - FIXED-LENGTH DATA ELEMENTS--GENERAL INFORMATION
+ <small>(NR)</small></a>
+</h2>
+<p>This field contains 40 character positions (00-39) that provide
+coded information about the record as a whole and about special
+bibliographic aspects of the item being cataloged.  These coded
+data elements are potentially useful for retrieval and data
+management purposes.</p><p>The data elements are positionally-defined.  Character positions
+that are not defined contain a blank (#).  All defined character
+positions must contain a defined code; for some field 008
+positions, this may be the fill character (|).  The fill character
+may be used (in certain character positions) when a cataloging
+organization makes no attempt to code the character position.  The
+fill character is not allowed in field 008 positions 00-05 (Date
+entered on file).  Its use is discouraged in positions 07-10 (Date
+1), 15-17 (Place of publication, production, or execution), and the
+008 position defined for Form of item (either position 23 or 29
+depending upon the 008 configuration).
+</p><p>Character positions 00-17 and 35-39 are defined the same across
+all types of material, with special consideration for position 06.
+The definition of character positions 18-34 was done independently
+for each type of material, although certain data elements are
+defined the same in the specifications for more than one type of
+material.  When similar data elements are defined for inclusion in
+field 008 for different types of material, they occupy the same
+field 008 character positions.</p><p>In the following documentation, character positions are
+described in the order of their listing at the beginning of this
+section.  Field 008 positions 00-17 and 35-39 <strong>(All materials)</strong> for
+all types of
+material are described first, followed by seven groups of sections for positions 18-34
+<strong>(Books, Computer files, Maps, Music, Continuing resources, 
+Visual materials and Mixed materials)</strong>.</p><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb008a">008--ALL MATERIALS</a>
+</h2>
+
+<h3>Character Positions</h3>
+
+<ul>
+<li>00-05 - Date entered on file<br>The computer-generated, six-character numeric string that
+indicates the date the MARC record was created.  The date is
+recorded in the pattern
+<em>yymmdd</em>.</li><li>06 - Type of date/Publication status<br>A one-character code that indicates that categorizes the type of
+dates given in 008/07-10 (Date 1) and 008/11-14 (Date 2).  For
+continuing resources, the code in 008/06 also indicates the
+publication status.<br>The choice of code for 008/06 is made concurrently with a
+determination of the appropriate dates for 008/07-14.  For most
+records data is derived from information in field 260 (Publication,
+Distribution, etc. (Imprint)), field 362 (Dates of Publication
+and/or Sequential Designation), or from note fields.
+<ul>
+<li>b - No dates given; B.C. date
+involved<br>Each character position in fields 008/07-10 and 008/11-14
+contains a blank (#).</li></ul>
+
+<ul>
+<li>c - Continuing resource currently published<br>008/07-10 contain the beginning date of publication; 008/11-14
+contain 9999.</li></ul>
+
+<ul>
+<li>d - Continuing resource ceased publication<br>008/07-10 contain the beginning date of publication; 008/11-14
+contain the ending date of publication.</li></ul>
+
+<ul>
+<li>e - Detailed date<br>008/07-10 contain the year and 008/11-14 contain the month and
+day, recorded in the pattern
+<em>mmdd.</em></li></ul>
+
+<ul>
+<li>i - Inclusive dates of
+collection</li></ul>
+
+<ul>
+<li>k - Range of years of bulk of
+collection</li></ul>
+
+<ul>
+<li>m - Multiple dates<br>008/07-10 usually contain the beginning date and 008/11-14 the
+ending date.</li></ul>
+
+<ul>
+<li>n - Dates unknown<br>Indicates that the dates appropriate for 008/07-10 and 008/11-14 are unknown (e.g., when
+no dates are given in field 260).</li></ul>
+
+<ul>
+<li>p - Date of distribution/release/issue and
+production/recording session when different</li></ul>
+
+<ul>
+<li>q - Questionable date<br>008/07-10 contain the earliest possible date; 008/11-14 contain
+the latest possible date.</li></ul>
+
+<ul>
+<li>r - Reprint/reissue date and original
+date<br>008/07-10 contain the date of reproduction or reissue; 008/11-14
+contain the date of the original, if known; 008/11-14 contain
+code u ("uuuu"), if unknown.</li></ul>
+
+<ul>
+<li>s - Single known date/probable
+date<br>008/07-10 contain the date; 008/11-14 contain blanks
+(####).</li></ul>
+
+<ul>
+<li>t - Publication date and copyright
+date</li></ul>
+
+<ul>
+<li>u - Continuing resource status unknown<br>008/07-10 contain the beginning date of publication; 008/11-14
+contain code u ("uuuu").</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>07-10 - Date 1<br>The determination of dates for 008/07-10 is made concurrently
+with
+the choice of code for 008/06 (Type of date/publication
+status).  The use of fill characters in 008/07-10, although
+possible, is discouraged since the data in Date 1 is used for
+retrieval and duplicate detection in many systems.  When fill is
+used in 008/07-10, all four positions must contain the fill
+character.
+<ul>
+<li>1-9 - Date digit</li></ul>
+
+<ul>
+<li># - Date element is not
+applicable</li></ul>
+
+<ul>
+<li>u - Date element is totally or partially
+unknown</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>11-14 - Date 2<br>The determination of dates for 008/11-14 is made concurrently
+with the choice of code for 008/06 (Type of date/publication
+status).  When fill is used in 008/11-14, all four positions must
+contain the fill character.
+<ul>
+<li>1-9 - Date digit</li></ul>
+
+<ul>
+<li># - Date element is not
+applicable</li></ul>
+
+<ul>
+<li>u - Date element is totally or partially
+unknown</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>15-17 - Place of publication, production, or
+execution<br>A two- or three-character MARC code that indicates the place of
+publication, production, or execution.  The place code is an
+authoritative-agency data element.  The source of the code is
+<em><a href="../countries/cou_home.html">MARC Code
+List
+for Countries</a>
+</em>.  Choice of
+a MARC code is generally related to information in field 260 (Publication,
+Distribution, etc. (Imprint)).  
+The code recorded in 008/15-17 is
+used in conjunction with field 044 (Country of Producer Code) when
+more than one code is appropriate to an item.
+The first code in
+subfield $a of field 044 is recorded in 008/15-17. 
+Three fill
+characters (|||) may be used in place of a valid code, but their
+use in 008/15-17 is discouraged.  The data in this field 008 data
+element is used for retrieval and duplicate detection in many
+systems.  When fill is used in 008/15-17, all three positions must
+contain the fill character.</li><li>35-37 - Language<br>A three-character MARC code that indicates the language of the
+item.  The source of the code is
+<em><a href="../languages/langhome.html">MARC Code
+List
+for Languages</a></em>.  Choice
+of a MARC code is based on the predominant language of the item.  Three fill characters (|||)
+may also be used if no attempt is made to code 008/35-37.
+</li><li>38 - Modified record<br>
+A one-character code that indicates whether any data in a
+bibliographic record is a modification of information that appeared
+on the
+item being cataloged or that was intended to be included in the
+MARC record.  Codes are assigned a priority (recorded in the order of
+the following list) that determines which code is input when more than
+one code applies to the item.
+
+
+<ul>
+<li><font color="#009900"># - Not modified
+</font>
+</li><li><font color="#009900">s - Shortened<br>
+  Some of the data has been omitted because the record would have exceeded the
+  maximum length allowed by a particular
+system.
+</font>
+</li></ul>
+
+<ul>
+<li><font color="#009900">d - Dashed-on information
+omitted
+</font>
+</li><li><font color="#009900">x - Missing
+characters<br>
+Characters that could not be converted into machine-readable form due to character
+set limitations are missing from the
+record.
+</font>
+</li></ul>
+
+<ul>
+<li><font color="#009900">r - Completely romanized/printed cards in
+script</font>
+</li></ul>
+
+<ul>
+<li><font color="#009900">o - Completely romanized/printed cards
+romanized
+</font>
+</li></ul>
+
+<ul>
+  <li><font color="#009900">  | - No attempt to code
+  </font>
+  </li></ul>
+</li><li>39 - Cataloging source<br>A one-character code that indicates the creator of the original
+cataloging record.  If the cataloging source is known, it is identified  in subfield $a of field 040
+(Cataloging Source).
+<ul>
+<li># - National bibliographic
+agency</li></ul>
+
+<ul>
+<li>c - Cooperative cataloging
+program<br>The creator of the bibliographic data is a participant
+(other than a national bibliographic agency) in a cooperative
+cataloging program.</li></ul>
+
+<ul>
+<li>d - Other</li></ul>
+
+<ul>
+<li>u - Unknown</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li></ul>
+<p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb008b">008--BOOKS</a>
+</h2>
+
+<h3>Character Positions</h3>
+
+<ul>
+<li>18-21 - Illustrations<br>Up to four one-character codes (recorded in alphabetical order)
+that
+indicate the presence of types of illustrations in the item.  If
+fewer than
+four codes are assigned, the codes are left justified and each
+unused
+position contains a blank (#).
+<ul>
+<li># - No illustrations</li></ul>
+
+<ul>
+<li>a - Illustrations</li></ul>
+
+<ul>
+<li>b - Maps</li></ul>
+
+<ul>
+<li>c - Portraits</li></ul>
+
+<ul>
+<li>d - Charts</li></ul>
+
+<ul>
+<li>e - Plans</li></ul>
+
+<ul>
+<li>f - Plates</li></ul>
+
+<ul>
+<li>g - Music</li></ul>
+
+<ul>
+<li>h - Facsimiles</li></ul>
+
+<ul>
+<li>i - Coats of arms</li></ul>
+
+<ul>
+<li>j - Genealogical tables</li></ul>
+
+<ul>
+<li>k - Forms</li></ul>
+
+<ul>
+<li>l - Samples</li></ul>
+
+<ul>
+<li>m - Phonodisc, phonowire, etc.</li></ul>
+
+<ul>
+<li>o - Photographs</li></ul>
+
+<ul>
+<li>p - Illuminations</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>22 - Target audience<br>A one-character code that indicates the audience for which the item is intended.
+<ul>
+<li># - Unknown or not specified</li></ul>
+
+<ul>
+<li>a - Preschool</li></ul>
+
+<ul>
+<li>b - Primary</li></ul>
+
+<ul>
+<li>c - Pre-adolescent</li></ul>
+
+<ul>
+<li>d - Adolescent</li></ul>
+
+<ul>
+<li>e - Adult</li></ul>
+
+<ul>
+<li>f - Specialized</li></ul>
+
+<ul>
+<li>g - General</li></ul>
+
+<ul>
+<li>j - Juvenile</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>23 - Form of item<br>A one-character code that indicates the form of material for the
+item.
+<ul>
+<li># - None of the following</li></ul>
+
+<ul>
+<li>a - Microfilm</li></ul>
+
+<ul>
+<li>b - Microfiche</li></ul>
+
+<ul>
+<li>c - Microopaque</li></ul>
+
+<ul>
+<li>d - Large print</li></ul>
+
+<ul>
+<li>f - Braille</li></ul>
+
+<ul>
+<li>r - Regular print reproduction<br>Eye-readable print.</li></ul>
+
+<ul>
+<li>s - Electronic</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>24-27 - Nature of contents<br>Up to four one-character codes (recorded in alphabetical order)
+that
+indicate whether a significant part of the item is or contains
+certain types
+of material.  If fewer than four codes are assigned, the codes are
+left
+justified and each unused position contains a blank (#).
+<ul>
+<li># - No specified nature of
+contents</li></ul>
+
+<ul>
+<li>a - Abstracts/summaries<br>The item is or contains abstracts or summaries of other
+publications.</li></ul>
+
+<ul>
+<li>b - Bibliographies</li></ul>
+
+<ul>
+<li>c - Catalogs</li></ul>
+
+<ul>
+<li>d - Dictionaries<br>This code is also used for a glossary or a
+gazetteer.</li></ul>
+
+<ul>
+<li>e - Encyclopedias</li></ul>
+
+<ul>
+<li>f - Handbooks</li></ul>
+
+<ul>
+<li>g - Legal articles</li></ul>
+
+<ul>
+<li>i - Indexes<br>The item is or contains an index to bibliographical material
+<em>other</em> than itself.</li></ul>
+
+<ul>
+<li>j - Patent document</li></ul>
+
+<ul>
+<li>k - Discographies</li></ul>
+
+<ul>
+<li>l - Legislation<br>The item is or contains full or partial texts of enactments of
+legislative bodies or texts of rules and regulations issued by
+executive or
+administrative agencies.</li></ul>
+
+<ul>
+<li>m - Theses<br>Indicates that the item is a thesis, dissertation, or work
+identified as having been created to satisfy the
+requirements for an academic certification or
+degree.</li></ul>
+
+<ul>
+<li>n - Surveys of literature in a subject
+area<br>The item is or contains authored surveys that summarize what
+has been published about a subject.</li></ul>
+
+<ul>
+<li>o - Reviews<br>The item is or contains critical reviews of published or
+performed works.</li></ul>
+
+<ul>
+<li>p - Programmed texts</li></ul>
+
+<ul>
+<li>q - Filmographies</li></ul>
+
+<ul>
+<li>r - Directories</li></ul>
+
+<ul>
+<li>s - Statistics</li></ul>
+
+<ul>
+<li>t - Technical reports</li></ul>
+
+<ul>
+<li>u - Standards/specifications</li></ul>
+
+<ul>
+<li>v - Legal cases and case notes</li></ul>
+
+<ul>
+<li>w - Law reports and digests</li></ul>
+
+<ul>
+<li>z - Treaties<br>Indicates that the item is a treaty or accord negotiated
+between two or more parties to settle a disagreement,
+establish a relationship, grant rights,
+etc.</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>28 - Government publication<br>A one-character code that indicates whether the item is
+published or
+produced by or for a government agency, and, if so, the
+jurisdictional level
+of the agency.
+<ul>
+<li># - Not a government
+publication</li></ul>
+
+<ul>
+<li>a - Autonomous or semi-autonomous
+component</li></ul>
+
+<ul>
+<li>c - Multilocal</li></ul>
+
+<ul>
+<li>f - Federal/national</li></ul>
+
+<ul>
+<li>i - International
+intergovernmental</li></ul>
+
+<ul>
+<li>l - Local</li></ul>
+
+<ul>
+<li>m - Multistate</li></ul>
+
+<ul>
+<li>o - Government publication--level
+undetermined</li></ul>
+
+<ul>
+<li>s - State, provincial, territorial, dependent,
+etc.</li></ul>
+
+<ul>
+<li>u - Unknown if item is government
+publication</li></ul>
+
+<ul>
+<li>z - Other</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>29 - Conference publication<br>A one-character code that indicates whether the item consists of
+the
+proceedings, reports, or summaries of a conference.
+<ul>
+<li>0 - Not a conference
+publication</li></ul>
+
+<ul>
+<li>1 - Conference
+publication</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>30 - Festschrift<br>A one-character code that indicates whether the item is a
+festschrift.
+<ul>
+<li>0 - Not a festschrift</li></ul>
+
+<ul>
+<li>1 - Festschrift</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>31 - Index<br>A one-character code that indicates whether the item includes an
+index to its own contents.
+<ul>
+<li>0 - No index</li></ul>
+
+<ul>
+<li>1 - Index present</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>32 - Undefined<br>Contains a blank (#) or fill character (|)</li><li>33 - Literary form<br>Indicates the literary form of an item.  Numeric codes 0 and
+1 provide a generic identification of whether or not the item
+is a work of fiction.  Alphabetic codes may be used to
+identify specific literary forms.
+<ul>
+<li>0 - Not fiction (not further
+specified)</li></ul>
+
+<ul>
+<li>1 - Fiction (not further
+specified)</li></ul>
+
+<ul>
+<li>c - Comic strips</li></ul>
+
+<ul>
+<li>d - Dramas</li></ul>
+
+<ul>
+<li>e - Essays</li></ul>
+
+<ul>
+<li>f - Novels</li></ul>
+
+<ul>
+<li>h - Humor, satires, etc.<br>Indicates that the item is a humorous work, satire, or of
+a similar literary form.</li></ul>
+
+<ul>
+<li>i - Letters<br>Indicates that the item is a single letter or collection
+of correspondence.</li></ul>
+
+<ul>
+<li>j - Short stories<br>Indicates that the item is a short story or collection
+of short stories.</li></ul>
+
+<ul>
+<li>m - Mixed forms<br>Indicates that the items represents a variety of literary
+forms (e.g., poetry and short stories).</li></ul>
+
+<ul>
+<li>p - Poetry</li></ul>
+
+<ul>
+<li>s - Speeches</li></ul>
+
+<ul>
+<li>u - Unknown</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>34 - Biography<br>A one-character code that indicates whether the item contains
+biographical material, and, if so, what the biographical
+characteristics
+are.
+<ul>
+<li># - No biographical material</li></ul>
+
+<ul>
+<li>a - Autobiography</li></ul>
+
+<ul>
+<li>b - Individual biography</li></ul>
+
+<ul>
+<li>c - Collective biography</li></ul>
+
+<ul>
+<li>d - Contains biographical
+information</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li></ul><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb008c">008--COMPUTER FILES</a>
+</h2>
+
+<h3>Character Positions</h3>
+
+<ul>
+<li>18-21 - Undefined<br>Each contains a blank (#) or fill character (|)</li><li>22 - Target audience<br>A one-character code that indicates the audience for which the item is intended.
+<ul>
+<li># - Unknown or not specified</li></ul>
+
+<ul>
+<li>a - Preschool</li></ul>
+
+<ul>
+<li>b - Primary</li></ul>
+
+<ul>
+<li>c - Pre-adolescent</li></ul>
+
+<ul>
+<li>d - Adolescent</li></ul>
+
+<ul>
+<li>e - Adult</li></ul>
+
+<ul>
+<li>f - Specialized</li></ul>
+
+<ul>
+<li>g - General</li></ul>
+
+<ul>
+<li>j - Juvenile</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>23-25 - Undefined<br>Each contains a blank (#) or fill character (|)</li><li>26 - Type of computer file<br>A one-character code that indicates the type of computer file
+described in the bibliographic record.
+<ul>
+<li>a - Numeric data</li></ul>
+
+<ul>
+<li>b - Computer program</li></ul>
+
+<ul>
+<li>c - Representational<br>Pictorial or graphic information that can be manipulated in
+conjunction with other types of files to produce graphic patterns
+that can be
+used to interpret and give meaning to the
+information.</li></ul>
+
+<ul>
+<li>d - Document</li></ul>
+
+<ul>
+<li>e - Bibliographic data</li></ul>
+
+<ul>
+<li>f - Font</li></ul>
+
+<ul>
+<li>g - Game</li></ul>
+
+<ul>
+<li>h - Sound</li></ul>
+
+<ul>
+<li>i - Interactive multimedia</li></ul>
+
+<ul>
+<li>j - Online system or service</li></ul>
+
+<ul>
+<li>m - Combination</li></ul>
+
+<ul>
+<li>u - Unknown</li></ul>
+
+<ul>
+<li>z - Other</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>27 - Undefined<br>Contains a blank (#) or fill character (|)</li><li>28 - Government publication<br>A one-character code that indicates whether the computer file is
+published or produced by or for a government agency, and, if so,
+the
+jurisdictional level of the agency.
+<ul>
+<li># - Not a government
+publication</li></ul>
+
+<ul>
+<li>a - Autonomous or semi-autonomous
+component</li></ul>
+
+<ul>
+<li>c - Multilocal</li></ul>
+
+<ul>
+<li>f - Federal/national</li></ul>
+
+<ul>
+<li>i - International
+intergovernmental</li></ul>
+
+<ul>
+<li>l - Local</li></ul>
+
+<ul>
+<li>m - Multistate</li></ul>
+
+<ul>
+<li>o - Government publication--level
+undetermined</li></ul>
+
+<ul>
+<li>s - State, provincial, territorial, dependent,
+etc.</li></ul>
+
+<ul>
+<li>u - Unknown if item is government
+publication</li></ul>
+
+<ul>
+<li>z - Other</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>29-34 - Undefined<br>Each contains a blank (#) or fill character (|)</li></ul><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb008p">008--MAPS</a>
+</h2>
+
+<h3>Character Positions</h3>
+
+<ul>
+<li>18-21 - Relief<br>Up to four one-character codes that indicate the relief type
+specified on the item.  Codes are recorded in order of their
+importance to
+the described item.  If fewer than four codes are assigned, the
+codes are
+left justified and each unused position contains a blank (#).
+<ul>
+<li># - No relief shown</li></ul>
+
+<ul>
+<li>a - Contours</li></ul>
+
+<ul>
+<li>b - Shading</li></ul>
+
+<ul>
+<li>c - Gradient and bathymetric
+tints</li></ul>
+
+<ul>
+<li>d - Hachures</li></ul>
+
+<ul>
+<li>e - Bathymetry/soundings</li></ul>
+
+<ul>
+<li>f - Form lines</li></ul>
+
+<ul>
+<li>g - Spot heights</li></ul>
+
+<ul>
+<li>i - Pictorially</li></ul>
+
+<ul>
+<li>j - Land forms</li></ul>
+
+<ul>
+<li>k - Bathymetry/isolines</li></ul>
+
+<ul>
+<li>m - Rock drawings</li></ul>
+
+<ul>
+<li>z - Other relief
+type</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>22-23 - Projection<br>A two-character code that indicates the projection used in
+producing the item.
+<ul>
+<li>## - Projection not specified</li></ul>
+
+<ul>
+<li>aa - Aitoff</li></ul>
+
+<ul>
+<li>ab - Gnomic</li></ul>
+
+<ul>
+<li>ac - Lambert's azimuthal equal
+area</li></ul>
+
+<ul>
+<li>ad - Orthographic</li></ul>
+
+<ul>
+<li>ae - Azimuthal equidistant</li></ul>
+
+<ul>
+<li>af - Stereographic</li></ul>
+
+<ul>
+<li>ag - General vertical
+near-sided</li></ul>
+
+<ul>
+<li>am - Modified stereographic for
+Alaska</li></ul>
+
+<ul>
+<li>an - Chamberlin trimetric</li></ul>
+
+<ul>
+<li>ap - Polar stereographic</li></ul>
+
+<ul>
+<li>au - Azimuthal, specific type
+unknown</li></ul>
+
+<ul>
+<li>az - Azimuthal, other</li></ul>
+
+<ul>
+<li>ba - Gall</li></ul>
+
+<ul>
+<li>bb - Goode's homolographic</li></ul>
+
+<ul>
+<li>bc - Lambert's cylindrical equal
+area</li></ul>
+
+<ul>
+<li>bd - Mercator</li></ul>
+
+<ul>
+<li>be - Miller</li></ul>
+
+<ul>
+<li>bf - Mollweide</li></ul>
+
+<ul>
+<li>bg - Sinusoidal</li></ul>
+
+<ul>
+<li>bh - Transverse Mercator</li></ul>
+
+<ul>
+<li>bi - Gauss-Kruger</li></ul>
+
+<ul>
+<li>bj - Equirectangular</li></ul>
+
+<ul>
+<li>bo - Oblique Mercator</li></ul>
+
+<ul>
+<li>br - Robinson</li></ul>
+
+<ul>
+<li>bs - Space oblique Mercator</li></ul>
+
+<ul>
+<li>bu - Cylindrical, specific type
+unknown</li></ul>
+
+<ul>
+<li>bz - Cylindrical, other</li></ul>
+
+<ul>
+<li>ca - Alber's equal area</li></ul>
+
+<ul>
+<li>cb - Bonne</li></ul>
+
+<ul>
+<li>cc - Lambert's conformal conic</li></ul>
+
+<ul>
+<li>ce - Equidistant conic</li></ul>
+
+<ul>
+<li>cp - Polyconic</li></ul>
+
+<ul>
+<li>cu - Conic, specific type
+unknown</li></ul>
+
+<ul>
+<li>cz - Conic, other</li></ul>
+
+<ul>
+<li>da - Armadillo</li></ul>
+
+<ul>
+<li>db - Butterfly</li></ul>
+
+<ul>
+<li>dc - Eckert</li></ul>
+
+<ul>
+<li>dd - Goode's homolosine</li></ul>
+
+<ul>
+<li>de - Miller's bipolar oblique conformal
+conic</li></ul>
+
+<ul>
+<li>df - Van Der Grinten</li></ul>
+
+<ul>
+<li>dg - Dimaxion</li></ul>
+
+<ul>
+<li>dh - Cordiform</li></ul>
+
+<ul>
+<li>dl - Lambert conformal</li></ul>
+
+<ul>
+<li>zz - Other</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>24 - Undefined<br>Each contains a blank (#) or fill character (|)</li><li>25 - Type of cartographic material<br>A one-character code that indicates the type of cartographic item described in the bibliographic record.
+<ul>
+<li>a - Single map</li></ul>
+
+<ul>
+<li>b - Map series<br>A number of related but physically separate and
+bibliographically distinct cartographic units intended by the
+producer or
+issuing body to form a single group.</li></ul>
+
+<ul>
+<li>c - Map serial<br>A cartographic publication issued in successive parts bearing
+numerical or chronological designations and intended to be
+continued
+indefinitely.</li></ul>
+
+<ul>
+<li>d - Globe</li></ul>
+
+<ul>
+<li>e - Atlas</li></ul>
+
+<ul>
+<li>f - Separate map supplement to another
+work</li></ul>
+
+<ul>
+<li>g - Map bound as part of another
+work</li></ul>
+
+<ul>
+<li>u - Unknown</li></ul>
+
+<ul>
+<li>z - Other</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>26-27 - Undefined<br>Each contains a blank (#) or fill character (|)</li><li>28 - Government publication<br>A one-character code that indicates whether the item is
+published or
+produced by or for a government agency, and, if so, the
+jurisdictional level
+of the agency.
+<ul>
+<li># - Not a government
+publication</li></ul>
+
+<ul>
+<li>a - Autonomous or semi-autonomous
+component</li></ul>
+
+<ul>
+<li>c - Multilocal</li></ul>
+
+<ul>
+<li>f - Federal/national</li></ul>
+
+<ul>
+<li>i - International
+intergovernmental</li></ul>
+
+<ul>
+<li>l - Local</li></ul>
+
+<ul>
+<li>m - Multistate</li></ul>
+
+<ul>
+<li>o - Government publication--level
+undetermined</li></ul>
+
+<ul>
+<li>s - State, provincial, territorial, dependent,
+etc.</li></ul>
+
+<ul>
+<li>u - Unknown if item is government
+publication</li></ul>
+
+<ul>
+<li>z - Other</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>29 - Form of item<br>A one-character code that indicates the form of material for the
+item.
+<ul>
+<li># - None of the following</li></ul>
+
+<ul>
+<li>a - Microfilm</li></ul>
+
+<ul>
+<li>b - Microfiche</li></ul>
+
+<ul>
+<li>c - Microopaque</li></ul>
+
+<ul>
+<li>d - Large print</li></ul>
+
+<ul>
+<li>f - Braille</li></ul>
+
+<ul>
+<li>r - Regular print reproduction<br>Eye-readable print.</li></ul>
+
+<ul>
+<li>s - Electronic</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>30 - Undefined<br>Contains a blank (#) or fill character (|)</li><li>31 - Index<br>A one-character code that indicates whether the item or
+accompanying
+material includes a location index or gazetteer.
+<ul>
+<li>0 - No index</li></ul>
+
+<ul>
+<li>1 - Index present</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>32 - Undefined<br>Contains a blank (#) or fill character (|) </li><li>33-34 - Special format characteristics<br>Up to two one-character codes that indicate the special format
+characteristics of the map.  Codes are recorded in order of their
+importance
+to the described item.  If only one code is assigned, it is left
+justified
+and the unused position contains a blank (#).
+<ul>
+<li># - No specified special format
+characteristics</li></ul>
+
+<ul>
+<li>e - Manuscript</li></ul>
+
+<ul>
+<li>j - Picture card, post card</li></ul>
+
+<ul>
+<li>k - Calendar</li></ul>
+
+<ul>
+<li>l - Puzzle</li></ul>
+
+<ul>
+<li>n - Game</li></ul>
+
+<ul>
+<li>o - Wall map</li></ul>
+
+<ul>
+<li>p - Playing cards</li></ul>
+
+<ul>
+<li>r - Loose-leaf</li></ul>
+
+<ul>
+<li>z - Other</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li></ul><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb008m">008--MUSIC</a>
+</h2>
+
+<h3>Character Positions</h3>
+
+<ul>
+<li>18-19 - Form of composition<br>A two-character code that indicates the form of composition.  The
+codes are based on Library of Congress subject headings.  If more than one
+code is appropriate, the code <em>mu</em> (Multiple forms) is used in
+008/18-19 and all appropriate specific codes are given in field 047 (Form of
+Composition).
+<ul>
+<li>an - Anthems</li></ul>
+
+<ul>
+<li>bd - Ballads</li></ul>
+
+<ul>
+<li>bg - Bluegrass music</li></ul>
+
+<ul>
+<li>bl - Blues</li></ul>
+
+<ul>
+<li>bt - Ballets</li></ul>
+
+<ul>
+<li>ca - Chaconnes</li></ul>
+
+<ul>
+<li>cb - Chants, Other religions</li></ul>
+
+<ul>
+<li>cc - Chant, Christian</li></ul>
+
+<ul>
+<li>cg - Concerti grossi</li></ul>
+
+<ul>
+<li>ch - Chorales</li></ul>
+
+<ul>
+<li>cl - Chorale preludes</li></ul>
+
+<ul>
+<li>cn - Canons and rounds</li></ul>
+
+<ul>
+<li>co - Concertos</li></ul>
+
+<ul>
+<li>cp - Chansons, polyphonic</li></ul>
+
+<ul>
+<li>cr - Carols</li></ul>
+
+<ul>
+<li>cs - Chance compositions</li></ul>
+
+<ul>
+<li>ct - Cantatas</li></ul>
+
+<ul>
+<li>cy - Country music</li></ul>
+
+<ul>
+<li>cz - Canzonas</li></ul>
+
+<ul>
+<li>df - Dance forms<br>Separate codes are defined for mazurkas, minuets, pavans,
+polonaises, and waltzes.</li></ul>
+
+<ul>
+<li>dv - Divertimentos, serenades, cassations, divertissements, notturni</li></ul>
+
+<ul>
+<li>fg - Fugues</li></ul>
+
+<ul>
+<li>fm - Folk music</li></ul>
+
+<ul>
+<li>ft - Fantasias</li></ul>
+
+<ul>
+<li>gm - Gospel music</li></ul>
+
+<ul>
+<li>hy - Hymns</li></ul>
+
+<ul>
+<li>jz - Jazz</li></ul>
+
+<ul>
+<li>mc - Musical revues and comedies</li></ul>
+
+<ul>
+<li>md - Madrigals</li></ul>
+
+<ul>
+<li>mi - Minuets</li></ul>
+
+<ul>
+<li>mo - Motets</li></ul>
+
+<ul>
+<li>mp - Motion picture music</li></ul>
+
+<ul>
+<li>mr - Marches</li></ul>
+
+<ul>
+<li>ms - Masses</li></ul>
+
+<ul>
+<li>mu - Multiple forms</li></ul>
+
+<ul>
+<li>mz - Mazurkas</li></ul>
+
+<ul>
+<li>nc - Nocturnes</li></ul>
+
+<ul>
+<li>nn - Not applicable</li></ul>
+
+<ul>
+<li>op - Operas</li></ul>
+
+<ul>
+<li>or - Oratorios</li></ul>
+
+<ul>
+<li>ov - Overtures</li></ul>
+
+<ul>
+<li>pg - Program music</li></ul>
+
+<ul>
+<li>pm - Passion music</li></ul>
+
+<ul>
+<li>po - Polonaises</li></ul>
+
+<ul>
+<li>pp - Popular music</li></ul>
+
+<ul>
+<li>pr - Preludes</li></ul>
+
+<ul>
+<li>ps - Passacaglias</li></ul>
+
+<ul>
+<li>pt - Part-songs</li></ul>
+
+<ul>
+<li>pv - Pavans</li></ul>
+
+<ul>
+<li>rc - Rock music</li></ul>
+
+<ul>
+<li>rd - Rondos</li></ul>
+
+<ul>
+<li>rg - Ragtime music</li></ul>
+
+<ul>
+<li>ri - Ricercars</li></ul>
+
+<ul>
+<li>rp - Rhapsodies</li></ul>
+
+<ul>
+<li>rq - Requiems</li></ul>
+
+<ul>
+<li>sd - Square dance music</li></ul>
+
+<ul>
+<li>sg - Songs</li></ul>
+
+<ul>
+<li>sn - Sonatas</li></ul>
+
+<ul>
+<li>sp - Symphonic poems</li></ul>
+
+<ul>
+<li>st - Studies and exercises</li></ul>
+
+<ul>
+<li>su - Suites</li></ul>
+
+<ul>
+<li>sy - Symphonies</li></ul>
+
+<ul>
+<li>tc - Toccatas</li></ul>
+
+<ul>
+<li>ts - Trio-sonatas</li></ul>
+
+<ul>
+<li>uu - Unknown</li></ul>
+
+<ul>
+<li>vr - Variations</li></ul>
+
+<ul>
+<li>wz - Waltzes</li></ul>
+
+<ul>
+<li>zz - Other</li></ul>
+
+<ul>
+<li>|| - No attempt to code</li></ul>
+</li><li>20 - Format of music<br>A one-character code that indicates the format of a musical composition.
+<ul>
+<li>a - Full score</li></ul>
+
+<ul>
+<li>b - Full score, miniature or study size</li></ul>
+
+<ul>
+<li>c - Accompaniment reduced for keyboard</li></ul>
+
+<ul>
+<li>d - Voice score</li></ul>
+
+<ul>
+<li>e - Condensed score or piano-conductor score</li></ul>
+
+<ul>
+<li>g - Close score</li></ul>
+
+<ul>
+<li>m - Multiple score formats</li></ul>
+
+<ul>
+<li>n - Not applicable</li></ul>
+
+<ul>
+<li>u - Unknown</li></ul>
+
+<ul>
+<li>z - Other</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>21 - Music parts
+<ul>
+<li># - No parts in hand or not specified</li></ul>
+
+<ul>
+<li>d - Instrumental and vocal parts</li></ul>
+
+<ul>
+<li>e - Instrumental parts</li></ul>
+
+<ul>
+<li>f - Vocal parts</li></ul>
+
+<ul>
+<li>n - Not applicable</li></ul>
+
+<ul>
+<li>u - Unknown</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>22 - Target audience<br>Indicates the audience for which the item is intended.
+<ul>
+<li># - Unknown or not specified</li></ul>
+
+<ul>
+<li>a - Preschool</li></ul>
+
+<ul>
+<li>b - Primary</li></ul>
+
+<ul>
+<li>c - Pre-adolescent</li></ul>
+
+<ul>
+<li>d - Adolescent</li></ul>
+
+<ul>
+<li>e - Adult</li></ul>
+
+<ul>
+<li>f - Specialized</li></ul>
+
+<ul>
+<li>g - General</li></ul>
+
+<ul>
+<li>j - Juvenile</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>23 - Form of item<br>A one-character code that indicates the form of material for the item being
+described.
+<ul>
+<li># - None of the following</li></ul>
+
+<ul>
+<li>a - Microfilm</li></ul>
+
+<ul>
+<li>b - Microfiche</li></ul>
+
+<ul>
+<li>c - Microopaque</li></ul>
+
+<ul>
+<li>d - Large print</li></ul>
+
+<ul>
+<li>f - Braille</li></ul>
+
+<ul>
+<li>r - Regular print reproduction<br>Eye-readable print.</li></ul>
+
+<ul>
+<li>s - Electronic</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>24-29 - Accompanying matter<br>Up to six one-character codes (recorded in alphabetical order)
+that
+indicate the contents of program notes and other accompanying
+material for
+the sound recording, manuscript notated music, or notated music.  If fewer
+than six
+codes are assigned, the codes are left justified and each unused
+position
+contains a blank (#).
+<ul>
+<li># - No accompanying matter</li></ul>
+
+<ul>
+<li>a - Discography</li></ul>
+
+<ul>
+<li>b - Bibliography</li></ul>
+
+<ul>
+<li>c - Thematic index</li></ul>
+
+<ul>
+<li>d - Libretto or text</li></ul>
+
+<ul>
+<li>e - Biography of composer or
+author</li></ul>
+
+<ul>
+<li>f - Biography of performer or history of
+ensemble</li></ul>
+
+<ul>
+<li>g - Technical and/or historical information on
+instruments</li></ul>
+
+<ul>
+<li>h - Technical information on
+music</li></ul>
+
+<ul>
+<li>i - Historical information</li></ul>
+
+<ul>
+<li>k - Ethnological information</li></ul>
+
+<ul>
+<li>r - Instructional materials</li></ul>
+
+<ul>
+<li>s - Music</li></ul>
+
+<ul>
+<li>z - Other</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>30-31 - Literary text for sound recordings<br>Up to two one-character codes (recorded in the order of the
+following
+list) that indicate the type of literary text contained in a nonmusical
+sound recording.  If only one code is assigned, it is left
+justified and the
+unused position contains a blank (#).
+<ul>
+<li># - Item is a musical sound
+recording</li></ul>
+
+<ul>
+<li>a - Autobiography</li></ul>
+
+<ul>
+<li>b - Biography</li></ul>
+
+<ul>
+<li>c - Conference proceedings</li></ul>
+
+<ul>
+<li>d - Drama</li></ul>
+
+<ul>
+<li>e - Essays</li></ul>
+
+<ul>
+<li>f - Fiction</li></ul>
+
+<ul>
+<li>g - Reporting</li></ul>
+
+<ul>
+<li>h - History</li></ul>
+
+<ul>
+<li>i - Instruction</li></ul>
+
+<ul>
+<li>j - Language instruction</li></ul>
+
+<ul>
+<li>k - Comedy</li></ul>
+
+<ul>
+<li>l - Lectures, speeches</li></ul>
+
+<ul>
+<li>m - Memoirs</li></ul>
+
+<ul>
+<li>n - Not applicable</li></ul>
+
+<ul>
+<li>o - Folktales</li></ul>
+
+<ul>
+<li>p - Poetry</li></ul>
+
+<ul>
+<li>r - Rehearsals</li></ul>
+
+<ul>
+<li>s - Sounds</li></ul>
+
+<ul>
+<li>t - Interviews</li></ul>
+
+<ul>
+<li>z - Other</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>32 - Undefined<br>Contains a blank (#) or fill character (|)</li><li>33 - Transposition and arrangement
+<ul>
+<li># - Not arrangement or transposition or not specified</li></ul>
+
+<ul>
+<li>a - Transposition</li></ul>
+
+<ul>
+<li>b - Arrangement</li></ul>
+
+<ul>
+<li>c - Both transposed and arranged</li></ul>
+
+<ul>
+<li>n - Not applicable</li></ul>
+
+<ul>
+<li>u - Unknown</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>34 - Undefined<br>Contains a blank (#) or fill character (|)</li></ul><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb008s">008--CONTINUING RESOURCES</a>
+</h2>
+
+<h3>Character Positions</h3>
+
+<ul>
+<li>18 - Frequency<br>A one-character code that indicates the frequency of an item;
+used in conjunction with 008/19 (Regularity).
+<ul>
+<li># - No determinable frequency<br>Frequency is intentionally irregular.</li></ul>
+
+<ul>
+<li>a - Annual</li></ul>
+
+<ul>
+<li>b - Bimonthly<br>Includes 6, 7, or 8 numbers a year.</li></ul>
+
+<ul>
+<li>c - Semiweekly</li></ul>
+
+<ul>
+<li>d - Daily</li></ul>
+
+<ul>
+<li>e - Biweekly</li></ul>
+
+<ul>
+<li>f - Semiannual<br>Includes 2 numbers a year.</li></ul>
+
+<ul>
+<li>g - Biennial</li></ul>
+
+<ul>
+<li>h - Triennial</li></ul>
+
+<ul>
+<li>i - Three times a week</li></ul>
+
+<ul>
+<li>j - Three times a month</li></ul>
+
+<ul>
+<li>k - Continuously updated</li></ul>
+
+<ul>
+<li>m - Monthly<br>Includes 9, 10, 11, or 12 numbers a year.</li></ul>
+
+<ul>
+<li>q - Quarterly<br>Includes 4 numbers a year.</li></ul>
+
+<ul>
+<li>s - Semimonthly</li></ul>
+
+<ul>
+<li>t - Three times a year</li></ul>
+
+<ul>
+<li>u - Unknown</li></ul>
+
+<ul>
+<li>w - Weekly</li></ul>
+
+<ul>
+<li>z - Other</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>19 - Regularity<br>A one-character code that indicates the intended regularity of
+an item; used in conjunction with 008/18 (Frequency).
+<ul>
+<li>n - Normalized irregular<br>Predictable irregularity pattern.</li></ul>
+
+<ul>
+<li>r - Regular</li></ul>
+
+<ul>
+<li>u - Unknown</li></ul>
+
+<ul>
+<li>x - Completely
+irregular<br>The frequency is known to be intentionally irregular (008/18,
+code #) or the frequency is expressed on the item as
+<em>numbers
+per year.</em></li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li><font color="#ff0000">20 - Undefined<br>
+  Contains a blank (#) or fill character (|)</font>
+</li><li>21 - Type of continuing resource<br>A one-character code that indicates the type of continuing resource.
+<ul>
+<li># - None of the following<br>This code is also used for yearbooks and annual
+reports.</li></ul>
+
+<ul>
+<li>d - Updating database</li></ul>
+
+<ul>
+<li>l - Updating loose-leaf</li></ul>
+
+<ul>
+<li>m - Monographic series</li></ul>
+
+<ul>
+<li>n - Newspaper</li></ul>
+
+<ul>
+<li>p - Periodical</li></ul>
+
+<ul>
+<li>w - Updating Web site</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>22 - Form of original item<br>A one-character code that indicates the form of material in
+which an item was originally published.
+<ul>
+<li># - None of the following</li></ul>
+
+<ul>
+<li>a - Microfilm</li></ul>
+
+<ul>
+<li>b - Microfiche</li></ul>
+
+<ul>
+<li>c - Microopaque</li></ul>
+
+<ul>
+<li>d - Large print</li></ul>
+
+<ul>
+<li>e - Newspaper format</li></ul>
+
+<ul>
+<li>f - Braille</li></ul>
+
+<ul>
+<li>s - Electronic</li></ul>
+</li><li>23 - Form of item<br>A one-character code that indicates the form of material for the item being
+described.
+<ul>
+<li># - None of the following</li></ul>
+
+<ul>
+<li>a - Microfilm</li></ul>
+
+<ul>
+<li>b - Microfiche</li></ul>
+
+<ul>
+<li>c - Microopaque</li></ul>
+
+<ul>
+<li>d - Large print</li></ul>
+
+<ul>
+<li>f - Braille</li></ul>
+
+<ul>
+<li>r - Regular print reproduction<br>Eye-readable print.</li></ul>
+
+<ul>
+<li>s - Electronic</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>24 - Nature of entire work<br>A one-character code that indicates the nature of an item
+if it consists entirely of a certain type of material.  If
+more than one code is applicable, 008/24 contains a blank (#) and
+up to three codes may be recorded in 008/25-27 (Nature of
+contents).
+<ul>
+<li># - No specified nature of entire
+work</li></ul>
+
+<ul>
+<li>a - Abstracts/summaries<br>The item consists of abstracts or summaries of
+<em>other</em> publications.</li></ul>
+
+<ul>
+<li>b - Bibliographies</li></ul>
+
+<ul>
+<li>c - Catalogs</li></ul>
+
+<ul>
+<li>d - Dictionaries<br>This code is also used for a glossary or a gazetteer.</li></ul>
+
+<ul>
+<li>e - Encyclopedias</li></ul>
+
+<ul>
+<li>f - Handbooks</li></ul>
+
+<ul>
+<li>g - Legal articles</li></ul>
+
+<ul>
+<li>h - Biography</li></ul>
+
+<ul>
+<li>i - Indexes<br>The item consists of an index to bibliographical material other
+than itself.</li></ul>
+
+<ul>
+<li>k - Discographies</li></ul>
+
+<ul>
+<li>l - Legislation<br>The item consists of full or partial texts of enactments of
+legislative bodies or texts of rules and regulations issued by
+executive or administrative agencies.</li></ul>
+
+<ul>
+<li>m - Theses<br>Indicates that the item is a thesis, dissertation, or work
+identified as having been created to satisfy the
+requirements for an academic certification or
+degree.</li></ul>
+
+<ul>
+<li>n - Surveys of literature in a subject
+area<br>The item is or contains authored surveys that summarize what
+has been published about a subject.</li></ul>
+
+<ul>
+<li>o - Reviews<br>The item consists of critical reviews of published or performed
+works.</li></ul>
+
+<ul>
+<li>p - Programmed texts</li></ul>
+
+<ul>
+<li>q - Filmographies</li></ul>
+
+<ul>
+<li>r - Directories</li></ul>
+
+<ul>
+<li>s - Statistics</li></ul>
+
+<ul>
+<li>t - Technical reports</li></ul>
+
+<ul>
+<li>u - Standards/specifications</li></ul>
+
+<ul>
+<li>v - Legal cases and case notes</li></ul>
+
+<ul>
+<li>w - Law reports and digests</li></ul>
+
+<ul>
+<li>z - Treaties<br>Indicates that the item is a treaty or accord negotiated
+between two or more parties to settle a disagreement,
+establish a relationship, grant rights,
+etc.</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>25-27 - Nature of contents<br>Up to three one-character codes (recorded in alphabetical order)
+that indicate that a work contains certain types of materials.
+If fewer than three codes are assigned, the codes are left
+justified and each unused position contains a blank (#).
+<ul>
+<li># - No specified nature of
+contents</li></ul>
+
+<ul>
+<li>a - Abstracts/summaries<br>The item consists of abstracts or summaries of
+<strong>other</strong> publications.</li></ul>
+
+<ul>
+<li>b - Bibliographies</li></ul>
+
+<ul>
+<li>c - Catalogs</li></ul>
+
+<ul>
+<li>d - Dictionaries<br>This code is also used for a glossary or a gazetteer.</li></ul>
+
+<ul>
+<li>e - Encyclopedias</li></ul>
+
+<ul>
+<li>f - Handbooks</li></ul>
+
+<ul>
+<li>g - Legal articles</li></ul>
+
+<ul>
+<li>h - Biography</li></ul>
+
+<ul>
+<li>i - Indexes<br>The item consists of an index to bibliographical material other than
+itself.</li></ul>
+
+<ul>
+<li>k - Discographies</li></ul>
+
+<ul>
+<li>l - Legislation<br>The item consists of full or partial texts of enactments of legislative bodies or texts of rules
+and regulations issued by executive or administrative agencies.</li></ul>
+
+<ul>
+<li>m - Theses<br>Indicates that the item is a thesis, dissertation, or work
+identified as having been created to satisfy the
+requirements for an academic certification or
+degree.</li></ul>
+
+<ul>
+<li>n - Surveys of literature in a subject
+area<br>The item is or contains authored surveys that summarize what has been published about
+a subject</li></ul>
+
+<ul>
+<li>o - Reviews<br>The item consists of critical reviews of published or performed works.</li></ul>
+
+<ul>
+<li>p - Programmed texts</li></ul>
+
+<ul>
+<li>q - Filmographies</li></ul>
+
+<ul>
+<li>r - Directories</li></ul>
+
+<ul>
+<li>s - Statistics</li></ul>
+
+<ul>
+<li>t - Technical reports</li></ul>
+
+<ul>
+<li>u - Standards/specifications</li></ul>
+
+<ul>
+<li>v - Legal cases and case notes</li></ul>
+
+<ul>
+<li>w - Law reports and digests</li></ul>
+
+<ul>
+<li>z - Treaties<br>Indicates that the item is a treaty or accord negotiated
+between two or more parties to settle a disagreement,
+establish a relationship, grant rights,
+etc.</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>28 - Government publication<br>A one-character code that indicates whether an item is published
+or produced by or for a government agency, and, if so, the
+jurisdictional
+level of the agency.
+<ul>
+<li># - Not a government
+publication</li></ul>
+
+<ul>
+<li>a - Autonomous or semi-autonomous
+component</li></ul>
+
+<ul>
+<li>c - Multilocal</li></ul>
+
+<ul>
+<li>f - Federal/national</li></ul>
+
+<ul>
+<li>i - International
+intergovernmental</li></ul>
+
+<ul>
+<li>l - Local</li></ul>
+
+<ul>
+<li>m - Multistate</li></ul>
+
+<ul>
+<li>o - Government publication--level
+undetermined</li></ul>
+
+<ul>
+<li>s - State, provincial, territorial, dependent,
+etc.</li></ul>
+
+<ul>
+<li>u - Unknown if item is government
+publication</li></ul>
+
+<ul>
+<li>z - Other</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>29 - Conference publication<br>A one-character code that indicates whether an item consists
+of the proceedings, reports, or summaries of a conference.
+<ul>
+<li>0 - Not a conference
+publication</li></ul>
+
+<ul>
+<li>1 - Conference
+publication</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>30-32 - Undefined<br>Each contains a blank (#) or fill character (|)</li><li>33 - Original alphabet or script of title<br>A one-character code that indicates the original alphabet or
+script of the language of the title on the source item upon which the key
+title (field 222) is based.
+<ul>
+<li># - No alphabet or script given/no key title<br>This code may relate to the title proper in field 245 when no key title is present.</li></ul>
+
+<ul>
+<li>a - Basic Roman<br>Includes no diacritics or special characters.</li></ul>
+
+<ul>
+<li>b - Extended Roman<br>Includes diacritics and special characters.</li></ul>
+
+<ul>
+<li>c - Cyrillic</li></ul>
+
+<ul>
+<li>d - Japanese</li></ul>
+
+<ul>
+<li>e - Chinese</li></ul>
+
+<ul>
+<li>f - Arabic</li></ul>
+
+<ul>
+<li>g - Greek</li></ul>
+
+<ul>
+<li>h - Hebrew</li></ul>
+
+<ul>
+<li>i - Thai</li></ul>
+
+<ul>
+<li>j - Devanagari</li></ul>
+
+<ul>
+<li>k - Korean</li></ul>
+
+<ul>
+<li>l - Tamil</li></ul>
+
+<ul>
+<li>u - Unknown</li></ul>
+
+<ul>
+<li>z - Other<br>Includes instances of a title that incorporates words from more
+than one alphabet or script.</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>34 - Entry convention<br>A one-character code that indicates whether an item was
+cataloged according to successive entry, latest entry or <font color="#ff0000">integrated
+entry</font> cataloging
+conventions.
+<ul>
+<li>0 - Successive entry<br>A new bibliographic record is created each time a title changes
+or a corporate body used as a main entry or uniform title qualifier
+changes.
+The earlier or later title or author/title is recorded in a linking
+780/785
+field in each record.</li></ul>
+
+<ul>
+<li>1 - Latest entry<br>The item is cataloged under its most recent title or issuing
+body (pre-AACR cataloging rules).  All former titles and/or issuing
+bodies are given in notes (fields 247, 547, and
+550).</li></ul>
+
+<ul>
+<li>2 - <font color="#ff0000">Integrated</font> entry<br>
+  A record is cataloged under its latest (most recent) title
+and/or responsible person or corporate body.
+It is used for integrating resources and electronic serials that do not retain their
+earlier titles.</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li></ul><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb008v">008--VISUAL MATERIALS</a>
+</h2>
+
+<h3>Character Positions</h3>
+
+<ul>
+<li>18-20 - Running time for motion pictures and videorecordings<br>A three-digit number that indicates the total running time of
+the
+motion picture or videorecording.  The number is right justified
+and each
+unused position contains a zero.
+<ul>
+<li>000 - Running time exceeds three
+characters</li></ul>
+
+<ul>
+<li>001-999 - Running time</li></ul>
+
+<ul>
+<li>--- - Running time unknown</li></ul>
+
+<ul>
+<li>nnn - Not applicable</li></ul>
+
+<ul>
+<li>||| - No attempt to code</li></ul>
+</li><li>21 - Undefined<br>Contains a blank (#) or fill character (|)</li><li>22 - Target audience<br>A one-character code that indicates the audience for which the
+item is intended.
+<ul>
+<li># - Unknown or not specified</li></ul>
+
+<ul>
+<li>a - Preschool</li></ul>
+
+<ul>
+<li>b - Primary</li></ul>
+
+<ul>
+<li>c - Pre-adolescent</li></ul>
+
+<ul>
+<li>d - Adolescent</li></ul>
+
+<ul>
+<li>e - Adult</li></ul>
+
+<ul>
+<li>f - Specialized</li></ul>
+
+<ul>
+<li>g - General</li></ul>
+
+<ul>
+<li>j - Juvenile</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>23-27 - Undefined<br>Each contains a blank (#) or fill character (|)</li><li>28 - Government publication<br>A one-character code that indicates whether the item is
+published or
+produced by or for a government agency, and, if so, the
+jurisdictional level
+of the agency.
+<ul>
+<li># - Not a government
+publication</li></ul>
+
+<ul>
+<li>a - Autonomous or semi-autonomous
+component</li></ul>
+
+<ul>
+<li>c - Multilocal</li></ul>
+
+<ul>
+<li>f - Federal/national</li></ul>
+
+<ul>
+<li>i - International
+intergovernmental</li></ul>
+
+<ul>
+<li>l - Local</li></ul>
+
+<ul>
+<li>m - Multistate</li></ul>
+
+<ul>
+<li>o - Government publication--level
+undetermined</li></ul>
+
+<ul>
+<li>s - State, provincial, territorial, dependent,
+etc.</li></ul>
+
+<ul>
+<li>u - Unknown if item is government
+publication</li></ul>
+
+<ul>
+<li>z - Other</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>29 - Form of item<br>A one-character code that indicates the form of material for the
+item.
+<ul>
+<li># - None of the following</li></ul>
+
+<ul>
+<li>a - Microfilm</li></ul>
+
+<ul>
+<li>b - Microfiche</li></ul>
+
+<ul>
+<li>c - Microopaque</li></ul>
+
+<ul>
+<li>d - Large print</li></ul>
+
+<ul>
+<li>f - Braille</li></ul>
+
+<ul>
+<li>r - Regular print reproduction<br>Eye-readable print.</li></ul>
+
+<ul>
+<li>s - Electronic</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>30-32 - Undefined<br>Each contains a blank (#) or fill character (|)</li><li>33 - Type of visual material<br>A one-character code that indicates the type of visual material
+item.
+<ul>
+<li>a - Art original</li></ul>
+
+<ul>
+<li>b - Kit<br>An item that contains a mixture of components from two or more
+categories, no one of which is the predominant constituent of the
+item.</li></ul>
+
+<ul>
+<li>c - Art reproduction</li></ul>
+
+<ul>
+<li>d - Diorama</li></ul>
+
+<ul>
+<li>f - Filmstrip</li></ul>
+
+<ul>
+<li>g - Game</li></ul>
+
+<ul>
+<li>i - Picture</li></ul>
+
+<ul>
+<li>k - Graphic</li></ul>
+
+<ul>
+<li>l - Technical drawing</li></ul>
+
+<ul>
+<li>m - Motion picture</li></ul>
+
+<ul>
+<li>n - Chart</li></ul>
+
+<ul>
+<li>o - Flash card</li></ul>
+
+<ul>
+<li>p - Microscope slide</li></ul>
+
+<ul>
+<li>q - Model</li></ul>
+
+<ul>
+<li>r - Realia</li></ul>
+
+<ul>
+<li>s - Slide</li></ul>
+
+<ul>
+<li>t - Transparency</li></ul>
+
+<ul>
+<li>v - Videorecording</li></ul>
+
+<ul>
+<li>w - Toy</li></ul>
+
+<ul>
+<li>z - Other</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>34 - Technique<br>A one-character code that indicates the technique used in
+creating
+motion in the motion picture or videorecording.
+<ul>
+<li>a - Animation</li></ul>
+
+<ul>
+<li>c - Animation and live action</li></ul>
+
+<ul>
+<li>l - Live action</li></ul>
+
+<ul>
+<li>n - Not applicable<br>Item is not a motion picture or a
+videorecording.</li></ul>
+
+<ul>
+<li>u - Unknown</li></ul>
+
+<ul>
+<li>z - Other technique</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li></ul><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcb008x">008--MIXED MATERIALS</a>
+</h2>
+
+<h3>Character Positions</h3>
+
+<ul>
+<li>18-22 - Undefined<br>Each contains a blank (#) or fill character (|)</li><li>23 - Form of item<br>A one-character code that indicates the form of material for the
+item.
+<ul>
+<li># - None of the following</li></ul>
+
+<ul>
+<li>a - Microfilm</li></ul>
+
+<ul>
+<li>b - Microfiche</li></ul>
+
+<ul>
+<li>c - Microopaque</li></ul>
+
+<ul>
+<li>d - Large print</li></ul>
+
+<ul>
+<li>f - Braille</li></ul>
+
+<ul>
+<li>r - Regular print reproduction<br>Eye-readable print.</li></ul>
+
+<ul>
+<li>s - Electronic</li></ul>
+
+<ul>
+<li>| - No attempt to code</li></ul>
+</li><li>24-34 - Undefined<br>Each contains a blank (#) or fill character (|)</li></ul><p><a href="#top">Go to top of document</a></p>
+<hr><p><strong>Go to</strong>: <em><a href="ecbdhome.html">
+MARC 21 Concise Bibliographic Format</a></em> | <a href="http://www.loc.gov/marc/">
+MARC Home Page</a></p><p></p><hr><img alt="Library of Congress" src="ecbd008s_files/lc2.gif">
+<strong>Library of Congress</strong>
+<address><a href="http://www.loc.gov/help/help-desk.html">Library of Congress Help Desk</a>  (
+<!-- #BeginDate format:Am3 -->05/07/2004<!-- #EndDate -->
+)
+</address>
+</body></html>

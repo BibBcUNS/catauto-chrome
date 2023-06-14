@@ -1,0 +1,903 @@
+/* =============================================================================
+ * Catalis - catalis.css
+ *
+ * (c) 2003-2005 Fernando J. Gómez - CONICET - INMABB
+ *  Véase el archivo LICENCIA.TXT incluido en la distribución de Catalis
+ * =============================================================================
+ */
+
+body {
+	margin: 0;
+	background: #C9C7BA;
+}
+
+body,
+table {
+	font-family: verdana;
+	font-size: 13px;
+	/*line-height: 100%;*/
+}
+
+a:link {
+	color: #00C;
+}
+
+a:visited {
+	color: #800080; /*#69F*/ /*#39F*/ 
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/*td {vertical-align:top; background: #D3D3D3; padding:3px;*/}
+
+/*
+td.label {
+	vertical-align: top;
+	font-weight: bold;
+	text-align: right;
+	/*width: 160px;*/ /*
+}
+
+td.value {
+	vertical-align: top;
+}
+*/
+
+
+/* Estado inicial de los DIV para presentar detalles de un registro */
+
+#aacrDisplayDiv {
+	display: block;
+	height: 100%; /* parece necesario en IE */
+	background: #FEFEF0; /*#FFF8DC*/
+	border: 1px solid #666;
+	scrollbar-face-color: #C9C7BA;
+	padding: 6px 10px 10px 10px;
+	/*height: 183px;*/ /* para mozilla */
+	overflow: auto;
+}
+
+#etiqDisplayDiv {
+	display: none;
+	height: 100%; /* parece necesario en IE */
+	overflow: auto;
+	background: #F6F6F6;
+	padding: 0;
+	border: 1px solid #666;
+	font-size: 14px;
+	scrollbar-face-color: #C9C7BA;
+}
+
+#marcDisplayDiv {
+	display: none;
+	height: 100%;
+	overflow: auto;
+	background: #FEFEF0; /*#FFF8DC*/
+	padding: 6px 6px;
+	border: 1px solid #666;
+	font-size: 13px;
+	scrollbar-face-color: #C9C7BA;
+}
+
+
+#marcEditForm {
+	margin: 0;
+}
+
+/* ---------- Botones ---------- */
+.marcEditButton {
+	background: #E2DFD0;
+	font: bold 12px verdana;
+	border: 1px solid black;
+	margin: 0px 1px;
+	padding: 1px 0px;
+	height: 23px;
+}
+
+.buttonHigh {
+	font: bold 12px verdana;
+	border: 1px solid black;
+	background: #CCFFCC;
+	margin: 1px;
+	padding: 0;
+}
+
+#btnDocHideShow {
+	font-size: 11px;
+	font-weight: normal;
+	width: 18px;
+	height: 20px;
+	background-image: url("../img/up.gif");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#ejemplaresBtn {
+	height: 25px;
+	width: 100%;
+	margin: 0;
+}
+
+#postItNoteBtn {
+	margin: 0;
+	height: 25px;
+	width: 100%;
+}
+
+
+/*--------------------------------------------*\
+   Botones para verificar ISBN, URIs, etc.
+\*--------------------------------------------*/
+ 
+.checkButton {
+	height: 16px;
+	width: 60px;
+	border: 1px solid #666;
+	background: #E2DFD0;
+	color: #333;
+	padding: 0px 0px 2px 0px;
+	font-size: 11px;
+	line-height: 11px;
+	font-family: verdana;
+	font-weight: normal;
+	position: absolute;
+	right: 4px;
+	bottom: 2px;
+}
+
+
+#docFormWrapper {
+	position: absolute; /*relative?*/
+	/*top: 498px; Mozilla?
+	left: 622px;*/
+	bottom: 0px; /* anda bien para IE */
+	width: 100%;
+	background: #EEDFCC;
+	border: 1px solid #999;
+	padding: 2px 4px;
+	line-height: 1em; /* ?? */
+}
+
+
+#titleBar {
+	font-family: verdana;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 1px 2px 0px 2px;
+	background: #EEDD82; /*#FFDD00*/ /*#FFCC66*/ /*#F8CF7D*/ /*#FDA*/
+	margin-bottom: 2px;
+	border: 1px solid #777;
+	height: 20px;
+	overflow: hidden;
+}
+
+#theLeftPanel {
+	margin-right: 172px; /* Esto deja el lugar necesario para el panel derecho */
+}
+ 
+#recordDiv {
+	background: #ECFBEC; /* #F7F7F7 */ /* #FAFAFA */ /* #F0F4F0 */
+	border: 1px solid #999;
+	padding: 0px 3px 2px 3px; /* top: 0px normalmente */
+	margin-left: 1px;
+	/*margin-top: -4px;*/ /* para compensar el espacio sobre el 1er TH */
+	height: 484px; /* final height dinamically set onload */
+	overflow-y: scroll; /* forzamos una scrollbar vertical, independientemente del contenido (IE only?) */
+	scrollbar-face-color: #C9C7BA;
+}
+
+.indSeparator {
+	color: #AAA;
+}
+
+/* Cabeceras para los fieldblocks */
+#recordDiv th {
+	font-size: 13px;
+	font-weight: bold;
+	background: #ECFBEC;
+	color: #FED;
+	border-top: 8px solid #ECFBEC;
+	border-bottom: 3px solid #908470;
+	/*padding-top: 3px;*/
+	text-align: left;
+	font-variant: small-caps;
+	letter-spacing: 1px;
+}
+
+#recordDiv th span {
+	background: #908470;
+	padding: 2px 12px 0 12px;
+	display: block;
+}
+
+.subfieldBox {
+	font-family: verdana, "lucida console", "courier new", monospace;
+	/* Relaciones font-size/line-height: 13px/19px, 12px/18px */
+	font-size: 12px;
+	line-height: 18px;
+	font-weight: bold;
+	background: transparent; /*#ECFBEC*/ /*#FAFAFA*/ /* el mismo color que el fondo */
+	/*width: 100%;*/ /* si usamos un valor fijo en px, solucionamos el
+						 problema de los textos largos, como p.ej. URLs.
+						 Ver catalis.js */
+	border-bottom: 1px solid #ECFBEC; /*#FAFAFA*/
+	border-right: 1px solid #ECFBEC; /*#FAFAFA*/
+	border-top: 0;
+	border-left: 0;
+	overflow: hidden; /* hides the scrollbars */
+	margin-left: 2px;
+	margin-top: -1px; /* seems necessary to keep the top of the textarea aligned with the top of the label */
+	padding: 2px 1px;
+}
+ 
+.subfieldBoxCell {
+	vertical-align: top;
+	height: 24px; /* esto resuelve el problema de la variacion de altura en textareas vacíos */
+}
+
+#fieldTagColumn {
+	width: 37px;
+}
+
+#indicatorsColumn {
+	width: 34px;
+}
+
+.tagCell {
+	/*width: 36px;*/
+}
+
+.indCell {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.tagCell,
+.indCell,
+.subfieldsCell {
+	border-bottom: 1px solid menu;
+	padding-top: 4px;
+	padding-bottom: 2px;
+	/*vertical-align: top;*/
+}
+
+.indicators {
+	padding-top: 2px;
+	background: #E9E9E9;
+	color: black;
+	border: 1px solid #777;
+	height: 22px;
+	text-align: center;
+	cursor: pointer;
+	cursor: hand;
+	font: 13px verdana;
+}
+
+.indicatorsDisabled {
+	cursor: default;
+	border-width: 0;
+	/*background: #F9F9F9;
+	color: #F9F9F9;*/
+	/*background: #F7F7F7;
+	color: #F7F7F7;*/
+	visibility: hidden;
+}
+
+.fieldTag {
+	padding: 2px 0;
+	text-align: center;
+	background: ButtonFace;
+	color: black;
+	border: 1px solid #777;
+	height: 20px;
+	cursor: pointer;
+	cursor: hand;
+	font: bold 13px verdana;
+}
+
+
+/*-------------------------------------*\
+   SUBCAMPOS
+\*-------------------------------------*/
+
+col.subfieldCodeColumn {
+	width: 20px;
+}
+
+col.subfieldLabelColumn {
+	width: 150px;
+}
+
+.subfieldTagCell {
+	vertical-align: top;
+	/*padding-top: 2px; */ /* para nivelar con el textarea */
+}
+
+.subfieldTag {
+	font-size: 13px;
+	line-height: 17px;
+	font-weight: bold;
+	background: #E0EEE0; /*ButtonFace*/
+	color: black;
+	border: 1px solid #777;
+	text-align: center;
+	height: 22px;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.subfieldLabelCell {
+	vertical-align: top;
+	padding-left: 2px;
+}
+
+.subfieldLabel {
+	background: #E0EEE0; /*#8B8378*/
+	font-family: verdana, "trebuchet ms", arial;
+	font-size: 11px; /* arial 13px ; verdana 11px*/
+	line-height: 18px;
+	height: 22px;
+	overflow: hidden;
+	padding: 0px 3px;
+	border: 1px solid #D3D3D3;
+}
+
+
+iframe#docIframe {
+	height: 0px; /* final height set dinamically onload */
+	width: 100%;
+	border: 0px solid #999;
+	margin-left: 1px; /* parece necesario en IE */
+	margin-top: 2px;
+}
+
+
+/*-------------------------------*\
+   PANEL DERECHO
+\*-------------------------------*/
+
+#theRightPanel {
+	position: absolute; /* se posiciona con respecto al container, theMarcEditDiv */
+	top: 0px;
+	right: 2px;
+	width: 168px;
+	height: 487px;  /* onload se ajusta a la resolución */
+}
+ 
+table.control {
+	font-family: verdana, "trebuchet ms", arial;
+	font-size: 11px; /* arial 13px ; verdana 11px */
+	border-bottom: 1px solid #A0A0A0;
+	border-left: 1px solid #A0A0A0;
+	/*border: 1px solid #888;*/
+}
+ 
+table.control td {
+	/*text-align: right;*/
+	background: #FED;
+	border-top: 1px solid #A0A0A0;
+	border-right: 1px solid #A0A0A0;
+	padding: 1px 4px;
+	cursor: default;
+}
+
+table.control td.system {
+	/* Datos no modificables por el catalogador */
+	background: #ECECEC;
+}
+
+table.control td.controlBlockHeader {
+	background: #908470;
+	color: #FED;
+}
+
+/* Textboxes para campos de control */
+table.control input {
+	font-family: "lucida console", "courier new", monospace;
+	font-size: 14px;
+	font-weight: 600;
+	border: 0px solid #BBB;
+	/*border-bottom-width: 1px;
+	border-right-width: 1px;*/
+	background: transparent;
+	color: #606060;
+}
+
+#f001 {
+	width: 90px;
+	background: #ECECEC;
+	border-width: 0;
+	font-weight: bold;
+	font-family: verdana;
+	font-size: 13px;
+}
+
+#f008_00_05_nice {
+	width: 86px;
+	border-width: 0;
+	font-family: verdana;
+	font-size: 13px;
+	font-weight: normal;
+	color: #333;
+}
+
+#createdBy {
+	width: 52px;
+	border-width: 0;
+	font-family: verdana;
+	font-size: 13px;
+	font-weight: normal;
+}
+
+#f005_nice {
+	width: 135px;
+	border-width: 0;
+	font-family: verdana;
+	font-size: 13px;
+	font-weight: normal;
+	color: #333;
+}
+
+#f008_07_10 {
+	background: #ECFBEC;
+	border: 1px solid #CCC;
+}
+
+#f008_11_14 {
+	background: #ECFBEC;
+	border: 1px solid #CCC;
+	margin-left: 1px;
+}
+
+button.additionalCodes {
+	background: #E2DFD0;
+	margin: 0 0 0px 2px;
+	width: 13px;
+	height: 17px;
+	border: 1px solid #666;
+	line-height: 14px;
+}
+
+#f008_VM_18_20 {
+	background: #ECFBEC;
+	border: 1px solid #CCC;
+}
+
+/* Links a la documentación de MARC 21 */
+.docLink {
+	/*color: #000;*/
+	cursor: pointer;
+	cursor: hand;
+}
+
+select#docSource {
+	font-family: verdana;
+	font-size: 11px;
+}
+
+input#docItem {
+	font-family: verdana;
+	font-size: 13px;
+	width: 36px;
+	border: 1px solid #666;
+}
+
+
+/*
+.marc-leader {background: #99CC99; #FFEFDB;}
+.marc-008-all {background: #EEDFCC;}
+.marc-008-BK {background: #EDEDCF;}
+.marc-008-VM {background: #00CCCC;}
+.marc-008-CR {background: #FFEFD5;}
+.marc-008-MU {background: #CCFFFF;}
+.marc-008-CF {background: #99CCCC;}
+.marc-008-MA {background: #F0F0F0;}
+*/
+ 
+/*#F5DEB3*/
+/*#EEE8DC*/
+/* #FAFAD2 */
+/* E2DFD0 */
+
+/*
+.control-1 {
+	font-family: verdana;
+	font-weight: bold;
+	text-align: center;
+}
+*/
+
+.marcCode {
+	cursor: default;
+	/*background: #E9E9E9;*/
+}
+
+
+/* ---------- Mensajes del sistema ---------- */
+.mensaje {
+	padding: 0.5em;
+	margin: 10px 15%;
+	text-align: center;
+	background: #EAEAEA;
+	border: 1px solid #777;
+}
+ 
+.recordOK {
+	background: yellow;
+	border: 1px solid #666;
+}
+
+.recordNotOK {
+	background: #F0F0F0;
+	border: 1px solid #666;
+}
+
+.disabledLabel {
+	color: #888;
+	font-style: italic;
+}
+ 
+/* ---------- Context menu ---------- */
+/* NO están siendo usados, pues desde el oPopup no se ve este archivo */
+.menuSkin {
+	position: absolute;
+	width: 138px;
+	border-top: 1px solid ThreeDHighlight;
+	border-left: 1px solid ThreeDHighlight;
+	border-bottom: 1px solid ThreeDShadow;
+	border-right: 1px solid ThreeDShadow;
+	background: menu;
+	font-family: arial, verdana, sans-serif;
+	font-size: 12px;
+	line-height: 15px;
+	cursor: default;
+	/*z-index: 100;*/
+	/*visibility: hidden;*/
+}
+ 
+.menuitems {
+	padding: 2px 10px;
+}
+ 
+.menuitemsDisabled {
+	padding: 2px 10px;
+	color: GrayText;
+}
+
+
+/*-----------------------------------------------------*\
+   Visualización del listado de campos (MARC tagged)
+\*-----------------------------------------------------*/
+
+#marcTaggedTable {
+	font-family: "lucida console", "courier new", monospace;
+	font-size: 14px;
+	/*table-layout: fixed;*/
+}
+
+#marcTaggedTable td {
+	border-bottom: 1px solid #D6D6D6;
+	line-height: 1.3em;
+	vertical-align: top;
+}
+
+#marcTaggedTable td.marctag {
+	width: 30px;
+	padding-right: 0; /* como necesitamos un espacio "real", usamos &nbsp; */
+	font-weight: bold;
+	text-align: right;
+}
+
+#marcTaggedTable td.indicator {
+	width: 10px;
+}
+
+#marcTaggedTable td.fieldContent {
+	padding-left: 8px;
+	/*width: 100%;*/
+	/*word-wrap: break-word;*/ /* IE only -- soluciona el problema de URLs largas */
+	/*word-break: break-all;*/ /* IE only -- necesita table-layout: fixed; también soluciona el problema de URLs largas, y hasta luce un poco mejor */
+}
+
+
+.tip1 {
+	border: 1px solid black;
+	background: #FAEBD7;
+	padding: 0.5em;
+	font: 14px "courier new";
+	line-height: 17px;
+}
+
+.tip2 {
+	border-width: 0px 1px 1px 1px;
+	border-color: black;
+	border-style: solid;
+	background: #FAEBD7;
+	padding: 0.5em;
+	font: 12px verdana;
+	line-height: 17px;
+}
+
+
+/* ---------------------------------------
+ * Barra superior
+ * ---------------------------------------
+ */
+
+div#topBar {
+	height: 26px;
+	background: blue; /*#CC6600*/
+	border: solid 1px #777;
+	position: relative;
+	padding: 2px;
+}
+
+
+/*---------------------------------------*\
+    Toolbar
+\*---------------------------------------*/
+
+table#theToolbar {
+	visibility: hidden;
+	width: 100%;
+}
+
+table#theToolbar td {
+	border-top: 0;
+	border-bottom: 0;
+}
+
+#single_record_block,
+#field_subfield_block,
+#resultNavigation_block {
+	visibility: hidden;
+}
+
+#toggleLabels {
+	font-size: 11px;
+	/*visibility: hidden;*/
+}
+
+#btnFicha {
+	/*
+	background: #FEFEF0;
+	font-size: 11px;
+	*/
+}
+
+#btnGrabar {
+	width: 42px;	
+	background-image: url("../img/stock_save-16.png"); /* La imagen debe cambiar cuando se deshabilita el botón */
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#btnPrevResult {
+	width: 21px;
+	height: 21px;
+	background-image: url("../img/left.gif");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#btnNextResult {
+	width: 21px;
+	height: 21px;
+	background-image: url("../img/right.gif");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#fieldTagForm,
+#subfieldCodeForm {
+	margin: 0;
+	display: inline;
+}
+
+#tagBox,
+#codeBox {
+	font-family: verdana;
+	font-size: 13px;
+	border: 1px solid #666;
+	margin-left: -2px;
+	background: #F9F9F9;
+	height: 23px;
+}
+
+#btnNewSubfield {
+	margin-left: 10px;
+}
+
+#resultSetCounter {
+	border: 1px solid #666;
+	font-family: verdana;
+	font-size: 11px;
+	line-height: 17px;
+	width: 55px;
+	height: 21px;
+	text-align: center;
+	background: #FEFEF0; /*#FFF8DC*/
+	color: #333;
+}
+
+#btnBuscar,
+#btnEditar {
+	width: 8em;
+	display: none;
+}
+
+#selDatabase {
+	font-family: verdana;
+	font-size: 12px;
+	background: #FFF;
+}
+
+#btnFinSesion {
+	height: 21px;
+}
+
+#logoutForm {
+	margin: 0;
+}
+
+#appName {
+	font-weight: bold;
+	font-family: georgia;
+	font-size: 18px;
+}
+
+
+/* ------------------------------------*\
+    Search panel
+\* ------------------------------------*/
+
+#kwSearchForm,
+#mfnSearchForm {
+	margin: 0.2em;
+}
+
+#indexForm {
+	margin: 0;
+	padding: 5px;
+	font-size: 12px;
+	background: #FED;
+	border: solid 1px #777;
+}
+
+/*div#searchResultsFrameWrapper {
+	overflow: scroll;
+}*/
+
+iframe#searchResultsIframe {
+	width: 100%;
+	height: 200px;
+	border: 1px solid #666;
+	/*scrollbar-face-color: #C9C7BA;*/
+}
+
+#indexTerms {
+	border: 1px solid #666;
+	height: 280px;    /* TO-DO: ajustar en función de la resolución */
+	width: 218px;
+	overflow: auto;
+	margin: 3px 1px;
+	background: #FCFCFC;
+	scrollbar-face-color: #C9C7BA;
+	/*padding: 2px 4px;*/
+}
+
+tr.evenRow {
+	background: #F3F3F3;
+}
+tr.oddRow {
+	background: #FCFCFC;
+}
+
+#tabContainer {
+	/*background: brown;
+	color: #FED;*/
+	font-weight: bold;
+	font-size: 13px;
+	line-height: 20px;
+	/*padding: 3px 6px;*/
+	/*margin-bottom: 2px;*/
+}
+
+#kwSearchWrapper {
+	padding: 5px;
+	font-size: 12px;
+	background: #FED;
+	border: 1px solid #777;
+	border-bottom-color: #AAA;
+}
+
+#mfnSearchWrapper, #testConditionSearchWrapper {
+	padding: 5px;
+	font-size: 12px;
+	background: #FED;
+	border: 1px solid #777;
+	border-top-width: 6px;
+	border-top-color: #C9C7BA;
+	/*margin-top: 0.5em;*/
+}
+
+#kwSearchBox, #testConditionSearchBox {
+	font-family: verdana;
+	font-size: 13px;
+	width: 196px;
+	border: 1px solid #666;
+	background: #F6F6F6;
+	padding-left: 2px;
+}
+
+#mfnSearchBox {
+	font-family: verdana;
+	font-size: 13px;
+	width: 90px;
+	border: 1px solid #666;
+	background: #F6F6F6;
+	padding-left: 2px;
+}
+
+#dictBrowseBox {
+	font-family: verdana;
+	font-size: 13px;
+	width: 145px;
+	border: 1px solid #666;
+}
+
+#showHiddenData {
+	background: brown;
+	color: brown;
+	height: 20px;
+	border: 0;
+}
+
+
+
+/*--------------------------------------------*\
+    Pestañas (tabs), de catalog.css (2002)
+\*--------------------------------------------*/
+ 
+.tab {
+	background: #E0E0E0;
+	border: 1px solid #000000;
+	/*border-bottom-width: 0px;*/ /* no parece necesaria ahora (2003/12/07) */
+	margin-left: 5px;
+	padding: 2px 1em 2px 1em;
+	position: relative;
+	text-decoration: none;
+	/*top: -1px;*/
+	z-index: 100;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.tab,
+.tab:visited {
+	color: #808080;
+}
+
+.tab:hover {
+	background: #D0D0D0;
+	color: #606060;
+}
+
+.tab.activeTab,
+.tab.activeTab:hover,
+.tab.activeTab:visited {
+	background: #FED;
+	color: #000000;
+}
+
+.tab.activeTab {
+	z-index: 102;
+	border-bottom: 1px solid #FED;
+}
+

@@ -1,0 +1,74 @@
+
+<!-- ==========================================================
+	Catalis - new-records.xis
+
+	Presenta una lista con los 10 registros más recientes
+	
+	(c)2003-2005  Fernando J. Gómez - CONICET - INMABB
+	Véase el archivo LICENCIA.TXT incluido en la distribución de Catalis
+	=========================================================== -->
+
+
+
+
+<display><htmlpft><pft>cat('HEAD-RECORD-LIST.HTM')</pft></htmlpft></display>
+
+<field action="cgi" tag="2006">from</field>
+<field action="replace" tag="2006"><pft>v2006,"1"n2006</pft></field>
+
+<display><htmlpft>
+	<div id="headerRecordList">
+	
+		Últimos 10 registros incorporados a la base [pft]v2104[/pft]
+	</div>
+	
+	<script language="JavaScript" type="text/javascript">
+		top.resultSet = new Array(); // Borramos los datos de la búsqueda previa
+	</script>
+	
+	<div align="center">
+	<table id="resultTable" width="100%" cellspacing="0" cellpadding="6" border="0">
+</htmlpft></display>
+
+<do task="mfnrange">
+	<parm name="db">BIBLIO</parm>
+	<parm name="from"><pft>v2006</pft></parm>
+	<parm name="count">10</parm>
+	<parm name="reverse">On</parm>
+	<define>1001 Isis_Current</define>
+	<loop>
+		<field action="import" tag="list">2000,2002,2104,6001</field>
+		
+		<!-- Control number instead of counter -->
+		<!--field action="replace" tag="1001"><pft>v001</pft></field-->
+		
+		<!-- Parámetros (estilo OPAC): v6001^t: mostrar Mención de responsabilidad
+		                               v6001^g: mostrar DGM
+									   v6001^u: SCRIPT_URL
+		-->
+		<!-- ATENCION: si esto se va a usar en todo el script, lo podemos poner como variable "global" -->
+		<!--field action="replace" tag="6001"><pft>'^g1^s1^t1^u',v6001^u</pft></field-->
+		
+		<display><pft>
+			/* Lamentable adaptación del formato WH.PFT creado para el OPAC */
+			/* El onclick hace innecesario el href */
+			
+			replace(
+					s(,@WH.PFT,),
+					'cid=',
+					s('tarea=SEND_RECORD&recordID=',v001,'&userid=',v2002,'&db=',v2104,'" onclick=top.viewRecordDetails(null,"',v001,'",top.g_RecordDisplayStyle);return(false) title="Ver detalles del registro" target="hiddenIFRAME')
+			),
+		</pft></display>
+		
+		<display><htmlpft>
+			<script language="JavaScript" type="text/javascript">
+				top.resultSet.push("[pft]v001[/pft]")
+			</script>
+		</htmlpft></display>
+	</loop>
+</do>
+
+<display>
+	</table>
+	</div>
+</display>

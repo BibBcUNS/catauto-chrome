@@ -1,0 +1,313 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html40/loose.dtd"><html><head>
+
+<title>MARC 21 Concise Formats: General Introduction</title><!-- base href="http://www.loc.gov/marc/concise/concise.html" -->
+<meta content="This document contains the General Introduction section of the MARC 21 Concise Formats." name="description">
+<meta content="MARC 21 concise, General Introduction" name="keywords">
+<link type="text/css" rel="stylesheet" href="../marcdoc.css">
+</head>
+
+<body bgcolor="#ffffff">
+<center>
+  <img width="500" height="108" alt="MARC 21 CONCISE FORMATS" src="concise_files/marcconcise.gif"> 
+  <p> <i>2003 Concise Edition</i> 
+  </p><p> <font color="#ff0000">Authority Format published online on January 23, 2004<br>
+    Bibliographic Format published online on January 28, 2004<br>
+    Community Information Format published online on February 3, 2004</font><br>
+    <font color="#ff0000">Classification Format published online on February
+    12, 2004</font>    <br>
+  <font color="#ff0000">Holdings Format published online on March 2, 2004</font>      
+</p></center>
+<h2 align="center">Table of Contents</h2>
+<p> 
+</p><ul>
+  <li><a href="#general_intro">General Introduction</a> 
+  </li><li><a href="changes_concise.html">Format Changes</a> 
+  </li><li><a href="http://www.loc.gov/marc/authority/ecadhome.html">MARC 21 Concise Authority Format</a> 
+  </li><li><a href="bibliographic/ecbdhome.html">MARC 21 Concise Bibliographic 
+    Format</a> 
+  </li><li><a href="http://www.loc.gov/marc/classification/eccdhome.html">MARC 21 Concise Classification 
+    Format </a> 
+  </li><li><a href="http://www.loc.gov/marc/community/eccihome.html">MARC 21 Concise Community Information 
+    Format </a> 
+  </li><li><a href="http://www.loc.gov/marc/holdings/echdhome.html">MARC 21 Concise Holdings Format</a> 
+</li></ul>
+<a name="top"></a> 
+<hr>
+<p> 
+</p><h3><a name="general_intro">GENERAL INTRODUCTION</a></h3>
+<p>The <i>MARC 21 Concise Formats</i> are officially 
+  published online once a year (usually in October through December). It uses <font color="#ff0000">red</font> highlights
+  to indicate changes made from the previous published edition. 
+</p><p>The MARC 21 formats are widely used standards for the representation and exchange
+  of authority, bibliographic, classification, community information, and holdings
+  data in machine-readable form. They consist of a family of five coordinated
+  formats: <em>MARC 21 Format for Authority Data</em>; <em>MARC 21 Format for
+  Bibliographic Data</em>; <em>MARC 21 Format for Classification Data</em>; <em>MARC
+  21 Format for Community Information</em>; and <em>MARC 21 Format for Holdings
+  Data</em>. Each of these MARC formats is published separately to provide detailed
+  field descriptions, guidelines for applying the defined content designation
+  (with examples), and identification of conventions to be used to insure input
+  consistency. The <em>MARC 21 Concise Formats</em> provide in a single publication
+  a quick reference guide to the content designators defined in each MARC format.
+  It provides a concise description of each field, each character position of
+  the fixed-length data element fields, and of the defined indicators in the
+  variable data fields. Descriptions of subfield codes and coded values are given
+  only when their names may not be sufficiently descriptive. Examples are included
+  for each field.
+</p><h3>COMPONENTS OF A MARC 21 RECORD</h3>
+<p>MARC format characteristics that are common to all of the formats are described 
+  in this general introduction. Information specific only to certain record types 
+  is given in the introduction to the MARC format to which it relates. 
+</p><p>A MARC record is composed of three elements: the record structure, the content 
+  designation, and the data content of the record. The <strong>record structure</strong> 
+  is an implementation of the <em>American National Standard for Information Interchange</em> 
+  (ANSI/NISO Z39.2) and its ISO equivalent ISO <font color="#ff0000">2709</font>. 
+  The <strong>content designation</strong>--the tags, codes, and conventions established 
+  explicitly to identify and further characterize the data elements within a record 
+  and to support the manipulation of that data are defined by each of the MARC 
+  formats. The <strong>content</strong> of the data elements that comprise a MARC 
+  record is usually defined by standards outside the formats, such as the <em>International 
+  Standard Bibliographic Description</em> (ISBD), <em>Anglo-American Cataloguing 
+  Rules</em>, 2nd edition (AACR 2), <em>Library of Congress Subject Headings</em> 
+  (LCSH), <em>Holdings Statements Summary Level</em> (ISO 10324), <em>American 
+  National Standard for Serial Holdings Statements</em> (ANSI/NISO Z39.44), <em>Library 
+  of Congress Classification</em> (LCC), or other conventions used by the organization 
+  that creates a record. The content of certain coded data elements (e.g., the 
+  Leader, fields 007 and 008) is defined in the MARC formats themselves. 
+</p><p>The MARC record structure consists of three main components: the Leader, the 
+  Directory, and the Variable Fields. The following information summarizes the 
+  components of a MARC record. More detail is provided in <em><a href="http://www.loc.gov/marc/specifications/">MARC 
+  21 Specifications for Record Structure, Character Sets, and Exchange Media</a></em>. 
+</p><p> 
+</p><dl><dt><b>Leader</b></dt><dd>Contains data elements that provide information 
+    for the processing of the record. The data elements contain numbers or coded
+    values and are identified by <font color="#ff0000">a</font> relative character 
+    position. The Leader is fixed in length at 24 character positions and is the 
+    first field in all MARC record<font color="#ff0000">s</font>.</dd><dt><br>
+    <b>Directory</b></dt><dd>Contains a series of entries that contain the 
+    tag, length, and starting location of each variable field within a record.
+    Each entry is 12 character positions in length. Directory entries for variable
+    control fields appear first, sequenced by tag in increasing numerical order.
+    Entries for variable data fields follow, arranged in ascending order according
+    to the first character of the tag. The stored sequence of the variable data
+    fields in a record does not necessarily correspond to the order of the corresponding
+    Directory entries. Duplicate tags are distinguished only by the location
+    of
+    the respective fields within the record. The Directory ends with a field
+    terminator character (ASCII 1E hex).</dd><dt><br>
+    <b>Variable fields</b></dt><dd>The data in a MARC 21 record is organized into <strong>variable fields</strong>, 
+    each identified by a three-character numeric tag that is stored in the Directory 
+    entry for the field. Each field ends with a field terminator character. The 
+    MARC record ends with a record terminator (ASCII 1D hex). There are two types 
+    of <strong>variable fields</strong>:</dd><dt><b><br>
+  Variable control fields</b></dt><dd>The tagged 00X fields. The variable control fields are structurally different 
+    from the variable data fields. These fields contain neither indicator positions 
+    nor subfield codes. They may contain either a single data element or a series 
+    of fixed-length data elements identified by relative character position.</dd><dt><br>
+    <b>Variable data fields</b></dt><dd>The tagged 01X-8XX fields.</dd></dl>
+<p>Within <em>variable data fields</em>, the following two kinds of content designation 
+  are used: 
+</p><dl><dt><b>Indicator positions</b></dt><dd>The first two character positions at the beginning of each variable data 
+    field that contain values which interpret or supplement the data found in 
+    the field. Indicator values are interpreted independently, that is, meaning 
+    is not ascribed to the two indicators taken together. Indicator values may 
+    be a lowercase alphabetic or numeric character. A blank (ASCII 20 hex), represented 
+    in this document as a pound symbol (#), is used 
+    in an undefined indicator position. In a defined indicator position, a blank
+    may be assigned a meaning, or may mean <em>no information provided</em>.</dd><dt><br>
+    <b>Subfield codes</b></dt><dd>Two characters that precede each data element within a field that requires 
+    separate manipulation. A subfield code consists of a delimiter (hex 1F), represented 
+    in this document as a dollar sign ($), followed 
+    by a data element identifier. Data element identifiers are lowercase alphabetic
+    or numeric characters. Subfield codes are defined independently for each
+    field;
+    however, parallel meanings are preserved where possible. Subfield codes are
+    defined for purposes of identification. The order of subfields is generally
+    specified by standards for the data content, such as the cataloging rules.</dd></dl>
+<p></p>
+<h3>MULTISCRIPT RECORDS</h3>
+<p>A MARC 21 record may contain <em>data</em> in multiple scripts. One script 
+  may be considered the primary script of the <em>data content</em> of the record, 
+  even though other scripts are also used for data content. (Note: ASCII is used 
+  for the structure elements of the record, with most coded data also specified 
+  within the ASCII range of characters.) Graphic models for multiscript data are 
+  described in the "Multiscript Records" sections, located at the end of each 
+  format. 
+</p><h3>FIELD AND SUBFIELD REPEATABILITY</h3>
+<p>Theoretically, all fields and subfields may be repeated. The nature of the 
+  data, however, often precludes repetition. For example, a record may contain 
+  only one 1XX field; a bibliographic field 100 may contain only one subfield 
+  $a (Personal name) but may contain more than one subfield $c (Titles and other 
+  words associated with a name). Field and subfield repeatability/nonrepeatability 
+  is indicated by (R) or (NR) following each field and subfield in each MARC 21 
+  format. 
+</p><h3>FILL CHARACTER AND RELATED VALUES</h3>
+<p>A fill character (ASCII 7C hex), represented in this document as a vertical 
+  bar (|), may be used in a record when the format specifies a code to be used 
+  but the creator of the record decides not to attempt to supply a code. A fill 
+  character may not be used in any character position of the leader or tags, indicators, 
+  or subfield codes. The use of the fill character in records contributed to a 
+  national database may also be dependent upon the national level requirements 
+  specified for each data element. 
+</p><p>Code u (Unknown or unspecified), when it is defined, is used to indicate that
+  the creator of the record attempted to supply a code but was unable to determine
+  what the appropriate code should be. 
+</p><p>Code n (Not applicable), when it is defined, is 
+  used to indicate that the characteristic defined by the position is not applicable
+  to a specific type of item or kind of record. 
+</p><h3>DISPLAY CONSTANTS</h3>
+<p>A display constant is a term, phrase, and/or spacing or punctuation convention 
+  that may be system generated to make a visual presentation of data in a record 
+  more meaningful to a user. The display text is not carried in the record but 
+  an indication for it, based on tags, indicators, subfield codes, or coded values, 
+  is. Suggested display constants and display examples are provided in each MARC 
+  21 format. The use and display of these constants is determined by each organization 
+  or system. 
+</p><h4>Record Content Responsibility</h4>
+In general, the responsibility for the data content, content designation, and 
+transcription of data within a MARC 21 record may be determined by examination 
+of the field indicated in the <strong>responsible parties</strong> section 
+below. The data content of certain data elements, however, is restricted 
+when the element is an <strong>agency-assigned</strong> or an <strong>authoritative-agency</strong> 
+data element. 
+<h4>Responsible Parties</h4>
+In <em>unmodified</em> records, the organization identified as the original cataloging 
+source in 008/39 and/or 040 $c (Transcribing agency) is responsible for the data 
+content of the record. The organizations identified as the transcribing agency 
+in field 040 is responsible for the content designation and transcription of the 
+data.<br>
+<br>
+In <em>modified</em> records, organizations identified in field 040 $a (Original 
+cataloging agency) and $d (Modifying agency) are collectively responsible for 
+the data content of the record. Organizations identified as transcribing or modifying 
+agencies in field 040 $c and $d are collectively responsible for the content designation 
+and transcription of the data. 
+<h4>Agency-Assigned Data Elements</h4>
+An agency-assigned data element is one whose content is determined by a designated 
+agency and is the responsibility of that agency, e.g., field 222 (Key Title) which 
+is the responsibility of an ISSN Center. While it is usually input by the designated 
+agency, it may be transcribed by another organization. 
+<h4>Controlled-List Data Elements</h4>
+Certain data elements contain data from controlled lists maintained by designated 
+agencies, e.g., the <em><a href="http://www.loc.gov/marc/geoareas/">MARC Code List for Geographic 
+Areas</a> </em> in field 043 (Geographic Area Code) of the bibliographic format.<br>
+<br>
+These elements are indicated at the field or subfield level in MARC 21 and only 
+values from the designated lists may be used. If a change or addition is desirable 
+for a list, the maintenance agency for the list should be consulted. 
+<h3>OBSOLETE CONTENT DESIGNATORS</h3>
+<p>Obsolete content designators are not included in this document. A Web listing 
+  is available under the <em>MARC Field Lists</em> at: <a href="http://www.loc.gov/marc/">www.loc.gov/marc/.</a> 
+  An obsolete content designator is not used in new records. It may appear in 
+  records that were created prior to the time that it was made obsolete. 
+</p><h3>TYPOGRAPHICAL CONVENTIONS</h3>
+<p>Throughout this document, the following typographical conventions are used: 
+</p><p> 
+</p><dl><dt>0 - The graphic 0 represents the digit zero in tags, fixed-position character 
+    position citations, and indicator positions. This character is distinct from 
+    an uppercase letter O used in examples or text.<br>
+    <br>
+  </dt><dt># - The graphic symbol # is used for a blank (hex 20) in coded fields and 
+    in other special situations where the existence of the character blank might 
+    be ambiguous.<br>
+    <br>
+  </dt><dt>$ - The graphic symbol $ is used for the delimiter (ASCII 1F hex) portion 
+    of a subfield code. Within the text, subfield codes are referred to as <em>subfield 
+    $a</em>, for example.<br>
+    <br>
+  </dt><dt>/ - Specific character positions of fixed-length data elements, such as 
+    those in the Leader, Directory, and field 008, are expressed using a slash 
+    and the number of the character position, e.g., Leader/06.<br>
+    <br>
+  </dt><dt><font color="#ff0000">1 - The graphic 1 represents the digit one (hex 31).
+      This character must be distinguished from a lowercase roman alphabet letter
+      l (el) and the uppercase
+    letter I (eye) in examples or text.</font><br>
+    <br>
+  </dt><dt>| - The graphic | represents a fill character (hex 7C).</dt></dl>
+<h3></h3>
+<h3>ACRONYMS AND INITIALISMS</h3>
+<p>The acronyms and initialisms that are used in the <em>MARC 21 Concise Formats</em> 
+  are only briefly defined here. Detailed explanations may be found in the relevant 
+  documentation named in the brief definition, the <em><a href="http://www.loc.gov/marc/specifications/">MARC 
+  21 Specifications for Record Structure, Character Sets, and Exchange Media</a></em>, 
+  and/or one of the five MARC 21 communications format publications. 
+</p><ul>
+  <li>AACR 2 - <em>Anglo-American Cataloguing Rules</em>, 2nd edition, (<font color="#ff0000">2002</font> revision);
+     and AACR 2 based cataloging manuals 
+  </li><li>ANSI - American National Standards Institute 
+  </li><li>DDC - <em>Dewey Decimal Classification</em> 
+  </li><li>ISBD - <em>International Standard Bibliographic Description</em> 
+  </li><li>ISBN - International Standard Book Number formulated according to <em>Book
+       numbering</em> (ANSI/NISO Z39.21) 
+  </li><li>ISO - International Organization for Standardization 
+  </li><li>ISRC - International Standard Recording Code 
+  </li><li>ISSN - International Standard Serial Number formulated according to <em>International
+       Standard Serial Numbering</em> (ANSI/NISO Z39.9) 
+  </li><li>LCC - <em>Library of Congress Classification</em> 
+  </li><li>LCSH - <em>Library of Congress Subject Headings</em> 
+  </li><li>MeSH - <em>Medical Subject Headings</em> 
+  </li><li>NISO - National Information Standards Organization 
+  </li><li>NR - Not repeatable 
+  </li><li>R - Repeatable 
+  </li><li>STRN - <em>Standard Technical Report Number (STRN), Format and Creation</em> 
+    (ANSI/NISO Z39.23) 
+</li></ul>
+<h3>DOCUMENTATION MAINTENANCE</h3>
+<p>The <em>MARC 21 Concise Formats</em> are prepared 
+  by the Network Development and MARC Standards Office. Direct any questions
+  related to the content of this document to the Library of Congress, Network
+  Development
+  and MARC Standards Office, 101 Independence Ave., S.E., Washington, DC 20540-4402
+  (FAX +1-202-707-0115). Correspondence may also 
+  be sent to the office email account at: <a href="mailto:ndmso@loc.gov">ndmso@loc.gov</a>. 
+</p><p>The following list gives the MARC 21 format documents whose data elements have 
+  been incorporated into this edition of the <em>MARC 21 Concise Formats</em> 
+  : 
+</p><ul>
+  <li><em>MARC 21 Format for Authority Data</em> (1999 base text)and Update No.
+     1 (October 2000); Update No. 2 (October 2001);  Update
+    No. 3 (October 2002) <font color="#ff0000">and Update No. 4 (October 2003)
+    </font>
+  </li><li><em>MARC 21 Format for Bibliographic Data</em> (1999 base text)and Update
+     No. 1 (October 2000); Update No. 2 (October 2001);     Update No. 3 (October
+     2002) <font color="#ff0000">and
+  Update No. 4 (October 2003)</font>  
+  </li><li><em>MARC 21 Format for Classification Data</em> (2000 base text) and Update 
+    No. 1 (October 2000); Update No. 2 (October 2001);     Update No. 3 (October 2002) <font color="#ff0000">and
+    Update No. 4 (October 2003)</font>
+  </li><li><em>MARC 21 Format for Community Information</em> (2000 base text) and Update 
+    No. 1 (October 2000); Update No. 2 (October 2001);     Update No. 3 (October 2002) <font color="#ff0000">and
+    Update No. 4 (October 2003)</font>
+  </li><li><em>MARC 21 Format for Holdings Data</em> (2000 base text) and Update No. 
+    1 (October 2000); Update No. 2 (October 2001);  Update
+No. 3 (October 2002) <font color="#ff0000">and Update No. 4 (October 2003)</font>
+</li></ul>
+<p><a href="#top">Go to top of document</a></p>
+<p> 
+</p><hr>
+<div align="center"><a href="http://www.loc.gov/marc"><br>
+  MARC Home Page</a> - <a href="http://www.loc.gov/">Library of Congress Home 
+  Page</a> <br>
+  <a href="http://www.loc.gov/marc/authority/ecadhome.html">MARC 21 Concise Authority Format</a> 
+  - <a href="bibliographic/ecbdhome.html">MARC 21 Concise Bibliographic 
+  Format</a> <br>
+  <a href="http://www.loc.gov/marc/classification/eccdhome.html">MARC 21 Concise Classification 
+  Format</a> - <a href="http://www.loc.gov/marc/community/eccihome.html">MARC 21 Concise Community 
+  Information Format </a><br>
+  <a href="http://www.loc.gov/marc/holdings/echdhome.html">MARC 21 Concise Holdings Format</a> 
+</div>
+<p> 
+</p><hr>
+<img alt="Library of Congress" width="91" height="46" src="concise_files/lc2.gif"> 
+<strong>Library of Congress</strong> <br>
+<address> 
+<!--help desk email start -->
+<a href="http://www.loc.gov/help/help-desk.html">Library of Congress Help Desk</a> 
+<!--help desk email end -->
+( 
+<!-- #BeginDate format:Am3 -->05/07/2004<!-- #EndDate -->
+)</address>
+
+
+</body></html>

@@ -1,0 +1,101 @@
+/* =============================================================================
+ * Catalis - wh.css
+ *
+ * (c) 2003-2005 Fernando J. Gómez - CONICET - INMABB
+ * Véase el archivo LICENCIA.TXT incluido en la distribución de Catalis
+ * =============================================================================
+ */
+
+
+/* ---------------------------------
+ * Estilo breve (WH) 
+ * 
+ * Compartido por Catalis y el OPAC
+ * ---------------------------------
+ */
+
+tr.whRow td {
+	padding-top: 0.4em;
+	padding-bottom: 0.4em;
+}
+
+/* Color de fondo para las filas (zebra table) */
+tr.whOdd {
+	background: #EFEFEF; /*#E6E6E6;*/
+}
+
+tr.whEven {
+	background: #EFEFEF;
+}
+
+
+td.whCounter {
+	width: 4em; /*1.7em;*/
+	padding-left: 0.2em;
+	padding-right: 0.2em;
+	border-bottom: solid 1px #999; /* rgb(205,082,082)  #CCC */
+	color: #666;
+}
+
+td.whData {
+	border-bottom: solid 1px #999; /* rgb(205,082,082)  #CCC */
+	border-left: solid 1px #E3E3E3;
+}
+
+td.whPubDate {
+	width: 4em;
+	text-align: center;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+td.whIndent {
+	padding-left: 1.6em;
+	text-indent: -1.0em;
+}
+
+td.whLocation {
+	min-width: 7em;  /* no funciona */
+	width: 7em; /* este width afecta la alineación a derecha del texto en IE */
+	white-space: nowrap; /* no funciona en IE6 si se combina con width */
+	border-bottom: solid 1px #999; /* rgb(205,082,082)  #CCC */
+	border-left: solid 1px #E3E3E3;
+	padding-left: 0.5em;
+	color: #444;
+	font-weight: 600;
+}
+
+td.whFirstRow {
+	border-top: solid 0px  #999; /* rgb(205,082,082)  #CCC */
+}
+
+a.whTitleLinkCatalis {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a.whTitleLinkCatalis:hover {
+	text-decoration: underline;
+}
+
+a.whTitleLinkOPAC {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a.whTitleLinkOPAC:hover {
+	text-decoration: underline;
+}
+
+.miniEditButton {
+	font-family: verdana;
+	font-size: 11px;
+	/*font-weight: bold;*/
+	border: 1px solid black;
+	line-height: 12px;
+	height: 17px;
+}
+
+span.GMD {
+	font-weight: normal;
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="pragma" content="no-cache">
+<title>Nuevo registro</title>
+<link rel="stylesheet" type="text/css" href="../css/catalis.css">
+<!--script language="JavaScript" type="text/javascript" src="../js/catalis.js"></script-->
+
+<script language="JavaScript" type="text/javascript">
+window.returnValue = "";
+
+//------------------------------------------------------------------------------
+function handleOK()
+//------------------------------------------------------------------------------
+{
+	var templateList = document.getElementById("templateList");
+	var selectedTemplate = templateList.options[templateList.selectedIndex].value;
+	var aacrText = "";
+	if ( "block" == document.getElementById("aacrWrapper").style.display ) {
+		aacrText = document.getElementById("aacrText").innerText;
+	}
+	
+	var returnThis = new Array(selectedTemplate,aacrText);
+	
+	if ( opener && opener.dialogWin && opener.dialogWin.returnFunc ) // mozilla
+		opener.dialogWin.returnFunc(returnThis);
+	else // ie
+		window.returnValue = returnThis;
+	
+	window.close();
+}
+
+
+//------------------------------------------------------------------------------
+function handleCancel()
+//------------------------------------------------------------------------------
+{
+	window.close();
+}
+
+
+//------------------------------------------------------------------------------
+function handleAacrCheck(checkboxObj)
+//------------------------------------------------------------------------------
+{
+	document.getElementById("aacrWrapper").style.display = (checkboxObj.checked) ? "block" : "none";
+	if ( checkboxObj.checked )
+		document.getElementById("aacrText").focus();
+	var winHeight =  ( checkboxObj.checked ) ? 520 : 320;
+	if ( opener && opener.dialogWin && opener.dialogWin.returnFunc )
+		opener.dialogWin.height = winHeight;
+		//opener.dialogWin.win.height = winHeight; // No funciona aún
+	else
+		window.dialogHeight = winHeight + "px";
+		
+	//var winTop = (screen.height - winHeight)/2;
+	//window.dialogTop = winTop + "px";
+}
+
+
+//------------------------------------------------------------------------------
+function init()
+//------------------------------------------------------------------------------
+{
+	// Respuestas a eventos
+	document.onkeydown = function(evt) {
+		var evt = (evt) ? evt : window.event;
+		if ( evt.keyCode == 27 ) {             // ESC ==> cancel
+			handleCancel();
+		}
+	}
+	document.getElementById("aacrCheckbox").onclick = function() {
+		handleAacrCheck(this);
+	}
+	document.getElementById("btnOK").onclick = handleOK;
+	document.getElementById("btnCancel").onclick = handleCancel;
+	
+	
+	
+	var templateList = document.getElementById('templateList');
+	templateList.focus();
+	// Nos aseguramos de que el primer item de la lista quede visible.
+	// y luego dejamos seleccionado el que más nos interesa (¿configurable?)
+	templateList.options[0].selected = true;
+	for (var i=0; i < templateList.options.length; i++) {
+		if ( "libro" == templateList.options[i].value ) {
+			templateList.options[i].selected = true;
+			break;
+		}
+	}
+}
+
+window.onload = init;
+</script>
+
+<style type="text/css">
+	body, table {
+		font-family: verdana;
+		font-size: 13px;
+		background: #CDC7A9;
+	}
+	
+	select#templateList {
+		font-family: verdana;
+		font-size: 13px;
+		line-height: 1.5em;
+		font-weight: bold;
+		width: 400px;
+		/*height: 200px;*/
+		margin: 0 0 6px 0;
+		/*background:  #E6E3BC;*/  /* falla en IE6 */
+		/*border: solid 1px #999;*/
+		/*cursor: default;*/
+	}
+	
+	select#templateList option {
+		padding: 0.2em 0.4em;  /* no funciona en IE6 */
+		margin-top: -1px;      /* corrección para Mozilla Firebird 0.7 */
+		background: #E6E3BC;
+	}
+	
+	textarea#aacrText {
+		height: 216px;
+		width: 100%;
+	}
+	
+	textarea#ejemplo {
+		height: 120px;
+		margin-top: 3px;
+		width: 200px;
+		background: #F0F0F0;
+		font-family: 'courier new';
+		overflow: auto;
+	}
+</style>
+</head>
+
+<body style="margin: 3px 8px;">
+
+<form id="newRecordForm" action="javascript:void(0)" -onsubmit="sendSelection(); return false">
+
+<h4 style="font-size: 13px; margin: 6px 0px;">Seleccione una plantilla para el nuevo registro:</h4>
+
+<div align="center">
+<!-- TO-DO: generar la lista en base a templates.js -->
+<select id="templateList" size="6">
+
+	<option value="NOMBRE PERSONAL" selected>Nombre Personal</option>
+	<option value="NOMBRE CORPORATIVO">Nombre Corporativo</option>
+	<option value="NOMBRE REUNION">Nombre de Reunión</option>
+    <option value="TITULO UNIFORME">Título Uniforme</option>
+    <option value="TEMATICO">Temático</option>
+    <option value="NOMBRE GEOGRAFICO">Nombre Geográfico</option>
+	
+</select>
+
+<br>
+
+<input type="checkbox" id="aacrCheckbox" -accesskey="A">
+<label for="aacrCheckbox"><b>Ingreso de datos desde un asiento AACR2</b></label>
+<!--input class="marcEditButton" type="button" value="Ingresar asiento AACR2" onclick="document.getElementById('aacrText').style.display='block';window.dialogHeight='530px';window.dialogTop='35px';document.getElementById('aacrText').focus()"-->
+
+<table id="aacrWrapper" style="display:none;" cellpadding="2" border="0">
+<tr>
+<td valign="top" width="100%" style="padding-right: 4px;">
+
+<textarea id="aacrText"></textarea>
+
+</td>
+<td valign="top" style="font-size: 11px; border-left: 1px dotted #666; padding-left: 6px;">
+<b>Indicaciones</b>:
+Puede ingresar un asiento AACR2 en la casilla de la izquierda; el sistema
+intentará construir un registro MARC&nbsp;21 a partir de él. A modo de
+ejemplo, puede copiar y pegar el texto de abajo.
+<textarea id="ejemplo">
+MacKenzie, Maxwell.
+    The Beatles : every little thing : a compendium of witty, weird and ever-surprising facts about the fab four / Maxwell MacKenzie. — New York : Avon Books, c1998.
+    vi, 210 p. ; 21 cm.
+    Includes bibliographical references (p. 210).
+    ISBN 0-380-79698-8
+
+1. Beatles.
+2. Rock musicians—England—Biography.
+I. Título.</textarea>
+</td>
+</tr>
+</table>
+
+</div>
+
+
+<div align="center" style="margin-top: 6px;">
+	<button id="btnOK" class="marcEditButton" accesskey="A">&nbsp;<u>A</u>ceptar&nbsp;</button>
+	<button id="btnCancel" class="marcEditButton" accesskey="C">&nbsp;<u>C</u>ancelar&nbsp;</button>
+</div>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,784 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--
+=======================================================================
+  Ventana para editar la información de los ejemplares asociados
+  a un registro bibliográfico (holdings).
+
+  (c) 2003-2004  Fernando J. Gómez - CONICET - INMABB
+=======================================================================
+-->
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="pragma" content="no-cache">
+<title>Existencias</title>
+
+<link rel="stylesheet" type="text/css" href="../css/catalis.css">
+<script language="JavaScript" type="text/javascript" src="../js/catalis.js"></script>
+<!-- ATENCION: llama a catalis.js solamente por la función sortEjemplares() -->
+
+<script language="JavaScript" type="text/javascript">
+/*
+//--------------------------------------------------------
+function cloneObject(what)
+// Tomado de http://developer.irt.org/script/879.htm
+//--------------------------------------------------------
+{
+	for (prop in what) {
+		if ( typeof what[prop] == 'object' ) {
+			this[prop] = new cloneObject(what[prop]);
+		}
+		else {
+			this[prop] = what[prop];
+		}
+	}
+}
+
+//--------------------------------------------------------
+function clone (deep)
+// http://www.faqts.com/knowledge_base/view.phtml/aid/6231/fid/144
+//--------------------------------------------------------
+{
+	var objectClone = new this.constructor();
+	for (var property in this) {
+		if ( !deep )
+			objectClone[property] = this[property];
+		else if ( typeof this[property] == 'object' )
+			objectClone[property] = this[property].clone(deep);
+		else
+			objectClone[property] = this[property];
+		}
+	return objectClone;
+}
+Object.prototype.clone = clone;
+*/
+
+//--------------------------------------------------------
+function handleOK()
+//--------------------------------------------------------
+{
+	window.returnValue = ejemplares;
+	window.close();
+}
+
+
+//--------------------------------------------------------
+function handleCancel()
+//--------------------------------------------------------
+{
+	//window.returnValue = oldEjemplares;
+	window.close();
+}
+
+
+//--------------------------------------------------------
+function findActiveEj() {
+// Recorre el array de ejemplares, en busca del ej. activo.
+//--------------------------------------------------------
+	for (var i=0; i < ejemplares.length; i++) {
+		if ( ejemplares[i].active )
+			return i;
+	}
+	return 0;
+}
+
+
+//--------------------------------------------------------
+function findEjemplar(inventario) {
+// Recorre el array de ejemplares, en busca del ej. con inventario dado.
+//--------------------------------------------------------
+	for (var i=0; i < ejemplares.length; i++) {
+		if ( inventario == ejemplares[i].inventario ) {
+			return i;
+		}
+	}
+	alert("ERROR: inventario no encontrado.");
+}
+
+
+//--------------------------------------------------------
+function saveData(dataId)
+// Al modificarse un dato en el formulario, actualizamos el objeto
+// respectivo en el array ejemplares[].
+//--------------------------------------------------------
+{
+	//document.getElementById("inventario").value += "+";
+	var formElement = document.getElementById(dataId);
+	var activeEj = findActiveEj();
+
+	// Hay cambios que no podemos aceptar
+	if ( "inventario" == dataId && "" == formElement.value ) {
+		alert("No puede dejar vacío el campo INVENTARIO");
+		formElement.value = ejemplares[activeEj][dataId];
+		return;
+	}
+	
+	// Eliminamos espacios múltiples y espacios extremos
+	formElement.value = formElement.value.replace(/\s+/g," ");
+	formElement.value = formElement.value.replace(/^\s/,"");
+	formElement.value = formElement.value.replace(/\s$/,"");
+	
+	// Almacenamos el cambio
+	ejemplares[activeEj][dataId] = formElement.value;
+	
+	// Quién y cuándo hizo el cambio
+	// TO-DO: obtener userID desde la ventana principal
+	/*
+	var fecha = new Date();
+	var year = fecha.getFullYear();
+	month = "0".concat(fecha.getMonth() + 1);
+	month = month.substr(-2,2);
+	var date = fecha.getDate();
+	*/
+	ejemplares[activeEj].datestamp = "#HOY#";  //"" + year + month + date;
+	ejemplares[activeEj].userID = "#USERID#";
+	
+	// La modificación de ciertos datos obliga a un refresh del listado de ejemplares
+	if ( dataId.search(/parte|inventario|numeroEj/) != -1 ) {
+		ejemplares.sort(sortEjemplares);
+		renderNavList();
+		
+		// Actualizamos el resaltado de botones
+		document.getElementById(ejemplares[activeEj].inventario).style.backgroundColor = "";
+		activeEj = findActiveEj();
+		document.getElementById(ejemplares[activeEj].inventario).style.backgroundColor = "#FCB";
+		document.getElementById(ejemplares[activeEj].inventario).focus();
+		//document.getElementById(ejemplares[activeEj].inventario).blur();
+		document.getElementById(dataId).focus();
+	}
+}
+
+
+//--------------------------------------------------------
+function showEjemplar(ejID)
+// El parámetro recibido es un buttonID (inventario).
+//--------------------------------------------------------
+{
+	var activeEj = findActiveEj();
+	
+	// Resaltado del botón
+	document.getElementById(ejemplares[activeEj].inventario).style.backgroundColor = "";
+	document.getElementById(ejID).style.backgroundColor = "#FCB"; //"#FF9";
+
+	var ejemplar = findEjemplar(ejID);
+	
+	// Volcamos los datos del ejemplar en el formulario
+	// 1. datos modificables por el usuario
+	for (var i=0; i < userAttr.length; i++) {
+		document.getElementById(userAttr[i]).value = ejemplares[ejemplar][userAttr[i]];
+		document.getElementById(userAttr[i]).readOnly = ( ejemplares[ejemplar].fechaBaja != "" );
+		document.getElementById(userAttr[i]).style.backgroundColor = ( ejemplares[ejemplar].fechaBaja != "" ) ? "#888" : "#FFF";
+		document.getElementById(userAttr[i]).style.color = ( ejemplares[ejemplar].fechaBaja != "" ) ? "#FFF" : "#000";
+	}
+	// 2. datos generados por el sistema
+	// TO-DO: mostrar fechas en la forma yyyy-mm-dd, y no yyyymmdd.
+	for (var i=0; i < systemAttr.length; i++) {
+		document.getElementById(systemAttr[i]).innerHTML = ejemplares[ejemplar][systemAttr[i]];
+	}
+	
+	// 3. El botón para confirmar una baja
+	document.getElementById("btnConfirmarBaja").style.display = ( ejemplares[ejemplar].fechaBaja != "" ) ? "none" : "block";
+	
+	//document.getElementById("prevEj").disabled = ( ejemplar == 0 );
+	//document.getElementById("nextEj").disabled = ( ejemplar == ejemplares.length - 1 );
+	
+	document.getElementById(ejID).focus();  // forzamos un scroll
+	if ( document.getElementById("inventario").value.search(/nuevo-/) != -1 ) {
+		document.getElementById("inventario").value = "";
+	}
+	document.getElementById("inventario").focus();
+	
+	setActiveEj(ejemplar);
+}
+
+
+//--------------------------------------------------------
+function newButton(buttonID,text,dadoDeBaja)
+// Código HTML para el botón asociado a un ejemplar
+//--------------------------------------------------------
+{
+	var btn = document.createElement("button");
+	btn.id = buttonID;
+	btn.className = "ejemplarButton";
+	if (dadoDeBaja) {
+		btn.style.textDecoration = "line-through";
+	}
+	btn.onclick = function() {
+		showEjemplar(this.id);
+	}
+	
+	var newText = document.createTextNode(text);
+	btn.appendChild(newText);
+	
+	return btn;
+}
+
+
+//--------------------------------------------------------
+function newEjemplar()
+// TO-DO: asignar valor inicial a 'isCopy'
+//--------------------------------------------------------
+{
+	if ( ejemplares.length > 0 && ejemplares[ejemplares.length - 1].inventario.indexOf("nuevo-") != -1 ) {
+		alert("Aún no ha ingresado el número de inventario de un ítem");
+		return;
+	}
+	
+	var newEj = new Object();
+	
+	// Datos modificables por el usuario
+	for (var i=0; i < userAttr.length; i++) {
+		newEj[userAttr[i]] = "";
+	}
+	
+	// Datos que generará el sistema
+	for (var i=0; i < systemAttr.length; i++) {
+		newEj[systemAttr[i]] = "";
+	}
+		
+	// Si ya hay otros ejemplares, conservamos la signatura topográfica
+	// del último de ellos.
+	if ( ejemplares.length > 0 ) {
+		newEj.STprefijo = ejemplares[ejemplares.length - 1].STprefijo;
+		newEj.STclase = ejemplares[ejemplares.length - 1].STclase;
+		newEj.STlibristica = ejemplares[ejemplares.length - 1].STlibristica;
+	}
+	
+	ejemplares.push(newEj);
+	
+	var newIndex = ejemplares.length - 1;
+	
+	/*if ( ejemplares.length > 1 ) {
+		var newHrule = document.createElement("hr");
+		document.getElementById("navList").appendChild(newHrule);
+	}*/
+	var newBtn = newButton("nuevo-" + newIndex,"[Nuevo]");
+	document.getElementById("navList").appendChild(newBtn);
+	
+	// Número de inventario dummy, provisorio
+	ejemplares[newIndex].inventario = "nuevo-" + newIndex;
+	
+	document.getElementById("ejForm").style.visibility = "visible";
+	showEjemplar("nuevo-" + newIndex);
+}
+
+
+/*
+//--------------------------------------------------------
+function showHelp(type)
+//--------------------------------------------------------
+{
+	var oPopup = window.createPopup();
+	oPopup.document.body.innerHTML += "<div style='border-width: 1px 1px 1px 1px; border-color: black; border-style: solid; background: #faebd7; padding: 0.5em; font: 12px verdana; line-height: 17px;'>"
+	                                + "hola" + "</div>";
+	var popupWidth = 250;
+	oPopup.show(0, 0, popupWidth, 0);
+	var realHeight = oPopup.document.body.scrollHeight;
+	oPopup.hide();
+	oPopup.show(0, event.srcElement.offsetHeight, popupWidth, realHeight, event.srcElement);
+}
+*/
+
+
+//--------------------------------------------------------
+function renderNavList()
+// Dibuja la lista de ejemplares en el panel izquierdo
+// TO-DO: reescribir usando DOM
+//--------------------------------------------------------
+{
+	// Averiguamos si algún ejemplar está asociado a una parte específica del item ($3)
+	partsSpecified = false;
+	for (var i=0; i < ejemplares.length; i++) {
+		if ( "" != ejemplares[i].parte ) {
+			partsSpecified = true;
+			break;
+		}
+	}
+	
+	var newTable, newThead, newTbody, newRow, newCell, newBtn;
+	var newTable = document.createElement("table");
+	newTable.id = "navListTable";
+	newTable.style.backgroundColor = "#F9F9F9";
+	newTable.width = "100%";
+	
+	// Loop sobre todos los ejemplares
+	for (var i=0; i < ejemplares.length; i++) {
+	
+		if ( partsSpecified && ( i == 0 || i > 0 && ejemplares[i].parte != ejemplares[i-1].parte ) ) {
+			var partHeading = ( ejemplares[i].parte != "" ) ? ejemplares[i].parte : "[parte no especif.]";
+			newThead = document.createElement("thead");
+			newRow = document.createElement("tr");
+			newCell = document.createElement("th");
+			newText = document.createTextNode(partHeading);
+			newCell.appendChild(newText);
+			newRow.appendChild(newCell);
+			newThead.appendChild(newRow);
+			newTable.appendChild(newThead);
+			newTbody = document.createElement("tbody");
+			newTable.appendChild(newTbody);
+		} else if ( i == 0 ) {
+			newTbody = document.createElement("tbody");
+			newTable.appendChild(newTbody);
+		}
+		
+		newRow = document.createElement("tr");
+		var buttonText = ejemplares[i].numeroEj;
+		buttonText += ( "" != ejemplares[i].numeroEj ) ? " : " : "";
+		buttonText += ejemplares[i].inventario;
+		var dadoDeBaja = ( ejemplares[i].fechaBaja != "" );
+		newBtn = newButton(ejemplares[i].inventario, buttonText, dadoDeBaja);
+		newCell = document.createElement("td");
+		newCell.align = "center";
+		newCell.appendChild(newBtn);
+		newRow.appendChild(newCell);
+		if ( !newTbody ) {
+			newTbody = document.createElement("tbody");
+		}
+		newTbody.appendChild(newRow);
+	}
+	
+	document.getElementById("navList").innerHTML = "";
+	document.getElementById("navList").appendChild(newTable);
+}
+
+
+//--------------------------------------------------------
+function darDeBaja() {
+//--------------------------------------------------------
+	// Necesitamos un motivo para la baja
+	if ( "" == document.getElementById("ejForm").motivoBaja.value ) {
+		alert("Debe registrar el motivo de la baja.");
+		document.getElementById("ejForm").motivoBaja.focus();
+		return;
+	}
+
+	// TO-DO: mostrar en el cartelito inventario, motivo, etc.
+	if ( confirm ("¿Realmente desea dar de baja este ejemplar?") ) {
+		var activeEj = findActiveEj();
+		ejemplares[activeEj].fechaBaja = "#HOY#";
+		document.getElementById("fechaBaja").innerHTML = "#HOY#";
+		ejemplares[activeEj].motivoBaja = document.getElementById("motivoBaja").value;
+		
+		// Elementos INPUT & TEXTAREA del formulario ==> readonly
+		for (var i=0; i < document.getElementById("ejForm").elements.length; i++) {
+			var elemento = document.getElementById("ejForm").elements[i];
+			if ( elemento.tagName.search(/INPUT|TEXTAREA/i) != -1 ) {
+				elemento.readOnly = true;
+				elemento.style.backgroundColor = "#BBB";
+				elemento.style.color = "#FFF";
+			}
+		}
+		
+		// Desaparece el botón "confirmar"
+		document.getElementById("btnConfirmarBaja").style.display = "none";
+	} else {
+		document.getElementById("motivoBaja").value = "";
+	}
+}
+
+
+//--------------------------------------------------------
+function setActiveEj(n) {
+// Marca como "activo" el n-ésimo objeto del array ejemplares
+//--------------------------------------------------------
+	for (var i=0; i < ejemplares.length; i++) {
+		ejemplares[i].active = (n == i);
+	}
+}
+
+
+//--------------------------------------------------------
+function init()
+// Tareas realizadas al finalizar la carga de la página.
+//--------------------------------------------------------
+{
+	// Event handlers
+	document.onkeydown = function(evt) {
+		var evt = (evt) ? evt : window.event;
+		if ( evt.keyCode == 27 ) {
+			handleCancel();
+		}
+	}
+	document.getElementById("btnOK").onclick = handleOK;
+	document.getElementById("btnCancel").onclick = handleCancel;
+	document.getElementById("btnNewEjemplar").onclick = newEjemplar;
+	document.getElementById("btnConfirmarBaja").onclick = darDeBaja;
+	var allInputs = document.getElementsByTagName("input");
+	for (var i=0; i < allInputs.length; i++) {
+		if ( allInputs[i].type == "text" ) {
+			allInputs[i].onchange = function() {
+				saveData(this.id);
+				return true;
+			}
+		}
+	}
+	var allTextareas = document.getElementsByTagName("textarea");
+	for (var i=0; i < allTextareas.length; i++) {
+		allTextareas[i].onchange = function() {
+			saveData(this.id);
+			return true;
+		}
+	}
+	
+	
+	oldEjemplares = dialogArguments;  // referencia al array ejemplares de la ventana principal
+	//ejemplares = dialogArguments;
+	window.returnValue = null;
+	//window.returnValue = oldEjemplares; // lo necesito por si la ventana se cierra sin usar un botón de la aplicación
+	//var ejemplares = new cloneObject(oldEjemplares);
+	//var ejemplares = oldEjemplares.clone();
+	
+	// Clonamos el array (solución ad hoc) para poder conservar la versión original
+	ejemplares = new Array();
+	for (var i=0; i < oldEjemplares.length; i++) {
+		ejemplares[i] = new Array();
+		for (var prop in oldEjemplares[i]) {
+			ejemplares[i][prop] = oldEjemplares[i][prop];
+		}
+	}
+	
+	// De acá en más, trabajamos con el array ejemplares de *esta* ventana.
+	
+	// Lista de atributos para un ejemplar, modificables por el usuario
+	// ATENCION: falta isCopy
+	userAttr = new Array();
+	userAttr = userAttr.concat("parte","institucion","coleccion","precio","donante");
+	userAttr = userAttr.concat("STclase","STlibristica","motivoBaja","STprefijo","donacion","notaBibliog");
+	userAttr = userAttr.concat("orden","inventario","estadoFisico","proveedor","numeroEj");
+	userAttr = userAttr.concat("STvolumen","fechaAdq","instCanje");
+	
+	// Lista de atributos para un ejemplar, generados por el sistema
+	systemAttr = new Array();
+	systemAttr = systemAttr.concat("userID","datestamp","fechaBaja");
+	
+	// Ordenamos la lista de ejemplares
+	ejemplares.sort(sortEjemplares);
+	
+	// Presentamos la tabla de navegación
+	renderNavList();
+	
+	// Si hay algún ejemplar, mostramos el primero de la lista
+	if ( ejemplares.length > 0 ) {
+		showEjemplar(ejemplares[0].inventario);
+	}
+	else {
+		document.getElementById("ejForm").style.visibility = "hidden";
+	}
+	
+	// Quitamos el foco del botón "Nuevo"
+	window.focus();
+}
+
+window.onload = init;
+</script>
+
+<style type="text/css">
+	body, table {
+		font-family: verdana;
+		font-size: 13px;
+		background: #CDC7A9;
+	}
+	body {
+		margin: 3px;
+	}
+	select.indSelect {
+		border: 1px solid #999;
+		background: wheat;
+	}
+	.indOption {
+		background: wheat;
+	}
+	.labels {
+		/*background: #780000;
+		color: #EDEDCF;*/
+		padding-right: 3px;
+	}
+	a {
+		color: #009;
+	}
+	
+	th {
+		background: #FCB;
+		padding: 3px;
+		border-top: 5px solid #FED; /*#F0F0F0;*/
+		/*font-variant: small-caps;*/
+		letter-spacing: 1px;
+	}
+	#navList th {
+		background: #FED;
+		border-top: 5px solid #F9F9F9;
+		text-align: center;
+		padding-left: 6px;
+	}
+	.ejLabel {
+		text-align: right;
+	}
+	#ejForm {
+		margin: 0;
+	}
+	#ejForm input, #ejForm textarea {
+		font-family: verdana;
+		font-size: 13px;
+	}
+	#navList {
+		height: 340px;
+		width: 174px;
+		overflow: auto;
+		border: 1px solid #666;
+		background: #F9F9F9;
+		padding: 2px;
+		/*direction: rtl;*/  /* puts a scrollbar on the left */
+	}
+	button.ejemplarButton {
+		width: 145px;
+		font-family: verdana;
+		text-align: right;
+		padding-right: 0.5em;
+		margin: 1px 0;
+	}
+	textarea#notaBibliog {
+		width: 312px;
+		height: 70px;
+	}
+	td.formaAdq {
+		border-bottom: 2px solid #999;
+	}
+</style>
+
+</head>
+
+<body>
+
+<div align="center">
+<table width="100%" cellpadding="2" border="0">
+	<tr>
+	<td align="left" width="280">
+		<button id="btnNewEjemplar" class="marcEditButton" accesskey="N"><u>N</u>uevo ítem</button>
+		&nbsp;
+		<!--input id="prevEj" type="button" class="marcEditButton" style="width:40px;" value="&lt;&lt;" disabled onclick="showEjemplar(activeEj-1)">
+		<input id="nextEj" type="button" class="marcEditButton" style="width:40px;" value="&gt;&gt;" disabled onclick="showEjemplar(activeEj+1)"-->
+	</td>
+	</tr>
+</table>
+</div>
+
+<hr>
+
+
+<!--div style="height: 350px; width: 650px; overflow: auto; border: 1px solid #666;"-->
+
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+	<!-- Celda izquierda: listado de ejemplares -->
+	<td valign="top" align="center">
+		<div id="navList"></div>
+	</td>
+
+	<!-- Celda derecha: datos de un ejemplar -->
+	<td>
+		<div style="height: 340px; width: 480px; overflow: auto; border: 1px solid #666; background: #FED; /*#F3F3F3;*/">
+			<form action="javascript:void(0)" id="ejForm">
+			
+			<table width="100%" style="font-family: verdana; font-size: 13px; background: #FED; /*#F3F3F3;*/" cellspacing="2" border="0">
+				
+				<thead>
+					<th colspan="2">Identificación</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="ejLabel">Inventario</td>
+						<td><input id="inventario" type="text" size="10" style="background: #FF9;"></td>
+						<!--Asignar al grabar-->
+					</tr>
+					<tr>
+						<td class="ejLabel">Parte</td>
+						<td><input id="parte" type="text" size="14">
+							<span style="font-size: 11px;"><em>e.g.</em> Vol. 1 &#183; Tomo III</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="ejLabel">Nro. de ejemplar</td>
+						<td><input id="numeroEj" type="text" size="10"></td>
+					</tr>
+				</tbody>
+				
+				<thead>
+					<th colspan="2">Ubicación</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="ejLabel">Institución/persona</td>
+						<td><input id="institucion" type="text" size="42"></td>
+					</tr>
+					<tr>
+						<td class="ejLabel">Sección/colección</td>
+						<td><input id="coleccion" type="text" size="42"></td>
+					</tr>
+					<tr>
+						<td class="ejLabel">Sign. topográfica</td>
+						<td>
+							<table style="font-size: 11px; background: #FED; /*#F3F3F3;*/" cellpadding="0" cellspacing="0" border="0">
+								<tr>
+									<td>
+										Prefijo
+										<input id="STprefijo" type="text" style="width: 40px;">
+									</td>
+									<td>
+										Clase
+										<input id="STclase" type="text" style="width: 90px;">
+									</td>
+									<td>
+										Librística
+										<input id="STlibristica" type="text" style="width: 114px;">
+									</td>
+									<td>
+										Volumen
+										<input id="STvolumen" type="text" style="width: 46px;">
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</tbody>
+				
+				<thead>
+					<th colspan="2">Notas, etc.</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="ejLabel" valign="top">Notas<br>bibliográficas</td>
+						<td><textarea id="notaBibliog"></textarea></td>
+					</tr>
+					<tr>
+						<td class="ejLabel">Estado físico</td>
+						<td><input id="estadoFisico" type="text" size="42"></td>
+					</tr>
+					<!--tr>
+						<td class="ejLabel" valign="top">Otras notas</td>
+						<td><textarea id="notaInterna" style="width: 296px; height: 70px;" onchange="saveData(this.id)"></textarea></td>
+					</tr-->
+					<!--tr>
+						<td class="ejLabel"><label for="isCopy" class="ejLabel">Es copia</label></td>
+						<td>
+							<input type="radio" id="isCopyFalse" name="isCopy" value="false" checked onchange="saveData(this.id)"><label for="isCopyFalse">No</label>
+							&nbsp;
+							<input type="radio" id="isCopyTrue" name="isCopy" value="true" onchange="saveData(this.id)"><label for="isCopyTrue">Sí</label>
+						</td>
+					</tr-->
+					<!--tr>
+						<td class="ejLabel">Fecha publicación</td>
+						<td><input type="text" size="8"></td>
+					</tr-->
+				</tbody>
+				
+				<thead>
+					<th colspan="2">Adquisición</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="ejLabel">Fecha</td>
+						<td><input id="fechaAdq" type="text" size="12"></td>
+					</tr>
+					<tr>
+						<td class="ejLabel">Precio</td>
+						<td><input id="precio" type="text" size="42"></td>
+					</tr>
+					
+					<tr style="background: #FCB;">
+						<td colspan="1" align="right" class="formaAdq"><b><em>Compra</em></b></td>
+						<!--td>&nbsp;</td-->
+					</tr>
+					<tr>
+						<td class="ejLabel">Orden de compra</td>
+						<td><input id="orden" type="text" size="42"></td>
+					</tr>
+					<tr>
+						<td class="ejLabel">Proveedor</td>
+						<td><input id="proveedor" type="text" size="42"></td>
+					</tr>
+					
+					<tr style="background: #FCB;">
+						<td colspan="1" align="right" class="formaAdq"><b><em>Donación</em></b></td>
+						<!--td>&nbsp;</td-->
+					</tr>
+					<tr>
+						<td class="ejLabel">Nro. de donación</td>
+						<td><input id="donacion" type="text" size="42"></td>
+					</tr>
+					<tr>
+						<td class="ejLabel">Donante</td>
+						<td><input id="donante" type="text" size="42"></td>
+					</tr>
+					
+					<tr style="background: #FCB;">
+						<td colspan="1" align="right" class="formaAdq"><b><em>Canje</em></b></td>
+						<!--td>&nbsp;</td-->
+					</tr>
+					<tr>
+						<td class="ejLabel">Institución</td>
+						<td><input id="instCanje" type="text" size="42"></td>
+					</tr>
+				</tbody>
+				
+				<thead>
+					<th colspan="2">Baja</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="ejLabel">Motivo</td>
+						<td><input id="motivoBaja" type="text" size="42"></td>
+					</tr>
+					<tr>
+						<td class="ejLabel">Fecha</td>
+						<td><span id="fechaBaja" style="background: #F0F0F0;"></span>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><button id="btnConfirmarBaja">Confirmar la baja</button></td>
+					</tr>
+				</tbody>
+				
+				<!--thead>
+					<th colspan="2">Actualización de datos</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="ejLabel">Fecha</td>
+						<td><input id="datestamp" type="text" size="16" disabled style="background: #F0F0F0;"></td>
+					</tr>
+					<tr>
+						<td class="ejLabel">Catalogador</td>
+						<td><input id="userID" type="text" size="8" disabled style="background: #F0F0F0;"></td>
+					</tr>
+				</tbody-->
+				
+			</table>
+			
+			<hr>
+			
+			<div style="margin-bottom: 5px; padding: 3px; background: #FCB;">
+				&nbsp;&nbsp;Última actualización:
+				<span id="userID"></span>&nbsp;
+				<span id="datestamp"></span>
+			</div>
+			
+			</form>
+		</div>
+	</td>
+</tr>
+</table>
+
+<!--/div-->
+
+<hr>
+
+<div align="center" style="margin-top: 6px">
+	<button id="btnOK" class="marcEditButton" accesskey="A"><u>A</u>ceptar</button>
+	<button id="btnCancel" class="marcEditButton" accesskey="C"><u>C</u>ancelar</button>
+</div>
+
+
+</body>
+</html>

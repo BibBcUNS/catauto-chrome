@@ -1,0 +1,311 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html40/loose.dtd"><html><head>
+
+<title>Multiscript Records</title><!-- base href="http://www.loc.gov/marc/bibliographic/ecbdmulti.html" -->
+<meta content="This document contains the Multiscript Records section of the MARC 21 Concise Bibliographic format which includes all related data elements and many examples." name="description">
+<meta content="MARC 21 Concise, Multiscript Records, bibliographic format" name="keywords">
+<link type="text/css" rel="stylesheet" href="../marcdoc.css">
+</head>
+
+<body bgcolor="#ffffff">
+<a name="top"></a>
+<hr><h1><em>MARC 21 Concise Bibliographic: Multiscript Records</em></h1>
+<hr><p>This section describes and illustrates models for recording data in multiple scripts in
+MARC records.  One script may be considered the primary script of the
+<em>data content</em> of the record, even though other scripts are also
+used for
+data content.  (Note:  ASCII is used for the structural elements of the record, and most coded
+data are also
+specified within the ASCII range of characters.)  The general models for multiscript data that
+are
+followed with MARC 21 are described below.
+</p><p><u>Information for Translators and Other Users</u><br>
+  Items highlighted in <font color="#ff0000">red</font> indicate changes made
+  after the 2002 edition of the <em>MARC 21 Concise Formats</em> was published
+  and are included in the 2003 printed edition of the <em>MARC 21 Concise Formats</em>.
+</p><hr><h2>Multiscript Record Models</h2>
+<p></p><dl><dt>Model A: 
+<em>Vernacular and transliteration.</em></dt><dd>The regular
+fields
+may
+contain data in different scripts and in the vernacular or transliterated the data.  Fields 880
+are used when data needs
+to
+be duplicated to express it in <em>both</em> the original vernacular script and transliterated into one or
+more scripts.  There may be unlinked 880 fields.</dd><dt><br>
+  Model B: 
+<em>Simple multiscript records.</em></dt><dd>All data is
+contained in regular fields and script varies depending on the requirements of the data. 
+Repeatability
+specifications
+of all fields should be followed.  Although the Model B record may contain transliterated data,
+Model A is preferred if the same data is recorded in both the original vernacular script and
+transliteration.  Field 880 is not used.</dd></dl>
+
+Model A data in the regular fields is linked to the data in 880 fields by a
+subfield $6 that occurs in both of the associated fields.  Specifications for field 880 are under
+that
+field; description of subfield $6 is in
+the
+<em><a href="ecbdcntf.html">Control Subfields</a>
+</em> section; specifications for character sets and
+repertoires
+for scripts are found in 
+<em><a href="http://www.loc.gov/marc/specifications/">MARC 21 Specifications for Record
+Structure, Character Sets, and Exchange Media</a></em>.
+<h2>Example Conventions</h2>
+<p>Although the data in the following records are taken from actual
+bibliographic items, these
+records
+are included for illustration only and are not necessarily usable for
+bibliographic
+purposes. The creator of the bibliographic data is not specified in
+these sample records. Escape sequences are not included in the example
+records.</p><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2>MODEL A - VERNACULAR AND TRANSLITERATION</h2>
+<p>The following example of a multiscript record follows Model A.  In this example the
+language of cataloging is English language (Latin script) and the language of the bibliographic
+item is Russian (Cyrillic script).  The cataloging agency provides transliteration of some Cyrillic
+script data into the Latin script; notes, subjects, etc. are in English; and prefers to use Latin
+script in the regular fields.</p><table>
+<tbody><tr><td valign="top"><br><strong>040</strong></td>
+<td valign="top"><br><strong>##$a</strong>***<strong>$b</strong>eng<strong>$c</strong>***</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>#16</strong>880-01<strong>$a</strong>Zhavoronkov, N. M.<strong>$q</strong>(Nikolai Mikhailovich)</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>10$6</strong>880-02<strong>$a</strong>Okhrana okhotnich'ikh zhivotnykh v SSSR  / <strong>$c</strong>N.M. Zhavoronkov.</td>
+</tr>
+<tr><td valign="top"><br><strong>250</strong></td>
+<td valign="top"><br><strong>##$6</strong>880-03<strong>$a</strong>Izd. 2-e, perer.</td>
+</tr>
+<tr><td valign="top"><br><strong>260</strong></td>
+<td valign="top"><br><strong>##$6</strong>880-04<strong>$a</strong>Moskva : <strong>$b</strong>Lesnaíà promyshlennost'.,<strong>$c</strong>1982.</td>
+</tr>
+<tr><td valign="top"><br><strong>300</strong></td>
+<td valign="top"><br><strong>##$a</strong>167, [1] p., [16] leaves of plates. : <strong>$b</strong>col. ill. ;<strong>$c</strong>19 cm.</td>
+</tr>
+<tr><td valign="top"><br><strong>500</strong></td>
+<td valign="top"><br><strong>##$a</strong>Bibliography: p. 167-[168].</td>
+</tr>
+<tr><td valign="top"><br><strong>650</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Animals<strong>$z</strong>Soviet Union.</td>
+</tr>
+<tr><td valign="top"><br><strong>880</strong></td>
+<td valign="top"><br><strong>1#$6</strong>100-01/(N<strong>$a</strong>[Name in Cyrillic]<strong>$q</strong>([Name in Cyrillic])</td>
+</tr>
+<tr><td valign="top"><br><strong>880</strong></td>
+<td valign="top"><br><strong>10$6</strong>245-02/(N<strong>$a</strong>[Title in Cyrillic] /<strong>$c</strong>[Title in Cyrillic]</td>
+</tr>
+<tr><td valign="top"><br><strong>880</strong></td>
+<td valign="top"><br><strong>##$6</strong>250-03/(N<strong>$a</strong>[Edition statement in Cyrillic].</td>
+</tr>
+<tr><td valign="top"><br><strong>880</strong></td>
+<td valign="top"><br><strong>##$6</strong>260-04/(N<strong>$a</strong>[Place of publication in Cyrillic] : <strong>$b</strong>[Name of publisher in Cyrillic],<strong>$c</strong>1982.</td>
+</tr>
+
+</tbody></table><p>The following example of a multiscript record follows Model A.  In this example the
+language of cataloging is English language (Latin script) and the language of the bibliographic
+item is Hebrew (Hebrew script).  The cataloging agency prefers to use the Latin script in the
+regular fields.</p><p>The directionality of the Hebrew text in the examples is right-to-left within each subfield,
+but the subfields themselves have been recorded left-to-right.  The actual input of all the data
+is in logical order (first-to-last), parts of which may be displayed in various directions depending
+upon the script and the display interface.</p><table>
+<tbody><tr><td valign="top"><br><strong>040</strong></td>
+<td valign="top"><br><strong>##$a</strong>**beng$c**</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$6</strong>880-01<strong>$a</strong>Zilbershtain, Yitshak ben David Yosef.</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>10$6</strong>880-02<strong>$a</strong>Torat ha-yoledet /<strong>$c</strong>ne`erakh `a. y. Yitshak ben David Yosef Zilvershtain, Mosheh ben Yosef Rotshild.</td>
+</tr>
+<tr><td valign="top"><br><strong>246</strong></td>
+<td valign="top"><br><strong>14$6</strong>880-03<strong>$a</strong>Sefer Torat ha-yoledet</td>
+</tr>
+<tr><td valign="top"><br><strong>250</strong></td>
+<td valign="top"><br><strong>##$6</strong>880-04<strong>$a</strong>Mahad. 2. `im hosafot.</td>
+</tr>
+<tr><td valign="top"><br><strong>260</strong></td>
+<td valign="top"><br><strong>##$6</strong>880-05<strong>$a</strong>Bene-Berak : <strong>$b</strong>Mekhon "Halakhah u-refu`ah",<strong>$c</strong>747 [1986 or 1987]</td>
+</tr>
+<tr><td valign="top"><br><strong>300</strong></td>
+<td valign="top"><br><strong>##$a</strong>469 p. ;<strong>$c</strong>23 cm.</td>
+</tr>
+<tr><td valign="top"><br><strong>504</strong></td>
+<td valign="top"><br><strong>##$a</strong>Includes bibliographical references and index.</td>
+</tr>
+<tr><td valign="top"><br><strong>650</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Childbirth<strong>$x</strong>Religious aspects<strong>$x</strong>Judaism.</td>
+</tr>
+<tr><td valign="top"><br><strong>650</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Sabbath (Jewish law)</td>
+</tr>
+<tr><td valign="top"><br><strong>650</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Fasts and feast<strong>$x</strong>Judaism.</td>
+</tr>
+<tr><td valign="top"><br><strong>700</strong></td>
+<td valign="top"><br><strong>1#$6</strong>880-06<strong>$a</strong>Rotshild, Mosheh ben Yosef.</td>
+</tr>
+<tr><td valign="top"><br><strong>880</strong></td>
+<td valign="top"><br><strong>1#$6</strong>100-01/(2/r<strong>$a</strong>[Name in Hebrew] </td>
+</tr>
+<tr><td valign="top"><br><strong>880</strong></td>
+<td valign="top"><br><strong>10$6</strong>245-02/(2/r<strong>$a</strong>[Title in Hebrew]/<strong>$c</strong>[Statement of responsibility in Hebrew]</td>
+</tr>
+<tr><td valign="top"><br><strong>880</strong></td>
+<td valign="top"><br><strong>14$6</strong>246-03/(2/r<strong>$a</strong>[Title proper in Hebrew]</td>
+</tr>
+<tr><td valign="top"><br><strong>880</strong></td>
+<td valign="top"><br><strong>##$6</strong>250-04/(2/r<strong>$a</strong>[Edition statement in Hebrew]</td>
+</tr>
+<tr><td valign="top"><br><strong>880</strong></td>
+<td valign="top"><br><strong>##$6</strong>260-05/(2/r<strong>$a</strong>[Place of publication in Hebrew] :<strong>$b</strong>[Name of publisher in Hebrew],<strong>$c</strong>747 [1986 or 1987].</td>
+</tr>
+<tr><td valign="top"><br><strong>880</strong></td>
+<td valign="top"><br><strong>1#$6</strong>700-06/(2/r<strong>$a</strong>[Name in Hebrew]</td>
+</tr>
+
+</tbody></table><p>The last example of a multiscript record also follows Model A.  In this example the
+language of cataloging and the bibliographic item is Arabic (Arabic script).  The cataloging
+agency prefers to use Arabic in the regular fields.</p><p>The directionality of the Arabic text in the example is right-to-left within each subfield,
+but the subfields themselves have been recorded left-to-right.  The actual input of all the data
+is in logical order (first-to-last), parts of which may be displayed in various directions depending
+upon the script and the display interface.</p><table>
+<tbody><tr><td valign="top"><br><strong>040</strong></td>
+<td valign="top"><br><strong>##$a</strong>**<strong>$b</strong>ara<strong>$c</strong>**</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$6</strong>880-01<strong>$a</strong>[Name in Arabic]</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>10$6</strong>880-02<strong>$a</strong>[Title in Arabic] /<strong>$c</strong>[Statement of responsibility in Arabic]</td>
+</tr>
+<tr><td valign="top"><br><strong>250</strong></td>
+<td valign="top"><br><strong>##$6</strong>880-03<strong>$a</strong>[Edition statement in Arabic]</td>
+</tr>
+<tr><td valign="top"><br><strong>260</strong></td>
+<td valign="top"><br><strong>##$6</strong>880-04<strong>$a</strong>[Place of publication in Arabic] :<strong>$b</strong>[Name of publisher in Arabic],<strong>$c</strong>1997.</td>
+</tr>
+<tr><td valign="top"><br><strong>300</strong></td>
+<td valign="top"><br><strong>##$a</strong>[Physical description in Arabic] ;<strong>$c</strong>[Dimensions in Arabic]</td>
+</tr>
+<tr><td valign="top"><br><strong>504</strong></td>
+<td valign="top"><br><strong>##$a</strong>[Note in Arabic]</td>
+</tr>
+<tr><td valign="top"><br><strong>650</strong></td>
+<td valign="top"><br><strong>#0$6</strong>880-05<strong>$a</strong>[Topical term as entry element in Arabic]<strong>$x</strong>[General subdivision in Arabic]</td>
+</tr>
+<tr><td valign="top"><br><strong>880</strong></td>
+<td valign="top"><br>
+  <strong>1#$6</strong>100-01/(B/<strong>$a</strong> Tunji, Muhammad.</td>
+</tr>
+<tr><td valign="top"><br><strong>880</strong></td>
+<td valign="top"><br>
+  <strong>10$6</strong>245-02/(B/<strong>$a</strong>Jamaliyat
+  al-lughah al-'Arabiyah/<strong>$c</strong>Muhammad al-Tunji.</td>
+</tr>
+<tr><td valign="top"><br><strong>880</strong></td>
+<td valign="top"><br><strong>##$6</strong>250-03/(B/<strong>$a</strong> al-Tab'ah 1.</td>
+</tr>
+<tr><td valign="top"><br><strong>880</strong></td>
+<td valign="top"><br>
+  <strong>##$6</strong>260-04/(B/<strong>$a</strong> Bayrut
+  :<strong>$b</strong>Dar al-Fikr al-'Arabi,<strong>$c</strong>1997.</td>
+</tr>
+<tr><td valign="top"><br><strong>880</strong></td>
+<td valign="top"><br>  <strong>#0$6</strong>650-05/(B/<strong>$a</strong>Lughah
+  al-'Arabiyah<strong>$x</strong>Munawwa'at.</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2>MODEL B - SIMPLE MULTISCRIPT RECORDS</h2>
+<p>This example is a multiscript record that follows Model B.  In this example the language
+of cataloging is English (Latin script), thus the notes, subjects, etc. are in English.  The
+bibliographic item is a mixed Russian language (Cyrillic script) and Arabic language (Arabic
+script) text.</p><table>
+<tbody><tr><td valign="top"><br><strong>040</strong></td>
+<td valign="top"><br><strong>##$a</strong>***<strong>$b</strong>eng<strong>$c</strong>***</td>
+</tr>
+<tr><td valign="top"><br><strong>041</strong></td>
+<td valign="top"><br><strong>1#$a</strong>rus<strong>$a</strong>ara</td>
+</tr>
+<tr><td valign="top"><br><strong>066</strong></td>
+<td valign="top"><br><strong>##$b</strong>(N<strong>$c</strong>(B<strong>$c</strong>(3</td>
+</tr>
+<tr><td valign="top"><br><strong>100</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Ruzhkov, V. I.<strong>$q</strong> (Viktor Ivanovich)</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>00$a</strong>[Title in Cyrillic] :<strong>$b</strong>[Remainder of title in Cyrillic] /<strong>$c</strong>[Statement of responsibility in Cyrillic]</td>
+</tr>
+<tr><td valign="top"><br><strong>246</strong></td>
+<td valign="top"><br><strong>31$a</strong>[Title proper in Arabic]</td>
+</tr>
+<tr><td valign="top"><br><strong>260</strong></td>
+<td valign="top"><br><strong>##$a</strong>[Place of publication in Cyrillic] :<strong>$b</strong>[Name of publisher in Cyrillic],<strong>$c</strong>1988.</td>
+</tr>
+<tr><td valign="top"><br><strong>300</strong></td>
+<td valign="top"><br><strong>##$a</strong> [Extent in Cyrillic] ;<strong>$c</strong> [Dimensions in Cyrillic].</td>
+</tr>
+<tr><td valign="top"><br><strong>650</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Technology<strong>$v</strong>Dictionaries<strong>$x</strong>Russian.</td>
+</tr>
+<tr><td valign="top"><br><strong>650</strong></td>
+<td valign="top"><br><strong>#0$a</strong>Russian language<strong>$v</strong>Dictionaries<strong>$x</strong>Arabic.</td>
+</tr>
+<tr><td valign="top"><br><strong>700</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Tkhorzhevskii, L. L.<strong>$q</strong>(Lev L'vovich)</td>
+</tr>
+<tr><td valign="top"><br><strong>700</strong></td>
+<td valign="top"><br><strong>1#$a</strong>Shagal', V. E.<strong>$q</strong>(Vladimir Eduardovich)</td>
+</tr>
+<tr><td valign="top"><br><strong>700</strong></td>
+<td valign="top"><br>
+  <strong>1#$a</strong>Munir, Dawud Sulayman.</td>
+</tr>
+
+</tbody></table><p>This example is a multiscript record that follows Model B.  In this example the language
+of cataloging is Russian (Cyrillic script) and the bibliographic item is mixed Russian language
+(Cyrillic script) and English language (Latin script) text. </p><table>
+<tbody><tr><td valign="top"><br><strong>040</strong></td>
+<td valign="top"><br><strong>##$a</strong>***<strong>$b</strong>rus<strong>$c</strong>***</td>
+</tr>
+<tr><td valign="top"><br><strong>041</strong></td>
+<td valign="top"><br><strong>1#$a</strong>rus<strong>$a</strong>eng</td>
+</tr>
+<tr><td valign="top"><br><strong>066</strong></td>
+<td valign="top"><br><strong>##$b</strong>(N<strong>$c</strong>(B</td>
+</tr>
+<tr><td valign="top"><br><strong>245</strong></td>
+<td valign="top"><br><strong>00$a</strong>[Title in Cyrillic]<strong>$b</strong> Who is who in oil and gas industry of the CIS /<strong>$c</strong>[[Statement of responsibility in Cyrillic]]</td>
+</tr>
+<tr><td valign="top"><br><strong>246</strong></td>
+<td valign="top"><br><strong>31$a</strong>Who is who in oil and gas industry of the CIS</td>
+</tr>
+<tr><td valign="top"><br><strong>260</strong></td>
+<td valign="top"><br><strong>##$a</strong> [Place of publication in Cyrillic] :<strong>$b</strong>[Name of publisher in Cyrillic],<strong>$c</strong>1992.</td>
+</tr>
+<tr><td valign="top"><br><strong>300</strong></td>
+<td valign="top"><br><strong>##$a</strong> [Extent in Cyrillic] ;<strong>$c</strong> [Dimensions in Cyrillic].</td>
+</tr>
+<tr><td valign="top"><br><strong>546</strong></td>
+<td valign="top"><br><strong>##$a</strong>[Note in Cyrillic]</td>
+</tr>
+<tr><td valign="top"><br><strong>650</strong></td>
+<td valign="top"><br><strong>#0$a</strong>[Topical term in Cyrillic]<strong>$z</strong>[Geographic subdivision in Cyrillic]<strong>$v</strong>[Form subdivision in Cyrillic] </td>
+</tr>
+<tr><td valign="top"><br><strong>700</strong></td>
+<td valign="top"><br><strong>1#$a</strong>[Personal name in Cyrillic]<strong>$q</strong>[(Fuller form of name in Cyrillic)]</td>
+</tr>
+
+</tbody></table><p><a href="#top">Go to top of document</a></p>
+<hr><p><strong>Go to</strong>: <em><a href="ecbdhome.html">
+MARC 21 Concise Bibliographic Format</a></em> | <a href="http://www.loc.gov/marc/">
+MARC Home Page</a></p><p></p><hr><img alt="Library of Congress" src="ecbdmulti_files/lc2.gif">
+<strong>Library of Congress</strong>
+<address><a href="http://www.loc.gov/help/help-desk.html">Library of Congress Help Desk</a>  (
+<!-- #BeginDate format:Am3 -->05/07/2004<!-- #EndDate -->
+)
+</address>
+</body></html>

@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!-- 
+	===========================================================================
+	updMaxMfn.htm
+	
+	Esta página va al IFRAME oculto.
+	
+	Trae desde el servidor el número total de registros presentes en la base
+	bibliográfica. Al cargarse, invoca a la función que presentará este número 
+	en el formulario.
+	
+	(c) Fernando J. Gómez, INMABB, 2003
+	===========================================================================
+-->
+
+<html>
+	<head>
+		<title></title>
+		
+		<script language="JavaScript" type="text/javascript">
+			function init() {
+				var maxmfn = [pft]ref(['BIBLIO']1,f(maxmfn-1,1,0))[/pft];
+				parent.handleMaxMfn(maxmfn);
+			}
+			
+			window.onload = init;
+		</script>
+	</head>
+	
+	<body><!-- empty body --></body>
+
+</html>

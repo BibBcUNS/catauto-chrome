@@ -1,0 +1,116 @@
+
+
+
+
+
+<!-- Toolbar -->
+
+<!-- cellpadding="2" para IE, "0" para Mozilla? -->
+<table id="theToolbar" cellpadding="1" cellspacing="0" rules="cols" frame="box" border="1">
+	<tr>
+		<td style="text-align: left;">
+			<button id="btnNuevo" class="marcEditButton"
+					title="Crear un nuevo registro [Alt+N]"
+					accesskey="N" tabindex="-1" disabled="disabled">&nbsp;<u>N</u>uevo&nbsp;</button>
+			<button id="btnImport" class="marcEditButton"
+					title="Importar un registro MARC [Alt+I]"
+					accesskey="I" tabindex="-1" disabled="disabled">&nbsp;<u>I</u>mp&nbsp;</button>
+			<!--button id="btnDuplicar" class="marcEditButton"
+					title="Duplicar el registro actual [Alt+D]"
+					accesskey="I" tabindex="-1">&nbsp;<u>D</u>up&nbsp;</button-->
+		</td>
+		
+		<td id="single_record_block" style="text-align: center;">
+			<button id="toggleLabels"
+					class="marcEditButton" tabindex="-1"
+					title="Ocultar/mostrar las etiquetas con los nombres de los subcampos">&nbsp;E&nbsp;</button>
+			<!--
+			
+			<button id="btnFicha" class="marcEditButton"
+					title="Visualizar el registro: ficha AACR2, etiquetas MARC [Alt+V]" 
+					accesskey="V" tabindex="-1">&nbsp;<u>V</u>er&nbsp;</button>
+			-->		
+			<!--
+			--><button id="btnGrabar" class="marcEditButton"
+					title="Grabar este registro en la base de datos [Alt+G]"  
+					accesskey="G" tabindex="-1" disabled="disabled">&nbsp;</button>
+			<button id="btnRawEdit" class="marcEditButton"
+					title="Edición avanzada (para expertos) [Alt+A]"
+					accesskey="A" tabindex="-1">&nbsp;<u>A</u>v&nbsp;</button>
+			<button id="btnExportar" class="marcEditButton"
+					title="Exportar este registro como ISO 2709 [Alt+E]"
+					accesskey="E" tabindex="-1">&nbsp;<u>E</u>x&nbsp;</button><!-- 
+					ATENCION: revisar la deshabilitación del botón BORRAR en ciertos casos
+			--><button id="btnBorrar" class="marcEditButton"
+					title="Borrar este registro"
+					accesskey="" tabindex="-1" disabled="disabled">&nbsp;X&nbsp;</button><!--
+			button class="marcEditButton" id="btnReset" disabled="disabled" onclick="deshacer()" accesskey="R" tabindex="-1"><u>R</u>eset</button
+			input type="button" class="marcEditButton" value="Deshacer cambios" onclick="deshacer()"
+			--><button id="btnKeys" class="marcEditButton"
+					title="Ver las claves que irán al diccionario"
+					accesskey="K" tabindex="-1" disabled="disabled">&nbsp;<u>K</u>&nbsp;</button>
+			<!--button class="marcEditButton" id="btnSpecialChars" onclick="showSpecialChars()" accesskey="T" tabindex="-1" title="Insertar caracteres especiales">Carac<u>t</u></button-->
+			<!-- Para insertar caracteres, ver: http://www.xpos.nl/cursor.html, http://www.freetranslation.com/ -->
+		</td>
+		
+		<td id="field_subfield_block" style="text-align: center;">
+			<button id="btnNewField"
+					class="marcEditButton"
+					title="Crear un nuevo campo"
+					accesskey=""
+					tabindex="-1">&nbsp;&nbsp;C&nbsp;&nbsp;</button>
+			<form id="fieldTagForm" action="javascript:void(0)">
+				<input id="tagBox"
+						type="text"
+						size="4"
+						maxlength="16"
+						accesskey="C"
+						title="Escriba aquí los números de campos que desea crear, separados por coma, punto o espacio; luego presione Enter. Ejemplo: 041.700.700">
+			</form>
+			<button id="btnNewSubfield"
+					class="marcEditButton"
+					title="Agregar un subcampo al campo seleccionado"
+					accesskey=""
+					tabindex="-1">&nbsp;&nbsp;S&nbsp;&nbsp;</button>
+			<form id="subfieldCodeForm" action="javascript:void(0)">
+				<input id="codeBox"
+						type="text"
+						size="2"
+						maxlength="10"
+						accesskey="S"
+						title="Escriba aquí los códigos de subcampos que desea crear en el campo seleccionado. Sepárelos por coma, punto o espacio, y luego presione Enter. Ejemplo: d,q,4">
+			</form>
+			<!--button class="marcEditButton" onclick="deleteField(selectedField)" title="Borrar el campo seleccionado" accesskey="-" tabindex="-1"><u>&#8211;</u>Campo</button-->
+		</td>
+		
+		<td style="text-align: right; padding-top: 2px; /* ATENCION: ¿por qué necesitamos esta regla?*/">
+			
+			<!-- Botones para navegar por los registros recuperados en la última búsqueda -->
+			
+			<!-- ATENCION: habilitar el uso de Alt + cursor keys como atajo del teclado -->
+			<!-- ATENCION: necesitamos versiones "disabled" para las flechas -->
+			<span id="resultNavigation_block">
+				<button id="btnPrevResult"
+						class="marcEditButton"
+						tabindex="-1"
+						title="Registro anterior en la lista de resultados">&nbsp;</button><!-- este comentario es sólo
+						para que no aparezca una separación entre elementos
+				--><input type="text" id="resultSetCounter" 
+							title="Resultados de la última búsqueda" tabindex="-1">
+				<button id="btnNextResult" class="marcEditButton"
+						tabindex="-1"
+						title="Registro siguiente en la lista de resultados">&nbsp;</button>
+			</span>
+				
+				
+			<!-- Botones para alternar entre las dos pantallas (búsqueda y edición) -->
+			<button id="btnBuscar" class="marcEditButton"
+					title="Ver la pantalla de búsquedas"
+					accesskey="B" tabindex="-1"><u>B</u>úsqueda</button>
+			<button id="btnEditar" class="marcEditButton"
+					title="Ver la pantalla de edición" 
+					accesskey="E" tabindex="-1" disabled="disabled"><u>E</u>dición</button>
+			
+		</td>
+	</tr>
+</table>

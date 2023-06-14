@@ -1,0 +1,6 @@
+/cgi-bin/wxis
+
+# FIX-ME! seleccionar bases necesarias y limpiarlas antes de subirlas
+/bases
+#/tmp
+#/logs

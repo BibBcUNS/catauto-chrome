@@ -1,0 +1,349 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html40/loose.dtd"><html><head>
+
+<title>Leader and Directory</title><!-- base href="http://www.loc.gov/marc/bibliographic/ecbdldrd.html" -->
+<meta content="This document contains the Leader and Directory section of the MARC 21 Concise Bibliographic format which includes all related data elements and many examples." name="description">
+<meta content="MARC 21 Concise, Leader and Directory, bibliographic format" name="keywords">
+<link type="text/css" rel="stylesheet" href="../marcdoc.css">
+</head>
+
+<body bgcolor="#ffffff">
+<a name="top"></a>
+<hr><h1><em>MARC 21 Concise Bibliographic: Leader and Directory</em></h1>
+<hr><ul>
+<li><a href="#mrcblea">LEADER</a>
+</li><li><a href="#mrcbdir">DIRECTORY</a>
+</li></ul>
+<p><u>Information for Translators and Other Users</u><br>
+  Items highlighted in <font color="#ff0000">red</font> indicate changes made after the 2002 edition of the
+    <em>MARC 21 Concise Formats</em> was published and are included in the 2003 printed
+    edition of the <em>MARC 21 Concise Formats</em>.
+</p><hr><h2><a name="mrcblea">LEADER</a>
+</h2>
+<p>A fixed field that comprises the first 24 character positions
+(00-23) of each record and provides information for the
+processing of the record.
+</p><h3>Character Positions</h3>
+
+<ul>
+<li>00-04 - Record length<br>The computer-generated, five-character numeric string
+that specifies the length of the entire record.  The number is
+right justified and each unused position contains a
+zero.</li><li>05 - Record status<br>Indicates the relation of the
+record to a file.
+<ul>
+<li>a - Increase in encoding level<br>The Encoding level (Leader/17) of the record has
+been changed to a higher encoding level.</li></ul>
+
+<ul>
+<li>c - Corrected or revised<br>A change other than in the Encoding level code has
+been made to the record.</li></ul>
+
+<ul>
+<li>d - Deleted</li></ul>
+
+<ul>
+<li>n - New</li></ul>
+
+<ul>
+<li>p - Increase in encoding level from
+prepublication<br>The cataloging level of a prepublication record has
+changed because of the availability of the published
+item.</li></ul>
+</li><li>06 - Type of record<br>Indicates the characteristics
+of and defines the components of the record.
+<ul>
+<li>a - Language material<br>Includes printed, microform, and electronic language material.</li></ul>
+
+<ul>
+<li>c - Notated music<br>Includes microform and electronic notated music.</li></ul>
+
+<ul>
+<li>d - Manuscript notated music<br>Includes microform manuscript music.</li></ul>
+
+<ul>
+<li>e - Cartographic material<br>Includes maps, atlases, globes, digital maps, and other cartographic items.</li></ul>
+
+<ul>
+<li>f - Manuscript cartographic material<br>Includes microform manuscript maps.</li></ul>
+
+<ul>
+<li>g - Projected medium<br>Examples include: motion pictures,
+videorecordings (including digital video), filmstrips, slides,
+transparencies, or material specifically designed for projection.</li></ul>
+
+<ul>
+<li>i - Nonmusical sound
+recording<br>Examples include:  speech.</li></ul>
+
+<ul>
+<li>j - Musical sound
+recording<br>Examples include: phonodiscs, compact discs, or cassette tapes.</li></ul>
+
+<ul>
+<li>k - Two-dimensional nonprojectable
+graphic<br>Examples include:  activity cards,
+charts, collages, computer graphics, drawings, duplication
+masters, flash cards, paintings, photonegatives, photoprints,
+pictures, photo CDs, postcards, posters, prints, spirit masters, study
+prints, technical drawings, photomechanical reproductions, and reproductions of any of these.</li></ul>
+
+<ul>
+<li>m - Computer file<br>Includes the following classes of electronic resources: computer
+software (including programs, games, fonts), numeric data,
+computer-oriented multimedia, online systems or
+services. For these classes of materials, if there is a
+significant aspect that causes it to fall into another
+Leader/06 category, the code for that significant aspect
+is used instead of code m (e.g., vector data that is
+cartographic is not coded as numeric but
+cartographic). Other classes of electronic resources
+are coded for their most significant aspect (e.g.,
+language material, graphic, cartographic material,
+sound, music, moving image). In case of doubt or if the
+most significant aspect cannot be determined, consider
+the item a computer file.</li></ul>
+
+<ul>
+<li>o - Kit<br>Contains a mixture of components
+from two or more types of items, none of which is the
+predominant constituent of the kit.</li></ul>
+
+<ul>
+<li>p - Mixed material<br>Indicates that there are significant
+materials in two or more forms that are usually related by virtue of
+their having been accumulated by or about a person or body. Includes
+archival fonds and manuscript collections of mixed forms of materials,
+such as text, photographs, and sound recordings.</li></ul>
+
+<ul>
+<li>r - Three-dimensional artifact or
+naturally occurring object<br>Includes
+man-made objects, such as
+models, dioramas, games, puzzles, simulations, sculptures and
+other three-dimensional art works and their reproductions,
+exhibits, machines, clothing, toys, and stitchery, and naturally
+occurring objects, such as microscope specimens and other specimens
+mounted for
+viewing.</li></ul>
+
+<ul>
+<li>t - Manuscript language
+material</li></ul>
+</li><li>07 - Bibliographic level<br>Indicates the bibliographic
+level of the record.
+<ul>
+<li>a - Monographic component part<br>A monographic bibliographic unit
+that is physically
+attached to or contained in another unit such that
+the retrieval of the component part is dependent on the identification
+and location of the host item or container. The record contains fields
+that describe the component part and data that identify the host, field
+773 (Host Item Entry).</li></ul>
+
+<ul>
+<li>b - Serial component part<br>A serial bibliographic unit that is physically
+attached to or contained in another serial unit such that the
+retrieval of the component part is dependent on the physical
+identification and location of the host item or container.  The
+record contains fields that describe the component part and data
+that identify the host, field 773 (Host Item Entry).</li></ul>
+
+<ul>
+<li>c - Collection<br>A made-up multipart group of items that were not
+originally published, distributed, or produced together.  The
+record describes units defined by common provenance or
+administrative convenience for which the record is intended as
+the most comprehensive in the system.</li></ul>
+
+<ul>
+<li>d - Subunit<br>A part of a collection, especially an archival unit
+described collectively elsewhere in the system.  The record
+contains fields that describe the subunit and data that identify
+the Host Item Entry (field 773).</li></ul>
+
+<ul>
+<li>i - Integrating resource<br>A bibliographic resource that is added to or changed by means of updates that do not
+remain discrete and are integrated into the whole.  Examples include:  Updating loose-leafs
+and updating Web sites.</li></ul>
+
+<ul>
+<li>m - Monograph/item<br>An item either complete in one part (monograph) or intended to
+be completed in a finite number of separate
+parts (multivolume monograph).</li></ul>
+
+<ul>
+<li>s - Serial<br>An item issued in successive parts bearing numerical
+or chronological designations and intended to be continued
+indefinitely (e.g., serials, journals, series, newspapers).</li></ul>
+</li><li>08 - Type of control
+<ul>
+<li># - No specific type</li></ul>
+
+<ul>
+<li>a - Archival</li></ul>
+</li><li>09 - Character coding scheme<br>Identifies the character coding scheme used in the
+record.
+<ul>
+<li># - MARC-8</li></ul>
+
+<ul>
+<li>a - UCS/Unicode</li></ul>
+</li><li>10 - Indicator count<br>The computer-generated number 2 that indicates the number
+of character positions used for indicators in a variable data
+field.</li><li>11 - Subfield code count<br>The computer-generated number 2 that indicates the number
+of character positions used for each subfield code in a variable
+data field.</li><li>12-16 - Base address of data<br>The computer-generated, five-character numeric string
+that indicates the first character position of the first
+variable control field in a record.  The number is right
+justified and each unused position contains a
+zero.</li><li>17 - Encoding level<br>Indicates the fullness of the
+bibliographic information and/or content designation of the
+MARC record.
+<ul>
+<li># - Full level<br>The most complete MARC level created from
+information derived from an inspection of the physical
+item.</li></ul>
+
+<ul>
+<li>1 - Full level, material not
+examined<br>The information used in creating the record is
+derived from an extant description of the item without
+reinspection of the physical item.  This code is used primarily
+in the retrospective conversion of records when all of the
+information on the extant description is transcribed.  Certain
+control field coding and other data elements are based only on
+explicit information in the description.</li></ul>
+
+<ul>
+<li>2 - Less-than-full level, material not
+examined<br>The information used in creating the record is
+derived from an extant description of the item without
+reinspection of the physical item.  This code is used primarily
+in the retrospective conversion of records when all of the
+descriptive access points but only a specified subset of other
+data elements are transcribed.  Authoritative headings may not
+be current.</li></ul>
+
+<ul>
+<li>3 - Abbreviated level<br>Indicates a brief record that does not meet the National Level
+Bibliographic Record minimal level cataloging specifications.
+Headings in the records may reflect established forms to the
+extent that such forms were available at the time the record
+was created.</li></ul>
+
+<ul>
+<li>4 - Core level</li></ul>
+
+<ul>
+<li>5 - Partial (preliminary)
+level<br>A record that is not considered final by the
+creating agency (e.g., the headings may not reflect established
+forms; the record may not meet national-level cataloging
+specifications).</li></ul>
+
+<ul>
+<li>7 - Minimal level<br>A record that meets the national-level bibliographic
+record minimal-level cataloging specifications and is considered
+final by the creating agency.  Headings reflect established
+forms.  The U.S. requirements for minimal-level records can be found in
+<em>National Level and Minimal Level Record Requirements</em>
+(www.loc.gov/marc/bibliographic/nlr/)</li></ul>
+
+<ul>
+<li>8 - Prepublication level<br>Indicates a prepublication level record.  This includes
+records create in cataloging in publication programs.</li></ul>
+
+<ul>
+<li>u - Unknown<br>Used by an agency receiving or sending
+data to replace a local code when the appropriate MARC
+encoding level code cannot be determined.  Code u is not used in
+newly input or updated records.</li></ul>
+
+<ul>
+<li>z - Not applicable<br>The encoding level concept does not apply to the
+record.</li></ul>
+</li><li>18 - Descriptive cataloging form<br>Indicates the descriptive
+cataloging form reflected in the record.  Subfield $e
+(Description conventions) of field 040 (Cataloging Source) may
+contain additional information on the cataloging conventions
+used.
+<ul>
+<li># - Non-ISBD<br>The descriptive portion of the record does not
+follow International Standard Bibliographic Description (ISBD)
+cataloging and punctuation provisions.</li></ul>
+
+<ul>
+<li>a - AACR 2<br>The descriptive portion of the record and the choice
+and form of entry of the access points are formulated according
+to either the second edition of the
+<em>Anglo-American Cataloguing Rules</em> or cataloging
+manuals based on AACR 2.  The punctuation practices of ISBD
+apply.</li></ul>
+
+<ul>
+<li>i - ISBD<br>The descriptive portion of the record is formulated
+according to the descriptive and punctuation provisions of ISBD.
+The heading forms are not formulated according to AACR 2.  This
+category includes records that use ISBD punctuation but the
+other conventions used are unknown.</li></ul>
+
+<ul>
+<li>u - Unknown<br>An organization receiving or sending data in
+Leader/18 cannot determine the appropriate descriptive
+cataloging form used in the record.  Code u may be used in records converted from another metadata format.</li></ul>
+</li><li>19 - Linked record requirement<br>Indicates whether a note
+containing basic identification information (i.e., main entry
+and title, main entry and uniform title, main entry under
+uniform title, title, uniform title, Standard Technical Report
+Number, or report number) can be generated from a Linking Entry
+field (76X-78X).
+<ul>
+<li># - Related record not
+required<br>The record contains basic identification information
+in every Linking Entry field in the record or in a related
+Linking Entry Complexity Note (field 580), or the record
+contains no 76X-78X Linking Entry field.</li></ul>
+
+<ul>
+<li>r - Related record
+required<br>The record contains at least one 76X-78X Linking
+Entry field that does not contain basic identification
+information and contains no related Linking Entry Complexity
+Note (field 580) with basic identification
+information.</li></ul>
+</li><li>20-23 - Entry map<br>Four computer-generated, single-digit numeric characters
+that indicate the structure of each entry in the
+Directory.</li><li>20 - Length of the length-of-field portion<br>Contains a 4</li><li>21 - Length of the
+starting-character-position portion<br>Contains a 5</li><li>22 - Length of the implementation-defined
+portion<br>Contains a 0</li><li>23 - Undefined Entry map character
+position<br>Contains a 0</li></ul><p><a href="#top">Go to top of document</a></p>
+<p></p><hr><h2><a name="mrcbdir">DIRECTORY</a>
+</h2>
+<p>A computer-generated index to the location of the variable
+control and data fields within a record.  The Directory
+immediately follows the Leader at character position 24 and
+consists of a series of fixed-length (12 character positions)
+entries that give the tag, length, and starting character
+position of each variable field.
+</p><h3>Character Positions</h3>
+
+<ul>
+<li>00-02 - Tag<br>Three numeric or alphabetic (uppercase or lowercase, but
+not both) characters that identify an associated
+field.</li><li>03-06 - Field length<br>Four numeric characters that indicate the length of the
+field, including indicators, subfield codes, data, and the field
+terminator.  The number is right justified and each unused
+position contains a zero.</li><li>07-11 - Starting character position<br>Five numeric characters that indicate the starting
+character position of the field relative to the Base address of
+data (Leader/12-16) of the record.  The number is right
+justified and each unused position contains a
+zero.</li></ul><p><a href="#top">Go to top of document</a></p>
+<hr><p><strong>Go to</strong>: <em><a href="ecbdhome.html">
+MARC 21 Concise Bibliographic Format</a></em> | <a href="http://www.loc.gov/marc/">
+MARC Home Page</a></p><p></p><hr><img alt="Library of Congress" src="ecbdldrd_files/lc2.gif">
+<strong>Library of Congress</strong>
+<address><a href="http://www.loc.gov/help/help-desk.html">Library of Congress Help Desk</a>  (
+<!-- #BeginDate format:Am3 -->05/07/2004<!-- #EndDate -->
+)
+</address>
+</body></html>

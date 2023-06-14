@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="pragma" content="no-cache">
+<title>Subcampo de control</title>
+<link rel="stylesheet" type="text/css" href="../css/catalis.css">
+
+<script language="JavaScript" type="text/javascript">
+// -----------------------------------------------------------------------------
+function handleOK()
+// -----------------------------------------------------------------------------
+{
+	window.returnValue = getSelectedCodes();
+	window.close();
+}
+
+
+
+// -----------------------------------------------------------------------------
+function handleCancel()
+// -----------------------------------------------------------------------------
+{
+	window.close();
+}
+
+
+// -----------------------------------------------------------------------------
+function getSelectedCodes()
+// -----------------------------------------------------------------------------
+{
+	var codes = "";
+	for (var i=0; i < 4; i++) {
+		var select = document.getElementById("pos" + i);
+		codes += select[select.selectedIndex].value;
+	}
+	alert(codes);
+}
+
+
+//--------------------------------------------------------
+function handlePos0change() {
+//--------------------------------------------------------
+	var select = document.getElementById("pos0");
+	var code = select[select.selectedIndex].value;
+	document.getElementById("pos1p").style.display = "none";
+	document.getElementById("pos1c").style.display = "none";
+	document.getElementById("pos1u").style.display = "none";
+	document.getElementById("pos1" + code).style.display = "block";
+	// Tener en cuenta además: m,n,|
+}
+
+
+//--------------------------------------------------------
+function init()
+//--------------------------------------------------------
+{
+	window.returnValue = null;
+	callingWindowObject = dialogArguments[0];
+	
+	// Event handlers
+	document.getElementById("btnOK").onclick = handleOK;
+	document.getElementById("btnCancel").onclick = handleCancel;
+	document.onkeydown = function(evt) { 
+		var evt = (evt) ? evt : window.event;
+		if ( evt.keyCode == 27 ) {
+			handleCancel();
+		}
+	}
+	document.getElementById("pos0").onchange = handlePos0change;
+	
+	// Ajustamos la altura
+	callingWindowObject.updateDialogHeight(window);
+	// Ajustamos el ancho
+	callingWindowObject.updateDialogWidth(window);
+	// Ajustamos la altura
+	callingWindowObject.updateDialogHeight(window);
+	// (Sí, parece necesario repetir el primer tipo de ajuste)
+	// Ajustamos el ancho
+	callingWindowObject.updateDialogWidth(window);
+	
+	// Códigos seleccionados
+	
+	window.focus();  // Quitamos el foco de los select
+	
+}
+
+window.onload = init;
+</script>
+
+<style type="text/css">
+	body {
+		margin: 8px 10px;
+		background: #CDC7A9;
+	}
+	h4 {
+		margin: 6px 0;
+		font-size: 13px;
+	}
+</style>
+
+<body>
+
+<h3>Subcampo 7 - Características del registro relacionado (ventana en construcción; puede generar mensajes de error)</h3>
+
+<form>
+
+<fieldset style="padding: 1em;">
+
+<legend>Si usa subcampo $a</legend>
+
+<h4>0 - Type of main entry heading</h4>
+	<!-- A one-character code that indicates the type of name contained in subfield $a. The
+	code corresponds to the 1XX tag in the record for the related item. -->
+	<select id="pos0">
+		<option value="p">p - Personal name</option>
+		<option value="c">c - Corporate name</option>
+		<option value="m">m - Meeting name</option>
+		<option value="u">u - Uniform title</option>
+		<option value="n">n - Not applicable</option>
+		<option value="|">| - Fill character</option>
+	</select>
+
+<h4>1 - Form of name</h4>
+	<!-- A one-character code that indicates the form of the name contained in subfield $a.
+	The code corresponds to the first indicator value in the 1XX field in the record
+	for the related item and is interpreted in conjunction with the value in $7/0. -->
+	<!-- If $7/0 = p (Personal name): -->
+	<select id="pos1p">
+		<option value="0">0 - Forename</option>
+		<option value="1">1 - Single surname</option>
+		<option value="2">2 - Multiple surname</option>
+		<option value="3">3 - Family name</option>
+		<option value="|">| - Fill character</option>
+	</select>
+	<!-- If $7/0 = c (Corporate name) or m (Meeting name): -->
+	<select id="pos1c" style="display: none;">
+		<option value="0">0 - Inverted name</option>
+		<option value="1">1 - Jurisdiction name</option>
+		<option value="2">2 - Name in direct order</option>
+		<option value="|">| - Fill character</option>
+	</select>
+	<!-- If $7/0 = u (Uniform title) or n (Not applicable): -->
+	<select id="pos1u" disabled="disabled" style="display: none;">
+		<option value="n">n - Not applicable</option>
+		<option value="|">| - Fill character</option>
+	</select>
+
+</fieldset>
+
+<fieldset style="padding: 1em; margin-top: 1em;">
+
+<h4>2 - Tipo de registro</h4>
+	<!-- A one-character code that indicates the type of record for the related item.
+	The code corresponds to that in Leader/06 (Type of record) in the record for
+	the related item. -->
+	<select id="pos2">
+		<option value="a">a - Language material</option>
+		<option value="b">b - Archival and manuscripts control</option>
+		<option value="c">c - Printed music</option>
+		<option value="d">d - Manuscript music</option>
+		<option value="e">e - Printed map</option>
+		<option value="f">f - Manuscript map</option>
+		<option value="g">g - Projected medium</option>
+		<option value="i">i - Nonmusical sound recording</option>
+		<option value="j">j - Musical sound recording</option>
+		<option value="k">k - Two-dimensional nonprojectable graphic</option>
+		<option value="m">m - Computer file</option>
+		<option value="o">o - Kit</option>
+		<option value="p">p - Mixed material</option>
+		<option value="r">r - Three-dimensional artifact or naturally occurring object</option>
+		<option value="t">t - Manuscript language material</option>
+	</select>
+
+<h4>3 - Nivel bibliográfico</h4>
+	<!--A one-character code that indicates the bibliographic level of the related item.
+	The code corresponds to that in Leader/07 (Bibliographic level) in the record for
+	the related item.-->
+	<select id="pos3">
+		<option value="a">a - Monographic component part</option>
+		<option value="b">b - Serial component part</option>
+		<option value="c">c - Collection</option>
+		<option value="d">d - Subunit</option>
+		<option value="m">m - Monograph/item</option>
+		<option value="s">s - Serial</option>
+	</select>
+	
+</fieldset>
+
+</form>
+	
+<div align="center" style="margin-top: 6px; white-space: nowrap;">
+  <button id="btnOK" class="marcEditButton" accesskey="A"><u>A</u>ceptar</button><!--
+  -->&nbsp;<button id="btnCancel" class="marcEditButton" accesskey="C"><u>C</u>ancelar</button>
+</div>
+
+</body>
+
+</html>

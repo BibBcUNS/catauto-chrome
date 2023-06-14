@@ -1,0 +1,487 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html40/loose.dtd"><html><head>
+
+<title>Control Subfields</title><!-- base href="http://www.loc.gov/marc/bibliographic/ecbdcntf.html" -->
+<meta content="This document contains the Control Subfields section of the MARC 21 Concise Bibliographic format which includes all related data elements and many examples." name="description">
+<meta content="MARC 21 Concise, Control Subfields, bibliographic format" name="keywords">
+<link type="text/css" rel="stylesheet" href="../marcdoc.css">
+</head>
+
+<body bgcolor="#ffffff">
+<a name="top"></a>
+<hr><h1><em>MARC 21 Concise Bibliographic: Control Subfields</em></h1>
+<hr><p>This section contains descriptions of three subfields that are used to link field data to
+specific institutions or to other fields.  These subfields are defined for several
+($5 (Institution to which field applies)) or most $6 (Linkage),
+and $8 (Field link and sequence number)) fields in the format, thus their descriptions are brought
+together in this section.  The subfields are included in field level subfield lists wherever they are
+defined, with pointers to this section.</p><ul>
+<li><a href="#mrcs5">$5 - INSTITUTION TO WHICH FIELD APPLIES</a>
+
+</li><li><a href="#mrcs6">$6 - LINKAGE</a>
+</li><li><a href="#mrcs8">$8 - FIELD LINK AND SEQUENCE NUMBER</a>
+</li></ul>
+<p><u>Information for Translators and Other Users</u><br>
+Items highlighted in <font color="#ff0000">red</font> indicate changes made after
+the 2002 edition of the <em>MARC 21 Concise Formats</em> was published and are
+included in the 2003 printed edition of the <em>MARC 21 Concise Formats</em>.
+</p><p> 
+</p><hr><h2><a name="mrcs5">$5 - INSTITUTION TO WHICH FIELD APPLIES</a> </h2>
+<p>Subfield $5 contains the MARC code of the institution or organization that 
+  holds the copy to which the data in the field applies. Data in the field may 
+  not apply to the universal description of the item, or may apply universally 
+  to the item but be of interest to the location cited. 
+
+</p><p><font color="#ff0000">See <a href="ecbdorg.html">organization code sources</a> for
+    a listing of sources used in MARC 21 records.</font>
+</p><table>
+  <tbody><tr> 
+    <td valign="top"><br>
+      500</td>
+    <td valign="top"><br>
+
+      ##$aFrom the papers of the Chase family.<strong>$5DLC</strong></td>
+  </tr>
+  <tr> 
+    <td valign="top"><br>
+      500</td>
+    <td valign="top"><br>
+      ##$aThe Library of Congress copy has bookplate of the Benedictine Monastery 
+      in Grafschaft; inscribed by Thomas Jefferson.<strong>$5DLC</strong></td>
+
+  </tr>
+  <tr> 
+    <td valign="top"><br>
+      500</td>
+    <td valign="top"><br>
+      ##$aPlates 4, 5, and 9 are wanting.<strong>$5DLC</strong></td>
+  </tr>
+  <tr> 
+    <td valign="top"><br>
+
+      500</td>
+    <td valign="top"><br>
+      ##$aUniversity Library's copy has ms. notes by author on endpapers.<strong>$5WU</strong></td>
+  </tr>
+  <tr> 
+    <td valign="top"><br>
+      583</td>
+
+    <td valign="top"><br>
+      ##$aQueued for preservation$c19861010-$ePriority$fTitle IIC project<strong>$5DLC</strong></td>
+  </tr>
+  <tr> 
+    <td valign="top"><br>
+      655</td>
+    <td valign="top"><br>
+      ##$aAnnotations (Provenance)$zSweden$y18th century.$2rbprov<strong>$5MH-H</strong></td>
+
+  </tr>
+  <tr> 
+    <td valign="top"><br>
+      710</td>
+    <td valign="top"><br>
+      2#$aBridgewater Library,$dformer owner.<strong>$5NjP</strong></td>
+  </tr>
+  <tr> 
+    <td valign="top"><br>
+
+      700</td>
+    <td valign="top"><br>
+      1#$aKissinger, Henry,$d1923-<strong>$5DLC</strong></td>
+  </tr>
+</tbody></table>
+<p><a href="#top">Go to top of document</a></p>
+<p> 
+</p><hr><h2><a name="mrcs6">$6 - LINKAGE</a> </h2>
+<p>Subfield $6 contains data that links fields that are different script representations 
+  of each other. Subfield $6 may contain the tag number of an associated field, 
+  an occurrence number, a code that identifies the first script encountered in 
+  a left-to-right scan of the field, and an indication that the orientation for 
+  a display of the field data is right-to-left. A regular (non-880) field may 
+  be linked to one or more 880 fields that all contain different script representations 
+  of the same data. Subfield $6 is always the first subfield in the field. It 
+  is structured as follows: 
+</p><p>$6&lt;linking tag&gt;- &lt;occurrence number&gt; / &lt;script identification 
+  code&gt; / &lt;field orientation code&gt; 
+</p><p>Descriptions of multiscript record models, with examples, are in the <em><a href="ecbdmulti.html">Multiscript 
+  Records</a> </em> section; specifications for field 880 are in the <em><a href="ecbdhold.html">Holdings, 
+  Location and Alternate Graphics, etc. fields</a></em>; specifications for character 
+  sets and repertoires for scripts are found in <em><a href="http://www.loc.gov/marc/specifications/">MARC 
+  21 Specifications for Record Structure, Character Sets, and Exchange Media</a> 
+  </em>. 
+
+</p><h3>Linking tag and occurrence number</h3>
+<p>The <em>Linking tag</em> part contains the tag number of the associated field. 
+  This part is followed immediately by a hyphen and the two-digit <em>occurrence 
+  number</em> part. A different occurrence number is assigned to each set of associated 
+  fields within a single record. The function of an <em>occurrence number</em> 
+  is to permit the matching of the associated fields (not to sequence the fields 
+  within the record). An <em>occurrence number</em> may be assigned at random 
+  for each set of associated fields. An <em>occurrence number</em> of less than 
+  two digits is right justified and the unused position contains a zero.</p>
+
+
+<p>When there is no associated field to which a field 880 is linked, the <em>occurrence 
+  number</em> in subfield $6 is 00. It is used if an agency wants to separate 
+  scripts in a record (See the <em><a href="ecbdmulti.html">Multiscript Records</a> 
+  </em> section). The <em>linking tag</em> part of subfield $6 will contain the 
+  tag that the associated regular field would have had if it had existed in the 
+  record.</p>
+<table>
+  <tbody><tr> 
+    <td valign="top"><br>
+      100</td>
+
+    <td valign="top"><br>
+      1#<strong>$6880-01</strong>$a[Heading in Latin script]</td>
+  </tr>
+  <tr> 
+    <td valign="top"><br>
+      880</td>
+    <td valign="top"><br>
+
+      1#<strong>$6100-01/(N</strong>$a[Heading in Cyrillic script]</td>
+  </tr>
+  <tr> 
+    <td valign="top"><br>
+      245</td>
+    <td valign="top"><br>
+      10<strong>$6880-03$a</strong>Sosei to kako$bNihon Sosei KakoGakkai
+       shi.</td>
+
+  </tr>
+  <tr> 
+    <td valign="top"><br>
+      880</td>
+    <td valign="top"><br>
+      10<strong>$6245-03/$1</strong>$a[Title in Japanese script]: $b[Subtitle 
+      in Japanese script].</td>
+  </tr>
+
+  <tr> 
+    <td valign="top"><br>
+      100</td>
+    <td valign="top"><br>
+      1#<strong>$6880-01</strong>$a[Name in Chinese script].</td>
+  </tr>
+  <tr> 
+    <td valign="top"><br>
+
+      880</td>
+    <td valign="top"><br>
+      1#<strong>$6100-01/(B</strong>$aShen, Wei-pin.</td>
+  </tr>
+</tbody></table>
+<h3>Script identification code</h3>
+The occurrence number is followed immediately by a slash (/) and the <em>script 
+identification code</em>. This code identifies the alternate script found in the 
+field. The following codes are used: 
+
+<table>
+  <tbody><tr> 
+    <td valign="top"><br>
+      <em>Code</em></td>
+    <td valign="top"><br>
+      <em>Script</em></td>
+  </tr>
+  <tr> 
+    <td valign="top"><br>
+
+      (3</td>
+    <td valign="top"><br>
+       </td>
+    <td valign="top"><br>
+      Arabic</td>
+  </tr>
+  <tr> 
+    <td valign="top"><br>
+
+      (B</td>
+    <td valign="top"><br>
+       </td>
+    <td valign="top"><br>
+      Latin</td>
+  </tr>
+  <tr> 
+    <td valign="top"><br>
+
+      $1</td>
+    <td valign="top"><br>
+       </td>
+    <td valign="top"><br>
+      Chinese, Japanese, Korean</td>
+  </tr>
+  <tr> 
+    <td valign="top"><br>
+
+      (N</td>
+    <td valign="top"><br>
+       </td>
+    <td valign="top"><br>
+      Cyrillic</td>
+  </tr>
+  <tr> 
+    <td valign="top"><br>
+
+      (2</td>
+    <td valign="top"><br>
+       </td>
+    <td valign="top"><br>
+      Hebrew</td>
+  </tr>
+  <tr> 
+    <td valign="top"><br>
+
+      (S</td>
+    <td valign="top"><font color="#ff0000"><br>
+       </font></td>
+    <td valign="top"><br>
+      Greek</td>
+  </tr>
+</tbody></table>
+<table>
+  <tbody><tr> 
+    <td valign="top"><br>
+
+      880</td>
+    <td valign="top"><br>
+      1#<strong>$6100-01/(N</strong>$a[Heading in Cyrillic script]</td>
+  </tr>
+</tbody></table>
+<p>The entire field need not be in the script identified in subfield $6. If more 
+  than one script is present in the field, subfield $6 will contain the identification 
+  of the <em>first</em> alternate script encountered in a left-to-right scan of 
+  the field.</p>
+
+<p>Note also that the <em>script identification code</em> is used in field 880, 
+  subfield $6, but this data element is not generally used for subfield $6 of 
+  the associated regular field. In the associated field, the data is assumed to 
+  be the primary script(s) for the record. </p>
+<h3>Orientation code</h3>
+In a MARC record, the contents of field 880 are always recorded in their logical 
+order, from the first character to the last, regardless of field orientation. 
+For a display of the field, the default field orientation is left-to-right. When 
+the field contains text that has a right-to-left orientation, the <em>script identification</em> 
+code is followed by a slash (/) and the field <em>orientation code</em>. The MARC 
+field <em>orientation code</em> for right-to-left scripts is the letter r. The 
+<em>orientation code</em> is only included in fields with right-to-left orientation, 
+since left-to-right orientation is the default orientation in 880 fields. (See 
+
+<em><a href="http://www.loc.gov/marc/specifications/">MARC 21 Specifications for Record Structure, 
+Character Sets, and Exchange Media</a> </em> for a detailed description of field 
+orientation.) 
+<table>
+  <tbody><tr> 
+    <td valign="top"><br>
+      110</td>
+    <td valign="top"><br>
+      2#<strong>$6880-01</strong>$a[Heading in Latin script]</td>
+
+  </tr>
+  <tr> 
+    <td valign="top"><br>
+      880</td>
+    <td valign="top"><br>
+      2#<strong>$6110-01/(2/r</strong>$a[Heading in Arabic script linked to associated 
+      field]</td>
+  </tr>
+
+</tbody></table>
+<br>
+Note that the <em>orientation code</em> is used in field 880, subfield $6, but 
+this data element is not generally used for subfield $6 of the associated regular 
+field. In the associated field, the data is assumed to be the usual orientation 
+of the primary script(s) for the record. 
+<p><a href="#top">Go to top of document</a></p>
+<p> 
+</p><hr><h2><a name="mrcs8">$8 - FIELD LINK AND SEQUENCE NUMBER</a> </h2>
+<p>Subfield $8 contains data that identifies linked fields and may also propose 
+  a sequence for the linked fields. Subfield $8 may be repeated to link a field 
+  to more than one other group of fields. The structure and syntax for the field 
+  link and sequence number subfield is: 
+</p><p>$8&lt;linking number&gt;.&lt;sequence 
+  number&gt; \ &lt;field link type&gt; 
+
+</p><p>Please note that subfield $8 is defined differently in 
+  field 852 where it is used to sequence related holdings records. Please see 
+  the description of field 852, <a href="http://www.loc.gov/marc/holdings/echdcntf.html#mrcs8">subfield 
+  $8</a> in the <em>MARC 21 Format for Holdings Data</em> for more information. 
+</p><h3>Linking number</h3>
+This is the first data element in the subfield and required if the subfield is 
+used. It is a variable-length whole number that occurs in subfield $8 in all fields 
+that are to be linked. Fields with the same linking number are considered linked. 
+<h3>Sequence number</h3>
+This number is separated from the linking number 
+by a period "." and is optional. It is a variable-length whole number that may 
+be used to indicate the relative order for display of the linked fields (lower 
+sequence numbers displaying before higher ones). If it is used<font color="#ff0000">,</font> 
+
+it must occur in all $8 subfields containing the same linking number. 
+<h3>Field link type</h3>
+<p>This code is separated from preceding data by a reverse slash. It is a code 
+  indicating the reason for the link and it follows the link number, or sequence 
+  number if present. Field link type is required except when $8 is used to link 
+  and sequence 85X-87X holdings fields.</p>
+<p>The following one-character field link type codes have been defined in MARC 
+  for use in subfield $8: </p>
+<ul>
+  <li><b>c - Constituent item</b><br>
+    Code c is used in a record for a collection, or a single item consisting of 
+    identifiable constituent units, to link the fields relating to the constituent 
+    units. All other non-linked data elements in the record pertain to the collection 
+    or item as a whole. 
+    <ul>
+      <table>
+        <tbody><tr> 
+          <td valign="top"><br>
+
+            245</td>
+          <td valign="top"><br>
+            10$aBrevard Music Center$nProgram #24$h[sound recording].</td>
+        </tr>
+        <tr> 
+          <td valign="top"><br>
+            505</td>
+          <td valign="top"><br>
+
+            0#$aFrom my window / Siegmeister (world premiere) - Don Giovanni. 
+            Il mio tesorof [i.e. tesoro] / Mozart - Martha. M'appari / Flotow 
+            - Turandot. Nessun dorma / Puccini - Pines of Rome / Respighi.</td>
+        </tr>
+        <tr> 
+          <td valign="top"><br>
+            650</td>
+          <td valign="top"><br>
+            #0<strong>$81\c</strong>$aSuites (Orchestra), 
+            Arranged.</td>
+
+        </tr>
+        <tr> 
+          <td valign="top"><br>
+            650</td>
+          <td valign="top"><br>
+            #0<strong>$82\c$83\c$84\c</strong>$aOperas$xExcerpts.</td>
+
+        </tr>
+        <tr> 
+          <td valign="top"><br>
+            650</td>
+          <td valign="top"><br>
+            #0<strong>$85\c</strong>$aSymphonic poems.</td>
+        </tr>
+
+        <tr> 
+          <td valign="top"><br>
+            700</td>
+          <td valign="top"><br>
+            1#<strong>$82\c$84\c</strong>$aDi Giuseppe, 
+            Enrico,$d1938-$4prf</td>
+        </tr>
+
+        <tr> 
+          <td valign="top"><br>
+            700</td>
+          <td valign="top"><br>
+            12<strong>$81\c</strong>$aSiegmeister, 
+            Elie$d1909-$tFrom my window;$oarr.</td>
+        </tr>
+        <tr> 
+          <td valign="top"><br>
+
+            700</td>
+          <td valign="top"><br>
+            12<strong>$82\c</strong>$aMozart, Wolfgang 
+            Amadeus,$d1756-1791.$tDon Giovanni$pMio tesoro.</td>
+        </tr>
+        <tr> 
+          <td valign="top"><br>
+            700</td>
+          <td valign="top"><br>
+            12<strong>$83\c</strong>$aFlotow, Friedrich 
+            von,$d1812-1883.$tMartha.$pAch! So fromm, ach! so traut.$lItalian</td>
+        </tr>
+        <tr> 
+          <td valign="top"><br>
+            700</td>
+          <td valign="top"><br>
+
+            12<strong>$84\c</strong>$aPuccini, Giacomo,$d1858-1924.$tTurandot.$pNessun 
+            dorma.</td>
+        </tr>
+        <tr> 
+          <td valign="top"><br>
+            700</td>
+          <td valign="top"><br>
+            12<strong>$85\c</strong>$aRespighi, Ottorino$d1879-1936.<strong>$t</strong>Pini 
+            di Roma.</td>
+
+        </tr>
+      </tbody></table>
+    </ul>
+</li></ul>
+<ul>
+  <li><b>r - Reproduction</b><br>
+    Code r is used in a record for a reproduction to identify fields linked because 
+    they contain information concerning only the reproduction. Other descriptive 
+    information in the record pertains to the original (with the exception of 
+    field 007 (Physical Description Fixed Field), 008 (Fixed-Length Data Elements: 
+    Books, Music, Continuing Resources, or Mixed 
+    Materials) position 23 (Form of item), field 245 subfield $h (Title Statement
+    / Medium), and field 533 (Reproduction Note)).
+<ul>
+      <table>
+
+        <tbody><tr> 
+          <td valign="top"><br>
+            007</td>
+          <td valign="top"><br>
+            [microform]</td>
+        </tr>
+        <tr> 
+          <td valign="top"><br>
+            008/23</td>
+
+          <td valign="top"><br>
+            a [Microfilm]</td>
+        </tr>
+        <tr> 
+          <td valign="top"><br>
+            245</td>
+          <td valign="top"><br>
+            04$aThe New-York mirror, and ladies' literary gazette$h[microform]</td>
+
+        </tr>
+        <tr> 
+          <td valign="top"><br>
+            533</td>
+          <td valign="top"><br>
+            ##$aMicrofilmbAnn Arbor, Mich. :$cUniversity Microfilms,d1950.$e3 
+            microfilm reels ; 35 mm.$f(American periodical series, 1800-1850 : 
+            164-165, 785)</td>
+        </tr>
+        <tr> 
+          <td valign="top"><br>
+
+            830</td>
+          <td valign="top"><br>
+            #0<strong>$84\r</strong>$aAmerican periodical series, 1800-1850;$v164-165, 
+            785.</td>
+        </tr>
+      </tbody></table>
+    </ul>
+</li></ul>
+
+<p><a href="#top">Go to top of document</a></p>
+<hr>
+<p><strong>Go to</strong>: <em><a href="ecbdhome.html"> MARC 21 Concise Bibliographic Format</a></em> 
+  | <a href="http://www.loc.gov/marc/"> MARC Home Page</a>  <br>
+</p><p> 
+</p><hr>
+<img alt="Library of Congress" src="ecbdcntf_files/lc2.gif"> <strong>Library 
+of Congress</strong> 
+
+<address><a href="http://www.loc.gov/help/help-desk.html">Library of Congress 
+Help Desk</a> ( 
+<!-- #BeginDate format:Am3 -->05/07/2004<!-- #EndDate -->
+)</address>
+</body></html>

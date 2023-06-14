@@ -1,0 +1,212 @@
+
+<div id="theSearchDiv" style="display: none;">
+
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
+
+	<tr>
+		<!-- Celda izquierda -->
+		<td rowspan="2" width="220" valign="top" style="padding: 4px 2px;">
+				
+			<!-- Tabs para cambiar entre Búsqueda e Índice -->
+			<div id="tabContainer">
+		
+				<span id="searchTab" class="tab activeTab" -style="height: 100%">Búsquedas</span>
+				<span id="indexTab" class="tab" -style="height: 100%">Índice</span>
+			</div>
+			
+			<div id="searchNotIndex">
+				
+				<!-- ======================================================= -->
+				<!--              BUSQUEDA POR PALABRAS CLAVE                -->
+				<!-- ======================================================= -->
+				
+				<div id="kwSearchWrapper">
+					<b>Por <u>p</u>alabras clave</b>
+					<form id="kwSearchForm"
+							action="[pft]v6001^u[/pft]"
+							method="GET"
+							target="searchResultsIframe">
+						<input type="hidden" name="IsisScript" value="[pft]v2000[/pft]">
+						<input type="hidden" name="userid" value="[pft]v2002[/pft]">
+						<input type="hidden" name="db" value="[pft]v2104[/pft]">
+						<input type="hidden" name="tarea" value="BUSCAR">
+						<input type="hidden" name="dictionaryTerm" value="">
+						<input type="text" id="kwSearchBox" name="busq_kw" accesskey="P">
+						<input type="submit" class="marcEditButton" style="height: 21px; margin-top: 2px;" value="&nbsp;Buscar&nbsp;">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<span style="font-size: 11px;"><a id="kwSearchHelpLink" href="#">Ayuda</a></span>
+					</form>
+				</div>
+				
+				<!-- ======================================================= -->
+				<!--                     BUSQUEDA POR MFN                    -->
+				<!-- ======================================================= -->
+				
+				
+				
+				<div id="mfnSearchWrapper">
+					<b>Por MFN</b>
+					<!-- [&lt;= [xpft]ref(['BIBLIO']1,f(maxmfn-1,1,0))[/xpft]] -->
+					<form id="mfnSearchForm"
+							name="mfnSearchForm"
+							action="[pft]v6001^u[/pft]"
+							method="GET"
+							target="searchResultsIframe">
+						<input type="hidden" name="IsisScript" value="[pft]v2000[/pft]">
+						<input type="hidden" name="userid" value="[pft]v2002[/pft]">
+						<input type="hidden" name="db" value="[pft]v2104[/pft]">
+						<input type="hidden" name="tarea" value="MFN_RANGE">
+						<input type="text" id="mfnSearchBox" name="mfn" accesskey="">
+						<input type="submit" class="marcEditButton" style="height: 21px;" value="Mostrar">
+						<br><a id="mfnSearchHelpLink" href="javascript:void(0)" style="font-size: 11px;">Ayuda</a>
+					</form>
+				</div>
+				
+				<!-- ======================================================= -->
+				<!--                      BUSQUEDA LIBRE                     -->
+				<!-- ======================================================= -->
+				
+				<div id="testConditionSearchWrapper">
+					<b>Por condición booleana</b>
+					<form id="testConditionSearchForm"
+							name="testConditionSearchForm"
+							action="[pft]v6001^u[/pft]"
+							method="GET"
+							style="margin: 2px;"
+							target="searchResultsIframe">
+						<input type="hidden" name="IsisScript" value="[pft]v2000[/pft]">
+						<input type="hidden" name="userid" value="[pft]v2002[/pft]">
+						<input type="hidden" name="db" value="[pft]v2104[/pft]">
+						<input type="hidden" name="tarea" value="TEST_CONDITION">
+						<input type="hidden" name="maxMFN" value="">
+						<input type="text" id="testConditionSearchBox" name="condition" style="font-family: monospace;" accesskey="">
+						<br>
+						<input id="grCheckbox" type="checkbox" name="gr" value="On"><label for="grCheckbox">grupo repetible</label>
+						&nbsp;&nbsp;<input type="submit" class="marcEditButton" style="height: 21px;" value="Buscar">
+						<br><a id="testConditionSearchHelpLink" href="javascript:void(0)" style="font-size: 11px;">Ayuda</a>
+					</form>
+				</div>
+				
+			</div> <!-- searchNotIndex -->
+			
+			
+			<!-- ======================================================= -->
+			<!--                 ACCESO AL DICCIONARIO                   -->
+			<!-- ======================================================= -->
+			<!-- ATENCION: botones "Anteriores" y "Siguientes": revisar;
+				lista inicial de términos: a partir de "!" -->
+			
+			<div id="indexNotSearch" style="display: none; font-size: 13px;">
+				<form id="indexForm"
+						action="[pft]v6001^u[/pft]"
+						method="GET"
+						target="hiddenIFRAME">
+					<input type="hidden" name="IsisScript" value="[pft]v2000[/pft]">
+					<input type="hidden" name="userid" value="[pft]v2002[/pft]">
+					<input type="hidden" name="db" value="[pft]v2104[/pft]">
+					<input type="hidden" name="tarea" value="SHOW_KEYS">
+					<input type="hidden" name="reverse" value="">
+					<b><u>D</u>iccionario a partir de:</b>
+					<input type="text" id="dictBrowseBox" name="dictkey" accesskey="D">
+					<input type="submit" class="marcEditButton" style="height: 21px;" value="&nbsp;Ver&nbsp;">
+					<!--br>
+					<input type="radio" name="index_type" id="index_all" value="all" checked="checked"><label for="index_all">todo</label>
+					<input type="radio" name="index_type" id="index_title" value="title" disabled><label for="index_title">títulos</label>
+					<input type="radio" name="index_type" id="index_name" value="name" disabled><label for="index_name">nombres</label>
+					<br>
+					<input type="radio" name="index_type" id="index_subj" value="subj" disabled><label for="index_subj">temas</label>
+					<input type="radio" name="index_type" id="index_etc" value="etc" disabled><label for="index_etc">otros</label>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+					<a id="indexHelpLink" href="javascript:void(0)" style="font-size: 11px;">Ayuda</a>
+				</form>
+				
+				<div id="indexTerms">
+					<!-- Aquí se ubican los términos del diccionario -->
+				</div>
+			</div> <!-- indexNotSearch -->
+			
+			<!-- ======================================================================= -->
+			
+			<div style="position: absolute; bottom: 6px; width: 210px;">
+				
+				<!-- Botón ULTIMOS REGISTROS -->
+				<div align="center" style="margin: 3px 0 8px 0;">
+					<button id="btnNewRecords"
+							class="marcEditButton" style="height: 24px;"
+							accesskey="U">&nbsp;<u>Ú</u>ltimos 10 registros&nbsp;</button>
+					<!-- TO-DO: agregar aquí un <select> para especificar qué catalogador creó los registros recientes que desean verse -->
+				</div>
+				
+				<!-- Brevísima descripción de la base -->
+				<div style="font-size: 12px; line-height: 15px; font-family: verdana; margin: 0px 2px 2px 2px;">
+					[pft]cat('DB-DESCR.TXT'),[/pft]
+				</div>
+				
+				<!-- Total de registros en la base -->
+				<div style="width: 98%; /*padding-top: 2px;*/ font-size: 12px; line-height: 14px; /*background: #E0E0E0;*/ margin: 4px 2px 0px 2px; /*border-top: 1px solid #777;*/">
+					<a href="[pft]v6001^u[/pft]?IsisScript=[pft]v2000[/pft]&amp;tarea=UPD_MAXMFN&amp;userid=[pft]v2002[/pft]&amp;db=[pft]v2104[/pft]"
+						target="hiddenIFRAME"
+						title="Haga click para conocer la cantidad actual de registros en esta base">
+					<strong id="maxmfn">[pft]ref(['BIBLIO']1,f(maxmfn-1,1,0))[/pft]</strong> registros
+					</a>
+				</div>
+				
+			</div>
+			
+		</td>  <!-- End celda izquierda -->
+		
+		
+		<!-- ======================================================================= -->
+		<!-- IFRAME para presentar la lista de resultados -->
+		
+		<td valign="top" style="padding: 2px 1px 1px 1px;">
+			<div id="searchResultsFrameWrapper"><!-- ATENCION: El DIV parece necesario para que no desaparezca el contenido al cambiar style.display [none/block] -->
+				<iframe id="searchResultsIframe" name="searchResultsIframe"
+						src=""
+						frameborder="0">
+				</iframe>
+			</div>
+		</td>
+	</tr>
+	
+	<tr>
+		
+		<!-- ======================================================================= -->
+		<!-- Detalles de un registro: MARCtagged, AACR, etc. -->
+		<td style="padding: 1px 1px 0 0;">
+			<table id="recordVisualization" cellpadding="0" cellspacing="0" width="100%" border="0">
+				<tr>
+					<!-- Botones AACR2, MARC, EDITAR, etc. -->
+					
+            <td width="54" align="center" valign="top" style="background: #EEDFCC; padding: 1px 2px; border: 1px solid #999; border-right: 0; position: relative;"> 
+            
+              <button id="marcDisplayBtn" class="marcEditButton" style="width: 52px; height: 30px; margin-top: 3px;"
+						        accesskey="M" disabled="disabled" title="Listado de campos MARC"><u>M</u>ARC</button>
+              <button id="etiqDisplayBtn" class="marcEditButton" style="/*display: none;*/ width: 52px; height: 30px; margin-top: 3px;"
+						        accesskey="E" disabled="disabled" title="Estilo detallado"><u>E</u>tiq.</button>
+              <button id="postItNoteDisplayBtn" class="marcEditButton" style="width: 52px; height: 30px; display:none;"
+						        accesskey="" disabled="disabled" title="Anotaciones">Anot.</button>
+              <button id="editRecordBtn" class="marcEditButton" style="width: 52px; height: 30px; margin-top: 65px; position: absolute; bottom: 2px; left: 2px;"
+						        accesskey="D" disabled="disabled" title="Editar el registro seleccionado">E<u>d</u>itar</button></td>
+					
+					<!-- Datos del registro -->
+					<td valign="top">
+						<!-- ATENCION: 'height' y 'overflow' agregados para Mozilla -->
+						 
+						
+						<div id="etiqDisplayDiv"></div>
+						
+						<div id="marcDisplayDiv" style="/*height: 183px;*/ overflow: auto;"></div>
+						
+						<div id="postItNoteDiv" style="height: 183px; overflow: auto; background: #FFA; padding: 6px 12px; border: 1px solid #666; font-size: 13px; display: none;">
+						</div>
+					</td>
+				</tr>
+			</table>
+		</td>
+		
+	</tr>
+
+</table>
+
+</div> <!-- theSearchDiv -->

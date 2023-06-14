@@ -1,0 +1,827 @@
+<!--
+	=======================================================================
+	Catalis - admin.xis
+	
+	Experimental
+	
+	(c) 2003-2005  Fernando J. Gómez - CONICET - INMABB
+	=======================================================================
+-->
+
+
+
+<IsisScript>
+
+<section>
+
+
+<parm name="buffersize">300000</parm>
+
+<display><pft>
+	'Content-type: text/html'/#
+</pft></display>
+
+<display>
+<head>
+<title>Catalis :: Admin</title>
+<style type="text/css">
+	body {
+		background: #EEE;
+		font-family: verdana;
+		font-size: 13px;
+	}
+	li {
+		padding: 0.3em;
+	}
+	input.adminBtn {
+		width: 7em;
+	}
+	.error {
+		background: red;
+		color: white;
+		padding: 0.5em;
+		margin-left: 25%;
+		margin-right: 25%;
+		font-weight: bold;
+		text-align: center;
+	}
+	h5 {
+		font-size: 13px;
+	}
+	
+	table#logtable {
+		margin-left: auto;
+		margin-right: auto;
+		border: 1px solid #CCC;
+		border-right: 0;
+		font-family: "courier new";
+	}
+	table#logtable tr {
+		background: #F9F9F9;
+	}
+	table#logtable tr.GRABAR_REG {
+		background: #F66;
+	}
+	table#logtable tr.EDITAR_REG {
+		background: #CCF;
+	}
+	table#logtable tr.INICIAR_SESION {
+		background: #8D8;
+	}
+	table#logtable tr.BUSCAR {
+		background: #EE0;
+	}
+	table#logtable tr.TEST_CONDITION {
+		background: #EE0;
+	}
+	table#logtable td {
+		padding: 2px;
+		border-bottom: 1px solid #DDD;
+		border-right: 1px solid #DDD;
+		vertical-align: top;
+	}
+	
+	table.mxf0Table {
+		table layout: fixed;
+		font-size: 13px;
+		border-right: 1px solid #999;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	table.mxf0Table td {
+		border-bottom: 1px solid #999;
+		border-left: 1px solid #999;
+		padding: 2px 6px;
+		text-align: right;
+		background: #F9F9F9;
+	}
+	table.mxf0Table th {
+		border-top: 2px solid #666;
+		border-left: 1px solid #999;
+		border-bottom: 2px solid #666;
+		padding: 2px 6px;
+		background: white;
+	}
+	tr.mxf0Tag0xx td {
+		background: #DDD;
+	}
+	tr.mxf0Tag1xx td {
+		background: #F0F0F0;
+	}
+	tr.mxf0Tag2xx td {
+		background: #DDD;
+	}
+	tr.mxf0Tag3xx td {
+		background: #F0F0F0;
+	}
+	tr.mxf0Tag4xx td {
+		background: #DDD;
+	}
+	tr.mxf0Tag5xx td {
+		background: #F0F0F0;
+	}
+	tr.mxf0Tag6xx td {
+		background: #DDD;
+	}
+	tr.mxf0Tag7xx td {
+		background: #F0F0F0;
+	}
+	tr.mxf0Tag8xx td {
+		background: #DDD;
+	}
+	tr.mxf0Tag9xx td {
+		background: #F0F0F0;
+	}
+</style>
+</head>
+
+<body>
+<h2 style="border-bottom: 4px solid #666;">Catalis - Admin</h2>
+</display>
+
+<!--display><pft>
+	'<div style="font-size: 10px; color: #999; text-align: right;">'
+	'SERVER_SOFTWARE=',getenv('SERVER_SOFTWARE'),
+	' ; OS=',getenv('OS'),
+	'</div>'
+</pft></display-->
+
+<field action="replace" tag="6000" split="occ"><pft>,cat(getenv('PATH_WXIS'),'catalis/config/catalis.conf'),</pft></field>
+<field action="replace" tag="6001"><pft>
+	(,
+		,if v6000.1 = '#' then /* ignorar líneas de comentarios */
+		,else if v6000 : 'SCRIPT_URL='      then '^u',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,fi,fi,
+	),
+</pft></field>
+<field action="replace" tag="6003"><pft>
+	(,
+		,if v6000.1 = '#' then /* ignorar líneas de comentarios */
+		,else if v6000 : 'PATH_DB='          then '^b',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,else if v6000 : 'PATH_CGI-BIN='     then '^c',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,else if v6000 : 'PATH_HTDOCS='      then '^h',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,else if v6000 : 'PATH_CISIS='       then '^i',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,else if v6000 : 'PATH_LOGS='        then '^l',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,else if v6000 : 'PATH_TEMP='        then '^t',mid(v6000,instr(v6000,'=')+1,size(v6000))
+		,fi,fi,fi,fi,fi,fi,fi,
+	),
+</pft></field>
+
+<!-- El path a las bases de Catalis -->
+<field action="replace" tag="2011"><pft>v6003^b,'/catalis/'</pft></field>
+<field action="replace" tag="2011"><pft>
+	if getenv('SERVER_SOFTWARE') : 'Win' or getenv('OS') : 'Win' then
+		replace(v2011,'/','\'),
+	else
+		v2011,
+	fi
+</pft></field>
+
+
+<field action="cgi" tag="2000">IsisScript</field>
+
+<field action="cgi" tag="2019">trace</field>
+<trace><pft>v2019</pft></trace>
+
+<!-- Tarea a realizar -->
+<field action="cgi" tag="2002">task</field>
+
+<!-- El nombre de la carpeta con la base de datos -->
+<field action="cgi" tag="2001">db</field>
+
+<flow action="jump"><pft>
+	if not '~LOGS~USERS~' : s('~'v2002'~') and a(v2001) then 'DISPLAY_FORM' fi
+</pft></flow>
+
+<!-- La base propiamente dicha -->
+<field action="replace" tag="2012"><pft>
+	if getenv('SERVER_SOFTWARE') : 'Win' or getenv('OS') : 'Win' then
+		v2011,v2001,'\biblio',
+	else
+		v2011,v2001,'/biblio',
+	fi
+</pft></field>
+
+<!-- Tareas -->
+<flow action="jump"><pft>
+	if not '~CREATE~UNLOCK~FULLINV~STATUS~OPAC~CHECK~LOGS~RECORD~MXF0~USERS~' : s('~'v2002'~') then
+		'DISPLAY_FORM',
+	fi
+</pft></flow>
+
+<flow action="jump"><pft>v2002</pft></flow>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>CHECK</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<field action="statusdb" tag="1091"><pft>v2012</pft></field>
+<flow action="jump"><pft>if not v1091^s : 'm' then 'ERROR_DB_NOT_FOUND' fi</pft></flow>
+
+<display><htmlpft>
+	<h5>Verificación de la base [pft]v2012[/pft]</h5>
+	<b>Atención: use también mxf0 para detectar la presencia de caracteres con código ASCII < 32.</b>
+</htmlpft></display>
+
+<!--field action="cgi" tag="2006">from</field>
+<field action="cgi" tag="2007">tell</field-->
+<!--display><pft>
+	'<b>',
+	'from=',v2006,', tell=',v2007/
+	'</b>'
+</pft></display-->
+
+<display><pre></display>
+
+	<field action="replace" tag="3000"><pft>
+		v6003^i,'/i2id ',v2012,' >',v6003^t,'/check.id tell=1 2>',v6003^t,'/error.txt',
+	</pft></field>
+	
+	<field action="replace" tag="3000"><pft>
+		if getenv('SERVER_SOFTWARE') : 'Win' or getenv('OS') : 'Win' then
+			replace(v3000,'/','\'),
+		else
+			v3000,
+		fi
+	</pft></field>
+	
+	<display><pft>
+		/*v3000,*/
+		system(v3000)
+	</pft></display>
+	
+	<display><pft>
+		'------------------------------------------------'/
+		'FASE 1: i2id - Creación de un archivo de texto  '/
+		'------------------------------------------------'/
+		/*proc('d1000a1000~',cat('error.txt'),'~'),
+		if v1000 : 'fatal' then
+			replace(s(mid(v1000,instr(v1000,'fatal')-34,size(v1000))),s(#),'')/
+		else
+			'OK'/#
+		fi,*/
+		replace(s(cat(v6003^t,'/error.txt')),s(#),''),/
+	</pft></display>
+	
+	<field action="replace" tag="3000"><pft>
+		v6003^i,'/id2i ',v6003^t,'/check.id create=',v6003^t,'/check tell=1 2>',v6003^t,'/error.txt'
+	</pft></field>
+	
+	<field action="replace" tag="3000"><pft>
+		if getenv('SERVER_SOFTWARE') : 'Win' or getenv('OS') : 'Win' then
+			replace(v3000,'/','\'),
+		else
+			v3000,
+		fi
+	</pft></field>
+	
+	<display><pft>
+		/*v3000,*/
+		system(v3000)
+	</pft></display>
+	
+	<display><pft>
+		'------------------------------------------------'/
+		'FASE 2: id2i - Recreación del archivo maestro   '/
+		'------------------------------------------------'/
+		/*proc('d1000a1000~',cat('error.txt'),'~'),
+		if v1000 : 'fatal' then
+			replace(s(mid(v1000,instr(v1000,'fatal')-34,size(v1000))),s(#),'')/
+		else
+			'OK'
+		fi,*/
+		replace(s(cat(v6003^t,'/error.txt')),s(#),''),
+	</pft></display>
+
+<display></pre></display>
+
+<flow action="jump">END</flow>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>OPAC</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- ATENCION: al generar los archivos del OPAC, deberían preservarse los
+	archivos ya existentes, y recién reemplazarlos cuando sabemos que los
+	nuevos se generaron sin errores -->
+
+<field action="statusdb" tag="1091"><pft>v2012</pft></field>
+<flow action="jump"><pft>if not v1091^s : 'm' then 'ERROR_DB_NOT_FOUND' fi</pft></flow>
+
+<display><htmlpft>
+	<h5>Generación del OPAC para la base [pft]v2012[/pft]</h5>
+	<pre>
+</htmlpft></display>
+
+<proc><pft>
+	'd3000a3000~',
+		if getenv('SERVER_SOFTWARE') : 'Win' or getenv('OS') : 'Win' then
+			'\httpd\cgi-bin\catalis_pack\opacmarc\opac\opac.bat ',v2012,x1,v2001 /* ATENCION: la carpeta se crea en cgi-bin\catalis_pack */
+		else
+			'/home/catalis/cgi-bin/opacmarc/opac/opac.sh ',v2012,x1,v2001
+		fi,
+		' 2>',v6003^t,'/error.txt',
+	'~'
+</pft></proc>
+
+<display><pft>
+	/*v3000,*/
+	system(v3000)
+</pft></display>
+
+<display><htmlpft>
+	<hr>[pft]
+	replace(replace(s(cat(v6003^t,'/error.txt')),
+		'<','<'),
+		s(#),'')
+	[/pft]
+	</pre>
+</htmlpft></display>
+
+<flow action="jump">END</flow>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>FULLINV</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<field action="statusdb" tag="1091"><pft>v2012</pft></field>
+<flow action="jump"><pft>if not v1091^s : 'm' then 'ERROR_DB_NOT_FOUND' fi</pft></flow>
+
+<display><htmlpft>
+	<h5>Generación del archivo invertido para [pft]v2012[/pft]</h5>
+	<pre>
+</htmlpft></display>
+
+<!-- Llamamos a un .bat que a su vez llama al mx -->
+<proc><pft>
+	'd3000a3000~',
+		if getenv('SERVER_SOFTWARE') : 'Win' or getenv('OS') : 'Win' then
+			'fullinv.bat ',v2012,' 2>',v6003^t,'\error.txt',
+			/* ATENCION: path al CIPAR, unidad de trabajo ?? */
+		else
+			'fullinv.sh ',v2001,' 2>',v6003^t,'/error.txt',
+		fi,
+	'~'
+</pft></proc>
+
+<display><pft>
+	/*v3000,*/
+	system(v3000)
+</pft></display>
+
+<display><pft>
+	'<hr>'
+	replace(replace(s(cat(v6003^t,'/error.txt')),
+		'<','<'),
+		s(#),'')
+	'</pre>'
+</pft></display>
+
+<flow action="jump">END</flow>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>STATUS</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!-- TO-DO: agregar un listado de registros bloqueados (mfnrange) -->
+
+<field action="statusdb" tag="1091"><pft>v2012</pft></field>
+<field action="replace" tag="1092">
+	<pft>
+		'^m',if v1091^s : 'm' then 'exist' else 'not found' fi
+		'^i',if v1091^s : 'i' then 'exist' else 'not found' fi
+		if p(v1091^n) then '^t',f(val(v1091^n) - 1,1,0) fi
+		"^d"v1091^d,
+		"^e"v1091^e,
+	</pft>
+</field>
+
+<display><pft>
+	system('dir ',v2011,v2001,'\*.* /od >',v6003^t,'/dir.txt')
+</pft></display>
+<field action="replace" tag="1000" split="occ"><pft>cat(v6003^t,'/dir.txt')</pft></field>
+
+<display><pft>
+		'<pre>'
+			'              database: ',v2012/
+			'                master: ',v1092^m/
+			'              inverted: ',v1092^i/
+			'                 total: ',v1092^t/
+			'       data_entry_lock: ',v1092^d/
+			'  exclusive_write_lock: ',v1092^e/
+			/#
+			'                cn.txt: ',cat(v2011,v2001,'/cn.txt'),
+			/#
+			'Directorio (por fecha):'/
+			(,
+				if v1000 : '/' and not v1000 : '<DIR>' then x24,v1000/ fi,
+			),
+		'</pre>'
+</pft></display>
+
+<flow action="jump">END</flow>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>UNLOCK</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<field action="statusdb" tag="1091"><pft>v2012</pft></field>
+<flow action="jump"><pft>if not v1091^s : 'm' then 'ERROR_DB_NOT_FOUND' fi</pft></flow>
+
+<display><htmlpft>
+	<h5>Desbloqueo de la base [pft]v2012[/pft]</h5>
+</htmlpft></display>
+
+<file action="unlock" type="database"><pft>v2012</pft></file>
+
+<field action="cgi" tag="2003">unlock</field>
+<field action="replace" tag="2003"><pft>if v2003 = 'control' then v2003 fi</pft></field>
+
+<display><pre></display>
+
+<display><pft>'unlock: ',v2003/#</pft></display>
+
+<do task="mfnrange">
+
+	<parm name="db"><pft>v2012</pft></parm>
+
+	<field action="define" tag="1091">Isis_Status</field>
+
+	<loop>
+		<flow action="skip"><pft>if v1091 <> '-2' then 'Next' fi</pft></flow>
+		<field action="import" tag="list">2012</field>
+		
+		<do task="update">
+			
+			<parm name="db"><pft>v2012</pft></parm>
+			<parm name="mfn"><pft>mfn(1)</pft></parm>
+			<parm name="expire">0</parm>
+			<parm name="lockid"><pft>'control.xis: ',getenv('REMOTE_ADDR')</pft></parm>
+			
+			<field action="define" tag="1106">Isis_Lock</field>
+			<field action="define" tag="1102">Isis_Status</field>
+			
+			<update>
+				<write>Unlock</write>
+				<display><pft>mfn,x3,v1106/</pft></display>
+			</update>
+			
+		</do>
+	</loop>
+
+</do>
+<display></pre></display>
+<flow action="jump">END</flow>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>MXF0</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<field action="statusdb" tag="1091"><pft>v2012</pft></field>
+<flow action="jump"><pft>if not v1091^s : 'm' then 'ERROR_DB_NOT_FOUND' fi</pft></flow>
+
+<display><htmlpft>
+	<h5>Análisis de la base [pft]v2012[/pft] usando mxf0</h5>
+</htmlpft></display>
+
+<proc><pft>
+	'd3000a3000~',
+		if getenv('SERVER_SOFTWARE') : 'Win' or getenv('OS') : 'Win' then
+			v6003^i,'\mxf0 ',v2012,' create=',v6003^t,'\mxf0 2>',v6003^t,'\error.txt',
+		else
+			v6003^i,'/mxf0 ',v2012,' create=',v6003^t,'/mxf0 2>',v6003^t,'/error.txt',
+		fi,
+		
+	'~'
+</pft></proc>
+
+<display><pft>
+	/*v3000,*/
+	system(v3000)
+</pft></display>
+
+<do task="mfnrange">
+	<parm name="db"><pft>v6003^t,'\mxf0'</pft></parm>
+	<loop>
+		<display><htmlpft>
+			<pre>[pft]
+					'                input master file name: ',v1001/
+					'                     date & time stamp: ',v1003/
+					'               total number of records: ',v1009/
+					'              number of active records: ',v1010/
+					'   number of logically deleted records: ',v1011/
+					'  number of physically deleted records: ',v1012/
+					'               next MFN to be assigned: ',v1013
+				[/pft]
+			</pre>
+			
+			<div style="text-align: center;">
+				<table class="mxf0Table" cellspacing="0" border="0">
+					<col style="width: 3em;">
+					<col style="width: 5em;">
+					<col style="width: 5em;">
+					<col style="width: 5em;">
+					<col style="width: 5em;">
+					<col style="width: 7em;">
+					<thead>
+						<tr>
+							<th>TAG</th>
+							<th>DOCS</th>
+							<th>OCCS</th>
+							<th>MINLEN</th>
+							<th>MAXLEN</th>
+							<th>DATA BYTES</th>
+						</tr>
+					</thead>
+					<tbody>
+						[pft]
+							(
+								'<tr class="mxf0Tag',v1020^t.1,'xx"><td>',v1020^t,'</td><td>',v1020^d,'</td><td>',v1020^o,'</td><td>',v1020^l,'</td><td>',v1020^u,'</td><td>',v1020^n,'</td></tr>'/
+							)
+						[/pft]
+					</tbody>
+				</table>
+				
+				<table class="mxf0Table" cellspacing="0" border="0" style="margin-top: 1em;">
+					<col style="width: 3em;">
+					<col style="width: 5em;">
+					<col style="width: 5em;">
+					<thead>
+						<tr>
+							<th>CHRCODE</th>
+							<th>CHAR</th>
+							<th>CHRFREQ</th>
+						</tr>
+					</thead>
+					<tbody>
+						[pft]
+							(
+								'<tr>'
+									'<td style="text-align: center;">',v1030^x,'</td>'
+									'<td style="font-weight: bold; text-align: center;"> &#x',v1030^x,'; </td>'
+									'<td>',v1030^n,'</td>'
+								'</tr>'/
+							)
+						[/pft]
+					</tbody>
+				</table>
+			</div>
+		</htmlpft></display>
+	</loop>
+</do>
+
+<flow action="jump">END</flow>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>CREATE</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!-- ATENCION: los archivos creados tienen owner "apache" y permisos "rw-r--r--" -->
+
+<display><htmlpft>
+	<h5>Creación de la base [pft]v2012[/pft]</h5>
+</htmlpft></display>
+
+<field action="statusdb" tag="1091"><pft>v2012</pft></field>
+<flow action="jump"><pft>if v1091^s : 'm' then 'ERROR_DB_EXIST' fi</pft></flow>
+
+<field action="cgi" tag="2005">create</field>
+<flow action="jump"><pft>v2005</pft></flow>
+<call name="error">wrong parameter: create</pft></call>
+
+<label>database</label>
+<!--display><pft>system('umask 002')</pft></display-->
+<display><pft>system('mkdir ',v2011,v2001)</pft></display>
+<!--display><pft>system('chmod 2775 ',v2011,v2001)</pft></display-->
+<file action="create" type="database"><pft>v2012</pft></file>
+
+<!-- Creamos el archivo db-descr.txt -->
+<file action="create" type="output"><pft>v2011,v2001,'/db-descr.txt'</pft></file>
+<display><pft>
+	'Base <b>',v2001,'</b>'/
+</pft></display>
+<file action="close" type="output"><pft>v2011,v2001,'/db-descr.txt'</pft></file>
+
+<!-- Creamos el archivo cn.txt -->
+<file action="create" type="output"><pft>v2011,v2001,'/cn.txt'</pft></file>
+<display>000000</display>
+<file action="close" type="output"><pft>v2011,v2001,'/cn.txt'</pft></file>
+
+<!-- En Linux, seteamos permisos de la carpeta y sus contenidos (el owner es 'apache') -->
+<display><pft>
+	if not getenv('SERVER_SOFTWARE') : 'Win'  and not getenv('OS') : 'Win' then
+		system('chmod go=rwx ',v2011,v2001),            /* el directorio */
+		system('chmod go=rw ',v2011,v2001,'/*.*'),      /* los archivos */
+	fi
+</pft></display>
+
+<flow action="jump">DONE</flow>
+
+<label>master</label>
+<file action="create" type="master"><pft>v2012</pft></file>
+<flow action="jump">DONE</flow>
+
+<label>inverted</label>
+<file action="create" type="inverted"><pft>v2012</pft></file>
+<flow action="jump">DONE</flow>
+
+<label>DONE</label>
+<display><pft>
+		'La base ',v2012, ' ha sido creada.'/
+</pft></display>
+
+<flow action="jump">END</flow>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>DOWNLOAD</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!-- Permite descargar la base de datos, comprimida -->
+<field action="statusdb" tag="1091"><pft>v2012</pft></field>
+<flow action="jump"><pft>if not v1091^s : 'm' then 'ERROR_DB_NOT_FOUND' fi</pft></flow>
+
+<proc><pft>
+	'd3000a3000~',
+		if getenv('SERVER_SOFTWARE') : 'Win' or getenv('OS') : 'Win' then
+			/* ??? */
+		else
+			'zip ',v6003^t,'\',v2001,'-',s(date).8,x1,v2012,'.mst',x1,v2012,'.xrf'
+		fi,
+		
+	'~'
+</pft></proc>
+
+<display><pft>
+	v3000,
+	system(v3000)
+</pft></display>
+
+<display><htmlpft>
+	<a href="',,'">Download</a>
+</htmlpft></display>
+
+<flow action="jump">END</flow>
+
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>LOGS</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<field action="cgi" tag="2008">date</field>
+<field action="replace" tag="2008"><pft>if p(v2008) then v2008 else s(date).8 fi</pft></field>
+
+<proc><pft>
+	'd3000a3000~',
+		if getenv('SERVER_SOFTWARE') : 'Win' or getenv('OS') : 'Win' then
+			'copy ',v6003^l,'\log-',v2008,'.txt ',v6003^t,'\log.txt > nul'
+		else
+			'cp ',v6003^l,'/log-',v2008,'.txt ',v6003^t,'/log.txt > /dev/null'
+		fi,
+		
+	'~'
+</pft></proc>
+
+<display><pft>
+	/*v3000,*/
+	system(v3000)
+</pft></display>
+
+<proc><pft>
+	'd3000a3000~',
+		if getenv('SERVER_SOFTWARE') : 'Win' or getenv('OS') : 'Win' then
+			v6003^i,'\id2i ',v6003^t,'\log.txt create=',v6003^t,'\catalislog'
+		else
+			v6003^i,'/id2i ',v6003^t,'/log.txt create=',v6003^t,'/catalislog'
+		fi,
+		
+	'~'
+</pft></proc>
+
+<display><pft>
+	/*v3000,*/
+	system(v3000)
+</pft></display>
+
+<display><htmlpft>
+	<h5>Actividad durante el día [pft]v2008*6.2,'/',v2008*4.2,'/',v2008.4[/pft]</h5>
+</htmlpft></display>
+
+<flow action="jump"><pft>
+	if v2008 > date then 'END' fi,
+</pft></flow>
+
+<display>
+	<div style="text-align: center;">
+	<table id="logtable" style="xtable-layout: fixed; font-size: 13px;" cellspacing="0" border="0">
+</display>
+<do task="mfnrange">
+	<parm name="db"><pft>v6003^t,'/catalislog'</pft></parm>
+	<loop>
+		<display><htmlpft>
+			<tr class="[pft]v2001[/pft]">
+				<td width="72">[pft]v5*9.2,':',v5*11.2,':',v5*13.2[/pft]</td>
+				<td width="56">[pft]v2002," "n2002[/pft]</td>
+				<td width="110">[pft]v10[/pft]</td>
+				<td width="80">[pft]v2104," "n2104[/pft]</td>
+				<td width="136">[pft]v2001," "n2001[/pft]</td>
+				<td width="64">[pft]v4001," "n4001[/pft]</td>
+				<td width="6">[pft]v2006," "n2006[/pft]</td>
+				<td width="160">[pft]v3005,v2070," "n3005[/pft]</td>
+			</tr>
+		</htmlpft></display>
+	</loop>
+</do>
+<display>
+	</table>
+	</div>
+</display>
+
+<flow action="jump">END</flow>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>RECORD</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<field action="cgi" tag="2004">mfn</field>
+
+<display><htmlpft>
+	<h5>Base [pft]v2012,', MFN ',v2004[/pft]</h5>
+</htmlpft></display>
+
+<do task="mfnrange">
+	<parm name="db"><pft>v2012</pft></parm>
+	<parm name="from"><pft>v2004</pft></parm>
+	<parm name="count">1</parm>
+	<loop>
+		<field action="replace" tag="999" split="flddir"><pft>ALL</pft></field>
+		<field action="replace" tag="1000" split="occ"><pft>v999</pft></field>
+		<display><htmlpft>
+			<pre>[pft]
+				(
+					replace(v1000.2,'0',' '),
+					v1000*2.3,
+					x1,'«',v1000*6,'»'/
+				)
+			[/pft]</pre>
+		</htmlpft></display>
+	</loop>
+</do>
+<flow action="jump">END</flow>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>USERS</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!-- Genera un listado de los usuarios y las bases a las que accede cada uno -->
+<display><htmlpft>
+	<h4>Listado de usuarios</h4>
+</htmlpft></display>
+<do task="mfnrange">
+	<parm name="db"><pft>v6003^c,'/catalis/config/users'</pft></parm>
+	<parm name="from">1</parm>
+	<loop>
+		<display><htmlpft>
+			<pre>[pft]
+				v1, ' [',v4,', ',v2,']'/
+				(' ·', v5^*, '[',v5^p,']'), / 
+			[/pft]</pre>
+		</htmlpft></display>
+	</loop>
+</do>
+<flow action="jump">END</flow>
+
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>DISPLAY_FORM</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<display><htmlpft><pft>cat('catalis/html/admin.html')</pft></htmlpft></display>
+<flow action="exit">1</flow>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>ERROR_DB_EXIST</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<display><p class="error">ERROR: la base de datos ya existe.</p></display>
+<flow action="jump">END</flow>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>ERROR_DB_NOT_FOUND</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<display><p class="error">ERROR: no se encuentra la base de datos.</p></display>
+<flow action="jump">END</flow>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<label>END</label>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<display><htmlpft>
+	<p align="center">
+		<a href="[pft]v6001^u[/pft]?IsisScript=[pft]v2000[/pft]">Volver al formulario</a>
+	</p>
+</htmlpft></display>
+<flow action="exit">1</flow>
+
+
+</section>
+
+</IsisScript>

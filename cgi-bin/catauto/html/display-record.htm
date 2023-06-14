@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!-- 
+	===========================================================================
+	Catalis - displayRecord.htm
+	
+	Esta página va al IFRAME oculto.
+	Trae desde el servidor los datos del registro en el objeto receivedRecord.
+	Al cargarse, invoca a la función que presentará los datos en el formulario
+	de edición, o bien la que mostrará los detalles en la pantalla de
+	búsquedas.
+	
+	(c) 2003-2005  Fernando J. Gómez - CONICET - INMABB
+	===========================================================================
+-->
+
+<html>
+<head>
+<title></title>
+<script type="text/javascript">
+	function init() {
+		
+		
+		var receivedRecord = new Object();
+		receivedRecord = {
+			mfn        : "[pft]mfn(1)[/pft]",
+			leader     : "[pft]v905,v906,v917[/pft]",
+			f001       : "[pft]v001[/pft]",
+			f003       : "[pft]v003[/pft]",
+			f005       : "[pft]v005[/pft]",
+			f008       : "[pft]v008[/pft]",
+			//createdBy  : "[pft]s(mpu,v991,mpl)[/pft]",
+			createdBy  : "YY",
+			datafields : "[pft]v3083+|\n|[/pft]"
+		}
+		
+		receivedRecord.postItNote = "[pft]replace(v980,'"','\"'),[/pft]";
+		
+		receivedRecord.OK = "[pft]v981[/pft]";
+		
+		// Si llega a recibirse un registro "vacío"...
+		if ( receivedRecord.datafields == "" ) {
+			// Cartelito
+			var message = "<br><br>ATENCION: el registro carece de campos de datos, y no puede ser editado.";
+			top.document.getElementById("cartelMsg").innerHTML += message;
+			top.document.getElementById("cartelBtn").style.display = "block";
+			return;
+		}
+		
+		// Este mensaje no se ve. ¿Hay alguna manera de forzar a JS que lo muestre?
+		top.document.getElementById("cartelMsg").innerHTML += "<br><br>Registro recibido. Procesando los datos...";
+		
+		[pft]
+			select v2001
+				case 'EDITAR_REG'  : 'top.showRecordInForm(receivedRecord);',
+				case 'SEND_RECORD' : 'top.showRecordDetails(receivedRecord);',
+			endsel
+		[/pft]
+	}
+	
+	window.onload = init;
+</script>
+</head>
+
+<body><!-- empty body --></body>
+
+</html>

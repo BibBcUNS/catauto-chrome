@@ -1,0 +1,289 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--  (c) 2003-2004  Fernando J. Gómez - CONICET - INMABB  -->
+
+<!-- ATENCION: El uso de la función position() de XPath genera un error
+		al usar MSXML3; por ese motivo usamos fieldblock[i] en lugar de 
+		fieldblock[position()=i], con lo cual ya no parece necesario 
+		el uso de MSXML4.
+		Lo extraño es que al pasar de MSXML3 a MSXML4, cambia la forma de
+		contar los índices: 1-based en MSXML4, 0-based en MSXML3.
+-->
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="pragma" content="no-cache">
+<title>Agregar campos</title>
+<link rel="stylesheet" type="text/css" href="../css/catalis.css">
+<!--script language="JavaScript" type="text/javascript" src="../js/catalis.js"></script-->
+
+
+<script language="JavaScript" type="text/javascript">
+var callerWindowObject = dialogArguments;  
+
+// XML con los datos de MARC21
+var xmlMARC21 = callerWindowObject.xmlMARC21;
+
+// Tags deshabilitados
+var disabledTags = callerWindowObject.disabledTags;
+
+// Idioma
+var LANG = callerWindowObject.LANG;
+
+var blocksNumber = xmlMARC21.selectNodes("marc21_bibliographic/fieldblock").length;
+
+
+//------------------------------------------------------------------------------
+function selectedTags()
+//------------------------------------------------------------------------------
+{
+	tags = new Array();
+	// Primero, los tags ingresados manualmente
+	if ( document.getElementById("tagBox").value.search(/\d{3}/ ) != -1 ) {
+		tags = document.getElementById("tagBox").value.split(/\s+|\s*,\s*|\./);
+	}
+	// Luego, los tags seleccionados en las listas de campos
+	var allTags = document.getElementsByTagName("INPUT");
+	for (var i=0; i<allTags.length; i++) {
+		if ( allTags[i].type == "checkbox" && allTags[i].checked ) {
+			tags.push(allTags[i].value);
+		}
+	}
+	return tags;
+} 
+
+//------------------------------------------------------------------------------
+function handleOK()
+//------------------------------------------------------------------------------
+{
+	returnValue = selectedTags();
+	window.close();
+}
+
+//------------------------------------------------------------------------------
+function handleCancel()
+//------------------------------------------------------------------------------
+{
+	window.close();
+}
+
+//------------------------------------------------------------------------------
+function mouseOut(obj)
+//------------------------------------------------------------------------------
+{
+	obj.className = ( obj.index != activeBlockIndex ) 
+					? "blockNav blockNavNormal"
+					: "blockNav blockNavActive";
+}
+
+
+//------------------------------------------------------------------------------
+function buildBlock(i)
+//------------------------------------------------------------------------------
+{
+	var tagList = xmlMARC21.selectSingleNode("marc21_bibliographic/fieldblock[" + (i) + "]/text()").nodeValue.split(",");
+	
+	var HTMLstring = "<table border='0' width='100%' style='background: #EEE;'>";
+	for (var j=0; j < tagList.length; j++)
+	{
+		//alert("datafield[@tag=" + tagList[j] + "]/@label-eng");
+		var tag = tagList[j];
+		if ( "|||" == tag ) {
+			HTMLstring += "<tr><td colspan='3' style='height: 1px; background: #999;'></td></tr>"; 
+		}
+		else {
+
+			var fieldLabel = xmlMARC21.selectNodes("marc21_bibliographic/datafield[@tag=" + tag + "]/@label-" + LANG)[0].value.replace("--","&#8212;"); 
+			var repet = xmlMARC21.selectNodes("marc21_bibliographic/datafield[@tag=" + tag + "]/@repet")[0].value;
+			var disabled = ( disabledTags[tag] ) ? "disabled" : "";
+			var labelClass = ( disabledTags[tag] ) ? "disabledLabel" : "";
+			HTMLstring += "<tr><td style='vertical-align: top; width: 20px'>" 
+						+ "<input type='checkbox' value='" + tag + "' id='f" + tag + "' " + disabled + "></td>"
+						+ "<td valign='top' width='32'><label style='font-weight: bold' for='f" + tag + "' class='" + labelClass + "'>"
+						+ "<b>" + tag + "</b></label></td>"
+						+ "<td valign='top'><label style='font-weight: bold' for='f" + tag + "' class='" + labelClass + "'>" + fieldLabel + "</label>"
+						//+ " (" + repet + ")"
+						+ "</td></tr>";
+		}
+		/*
+		var newInput = document.createElement("input");
+		newInput.type = "checkbox";
+		var newText = document.createTextNode(marcFields[fieldBlocks[i].id][j]);
+		var newBR = document.createElement("BR");
+		fieldBlocks[i].appendChild(newInput);
+		fieldBlocks[i].appendChild(newText);
+		fieldBlocks[i].appendChild(newBR);
+		*/
+	}
+	HTMLstring += "</table>";
+	return HTMLstring;
+}
+	
+	
+//------------------------------------------------------------------------------
+function showBlock(blockIndex)
+//------------------------------------------------------------------------------
+{
+	//ATENCION: buildBlock sólo la primera vez que es llamado, de lo contrario
+	// se pierden los checks ya marcados
+	if ( !built[blockIndex] ) {
+		fieldBlocks[blockIndex].innerHTML = buildBlock(blockIndex);
+		built[blockIndex] = true;
+	}
+	document.getElementById("block" + activeBlockIndex).style.display = "none";
+	document.getElementById("block" + blockIndex).style.display = "block";
+	document.getElementById("nav" + activeBlockIndex).className = "blockNav blockNavNormal";
+	document.getElementById("nav" + blockIndex).className = "blockNav blockNavActive";
+	activeBlockIndex = blockIndex;
+}
+
+
+//------------------------------------------------------------------------------
+function init()
+//------------------------------------------------------------------------------
+{
+	window.returnValue = null;
+	
+	document.onkeydown = function(evt) {
+		var evt = (evt) ? evt : window.event;
+		if ( evt.keyCode == 27 ) {
+			handleCancel();
+		}
+	}
+	document.getElementById("btnOK").onclick = handleOK;
+	document.getElementById("btnCancel").onclick = handleCancel;
+	document.getElementById("theForm").onsubmit = function() {
+		handleOK();
+		return false;
+	}
+	
+	// TO-DO: para acelerar la presentación de la ventana, podemos dibujar cada
+	// bloque recién cuando es solicitado por primera vez (showBlock)
+	
+	// Global vars
+	fieldBlocks = document.getElementById("blocksContainer").getElementsByTagName("DIV");
+	built = new Array();
+	activeBlockIndex = 0;
+	showBlock(0);
+}
+
+
+// -----------------------------------------------------------------------------
+function setFocus()
+// -----------------------------------------------------------------------------
+{
+	// dialogArguments = window object of main window
+	if ( callerWindowObject.selectedSubfieldBox ) {
+		callerWindowObject.selectedSubfieldBox.focus();
+	}
+}
+
+window.onload = init;
+window.onunload = setFocus;
+</script>
+
+<style type="text/css">
+	body,table {
+		font-family: verdana;
+		font-size: 13px;
+		background: #CDC7A9;
+	}
+	body {
+		margin: 1em;
+	}
+	.fieldBlock {
+		display: none;
+		font-family: verdana;
+		font-size: 13px;
+		border-top: 1px solid #999;
+		border-bottom: 1px solid #999;
+		border: 1px solid #999;
+		height: 298px;
+		overflow-y: scroll; /* ATENCION: IE only? */
+		background: #EEE;
+	}
+	.blockNav {
+		font-family: verdana;
+		font-size: 13px;
+		font-weight: bold;
+		color: #333;
+		border: 1px solid #666;
+		padding: 4px 8px;
+		cursor: hand;
+	}
+	.blockNavNormal {
+		background: #F5F5DC;
+	}
+	.blockNavOver {
+		background: #FFFACD;
+	}
+	.blockNavActive {
+		background: #F5DEB3;
+		border-right-width: 0px;
+	}	
+</style>
+
+</head>
+
+<body>
+
+<div style="margin: 1em 0;">
+<form id="theForm" action="javascript:void(0)">
+
+<b>Escriba el número de campo:&nbsp;&nbsp;<input type="text" id="tagBox" size="3">
+&nbsp;o seleccione de la tabla:</b>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 10px;">
+	<tr>
+	
+		<!-- Celda izquierda -->
+		<td id="navCell" style="width: 150px;" valign="top">
+			<script language="JavaScript" type="text/javascript">
+			for (var i=0; i < blocksNumber; i++) {
+				var newDiv = document.createElement("DIV");
+				var blockLabel = xmlMARC21.selectNodes("marc21_bibliographic/fieldblock[" + (i) + "]/@label-" + LANG)[0].value;
+				newDiv.index = i;
+				newDiv.id = "nav" + i;
+				newDiv.className = "blockNav blockNavNormal";
+				newDiv.style.textAlign = "center";
+				//newDiv.onmouseover = function() {this.className = "blockNav blockNavOver"};
+				//newDiv.onmouseout = function() {mouseOut(this)};
+				newDiv.onclick = function() { showBlock(this.index) };
+				newDiv.title = blockLabel;
+				// ATENCION: revisar newDiv.innerHTML según la estructura de bloques usada
+				//newDiv.innerHTML = xmlMARC21.selectNodes("marc21_bibliographic/fieldblock[" + (i) + "]/@id")[0].value;
+				//                   blockLabel;
+				newDiv.innerHTML = xmlMARC21.selectNodes("marc21_bibliographic/fieldblock[" + (i) + "]/@id")[0].value;
+				document.getElementById("navCell").appendChild(newDiv);
+			}
+			</script>
+		</td>
+		
+		<!-- Celda derecha -->
+		<td valign="top" style="background: #F5DEB3; border: 1px solid #666; border-left-width: 0px; padding: 6px;">
+			<div id="blocksContainer">
+				<script language="JavaScript" type="text/javascript">
+				for (var i=0; i < blocksNumber; i++) {
+					var blockId = xmlMARC21.selectNodes("marc21_bibliographic/fieldblock[" + (i) + "]/@id")[0].value;
+					var display = (blockId == "description") ? "block" : "none";
+					var HTMLstring = "<div id='block" + i + "' class='fieldBlock' style='display:" + display + "'></div>";
+					document.write(HTMLstring);
+				}
+				</script>
+			</div>
+		</td>
+	</tr>
+</table>
+
+<div align="center" style="margin-top: 10px;">
+	<button id="btnOK" class="marcEditButton" accesskey="A"><u>A</u>ceptar</button>
+	<button id="btnCancel" class="marcEditButton" accesskey="C"><u>C</u>ancelar</button>
+</div>
+
+</form>
+</div>
+
+</body>
+</html>

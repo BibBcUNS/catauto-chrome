@@ -1,0 +1,56 @@
+<!-- ==========================================================
+	Catalis - showkeys.xis
+
+	(c)2003-2005  Fernando J. Gómez - CONICET - INMABB
+	Véase el archivo LICENCIA.TXT incluido en la distribución de Catalis
+	=========================================================== -->
+
+<field action="cgi" tag="2020">dictkey</field>
+<field action="cgi" tag="2021">reverse</field>
+<field action="cgi" tag="2022">index_type</field>
+
+<!--field action="replace" tag="2023"><pft>
+	select v2022
+		case 'title' : '9204',
+		case 'name'  : '9104',
+		case 'subj'  : '9604',
+		elsecase '',
+	endsel
+</pft></field-->
+
+
+
+
+
+
+<!--display><pft>ALL</pft></display-->
+
+<!-- Cargamos claves en la lista -->
+<do task="keyrange">
+	<parm name="db">BIBLIO</parm>
+	<parm name="from"><pft>v2020</pft></parm>
+	<parm name="count"><pft>'50'</pft></parm>
+	<parm name="reverse"><pft>v2021</pft></parm>
+	<parm name="to"><pft>if v2021 <> 'On' then 'zzz' fi</pft></parm>
+	<!--parm name="posttag"><pft>v2023</pft></parm-->
+	<define>1 Isis_Key</define>
+	<define>2 Isis_Postings</define>
+	<loop>
+		<list action="load" type="list"><pft>'^k',v1,'^p',v2</pft></list>
+	</loop>
+</do>
+
+<!-- Recorremos la lista en el orden adecuado; las claves van al campo 2027 -->
+<do task="list">
+	<parm name="reverse"><pft>v2021</pft></parm>
+	<define>1 Isis_Item</define>
+	<loop>
+		<field action="import" tag="list">2027</field>
+		<field action="add" tag="2027"><pft>v1</pft></field>
+		<field action="export" tag="list">2027</field>
+	</loop>
+</do>
+
+
+<!-- La página que genera el código JS para pasarle las claves al cliente -->
+<display><htmlpft><pft>cat('SEND-KEYS.HTM')</pft></htmlpft></display>

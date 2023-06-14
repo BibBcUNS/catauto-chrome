@@ -1,0 +1,115 @@
+<!-- Pantalla de login/noticias -->
+
+<script language="JavaScript" type="text/javascript">
+// Aviso para quien no ingrese con IE
+if ( navigator.appName != "Microsoft Internet Explorer" ) {
+	var msg = "Please consider that this version of Catalis does not work properly on browsers other than Internet Explorer 6. That will change, once we finish the next version which will also work on Mozilla. The development version can be tested online; please check the website.";
+	alert(msg);
+// Aviso para quien ingrese con IE < 5.5
+} else if ( navigator.appVersion.search(/MSIE (8\.\d?|7\.\d?|6\.\d?|5\.5)/) == -1 ) {
+	var msg = "La versión de Internet Explorer que está utilizando (" + RegExp.$1 + ") no permite trabajar con Catalis. Recomendamos usar la versión 6.";
+	alert(msg);
+}
+	
+// Detección del navegador
+var moz = ( document.implementation && document.implementation.createDocument );
+var ie = window.ActiveXObject;
+
+
+// -----------------------------------------------------------------------------
+function handleKey(evt)
+// -----------------------------------------------------------------------------
+{
+	
+	evt = (evt) ? evt : window.event;
+	var charCode = (evt.charCode) ? evt.charCode : evt.keyCode;
+	if ( charCode == 13 ) {
+		if (ie) {
+			event.keyCode = 9;
+		} else if (moz) {
+			document.getElementById("loginForm").pw.focus();
+		}
+	}
+}
+
+
+// -----------------------------------------------------------------------------
+function handleLoginSubmit()
+// -----------------------------------------------------------------------------
+{
+	var form = document.getElementById("loginForm");
+	var userid = form.userid.value;
+	var password = form.pw.value;
+	if ( userid == "" || password == "" ) { 
+		alert("Debe ingresar su nombre de usuario y su contraseña");
+	} else {
+		form.submit();
+	}
+}
+</script>
+
+<div align="center">
+	<div style="width: 75%; background: brown; /*#CC6600*/ ; border: 1px solid #F0F0F0; padding: 6px; margin: 6px 0;">
+		
+		<form name="loginForm" id="loginForm" action="[pft]v6001^u[/pft]" method="POST"
+				onsubmit="handleLoginSubmit(); return false" style="margin: 0;">
+			<input type="hidden" name="IsisScript" value="[pft]v2000[/pft]">
+			<input type="hidden" name="tarea" value="INICIAR_SESION">
+			
+			<table align="center" style="color: #F0F0F0; font-size: 13px;" cellpadding="3" cellspacing="0" border="0">
+				
+				[pft]if p(v2005) then[/pft]
+					<tr>
+						<td colspan="3" style="text-align: center; border-bottom: 1px solid #EEE;">
+							<b><i>Hubo un error en su nombre de usuario o en su contraseña.
+							Por favor, inténtelo nuevamente.</i></b>
+						</td>
+					</tr>
+				[pft]fi[/pft]
+				
+				<!--tr>
+					<td rowspan="4" style="color: #FFA; font-size: 14px; text-align: left; vertical-align: top; border-right: 1px solid #EEE;">
+						<b>ATENCION:<br> Debido a ..., el acceso a Catalis estará deshabilitado hasta ...</b>
+						<span style="font-size: 11px;">[Fecha - hora]</span>
+					</td>
+				</tr-->
+				
+				<tr>
+					<td align="right">
+						<b>Usuario:</b>
+					</td>
+					<td>
+						<input type="text" name="userid" value="[pft]v2002[/pft]" size="10" maxlength="8" style="font-family: verdana; font-size: 13px;" onkeydown="handleKey(event); return true;">
+					</td>
+				</tr>
+				
+				<tr>
+					<td style="text-align: right; padding-left: 12px;">
+						<b>Contraseña:</b>
+					</td>
+					<td style=" padding-right: 12px;">
+						<input type="password" name="pw" size="10" maxlength="12" style="font-family: verdana; font-size: 13px;">
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" align="center">
+						<input type="submit" class="marcEditButton" style="height:2.5em; padding: 0 1em;" value="Iniciar sesión">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+</div>
+
+<!--div id="news" align="center">
+	<div style="border: 1px solid brown; width: 75%; background: brown; color: #FED; text-align: center; padding: 0.2em; font-size: 17px; font-weight: 600; margin-top: 10px;">
+		Novedades
+	</div>
+	<iframe src="[pft]v6003^h[/pft]catalis/html/news.htm" frameborder="0" style="width: 75%; height: 280px; border: 1px solid #999;"></iframe>
+</div-->
+
+<div align="center" style="margin-top: 1em;">
+	<button class="marcEditButton" style="height: 2em;" onclick="window.close()" accesskey="C">&nbsp;<u>C</u>errar esta ventana&nbsp;</button>
+</div>

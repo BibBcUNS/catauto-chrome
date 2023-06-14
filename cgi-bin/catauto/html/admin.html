@@ -1,0 +1,115 @@
+<!-- Catalis - admin.html  (experimental)  -->
+
+<form id="control_form" action="[pft]v6001^u[/pft]" method="POST">
+
+	<input type="hidden" name="IsisScript" value="[pft]v2000[/pft]">
+	
+	<div style="text-align: right;">
+		<input type="checkbox" name="trace" value="BR"><span style="color: #999;">trace</span>
+	</div>
+	
+	Nombre de la base: <input type="text" name="db" size="10" style="font-family: verdana;"> (en minúsculas y sin el path, e.g. <b>demo</b>)
+	
+	<ul>
+		<li><input type="submit" name="task" value="STATUS" class="adminBtn">&nbsp;&nbsp;Informa existencia de maestro e invertido, total de registros, bloqueos (DEL, EWL)
+		<li><input type="submit" name="task" value="CHECK" class="adminBtn">
+			<!--&nbsp;from = <input type="text" name="from" value="1" size="4">
+			tell = <select name="tell">
+					<option value="1">1</option>
+					<option value="10">10</option>
+					<option value="100" selected>100</option>
+					<option value="1000">1000</option>
+				</select-->
+			&nbsp;Intenta detectar registros corruptos, usando <code>i2id</code> e <code>id2i</code>
+		
+		<li><input type="submit" name="task" value="MXF0" class="adminBtn">&nbsp;&nbsp;Analiza campos con <code>mxf0</code>
+		<li><input type="submit" name="task" value="RECORD" class="adminBtn">&nbsp;&nbsp;Muestra un registro.
+			MFN: <input type="text" name="mfn" size="5">
+		<li><input type="submit" name="task" value="UNLOCK" class="adminBtn">&nbsp;&nbsp;Desbloquea:
+			<input type="radio" id="unlock_database" name="unlock" value="database" checked><label for="unlock_database">toda la base</label>
+			<input type="radio" id="unlock_control" name="unlock" value="control"><label for="unlock_control">sólo registro de control (DEL, EWL)</label>
+		<li><input type="submit" name="task" value="FULLINV" class="adminBtn">&nbsp;&nbsp;Genera el archivo invertido completo
+		<li><input type="submit" name="task" value="OPAC" class="adminBtn">&nbsp;&nbsp;Genera el conjunto de archivos para el OPAC [<em>sólo en Windows</em>]
+		<li><input type="submit" name="task" value="CREATE" class="adminBtn">&nbsp;&nbsp;Crea una base vacía (directorio + juego de archivos)
+			<input type="hidden" name="create" value="database">
+	</ul>
+	
+	<hr>
+	
+	<ul>
+		<li><input type="submit" name="task" value="LOGS" class="adminBtn">&nbsp;&nbsp;Logs de acceso a Catalis.
+			Fecha: <input type="text" name="date" value="[pft]s(date).8[/pft]" size="8">
+	</ul>
+
+	<hr>
+	
+	<ul>
+		<li><input type="submit" name="task" value="USERS" class="adminBtn">&nbsp;&nbsp;Listado de usuarios.
+	</ul>
+	
+</form>
+
+<script type="text/javascript">
+	window.onload = function() {
+		document.getElementById("control_form").db.focus();
+	}
+</script>
+
+<hr>
+
+<h5>Listado de bases existentes:</h5>
+<div id="dblist">
+	[pft]
+		/* ^c: comando para obtener el listado del directorio
+		   ^f: el archivo donde se almacena la salida */
+		proc('d1001a1001¦',
+			if getenv('SERVER_SOFTWARE') : 'Win' or getenv('OS') : 'Win'  then
+				'^c','dir ',v2011,' /on /ad',
+				'^f',v6003^t,'\dir.tmp',
+			else
+				'^c','ls -l ',v2011,
+				'^f',v6003^t,'/dir.tmp',
+			fi
+		'¦'),
+		system(v1001^c,'>',v1001^f)
+	[/pft]
+	
+	<pre>
+		[pft]
+			if getenv('SERVER_SOFTWARE') : 'Win' or getenv('OS') : 'Win' then
+				replace(replace(s(cat(v1001^f)),
+					'<','&lt;'),
+					s(#),''),
+			fi,
+		[/pft]
+	</pre>
+</div>
+<script>
+	document.getElementById("dblist").onclick = function() {
+		if ( this.style.display == "none" ) {
+			this.style.display == "block";
+		} else {
+			this.style.display == "none";
+		}
+	}
+</script>
+
+<hr>
+
+<p style="color: #777;">
+<b>Otras tareas que deberían realizarse desde una interfaz administrativa:</b>
+<ul>
+	<li>Crear/editar usuarios
+	<li>Editar catalis.conf
+	<li>Compactar bases?
+	<li>Suspender el acceso al sistema (e.g. por mantenimiento)
+	<li>Editar mensajes de la pantalla de login (e.g. motivo y duración de una suspensión del acceso)
+	<li>Editar plantillas?
+	<li>Configurar preferencias globales? (para preferencias individuales de cada catalogador hace falta otra interfaz)
+	<li>Bajar una base para tener una copia local (backup)
+	<li>Ver archivos auxiliares: FST, STW, UCTAB, ACTAB
+	<li>Realizar búsquedas directamente sobre el diccionario.
+	<li>Averiguar qué registros se encuentran bloqueados (como parte de STATUS?)
+</ul>
+</p>
+

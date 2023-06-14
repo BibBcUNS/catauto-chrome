@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!-- 
+	===========================================================================
+	savedRecord.htm
+	
+	Esta página va al IFRAME oculto.
+	Informa al catalogador que el registro ha sido grabado, y se ocupa de 
+	actualizar algunos elementos en el formulario de edición.
+	
+	Si la grabación fue sugerida por el sistema cuando el usuario quiso 
+	abandonar el registro activo, entonces se continúa con la tarea solicitada.
+	
+	(c) 2003-2004  Fernando J. Gómez - CONICET - INMABB
+	===========================================================================
+-->
+
+<html>
+<head>
+<title>Registro grabado</title>
+
+<script language="JavaScript" type="text/javascript">
+	function init() {
+		
+		
+		var DEBUG_MSG = [pft]v6001^d[/pft];  // debugging de la grabación (boolean)
+		if ( DEBUG_MSG && typeof(debugMessage) != "undefined" ) alert (debugMessage);
+		
+		top.document.getElementById("cartelMsg").innerHTML += "<br><br>" + top.document.getElementById("registroGrabado").innerHTML;
+		
+		var form = top.document.getElementById("marcEditForm");
+		
+		// Datos que sólo interesan para registros *nuevos*
+		// ATENCION: usar MONTH_NAME
+		//form.mfn.value = "[pft]v4000[/pft]";
+		form.f001.value = "[pft]ref(['BIBLIO']val(v4000),v001)[/pft]";
+		form.f005.value = "[pft]ref(['BIBLIO']val(v4000),v005)[/pft]";
+		form.f005_nice.value = "[pft]ref(['BIBLIO']val(v4000),v005*6.2,'.',v005*4.2,'.',v005.4,' ',v005*8.2,':',v005*10.2)[/pft]";
+		form.createdBy.value = "[pft]ref(['BIBLIO']val(v4000),' [',s(mpu,v991,mpl),']')[/pft]";
+		
+		// Datos que interesan para *todos* los registros
+		// ATENCION: usar MONTH_NAME
+		form.f008_00_05.value = "[pft]ref(['BIBLIO']val(v4000),v008.6)[/pft]";
+		form.f008_00_05_nice.value = "[pft]ref(['BIBLIO']val(v4000),v008*4.2,'.',v008*2.2,'.',v008.2)[/pft]";
+		
+		// Una vez grabado el registro, habilitamos la posibilidad de borrarlo.
+		top.document.getElementById("btnBorrar").disabled = false;
+		
+		// Conservamos una copia la última versión grabada del registro, para luego detectar modificaciones
+		top.originalRecord = top.serializeRecord(true,true,true,true);
+		
+		// Limpiamos (por las dudas) el textarea usado para enviar el registro al servidor
+		top.document.getElementById("hiddenFORM").marcFields.value = "";
+		
+		// Cierre del cartel, y foco en el formulario
+		setTimeout("top.document.getElementById(\"cartel\").style.display = \"none\"; if (top.selectedSubfieldBox != null) top.selectedSubfieldBox.focus()",1000);
+		
+		// Si hay una tarea pendiente, vamos a ella.
+		if ( top.g_NextTask != "" ) {
+			top.handleNextTask(g_NextTask);
+		}
+	}
+	
+	window.onload = init;
+	window.onerror = function() {return true;}  // ATENCION: solución provisoria para el problema del foco en el formulario cuando se pasa rápidamente a la pantalla de búsquedas
+</script>
+</head>
+
+<body><!-- empty --></body>
+
+</html>

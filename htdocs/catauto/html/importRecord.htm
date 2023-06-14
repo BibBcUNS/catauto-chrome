@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="pragma" content="no-cache">
+<title>Importación de registros MARC</title>
+<link rel="stylesheet" type="text/css" href="../css/catalis.css">
+<!--script language="JavaScript" type="text/javascript" src="../js/catalis.js"></script-->
+
+<script language="JavaScript" type="text/javascript">
+// TO-DO: verificar que el textbox no quede vacío si se presiona Aceptar
+
+// -----------------------------------------------------------------------------
+function handleCancel()
+// -----------------------------------------------------------------------------
+{
+	window.close();
+}
+
+
+
+// -----------------------------------------------------------------------------
+function handleOK()
+// -----------------------------------------------------------------------------
+{
+	if ( opener && opener.dialogWin && opener.dialogWin.returnFunc ) {  // mozilla
+		opener.dialogWin.returnFunc(document.getElementById("isoRecord").value);
+	} else {  // ie
+		window.returnValue = document.getElementById("isoRecord").value;
+	}
+	
+	window.close();
+}
+
+// -----------------------------------------------------------------------------
+function init()
+// -----------------------------------------------------------------------------
+{
+	window.returnValue = "";
+	
+	document.getElementById("btnOK").onclick = handleOK;
+	document.getElementById("btnCancel").onclick = handleCancel;
+	document.onkeydown = function(evt) {
+		var evt = (evt) ? evt : window.event;
+		if ( evt.keyCode == 27 ) {
+			handleCancel();
+		}
+	}
+	/*document.getElementById("isoRecord").onpaste = function() {
+		document.getElementById("btnOK").focus();
+	}*/
+	
+	document.getElementById("isoRecord").focus();
+}
+
+window.onload = init;
+</script>
+
+<style>
+	body, table {
+		font-family: verdana;
+		font-size: 13px;
+		background: #CDC7A9;
+	}
+	body {
+		margin-top: 3px;
+	}
+	#sampleRecord {
+		height: 120px;
+		margin-top: 3px;
+		width: 210px;
+		background: #f0f0f0;
+		font-family: "courier new";
+		font-size: 13px;
+		overflow: auto;
+	}
+	#isoRecord {
+		background: #F9F9F9;
+		width: 320px;
+		height: 200px;
+	}
+</style>
+
+</head>
+
+<body>
+
+<table cellpadding="6" border="0">
+<tr>
+<td valign="top">
+	<div style="font-size: 13px;"><!--a href="javascript:document.getElementById('isoRecord').execCommand('paste')"-->Pegue<!--/a--> aquí el registro a importar:</div>
+	<textarea id="isoRecord"></textarea>
+	<div align="center" style="margin-top: 12px">
+		<button id="btnOK" class="marcEditButton" accesskey="A">&nbsp;<u>A</u>ceptar&nbsp;</button>
+		<button id="btnCancel" class="marcEditButton" accesskey="C">&nbsp;<u>C</u>ancelar&nbsp;</button>
+	</div>
+</td>
+
+<td valign="top" style="font-size: 11px; border-left: 1px dotted #666;">
+	<b>Indicaciones</b>: 
+	Sólo puede importar de a un registro por vez. El registro MARC,
+	obtenido del <a href="http://catalog.loc.gov/" target="_blank" style="text-decoration: underline;">catálogo de la Library of Congress</a>
+	o de otras fuentes,
+	debe ser pegado en la casilla de la izquierda. A modo de ejemplo, puede utilizar el
+	registro de abajo: seleccione el texto (<em>botón derecho, seleccionar todo</em>),
+	y luego cópielo al portapapeles (<em>botón derecho, copiar</em>).
+	<textarea id="sampleRecord">00978cam  2200229 a 4500008004100000010001700041020002800058043001200086050002000098082001800118100001900136245014500155250003200300260003900332300007300371440005400444504004100498538007800539650005700617650005300674700002100727990702s1999    nyu      b    001 0 eng d  a###99038007#  a0824794761 (alk. paper)  an-us---00aZ693b.S28 2000  a025.3/0762211 aSaye, Jerry D.10aManheimer's cataloging and classification /cby Jerry D. Saye with April J. Bohannan ; MARC formatting with the assistance of Terri O. Saye.  a4th ed., rev. and expanded.  aNew York :bMarcel Dekker,cc2000.  axiv, 395 p. :bill. ;c26 cm. +e1 computer optical disc (4 3/4 in.) 0aBooks in library and information science ;vv. 59  aIncludes bibliographical references.  aSystem requirements for accompanying disc: IBM PC and compatible systems. 0aCatalogingzUnited StatesvProblems, exercises, etc. 0aClassificationxBooksvProblems, exercises, etc.1 aBohannan, April.</textarea>
+</td>
+</tr>
+</table>
+
+<!--div align="center">
+<iframe src="http://catalog.loc.gov" style="width:98%;height:320px"></iframe>
+</div-->
+
+</body>
+</html>
