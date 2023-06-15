@@ -16,7 +16,8 @@ function openWin(folder) {
 	//var arguments = 'resizable=0,toolbar=0,location=0,directories=0,addressbar=0,scrollbars=0,status=0,menubar=0,top=0,left=0,screenX='+x+',screenY='+y+',width='+screen.availWidth+',height='+screen.availHeight;
 	var SCRIPT_URL = "http://catauto-chrome.local/cgi-bin/wxis";
 	
-	window.open(SCRIPT_URL + '?IsisScript='  +  folder + '/xis/catalis.xis','',str);
+	window.location.href = SCRIPT_URL + "?IsisScript=" + folder + "/xis/catalis.xis";
+
 }
 //-->
 </script>
