@@ -11,25 +11,43 @@
 // traer un documento XML desde el servidor hasta el browser. Analizar pros y
 // contras de cada una.
 
+//(M.A) objeto xmlData tiene como propiedades cada uno de los xhr pedidos al servidor.
+var xmlData = {};
+
 // -----------------------------------------------------------------------------
-function importXML(sourceURL)
+function importXML(name ,sourceURL)
 // From: http://www.sitepoint.com/print/xml-javascript-mozilla
 // -----------------------------------------------------------------------------
 {
-
-var xmlDoc;
+	var xmlDoc;
 	
 	if (moz) {
 		xmlDoc = document.implementation.createDocument("", "", null);
+		var xmlhttp = new XMLHttpRequest();
+
+    	xmlhttp.onreadystatechange = function() {
+    	    if (this.readyState == 4 && this.status == 200) {
+    	        xmlData[name] = this.responseXML;
+				console.log(this.responseXML);
+    	    }
+    	}
+
+    	xmlhttp.open("GET", sourceURL, false);
+    	xmlhttp.send();
+
 	} else if (ie) {
 		msxmlProgID = "Msxml2.DOMDocument.3.0";  // versión de MSXML usada
 		xmlDoc = new ActiveXObject(msxmlProgID);
 		xmlDoc.async = false;
+		console.log("Ejecutando en Internet Explorer")
+
+		xmlDoc.load(sourceURL);
+		return xmlDoc;
 	}
-	xmlDoc.load(sourceURL);
-	return xmlDoc;
 }
 
+
+//(M.A) 15/06 VER SI BORRAR SIGUIENTE FUNCION
 
 // -----------------------------------------------------------------------------
 function getXMLFile(sourceURL)
@@ -59,7 +77,7 @@ function getXMLFile(sourceURL)
 
 
 // -----------------------------------------------------------------------------
-function loadXML()
+function loadXML() //(M.A) importa cada uno de los archivos XML
 // -----------------------------------------------------------------------------
 {
 	// URLs de documentos XML
@@ -70,11 +88,12 @@ function loadXML()
 	URL_MARC21 = HTDOCS + "xml/marc21.xml";
 	
 	// Cargamos los documentos
-	xmlMARC21 = importXML(URL_MARC21);
+	importXML("xmlMARC21" , URL_MARC21);
+	importXML("xmlLanguageCodes", URL_LANGUAGE_CODES);
+	importXML("xmlFixedField", URL_FIXED_FIELD);
+	importXML("xmlRelatorCodes", URL_RELATOR_CODES);
+
 	//xmlCountryCodes = importXML(URL_COUNTRY_CODES);
-	xmlLanguageCodes = importXML(URL_LANGUAGE_CODES);
-	xmlFixedField = importXML(URL_FIXED_FIELD);
-	xmlRelatorCodes = importXML(URL_RELATOR_CODES);
 }
 
 
@@ -87,10 +106,10 @@ function defineSomeVars() {
 	var tags = "";
 	var tagList, resultLength;
 	if (ie) {
-		tagList = xmlMARC21.selectNodes("marc21_bibliographic/datafield/@tag");
+		tagList = xmlData.xmlMARC21.selectNodes("marc21_bibliographic/datafield/@tag");
 		resultLength = tagList.length;
 	} else if (moz) {
-		tagList = xmlMARC21.evaluate("marc21_bibliographic/datafield/@tag",xmlMARC21,null,7,null);
+		tagList = xmlData.xmlMARC21.evaluate("marc21_bibliographic/datafield/@tag",xmlData.xmlMARC21,null,7,null);
 		resultLength = tagList.snapshotLength;
 	}
 	for (var i=0; i < resultLength; i++) {
@@ -106,10 +125,10 @@ function defineSomeVars() {
 	var tags = "";
 	g_nonRepTags = new Array();  // global
 	if (ie) {
-		tagList = xmlMARC21.selectNodes("marc21_bibliographic/datafield[@repet='NR']/@tag");
+		tagList = xmlData.xmlMARC21.selectNodes("marc21_bibliographic/datafield[@repet='NR']/@tag");
 		resultLength = tagList.length;
 	} else if (moz) {
-		tagList = xmlMARC21.evaluate("marc21_bibliographic/datafield[@repet='NR']/@tag",xmlMARC21,null,7,null);
+		tagList = xmlData.xmlMARC21.evaluate("marc21_bibliographic/datafield[@repet='NR']/@tag",xmlData.xmlMARC21,null,7,null);
 		resultLength = tagList.snapshotLength;
 	}
 	for (var i=0; i < resultLength; i++) {
