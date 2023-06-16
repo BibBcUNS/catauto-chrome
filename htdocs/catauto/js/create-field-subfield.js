@@ -161,7 +161,7 @@ function createField(tag, ind, subfields)
 	// Datos de xmlMARC21 para: a) armar una plantilla, y b) averiguar si hay
 	// indicadores editables
 	var path = "marc21_bibliographic/datafield[@tag='" + tag + "']";
-	var xmlDatafield = crossBrowserNodeSelector(xmlMARC21,path);
+	var xmlDatafield = crossBrowserNodeSelector(xmlData.xmlMARC21,path);
 	
 	/*
 	// Esta verificación ya no parece necesaria, pues se realiza desde la función llamadora
