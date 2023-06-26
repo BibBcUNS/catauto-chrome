@@ -177,14 +177,16 @@ function setWindowEvents()
 function setToolbarEvents()
 // -----------------------------------------------------------------------------
 {
-	document.getElementById("btnNuevo").onclick = function() {
+	document.getElementById("btnNuevo").onclick = function(e) {
 		this.blur();
-		showNewRecordMenu(event);
+		console.log(e)
+		showNewRecordMenu(e);
 	}
 	
 	document.getElementById("btnImport").onclick = function() {
 		this.blur();
-		checkModified("newImport");
+		top.globalParameter = "newImport";
+		checkModified();
 	}
 	
 	document.getElementById("toggleLabels").onclick = function() {

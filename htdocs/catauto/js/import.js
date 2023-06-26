@@ -63,7 +63,7 @@ function importRecord(isoRecord)
 	var form = document.getElementById("marcEditForm");
 	
 	// Datafields
-	renderDatafields(importedRecord.datafields.split(/\n/));
+	renderDatafields(importedRecord.datafields.replace(/\n$/,'').split(/\n/));
 
 	// recordID
 	form.recordID.value = "New";
