@@ -1538,12 +1538,13 @@ function modifiedRecord()
 
 
 // -----------------------------------------------------------------------------
-function checkModified(elementID)
+function checkModified()
 // Ante el intento de abandonar el registro que está siendo editado,
 // necesitamos verificar si el registro fue modificado, y en caso afirmativo,
 // consultar si éste debe grabarse antes de continuar.
 // -----------------------------------------------------------------------------
 {
+	var elementID = top.globalParameter;
 	// Si el elementID corresponde a un elemento de un popup, éste ya no existe!
 	if ( document.getElementById(elementID) ) {
 		//document.getElementById(elementID).blur(); // no va con Mozilla
@@ -1701,30 +1702,77 @@ function showHiddenData()
 function showPopup(x,y,width,height,refObject)
 // -----------------------------------------------------------------------------
 {
+	//(M.A) 10/04 agrego las siguientes lineas para simular el blur
+    let body = document.getElementsByTagName("body")[0];
+    body.addEventListener("click", function(e){
+        clickedElement = e.target;
+
+        //(M.A) Controles para que el menu no se cierre al clickear en el boton o el mismo popUp
+        if ( ( !clickedElement.classList.contains ("menu") && (clickedElement.id != "btnNuevo") ) &&
+            (!clickedElement.classList.contains("tip1") && (clickedElement.tagName != "SPAN")) &&
+            (!clickedElement.classList.contains("tip2") && (clickedElement.tagName != "SPAN")) &&
+            (!clickedElement.classList.contains("fieldTag")) &&
+            (!clickedElement.classList.contains("subfieldTag")) && (!clickedElement.classList.contains("contextMenu")) &&
+            (!clickedElement.classList.contains("checkButton")) &&
+            (!clickedElement.id != "searchMessage") && (clickedElement.id != "kwSearchHelpLink") &&
+            (!clickedElement.id != "searchMessage") && (clickedElement.id != "mfnSearchHelpLink") &&
+            (!clickedElement.id != "searchMessage") && (clickedElement.id != "testConditionSearchHelpLink") &&
+            (!clickedElement.id != "searchMessage") && (clickedElement.id != "indexHelpLink")           
+        ){
+            console.log("Kill xq no es menu")
+            killmenu(); 
+        }
+    })
+
 	if (ie) {
 		oPopup.show(x,y,width,height,refObject);
 	} else if (moz) {
-		// Truco para obtener las coordenadas (de: JavaScript and DHTML Cookbook)
-		var offsetTrail = refObject;
-		var offsetLeft = 0;
-		var offsetTop = 0;
-		while (offsetTrail) {
-			offsetLeft += offsetTrail.offsetLeft;
-			offsetTop += offsetTrail.offsetTop;
-			offsetTrail = offsetTrail.offsetParent;
-		}
 		
-		var left = x + offsetLeft;
-		var top = y + offsetTop;
-		//alert(refObject.tagName + "\n" + offsetLeft + "\n" + offsetTop);
-		oPopup.style.width = width;
-		oPopup.style.height = height;
-		oPopup.style.position = "absolute";
-		oPopup.style.left = left + "px";
-		oPopup.style.top = top + "px";
-		oPopup.style.zIndex = "200";
-		oPopup.style.display = "block";
+        //(M.A) 12/04 Si se hizo click en uno de los campos, entonces se toman las coordenadas del click
+        //xq sino el popUp aparece por debajo de la pantalla
+        var left;
+        var top;
+       
+        if(event.srcElement.id == "btnNuevo"){
+              // Truco para obtener las coordenadas (de: JavaScript and DHTML Cookbook)
+              var offsetTrail = refObject;
+              var offsetLeft = 0;
+              var offsetTop = 0;
+  
+              while (offsetTrail) {
+                  offsetLeft += offsetTrail.offsetLeft;
+                  offsetTop += offsetTrail.offsetTop;
+                  offsetTrail = offsetTrail.offsetParent;
+              }
+              //PopUP Nuevo Registro
+              left = x + offsetLeft;
+              top = y + offsetTop;
+        }else{
+            //left = event.clientX;
+            left = event.clientX;
+            top = event.clientY + 1;
+
+            //(M.A) 13/04 Calculamos el top si se hace click en uno de los ultimos registros (al fondo de la pantalla)
+            if(top > window.innerHeight - 160){ 
+                top = window.innerHeight - 160
+            }
+        }
+
+        //alert(refObject.tagName + "\n" + offsetLeft + "\n" + offsetTop);
+        oPopup.style.width = width;
+        oPopup.style.height = height;
+        oPopup.style.position = "absolute";
+        oPopup.style.left = left + "px";
+        oPopup.style.top = top + "px";
+        oPopup.style.zIndex = "200";
+        oPopup.style.display = "block";
 	}
+
+	//(M.A) 17/04 se cierra el popUp si se scrollea.
+    let div = document.getElementById("recordDiv");
+    div.onscroll = function () {
+        hidePopup()
+    }
 }
 
 

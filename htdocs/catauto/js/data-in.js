@@ -22,6 +22,7 @@ function getNewRecordParams()
 // Solicita información necesaria para crear un nuevo registro
 // -----------------------------------------------------------------------------
 {
+	console.log("Ejecutando getNewRecordParams")
 	var dWidth = ( screen.width == 800 ) ? 620 : 750;
 	var dHeight = ( screen.width == 800 ) ? 290 : 320;
 	var dTop =  ( screen.width == 800 ) ? 32 : 120;
@@ -60,8 +61,11 @@ function createRecord(newRecParams)
 	
 	
 	if ( typeof(aacrText) == "undefined" || aacrText == "" ) {
+		console.log("entra a showEditDiv()");
 		showEditDiv();
-		var datafields = templates[templateName].datafields.split(/\n/);
+		console.log("despues de ejecutar showEditDiv() ......");
+		//var datafields = templates[templateName].datafields.split(/\n/);
+		var datafields = templates[templateName].datafields.replace(/\n$/,'').split(/\n/);
 		renderDatafields(datafields);
 	} else {
 		// Tenemos un asiento AACR2
