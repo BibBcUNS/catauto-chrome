@@ -46,6 +46,14 @@ function importXML(name ,sourceURL)
 	}
 }
 
+function cerrarDialog(){
+    var dialog = parent.document.getElementsByTagName('dialog');
+  	if (dialog) {
+      parent.document.getElementsByTagName('dialog')[0].close();
+  	} else {
+      window.close();
+  	}
+}
 
 //(M.A) 15/06 VER SI BORRAR SIGUIENTE FUNCION
 
