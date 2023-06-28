@@ -123,7 +123,9 @@ function setControlFormEvents()
 		if ( allCells[i].id.search(/^TD_f008_|^TD_L_/) != -1 ) {
 			//alert(allCells[i].id);
 			allCells[i].onclick = function() {
-				editCodedData(this.id.substr(3));
+				window.top.globalParameter = this.id.substr(3);
+				console.log(window.top.globalParameter);
+				editCodedData();
 			}
 			allCells[i].onmouseover = function() {
 				this.style.backgroundColor = FIXEDFIELD_HL_BGCOLOR;

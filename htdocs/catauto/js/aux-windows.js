@@ -92,58 +92,99 @@ function rawEdit(oldDatafields, aacr)
 
 
 // -----------------------------------------------------------------------------
-function editCodedData(dataElement)
+function editCodedData()
 // Para editar códigos del "fixed field" (leader & 008), campos 041, 044, etc.
 // -----------------------------------------------------------------------------
 {
-	if ( dataElement.search(/relator|f041|f044/) != -1 ) {
-		var srcObject = event.srcElement;
-		var activeCode = srcObject.value;  // TO-DO: evt for mozilla
-		var codeType = "single";
-		var dialogLeft = event.clientX - 70;
-		var dialogTop = event.clientY - 130;
-		var URL = URL_EDIT_CODES;
-	} else if ( "subfield7" == dataElement ) {
-		var dialogLeft = event.clientX - 70;
-		var dialogTop = event.clientY - 130;
-		var URL = HTDOCS + "html/subfield-7.htm";
-	} else {
-		var form = document.getElementById("marcEditForm"); 
-		var activeCode = form[dataElement].value;
-		var multiple = xmlFixedField.selectNodes("/" + "/dataElement[@pos='" + dataElement + "']/@multiple");
-		var codeType = ( multiple.length > 0 ) ? multiple[0].value : "single";
-		var dialogLeft = event.clientX;
-		var dialogTop = event.clientY - 70; // con event.clientY - 38 hacemos que el puntero quede justo sobre la opción activa en el select
-		var URL = URL_EDIT_CODES;
-	}
+	let dataElement = top.globalParameter;
+    console.log("GLOBAL PARAMETER desde dentro de editCodedData ----------------------")
+    console.log(top.globalParameter)
+    console.log("--------------------------------")
 
-	var dialogArgs = [window, dataElement, activeCode, codeType];
-	var dialogHeight = ( "multiple" == codeType ) ? 230 : 145;
-	var dialogWidth = 200; 
-	var winProperties = "font-size:10px; dialogLeft:" + dialogLeft + "px; dialogTop:" + dialogTop + "px; dialogWidth:" + dialogWidth + "px; dialogHeight:" + dialogHeight + "px; status:no; help:no";
-	//alert(winProperties);
+    var URL = URL_EDIT_CODES;
 
-	var newCode = showModalDialog(URL, dialogArgs, winProperties);
-	
-	//alert(newCode);
-	
-	if ( "undefined" == typeof(newCode) || null == newCode ) {
-		return;  // abortamos
-	}
+    var dialogLeft;
+    var dialogTop;
+
+    var winProperties;
+
+    if ( dataElement.search(/relator|f041|f044/) != -1 ) {  //Codigos de theLeftPanel
+
+        if( dataElement == "subfield7"){
+            URL = HTDOCS + "html/subfield-7.htm"; //Diferente plantilla para subfield-7
+        }
+
+        var srcObject = event.srcElement;
+        var activeCode = srcObject.value;  // TO-DO: evt for mozilla
+        var codeType = "single";
+
+        dialogLeft = event.clientX;
+        dialogTop =  event.clientY;
+
+        winProperties = "visibility: hidden; font-size:10px; dialogWidth: $dialogWidthToReplace; dialogHeight: $dialogHeightToReplace; status:no; help:no";
 
 
+    } else {  //Codigos de theRightPanel
 
-	if ( dataElement.search(/relator|f041|f044/) != -1 ) {
-		srcObject.value = newCode.value;
-		//displayPermanentTitle(srcObject,newCode.description.substr(6),40,0);
-	} else {
-		form[dataElement].value = newCode.value;
-		if ( document.getElementById("TD_" + dataElement) ) {
-			document.getElementById("TD_" + dataElement).title = newCode.description;
-		}
-	}
-	
-	event.srcElement.focus();  // no produce el efecto deseado (el elemento obtiene el foco, pero no se ve resaltado)
+        var form = document.getElementById("marcEditForm");
+        var activeCode = form[dataElement].value;
+
+        var elementoPadre = window.top.selectNodesChrome("/" + "/dataElement[@pos='"+dataElement+"']", xmlData.xmlFixedField)[0];
+
+        var codeType;
+        if(elementoPadre != undefined){
+            if( elementoPadre.getAttribute("multiple") != null ){
+                codeType = "multiple";
+            }else{
+                codeType = "single";
+            }
+        }else{
+            codeType = "single";
+        }
+
+        dialogLeft = event.clientX  ;
+        dialogTop = event.clientY - 600  ; // con event.clientY - 600 hacemos que el puntero quede justo sobre la opción activa en el select
+
+        winProperties = "visibility: hidden; font-size:10px; dialogLeft: "+dialogLeft+"px; dialogTop: "+dialogTop+"px; dialogWidth: $dialogWidthToReplace; dialogHeight: $dialogHeightToReplace; status:no; help:no";
+
+    }
+
+    var dialogArgs = [window, dataElement, activeCode, codeType];
+    var dialogHeight = ( "multiple" == codeType ) ? 230 : 145;
+    var dialogWidth = 300;
+
+    console.log(winProperties)
+
+    winProperties = winProperties.replace("$dialogWidthToReplace", dialogWidth+"px")
+    winProperties = winProperties.replace("$dialogHeightToReplace", dialogHeight+"px")
+
+
+    console.log(winProperties)
+
+
+    //var winProperties = "visibility:hidden; font-size:10px; dialogLeft:" + ( dialogLeft ) + "px; dialogTop:" + ( dialogTop ) + "px; dialogWidth:" + dialogWidth + "px; dialogHeight:" + dialogHeight + "px; status:no; help:no";
+
+
+    var newCode = window.showModalDialog(URL, dialogArgs, winProperties);
+    let objEvent = window.top.globalObject;
+
+    srcObject = event.srcElement;
+    
+    dataElement = top.globalParameter;
+    
+    
+    if ( null != newCode ) {
+        if ( dataElement.search(/relator|f041|f044/) != -1 ) {
+            objEvent.value = newCode.value;
+            //displayPermanentTitle(srcObject,newCode.description.substr(6),40,0);
+        } else {
+            document.getElementById("marcEditForm")[dataElement].value = newCode.value;
+            if ( document.getElementById("TD_" + dataElement) ) {
+                document.getElementById("TD_" + dataElement).title = newCode.description;
+            }
+        } 
+        event.srcElement.focus();  // no produce el efecto deseado (el elemento obtiene el foco, pero no se ve resaltado)
+    }
 }
 
 

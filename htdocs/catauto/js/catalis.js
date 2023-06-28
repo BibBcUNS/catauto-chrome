@@ -22,6 +22,7 @@ function importXML(name ,sourceURL)
 	var xmlDoc;
 	
 	if (moz) {
+		console.log("Ejecutando en chrome")
 		xmlDoc = document.implementation.createDocument("", "", null);
 		var xmlhttp = new XMLHttpRequest();
 
@@ -53,6 +54,53 @@ function cerrarDialog(){
   	} else {
       window.close();
   	}
+}
+
+function selectNodesChrome(path, xmlDoc){
+    //Devuelve un arreglo con todos los nodos del XML buscados por xPath
+    var result = xmlDoc.evaluate(path, xmlDoc, null, XPathResult.ANY_TYPE , null);
+    let node = null;
+    var arrayResult = [];
+
+    while(node = result.iterateNext()){
+        arrayResult.push(node)
+    }
+
+    return arrayResult;
+}
+
+function selectSingleNodeChrome(path, xmlDoc){
+    var nodes = document.evaluate(path, xmlDoc, null, XPathResult.ANY_TYPE, null);
+    return nodes.iterateNext();
+}
+
+function updateDialogSizeChrome(){
+	let dialog = document.getElementsByTagName("dialog")[0];
+    let nodes = dialog.childNodes;
+
+    //(M.A) Accedo al contenido de la pagina hija:
+    let body = nodes[1].contentWindow.document.body;
+
+    let alto = body.scrollHeight;
+    let ancho = body.scrollWidth;
+
+    dialog.style.width = ancho + 11 + "px";
+    dialog.style.height = alto + 5 + "px";
+}
+
+function moveDialog(){
+    let dialog = document.getElementsByTagName("dialog")[0];
+    let nodes = dialog.childNodes;
+
+    let body = nodes[1].contentWindow.document.body;
+
+    let dialogWidth = parseInt(body.scrollWidth);
+
+    let dialogLeft = parseInt(dialog.style.left.split("p")[0]);
+
+    if (dialogLeft > window.innerWidth - dialogWidth - 32 ){
+        dialog.style.left = (window.innerWidth - dialogWidth - 32) + "px" ;
+    }
 }
 
 //(M.A) 15/06 VER SI BORRAR SIGUIENTE FUNCION
@@ -1727,7 +1775,7 @@ function showPopup(x,y,width,height,refObject)
             (!clickedElement.id != "searchMessage") && (clickedElement.id != "testConditionSearchHelpLink") &&
             (!clickedElement.id != "searchMessage") && (clickedElement.id != "indexHelpLink")           
         ){
-            console.log("Kill xq no es menu")
+            console.log("Kill xq no es menu");
             killmenu(); 
         }
     })

@@ -20,7 +20,7 @@ function handleOK()
 		selectedCode = singleCodeChange();
 	}
 	window.returnValue = selectedCode;
-	window.close();
+	top.cerrarDialog();
 }
 
 
@@ -29,7 +29,7 @@ function handleOK()
 function handleCancel()
 // -----------------------------------------------------------------------------
 {
-	window.close();
+	top.cerrarDialog();
 }
 
 
@@ -112,12 +112,20 @@ function adjustWindowSize()
 // Ajusta las dimensiones de la ventana en función de su contenido.
 //-----------------------------------------------------------
 {
+	top.updateDialogSizeChrome();
+	top.moveDialog();
+	let dialog = top.document.getElementsByTagName("dialog")[0];
+	dialog.style.visibility = "visible";
+
+	//-------------------------------------------------------------------------------------------------------------------
+
+
 	// Ajustamos la altura
-	callingWindowObject.updateDialogHeight(window);
+	//callingWindowObject.updateDialogHeight(window);
 	// Ajustamos el ancho
-	callingWindowObject.updateDialogWidth(window);
+	//callingWindowObject.updateDialogWidth(window);
 	// Ajustamos la altura
-	callingWindowObject.updateDialogHeight(window);
+	//callingWindowObject.updateDialogHeight(window);
 	// (Sí, parece necesario repetir el primer tipo de ajuste)
 	
 	/*
@@ -198,15 +206,15 @@ function readCodesAndTitle(dataElement)
 		
 		case "f008_15_17" :
 		case "f044" :
-			xmlCodes = callingWindowObject.xmlCountryCodes;
-			Codes = xmlCodes.selectNodes("/" + "/country");
+			xmlCodes = callingWindowObject.xmlData.xmlCountryCodes;
+			Codes = top.selectNodesChrome("/" + "/country", xmlCodes);
 			title = "008/15-17 · Lugar de publicación";
 			break;
 			
 		case "f008_35_37" :
 		case "f041" :
-			xmlCodes = callingWindowObject.xmlLanguageCodes;
-			Codes = xmlCodes.selectNodes("/" + "/language");
+			xmlCodes = callingWindowObject.xmlData.xmlLanguageCodes;
+			Codes = top.selectNodesChrome("/" + "/language", xmlCodes);
 			title = "008/35-37 · Idioma";
 			break;
 			
@@ -214,19 +222,19 @@ function readCodesAndTitle(dataElement)
 			// TO-DO: pensar de qué manera se puede acotar la larga lista, en función del tipo
 			// de documento (video, musica, libro, etc.)
 			xmlCodes = callingWindowObject.xmlRelatorCodes;
-			Codes = xmlCodes.selectNodes("/" + "/relator");
+			Codes = top.selectNodesChrome("/" + "/relator", xmlCodes);
 			title = "Relator codes";
 			break;
 		
 		default :
-			Codes = xmlFixedField.selectNodes("/" + "/dataElement[@pos='" + dataElement + "']/option");
-			title = xmlFixedField.selectNodes("/" + "/dataElement[@pos='" + dataElement + "']/@name")[0].nodeValue;
+			Codes = top.selectNodesChrome("/" + "/dataElement[@pos='" + dataElement + "']/option", top.xmlData.xmlFixedField);
+			title = top.selectNodesChrome("/" + "/dataElement[@pos='" + dataElement + "']/@name", top.xmlData.xmlFixedField)[0].nodeValue;
 			break;
 	}
 	
 	try {
 		var path = "/" + "/dataElement[@pos='" + dataElement + "']/@maxcodes";
-		g_maxCodes = xmlFixedField.selectSingleNode(path).nodeValue;
+		g_maxCodes = top.selectSingleNodeChrome(path, top.xmlData.xmlFixedField).nodeValue;
 	}
 	catch(err) {}
 	
