@@ -23,7 +23,7 @@
 
 // -----------------------------------------------------------------------------
 function rawEdit(oldDatafields, aacr)
-// Presenta la ventana para editar los campos en crudo, y actualiza el 
+// Presenta la ventana para editar los campos en crudo, y actualiza el
 // formulario de carga (a menos que el usuario haya cancelado).
 // aacr --> los campos provienen de aacr2marc()
 // ATENCION: si se usa esta función cuando una plantilla recién se está
@@ -31,37 +31,63 @@ function rawEdit(oldDatafields, aacr)
 // formulario los campos presentes en la ventana de raw-edit).
 // -----------------------------------------------------------------------------
 {
-	var dWidth = (screen.width == 1024) ? "820px" : "660px";
-	var dHeight = (screen.width == 1024) ? "550px" : "450px";
-	var winProperties = "dialogWidth:" + dWidth + "; dialogHeight:" + dHeight + "; status:no; resizable:no; help:no";
-	var dialogArgs = { dataFields : oldDatafields, aacrParsedData : aacr };
+	console.log("--------------------------------------------");
+	console.log("Desde dentro de rawEdit");
+	console.log(top.globalParameter)
 
-	
-	// Presentamos la ventana
-	var newDatafields = showModalDialog(URL_RAW_EDIT, dialogArgs, winProperties);
-	
-	
-	if ( "undefined" == typeof(newDatafields) || null == newDatafields ) {
-		return false;
-	}
-	
-	// Procesamos lo que devuelve la ventana
-	newDatafields = newDatafields.replace(/\r/g, "");  //  \r del textarea
-	if ( newDatafields != "" && newDatafields != oldDatafields ) {
-		// Necesitamos el form de edición visible, para el caso en que esta
-		// función sea llamada al crear un registro desde la pantalla de
-		// búsqueda.
-		if ( "none" == document.getElementById("theMarcEditDiv").style.display ) {
-			showEditDiv();
-			selectedSubfieldBox = null;
-			selectedField = null;
-		}
-		
-		newDatafields = newDatafields.split(/\n/);
-		renderDatafields(newDatafields);
-	}
-	
-	return true;  // así sabemos, desde createRecord(), que la operación no fue cancelada
+    var dWidth = (screen.width == 1024) ? "820px" : "660px";
+    var dHeight = (screen.width == 1024) ? "550px" : "450px";
+    var winProperties = "dialogWidth:" + dWidth + "; dialogHeight:" + dHeight + "; status:no; resizable:no; help:no";
+    var dialogArgs = { datafields : top.globalParameter, aacrParsedData : aacr };
+    var newDatafields;
+
+    // Presentamos la ventana
+    //console.log("before dialog");
+    //var newDatafields = showModalDialog(URL_RAW_EDIT, dialogArgs, winProperties);
+    //console.log("after dialog");
+    //console.log("newDatafields: ", newDatafields);
+
+    // Esto según https://github.com/niutech/showModalDialog
+    (function() {
+        //statements before showing a modal dialog
+
+        console.log(URL_RAW_EDIT)
+        newDatafields = window.showModalDialog(URL_RAW_EDIT, dialogArgs, winProperties);
+
+		console.log(newDatafields)
+        
+        //statements after closing a modal dialog
+        console.log("after dialog");
+        console.log("newDatafields: ", newDatafields);
+
+        //M.A 22/03/2023 comento las siguientes 3 lineas
+        //if ( "undefined" == typeof(newDatafields) || null == newDatafields ) {
+        //    return false;
+        //}
+
+        // Procesamos lo que devuelve la ventana
+        newDatafields = newDatafields.replace(/\r/g, "");  //  \r del textarea
+
+        //M.A 22/03/2023 comento la siguiente linea ( y la duplico a continuacion modificada )
+        //if ( newDatafields != "" && newDatafields != oldDatafields ) {
+        if ( newDatafields != "" && newDatafields != top.globalParameter ) {
+            // Necesitamos el form de edición visible, para el caso en que esta
+            // función sea llamada al crear un registro desde la pantalla de
+            // búsqueda.
+            if ( "none" == document.getElementById("theMarcEditDiv").style.display ) {
+                showEditDiv();
+                selectedSubfieldBox = null;
+                selectedField = null;
+            }
+
+            newDatafields = newDatafields.split(/\n/);
+            renderDatafields(newDatafields);
+        }
+
+        //return true;  // así sabemos, desde createRecord(), que la operación no fue cancelada
+    })();
+
+    
 }
 
 

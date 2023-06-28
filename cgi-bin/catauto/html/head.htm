@@ -88,7 +88,7 @@
 			
 			return true;
 		}
-		window.onerror = handleErrors;
+		//window.onerror = handleErrors;
 	</script>
 	
 	<script type="text/javascript">
@@ -130,7 +130,7 @@
 		FIELD_BLOCK_PATTERN.other = /02[^02]|0[1367].|04[^3]|05[^2]|856/;
 		
 		// Directorio público (para documentos HTML, CSS, XML)
-		var HTDOCS = "[pft]v6003^h[/pft]/";
+		var HTDOCS = "[pft]v6003^h[/pft]";
 		
 		// URLs de ventanas auxiliares
 		var URL_AUTHORITY = HTDOCS + "html/authority.htm";
@@ -221,6 +221,9 @@
 		MONTH_NAME["10"] = "Oct";
 		MONTH_NAME["11"] = "Nov";
 		MONTH_NAME["12"] = "Dic";
+
+		//Variable global (a causa de polyfill)
+		var globalParameter;
 	</script>
 	
 	<script type="text/javascript">
@@ -282,7 +285,7 @@
 		<script type="text/javascript" src="[pft]v6003^h[/pft]js/2marc.js"></script>
 		<script type="text/javascript" src="[pft]v6003^h[/pft]js/marc2marcTagged.js"></script>
 		
-	<!--	<script type="text/javascript" src="[pft]v6003^h[/pft]common/js/getMaterialType.js"></script> -->
+	<!--<script type="text/javascript" src="[pft]v6003^h[/pft]common/js/getMaterialType.js"></script> -->
 		<script type="text/javascript" src="[pft]v6003^h[/pft]js/isbn-hyphen.js"></script>
 		<script type="text/javascript" src="[pft]v6003^h[/pft]js/marc2aacr.js"></script>
 	[pft]fi[/pft]

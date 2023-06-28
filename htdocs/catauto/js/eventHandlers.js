@@ -165,8 +165,7 @@ function setWindowEvents()
 	// TO-DO: si el click es en el IFRAME...
 	if (moz) {
 		window.onclick = function(evt) {
-			if ( evt.target != document.getElementById("btnNuevo") )
-				hidePopup();
+			if ( evt.target != document.getElementById("btnNuevo") ) hidePopup();
 		}
 		//window.onblur = hidePopup;  // efecto indeseado: no funciona el menú "Nuevo"
 	}
@@ -209,7 +208,11 @@ function setToolbarEvents()
 	
 	document.getElementById("btnRawEdit").onclick = function() {
 		this.blur();
-		rawEdit(serializeRecord(false,false,true,false));
+		//rawEdit(serializeRecord(false,false,true,false));
+		top.globalParameter = serializeRecord(false, false, false, false);
+		console.log("globalParameter: ----------------------------------------------------------------------------");
+		console.log(top.globalParameter);
+		rawEdit();
 	}
 	
 	document.getElementById("btnBorrar").onclick = function() {

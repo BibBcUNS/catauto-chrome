@@ -14,7 +14,8 @@
 	// TO-DO: verificar si hubo modificaciones en los datos
 	//------------------------------------------------------------------------------
 	{
-		window.close();
+		//window.close();
+		top.cerrarDialog();
 	}
 	
 	
@@ -27,7 +28,8 @@
 			alert("No se puede continuar mientras queden etiquetas inválidas.");
 		} else {
 			window.returnValue = newDataFields;
-			window.close();
+			//window.close();
+			top.cerrarDialog();
 		}
 	}
 	
@@ -47,10 +49,13 @@
 	//------------------------------------------------------------------------------
 	{
 		window.returnValue = null;
-		var dataFields = window.dialogArguments.dataFields;
-		var aacrParsedData = window.dialogArguments.aacrParsedData;
+		var dataFields = dialogArguments.datafields;
+		var aacrParsedData = dialogArguments.aacrParsedData;
 		UNK = "\u2666";
 		
+		console.log("datafields desde dentro de rawEdit")
+		console.log(dialogArguments.datafields)
+
 		var message;
 		if ( aacrParsedData ) {
 			message = "Estos son los datos extraídos de su asiento AACR2. Antes de continuar, debe asignar valores válidos a las etiquetas que no pudieron determinarse automáticamente.";
