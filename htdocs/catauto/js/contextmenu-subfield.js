@@ -8,7 +8,6 @@
 // =============================================================================
 
 
-
 // -----------------------------------------------------------------------------
 function canMoveUpSf(subfield) 
 // Determina si el subcampo subfield puede ubicarse una posición más arriba
@@ -22,9 +21,8 @@ function canMoveUpSf(subfield)
 function canMoveDownSf(subfield)
 // Determina si el subcampo subfield puede ubicarse una posición más abajo 
 // -----------------------------------------------------------------------------
-{      
+{
 	var field = parentField(subfield,"subfield");
-	
 	var lastIndex = getSubfields(field,"array").length - 1;
 	var answer = (indexOfSubfield(subfield) != lastIndex); 
 	return answer;
@@ -62,9 +60,9 @@ function canDuplicateSf(subfield)
 {
 	var tag = parentField(subfield,"subfield").tag;
 	var code = subfield.code;
-	var repet;
 	try {
-		repet = xmlMARC21.selectNodes("//datafield[@tag='" + tag + "']/subfield[@code='" + code + "']/@repet")[0].value;
+		repet = window.top.selectNodesChrome("//datafield[@tag='" + tag + "']/subfield[@code='" + code + "']/@repet", window.top.xmlData.xmlMARC21)[0].value;
+		console.log(repet)
 	}
 	catch(err) {
 		repet = "NR";
@@ -95,6 +93,15 @@ function showSubfieldMenu(subfield)
 // TO-DO: reubicar el foco luego de cada acción
 // -----------------------------------------------------------------------------
 {
+	if(ie){
+		showSubfieldMenuIE(subfield)
+	}else{
+		showSubfieldMenuChrome(subfield)
+	}
+}
+
+function showSubfieldMenuIE(subfield){
+	console.log("Ejecutando desde internet explorer")
 	var field = parentField(subfield,"subfield");
 
 	// Construimos el menú
@@ -181,7 +188,9 @@ function showSubfieldMenu(subfield)
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	itemEnabled.push(canAddSubfield);
 	menuFunctions.push(function() {
-		promptNewSubfield(field); killmenu();
+		globalParameter = field;
+		promptNewSubfield(); 
+		killmenu();
 	});
 
 	// Recorremos los items del menú
@@ -243,6 +252,154 @@ function showSubfieldMenu(subfield)
 	oPopup.show(0, event.srcElement.offsetHeight, CONTEXT_MENU_WIDTH, realHeight, event.srcElement);
 
 	return false;
+}
+
+function showSubfieldMenuChrome(subfield){
+	var field = parentField(subfield,"subfield");
+
+	// Construimos el menú
+	var newMenu = document.createElement("DIV");
+	newMenu.classList.add("contextMenu")
+	//newMenu.className = "menuSkin";
+	// ATENCION: el archivo .css no es visto desde oPopup, por eso
+	// están aquí los .style 
+	/*
+	newMenu.style.borderTop = "1px solid ThreeDHighlight";
+	newMenu.style.borderLeft = "1px solid ThreeDHighlight";
+	newMenu.style.borderBottom = "1px solid ThreeDShadow";
+	newMenu.style.borderRight = "1px solid ThreeDShadow";
+	*/
+	newMenu.style.border = "1px solid black";
+	newMenu.style.backgroundColor = "white"; //"#E2DFD0";
+	newMenu.style.fontFamily = "arial, verdana, sans-serif";
+	newMenu.style.lineHeight = "15px";
+	newMenu.style.cursor = "default";
+	newMenu.style.fontSize = "12px";
+	var newText;
+	var itemText = new Array();
+	var itemEnabled = new Array();
+	var menuFunctions = new Array();
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemText.push("Documentación (LC)");
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemEnabled.push(canShowDocSf);
+	menuFunctions.push(function() {
+		showDoc(field.tag); killmenu();
+	});
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemText.push("Subir");
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemEnabled.push(canMoveUpSf);
+	menuFunctions.push(function() {
+		mSubfield = moveSubfield(subfield,"up");
+		killmenu();
+		childSubfieldBox(mSubfield).focus();
+	});
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemText.push("Bajar");
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemEnabled.push(canMoveDownSf);
+	menuFunctions.push(function() {
+		mSubfield = moveSubfield(subfield,"down");
+		killmenu();
+		childSubfieldBox(mSubfield).focus();
+	});
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemText.push("Duplicar");
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemEnabled.push(canDuplicateSf);
+	menuFunctions.push(function() {
+		var code = subfield.code;
+		var label = getSubfieldLabel(subfield);
+		var text = ""; //childSubfieldBox(subfield).value;
+		var newSubfield = createSubfield(code,text,label,field.tag);
+		selectedSubfieldBox = childSubfieldBox(subfield);  // para que sea tomado como referencia al definir la posición
+		displaySubfield(newSubfield,field);
+		childSubfieldBox(newSubfield).focus();
+		killmenu();
+	});
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemText.push("Eliminar");
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemEnabled.push(canRemoveSf);
+	menuFunctions.push(function() {
+		// TO-DO: obviar la pregunta si el subcampo está vacío
+		if (confirm("¿Confirma la eliminación del subcampo " + field.tag + "$" + subfield.code + "?")) {
+			var focusTarget = nextSubfieldBox(subfield);
+			removeSubfield(subfield);
+			focusTarget.focus();
+		}
+		killmenu();
+	});
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemText.push("Agregar subcampo...");
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemEnabled.push(canAddSubfield);
+	menuFunctions.push(function() {
+		globalParameter = field;
+		promptNewSubfield(); 
+		killmenu();
+	});
+
+	// Recorremos los items del menú
+	for (var i=0; i<itemText.length; i++) {
+		newMenuItem = document.createElement("DIV");
+		newMenuItem.style.width = "100%";
+		newMenuItem.style.padding = "2px 10px";
+		
+		if (itemEnabled[i](subfield)) {
+			//newMenuItem.className = "menuitems";
+			newMenuItem.onclick = menuFunctions[i];
+			newMenuItem.onmouseover = function() {
+				this.style.backgroundColor = "highlight";
+				this.style.color = "white";
+			}
+			newMenuItem.onmouseout = function() {
+				this.style.backgroundColor = "";
+				this.style.color = "black";
+			}
+		}
+		else
+		{
+			//newMenuItem.className = "menuitemsDisabled";
+			newMenuItem.style.color = "GrayText";
+			newMenuItem.style.fontStyle = "italic";
+			newMenuItem.onmouseover = function() {
+				this.style.backgroundColor = "highlight";
+			}
+			newMenuItem.onmouseout = function() {
+				this.style.backgroundColor = "";
+			}
+		}
+		newText = document.createTextNode(itemText[i]);
+		newMenuItem.appendChild(newText);
+		newMenu.appendChild(newMenuItem);
+		
+		// Líneas de separación
+		if (i==0 || i==2 || i==4) {
+			var newDiv = document.createElement("DIV");
+			newDiv.style.margin = "-5px";
+			var newRule = document.createElement("HR");
+			newRule.style.height = "1px";
+			newRule.style.color = "black";
+			newDiv.appendChild(newRule);
+			newMenu.appendChild(newDiv); 
+		}
+	}
+	// Menú construido
+
+	oPopup.innerHTML = "";
+	oPopup.appendChild(newMenu);
+
+	showPopup(0, 0, 450, 0);
+    hidePopup();
+    showPopup(0, event.srcElement.offsetHeight, 150, 160, event.srcElement);
 }
 
 // -----------------------------------------------------
