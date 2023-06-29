@@ -57,6 +57,7 @@
 		<indicator pos="2" />
 		<subfield code="a" repet="NR" label-spa="ISBN" label-eng="International Standard Book Number" AACR2="1.8B" />
 		<subfield code="c" repet="NR" label-spa="Condiciones de disponibilidad" label-eng="Terms of availability" />
+		<subfield code="q" repet="R" label-spa="Información adicional" label-eng="Qualifying information" />
 		<subfield code="z" repet="R" label-spa="ISBN inválido/cancelado" label-eng="Canceled/invalid ISBN" />
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />		
@@ -70,6 +71,8 @@
 		<subfield code="m" repet="R" label-spa="ISSN-L cancelado" label-eng="Canceled ISSN-L" />
 		<subfield code="y" repet="R" label-spa="ISSN incorrecto" label-eng="Incorrect ISSN" />
 		<subfield code="z" repet="R" label-spa="ISSN cancelado" label-eng="Canceled ISSN" />
+		<subfield code="0" repet="NR" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number" />
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real Word Object URI" />
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />		
 	</datafield>
@@ -93,6 +96,32 @@
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="031" repet="R" label-spa="Información de incipits musicales" label-esp="Musical incipits information" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="NR" label-spa="Número de la obra" label-eng="Number of work" />
+		<subfield code="b" repet="NR" label-spa="Número del movimiento" label-eng="Number of movement" />
+		<subfield code="c" repet="NR" label-spa="Número del pasaje" label-eng="Number of excerpt" />
+		<subfield code="d" repet="R" label-spa="Título o encabezamiento" label-eng="Caption or heading" />
+		<subfield code="e" repet="NR" label-spa="Personaje" label-eng="Role" />
+		<subfield code="g" repet="NR" label-spa="Clave" label-eng="Clef" />
+		<subfield code="m" repet="NR" label-spa="Voz/instrumento" label-eng="Voice/instrument" />
+		<subfield code="n" repet="NR" label-spa="Armadura" label-eng="Key signature" />
+		<subfield code="o" repet="NR" label-spa="Compás" label-eng="Time signature" />
+		<subfield code="p" repet="NR" label-spa="Notación musical" label-eng="Musical notation" />
+		<subfield code="q" repet="R" label-spa="Nota general" label-eng="General note" />
+		<subfield code="r" repet="NR" label-spa="Tonalidad o modo" label-eng="Key or mode" />
+		<subfield code="s" repet="R" label-spa="Nota de validez codificada" label-eng="Coded validity note" />
+		<subfield code="t" repet="R" label-spa="Texto del incipit" label-eng="Text incipit" />
+		<subfield code="u" repet="R" label-spa="Identificador Uniforme del Recurso" label-eng="Uniform Resource Identifier" />
+		<subfield code="y" repet="R" label-spa="Texto de enlace" label-eng="Link text" />
+		<subfield code="z" repet="R" label-spa="Nota pública" label-eng="Public note" />
+		<subfield code="2" repet="NR" label-spa="Código del sistema" label-eng="System code" />
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />		
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
 	<datafield tag="034" repet="R" label-spa="Datos matemáticos cartográficos codificados" label-eng="Coded Cartographic Mathematical Data" template="##a">
 		<indicator pos="1" />
 		<indicator pos="2" label-eng="Type of ring" label-spa="Tipo de anillo">
@@ -169,10 +198,10 @@
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="045" repet="NR" label-spa="Período cronológico del encabezamiento" template="##aa">
 		<indicator pos="1" label-eng="Type of time period in subfield $b or $c" label-spa="Tipo de período cronológico contenido en el subcampo $b o $c">
-			<i value="#" label-spa="No existe subcampo $b o $c" />
-			<i value="0" label-spa="Fecha/período simple" />
-			<i value="1" label-spa="Fechas/períodos múlpitles" />
-			<i value="2" label-spa="Rango de fechas/períodos" />
+			<i value="#" label-spa="No existe subcampo $b o $c" label-eng="Subfield $b o $c not present"/>
+			<i value="0" label-spa="Fecha/período simple" label-eng="Single date/time"/>
+			<i value="1" label-spa="Fechas/períodos múltiples" label-eng="Multiple single dates/times"/>
+			<i value="2" label-spa="Rango de fechas/períodos" label-eng="Range of dates/times"/>
 		</indicator>
 		<indicator pos="2" />
 		<subfield code="a" repet="R" label-spa="Código de período cronológico" />
@@ -182,7 +211,6 @@
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
 	<datafield tag="046" repet="R" label-spa="Fechas con codificación especial" label-eng="Special Coded Dates" template="##a">
 		<indicator pos="1" />
 		<indicator pos="2" />
@@ -206,7 +234,6 @@
 		<subfield code="8" repet="R" label-spa="Enlace entre campos y número de secuencia" label-eng="Field link and sequence number"/>
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
 	<datafield tag="050" repet="NR" label-eng="Library of Congress call number" label-spa="Signatura topográfica de LC" template="##a">
 	<indicator pos="1" />
 		<indicator pos="2" label-eng="Source of call number" label-spa="Fuente de la signatura">
@@ -216,6 +243,8 @@
 		<subfield code="a" repet="NR" label-eng="Classification number" label-spa="Clasificación de LC" />
 		<subfield code="b" repet="NR" label-eng="Item number" label-spa="Número de ítem" />
 		<subfield code="d" repet="NR" label-eng="Volumes/dates to which call number applies" label-spa="Volúmenes/fechas a los que se aplica la signatura topográfica" />
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number" />
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI" />
 		<subfield code="5" repet="R" label-eng="Institution to which field applies" label-spa="Institución a la cual se aplica el campo" />
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
@@ -231,6 +260,8 @@
 		<subfield code="a" repet="NR" label-eng="Geographic classification area code" label-spa="Código de área" />
 		<subfield code="b" repet="R" label-eng="Geographic classification subarea code" label-spa="Código de subárea" />
 		<subfield code="d" repet="R" label-eng="Populated place name" label-spa="Nombre del asentamiento humano" />
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number" />
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI" />
 		<subfield code="2" repet="NR" label-eng="Code source" label-spa="Fuente del código" />
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
@@ -245,26 +276,31 @@
 		<subfield code="a" repet="NR" label-eng="Classification number element-single number or beginning number of span" label-spa="Número clasificador" />
 		<subfield code="b" repet="NR" label-eng="Classification number element-ending number of span" label-spa="Número del ítem" />
 		<subfield code="c" repet="NR" label-eng="Explanatory term" label-spa="Término explicativo" />
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number" />
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI" />
 		<subfield code="5" repet="R" label-eng="Institution to which field applies" label-spa="Institución a la cual se aplica el campo" />
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<datafield tag="055" repet="R" label-eng="Library and Archives Canada call number" label-spa="Library and Archives Canada call number">
-		<indicator pos="1" />
-		<indicator pos="2" label-eng="Source of call number">
-			<i value="0" label-eng="Assigned by LAC" label-spa="Asignado por LAC" />
-			<i value="4" label-eng="Assigned by agency other than LAC" label-spa="Asignado por una agencia diferente a LAC" />
-		</indicator>
-		<subfield code="a" repet="NR" label-eng="Classification number" label-spa="Número clasificador" />
-		<subfield code="b" repet="NR" label-eng="Item number" label-spa="Número del ítem" />
-		<subfield code="d" repet="NR" label-eng="Volumes/dates to which call number applies" label-spa="Volúmenes/fechas a los que se aplica la signatura topográfica" />
-		<subfield code="5" repet="R" label-eng="Institution to which field applies" label-spa="Institución a la cual se aplica el campo" />
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
-		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number" />
-	</datafield>
-	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<datafield tag="060" repet="R" label-eng="National Library of Medicine call number" label-spa="National Library of Medicine call number">
+	<datafield tag="055" repet="R" label-spa="Library and Archives Canada call number" label-eng="Library and Archives Canada call number" template="##a">
+                <indicator pos="1" />
+                <indicator pos="2" label-eng="Source of call number" label-spa="Source of call number">
+                        <i value="0" label-eng="Assigned by LAC" label-spa="Asignado por LAC" />
+                        <i value="4" label-eng="Assigned by agency other than LAC" label-spa="Asignado por una agencia diferente a LAC" />
+                </indicator>
+                <subfield code="a" repet="NR" label-eng="Classification number" label-spa="Número clasificador" />
+                <subfield code="b" repet="NR" label-eng="Item number" label-spa="Número del ítem" />
+                <subfield code="d" repet="NR" label-eng="Volumes/dates to which call number applies" label-spa="Volúmenes/fechas a los que se aplica la signatura topográfica" />
+                <subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number" />
+                <subfield code="1" repet="R" label-eng="Real World Object URI" label-spa="URI de un objeto del mundo real" />
+                <subfield code="2" repet="NR" label-spa="Fuente del número" label-eng="Number source" />
+                <subfield code="5" repet="R" label-eng="Institution to which field applies" label-spa="Institución a la cual se aplica el campo" />
+                <subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />
+                <subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number" />
+        </datafield>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="060" repet="R" label-eng="National Library of Medicine call number" label-spa="National Library of Medicine call number" template="##a">
 		<indicator pos="1" />
 		<indicator pos="2" label-eng="Source of call number" label-spa="Source of call number">
 			<i value="0" label-eng="Assigned by NLM" label-spa="Asignado por NLM" />
@@ -273,68 +309,104 @@
 		<subfield code="a" repet="NR" label-eng="Classification number" label-spa="Número clasificador" />
 		<subfield code="b" repet="NR" label-eng="Item number" label-spa="Número del ítem" />
 		<subfield code="d" repet="NR" label-eng="Volumes/dates to which call number applies" label-spa="Volúmenes/fechas a los que se aplica la signatura topográfica" />
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number" />
+		<subfield code="1" repet="R" label-eng="Real World Object URI" label-spa="URI de un objeto del mundo real" />
 		<subfield code="5" repet="R" label-eng="Institution to which field applies" label-spa="Institución a la cual se aplica el campo" />
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<datafield tag="065" repet="R" label-eng="Other classification number" label-spa="Other classification number">
+	<datafield tag="065" repet="R" label-eng="Other classification number" label-spa="Otro número de clasificación" template="##a">
+                <indicator pos="1" />
+                <indicator pos="2" />
+                <subfield code="a" repet="NR" label-eng="Classification" label-spa="Elemento númerico de la clasificación - Número único o número inicial del rango" />
+                <subfield code="b" repet="NR" label-eng="Classification number element-ending number of span" label-spa="Elemento númerico de la clasificación - Número final del rango" />
+                <subfield code="c" repet="NR" label-eng="Explanatory term" label-spa="Término explicativo" />
+                <subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number" />
+                <subfield code="1" repet="R" label-eng="Real World Object URI" label-spa="URI de un objeto del mundo real" />
+                <subfield code="2" repet="NR" label-eng="Number source" label-spa="Fuente del número" />
+                <subfield code="5" repet="R" label-eng="Institution to which field applies" label-spa="Institución a la cual se aplica el campo" />
+                <subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />
+                <subfield code="7" repet="NR" label-eng="Data provenance" label-spa="Procedencia de los datos"/>
+                <subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number" />
+        </datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="066" repet="NR" label-eng="Character sets present" label-spa="Conjunto de caracteres aplicado" template="##a">
 		<indicator pos="1" />
 		<indicator pos="2" />
-		<subfield code="a" repet="NR" label-eng="Classification number element-single number or beginning number of span" label-spa="Número clasificador" />
-		<subfield code="b" repet="NR" label-eng="Classification number element-ending number of span" label-spa="Número del ítem" />
-		<subfield code="c" repet="NR" label-eng="Explanatory term" label-spa="Término explicativo" />
-		<subfield code="2" repet="NR" label-eng="Number source" />
-		<subfield code="5" repet="R" label-eng="Institution to which field applies" label-spa="Institución a la cual se aplica el campo" />
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
-		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number" />
+		<subfield code="a" repet="NR" label-eng="Primary G0 character set" label-spa="Conjunto primario G0"/>
+		<subfield code="b" repet="NR" label-eng="Primary G1 character set" label-spa="Conjunto primario G1"/>
+		<subfield code="c" repet="R" label-eng="Alternate G0 or G1 character set" label-spa="Conjunto alternado G0 o G1"/>
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<datafield tag="066" repet="NR" label-eng="Character sets present" label-spa="Conjunto de caracteres aplicado">
-		<indicator pos="1" />
-		<indicator pos="2" />
-		<subfield code="a" repet="NR" label-eng="Primary G0 character set" />
-		<subfield code="b" repet="NR" label-eng="Primary G1 character set" />
-		<subfield code="c" repet="R" label-eng="Alternate G0 or G1 character set" />
-	</datafield>
-	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<datafield tag="070" repet="R" label-eng="National agricultural library call number" label-spa="Signatura Topográfica (NAL)">
+	<datafield tag="070" repet="R" label-eng="National agricultural library call number" label-spa="Signatura Topográfica (NAL)" template="##a">
 	<indicator pos="1" />
 		<indicator pos="2" />
 		<subfield code="a" repet="NR" label-eng="Classification number" label-spa="Número clasificador" />
 		<subfield code="b" repet="NR" label-eng="Item number" label-spa="Número del ítem" />
 		<subfield code="d" repet="NR" label-eng="Volume/dates to which call number applies" label-spa="Volúmenes/fechas a los que se aplica la signatura topográfica" />
+                <subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number" />
+                <subfield code="1" repet="R" label-eng="Real World Object URI" label-spa="URI de un objeto del mundo real" />
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<datafield tag="072" repet="R" label-eng="Subject category code" label-spa="Código de categoría temática">
+	<datafield tag="072" repet="R" label-eng="Subject category code" label-spa="Código de categoría temática" template="##a">
 		<indicator pos="1" />
 		<indicator pos="2" label-eng="Source of call number">
 			<i value="#" label-eng="No information provided" label-spa="No se suministra información" />
 			<i value="0" label-eng="NAL subject category code list" />
 			<i value="7" label-eng="Source specified in subfield $2" />
 		</indicator>	
-		<subfield code="a" repet="NR" label-eng="Subject category code" />
-		<subfield code="x" repet="R" label-eng="Subject category code subdivision" />
-		<subfield code="2" repet="NR" label-eng="Code source" />
+		<subfield code="a" repet="NR" label-eng="Subject category code" label-spa="Código de categoría temática"/>
+		<subfield code="x" repet="R" label-eng="Subject category code subdivision" label-spa="Subdivisión del código de categoría temática"/>
+		<subfield code="2" repet="NR" label-eng="Code source" label-spa="Fuente del código"/>
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<datafield tag="073" repet="NR" label-eng="Subdivision usage" label-spa="Código de aplicación de la subdivisión">
+	<datafield tag="073" repet="NR" label-eng="Subdivision usage" label-spa="Código de aplicación de la subdivisión" template="##a">
 		<indicator pos="1" />
 		<indicator pos="2" />
-		<subfield code="a" repet="R" label-eng="Subdivision usage" />
-		<subfield code="z" repet="NR" label-eng="Code source" />
+		<subfield code="a" repet="R" label-eng="Subdivision usage" label-spa="Aplicación de la subdivisión"/>
+		<subfield code="z" repet="NR" label-eng="Code source" label-spa="Fuente del código"/>
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number" />			
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="075" repet="R" label-eng="Type of entity" label-spa="Type of entity" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="R" label-eng="Type of entity term" label-spa="Type of entity term"/>
+		<subfield code="b" repet="R" label-eng="Type of entity code" label-spa="Type of entity code"/>
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number" />		
+		<subfield code="1" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Real World Object URI" />		
+		<subfield code="2" repet="NR" label-spa="Fuente" label-eng="Source" />
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="080" repet="R" label-eng="Universal Decimal Classification Number" label-spa="Número de la Clasificación Decimal Universal" template="##a">
+		<indicator pos="1" label-eng="Type of edition" label-spa="Tipo de edición">
+			<i value="#" label-eng="No information provided" label-spa="No se proporciona información" />
+			<i value="0" label-eng="Full" label-spa="Completa" />
+			<i value="1" label-eng="Abridged" label-spa="Abreviada" />
+		</indicator>
+		<indicator pos="2"/>
+		<subfield code="a" repet="NR" label-spa="Número de la Clasificación Decimal Universal" label-eng="Universal Decimal Classification number" />
+		<subfield code="b" repet="NR" label-spa="Número de documento" label-eng="Item number" />
+		<subfield code="x" repet="R" label-eng="Common auxiliary subdivision" label-spa="Subdivisión auxiliar común" />
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number" />
+		<subfield code="1" repet="R" label-eng="Real World Object URI" label-spa="URI de un objeto del mundo real" />
+		<subfield code="2" repet="NR" label-spa="Identificador de la edición" label-eng="Edition identifier" />	
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="8" repet="R" label-spa="Campo de enlace y número de secuencia" label-eng="Field link and sequence number" />
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
 	<datafield tag="082" repet="R" label-eng="Dewey decimal call number" label-spa="Signatura topográfica - Decimal Dewey" template="04a2">
 		<indicator pos="1" label-eng="Type of edition" label-spa="Tipo de edición">
 			<i value="0" label-eng="Full" label-spa="Completa" />
 			<i value="1" label-eng="Abridged" label-spa="Abreviada" />
+			<i value="7" label-eng="Other edition specified in subfield $2" label-spa="Other edition specified in subfield $2" />
 		</indicator>
 		<indicator pos="2" label-eng="Source of call number" label-spa="Fuente del número de clasificación">
 			<i value="#" label-eng="No information provided" label-spa="No se suministra información" />
@@ -350,10 +422,12 @@
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<datafield tag="083" repet="R" label-eng="Dewey Decimal Classification number" label-spa="Número de Dewey" template="04a2">
+
+	<datafield tag="083" repet="R" label-eng="Dewey Decimal Classification number" label-spa="Número de Dewey" template="##a">
 		<indicator pos="1" label-eng="Type of edition" label-spa="Tipo de edición">
 			<i value="0" label-eng="Full" label-spa="Completa" />
 			<i value="1" label-eng="Abridged" label-spa="Abreviada" />
+			<i value="7" label-eng="Other edition specified in subfield $2" label-spa="Other edition specified in subfield $2" />
 		</indicator>
 		<indicator pos="2" label-eng="Source of classification number" label-spa="Fuente del número de clasificación">
 			<i value="0" label-eng="Assigned by LC" label-spa="Asignado por LC" />
@@ -362,6 +436,7 @@
 		<subfield code="a" repet="NR" label-spa="Número único o inicial del rango" label-eng="Classification number element - single number of beginning number of span" />
 		<subfield code="b" repet="NR" label-spa="Número final del rango" label-eng="Classification number element - ending number of span" />
 		<subfield code="c" repet="NR" label-eng="Explanatory term" label-spa="Frase explicativa" />
+		<subfield code="y" repet="R" label-eng="Table sequence number for internal subarrangement or add table" label-spa="Table sequence number for internal subarragement or add table" />
 		<subfield code="z" repet="NR" label-eng="Table identification - table number" label-spa="Identificador de tabla - Número de tabla" />
 		<subfield code="2" repet="NR" label-spa="Número de edición" label-eng="Edition number" />
 		<subfield code="5" repet="R" label-eng="Institution to which field applies" label-spa="Institución a la cual se aplica el campo" />
@@ -369,7 +444,7 @@
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<datafield tag="086" repet="R" label-eng="Government document call number" label-spa="Government document call number">
+	<datafield tag="086" repet="R" label-eng="Government document call number" label-spa="Signatura topográfica de documento gubernamental" template="##a">
 	   <indicator pos="1" label-eng="Number source">
 	      <i value="#" label-eng="Source specified in subfield $2" label-spa="Fuente especificada en el subcampo $2" />
 	      <i value="0" label-eng="Superintendent of Documents Classification System" />
@@ -379,34 +454,28 @@
 	   <subfield code="a" repet="NR" label-spa="Número de clasificación" label-eng="Call number" />
 	   <subfield code="d" repet="NR" label-spa="Volúmenes/fechas a los que se aplica la signatura topográfica" label-eng="Volumes/dates to which call number applies" />
 	   <subfield code="z" repet="NR" label-spa="Número de clasificación cancelado/inválido" label-eng="Canceled/invalid call number" />
-	   <subfield code="2" repet="NR" label-eng="Number source" />
+	   <subfield code="2" repet="NR" label-eng="Number source" label-spa="Fuente del número"/>
 	   <subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo" label-eng="Institution to which field applies" />
 	   <subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />
-	   <subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
+	   <subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number"/>
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<datafield tag="087" repet="R" label-eng="Government document classification number" label-spa="Government document classification number">
+	<datafield tag="087" repet="R" label-eng="Government document classification number" label-spa="Número clasificador de documento gubernamental" template="04a2">
 	   <indicator pos="1" label-eng="Number source">
 	      <i value="#" label-eng="Source specified in subfield $2" label-spa="Fuente especificada en el subcampo $2" />
 	      <i value="0" label-eng="Superintendent of Documents Classification System" />
 	      <i value="1" label-eng="Government of Canada Publications: Outline of Classification" />
 	   </indicator>
 	   <indicator pos="2" />
-	   <subfield code="a" repet="NR" label-eng="Classification number element - single number or beginning number of span" />
-	   <subfield code="b" repet="NR" label-eng="Classification number element - ending number of span" />
+	   <subfield code="a" repet="NR" label-eng="Classification number element - single number or beginning number of span" label-spa="Elemento numérico de la clasificación - Número único o número inicial del rango"/>
+	   <subfield code="b" repet="NR" label-eng="Classification number element - ending number of span" label-spa="Elemento numérico de la clasificación - Número final del rango"/>
 	   <subfield code="c" repet="NR" label-spa="Información descriptiva" label-eng="Explanatory information" />
-	   <subfield code="2" repet="NR" label-eng="Number source" />
+	   <subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number" />
+	   <subfield code="1" repet="R" label-eng="Real World Object URI" label-spa="URI de un objeto del mundo real" />
+	   <subfield code="2" repet="NR" label-eng="Number source" label-spa="Fuente del número"/>
 	   <subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />
-	   <subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
+	   <subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number" />
 	</datafield>
-	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<datafield tag="090" repet="R" label-eng="Local call number" label-spa="Local call number">
-	   <indicator pos="1" />
-	   <indicator pos="2" />
-	   <subfield code="a" repet="NR" label-eng="Classification number" />
-	   <subfield code="b" repet="NR" label-eng="Item number" />
-	   <subfield code="d" repet="NR" label-eng="Volume/dates to which call number applies" />	   	
-	</datafield>		
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="100" repet="NR" label-spa="Nombre personal" label-eng="Main entry--Personal name" template="1#a">
 		<indicator pos="1" label-eng="Type of personal name entry element" label-spa="Tipo de nombre personal">
@@ -668,11 +737,68 @@
 		<indicator pos="2" />
 		<subfield code="a" repet="R" label-spa="Encabezamiento hacia el que refiere el envío" AACR2="1.4C,A.7,B.14" />
 		<subfield code="i" repet="R" label-spa="Texto explicativo" AACR2="1.4D,2.4D,A.7,B.9" />
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number" />
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI"/>
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 		</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<datafield tag="360" repet="R" label-spa="Otros atributos de persona o entidad corporativa" oblig="ALL" template="##a">
+	<datafield tag="335" repet="R" label-spa="Plan de extensión" oblig="ALL" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="NR" label-spa="Término de tipo de contenido" label-eng="Extension plan term" />
+		<subfield code="b" repet="NR" label-spa="Código de plan de extensión" label-eng="Extension plan code" />
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number" />
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente" label-eng="Source"/>
+		<subfield code="3" repet="NR" label-spa="Especificación de materiales" label-eng="Materials specified"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="336" repet="R" label-spa="Tipo de contenido" oblig="ALL" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="R" label-spa="Término de tipo de contenido" label-eng="Content type term" />
+		<subfield code="b" repet="R" label-spa="Código de tipo de contenido" label-eng="Content type code" />
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number" />
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente" label-eng="Source"/>
+		<subfield code="3" repet="NR" label-spa="Especificación de materiales" label-eng="Materials specified"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="348" repet="R" label-spa="Formato de la música notada" oblig="ALL" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="R" label-spa="Término del formato de la música notada" label-eng="Format of notated music term" />
+		<subfield code="b" repet="R" label-spa="Código del formato de la música notada" label-eng="Format of notated music code" />
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number" />
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente" label-eng="Source of term"/>
+		<subfield code="3" repet="NR" label-spa="Especificación de materiales" label-eng="Materials specified"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="360" repet="R" label-spa="Referencia compleja de Véase además - Materia" oblig="ALL" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="R" label-spa="Encabezamiento hacia el que refiere el envío" oblig="ALL" AACR2="1.5B,2.5B,A.8,B.9,C.2B" />
+		<subfield code="i" repet="R" label-spa="Texto explicativo" AACR2="1.4D,2.4D,A.7,B.9" />
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number" />
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="368" repet="R" label-spa="Otros atributos de persona o entidad corporativa" oblig="ALL" template="##a">
 		<indicator pos="1" />
 		<indicator pos="2" />
 		<subfield code="a" repet="R" label-spa="Tipo de entidad corporativa" label-eng="Type of corporate body" />
@@ -691,16 +817,6 @@
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number"/>
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<datafield tag="368" repet="R" label-spa="Referencia compleja de Véase además - Materia" oblig="ALL" template="##a">
-		<indicator pos="1" />
-		<indicator pos="2" />
-		<subfield code="a" repet="R" label-spa="Encabezamiento hacia el que refiere el envío" oblig="ALL" AACR2="1.5B,2.5B,A.8,B.9,C.2B" />
-		<subfield code="i" repet="R" label-spa="Texto explicativo" AACR2="1.4D,2.4D,A.7,B.9" />
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
-		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
-	</datafield>
-	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
 	<datafield tag="370" repet="R" label-spa="Lugar asociado" oblig="ALL" template="##a">
 		<indicator pos="1" />
 		<indicator pos="2" />
@@ -725,7 +841,297 @@
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number"/>
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	
+	<datafield tag="371" repet="R" label-spa="Dirección" oblig="ALL" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="R" label-spa="Dirección" label-eng="Address"/>
+		<subfield code="b" repet="NR" label-spa="Ciudad" label-eng="City" />
+		<subfield code="c" repet="NR" label-spa="Jurisdicción intermedia" label-eng="Intermediate jurisdiction"/>
+		<subfield code="d" repet="NR" label-spa="País" label-eng="Country"/>
+		<subfield code="e" repet="NR" label-spa="Código postal" label-eng="Postal code"/>
+		<subfield code="m" repet="R" label-spa="Dirección de correo electrónico" label-eng="Electronic mail address"/>
+		<subfield code="s" repet="NR" label-spa="Periodo de inicio" label-eng="Start period"/>
+		<subfield code="t" repet="NR" label-spa="Periodo de finalización" label-eng="End period" />
+		<subfield code="u" repet="R" label-spa="Identificador Uniforme del Recurso" label-eng="Uniform Resource Identifier"/>
+		<subfield code="v" repet="R" label-spa="Fuente de la información" label-eng="Source of information"/>
+		<subfield code="z" repet="R" label-spa="Nota pública" label-eng="Public note"/>
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<datafield tag="372" repet="R" label-spa="Campo de actividad" oblig="ALL" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="R" label-spa="Campo de actividad" label-eng="Field of activity" />
+		<subfield code="s" repet="NR" label-spa="Período de inicio" label-eng="Start period"/>
+		<subfield code="t" repet="NR" label-spa="Periodo de finalización" label-eng="End period" />
+		<subfield code="u" repet="R" label-spa="Identificador Uniforme del Recurso" label-eng="Uniform Resource Identifier"/>
+		<subfield code="v" repet="R" label-spa="Fuente de la información" label-eng="Source of information"/>
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number"/>
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del término" label-eng="Source of term"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="373" repet="R" label-spa="Grupo asociado" oblig="ALL" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="R" label-spa="Grupo asociado" label-eng="Associated group" />
+		<subfield code="i" repet="R" label-spa="Información de la relación" label-eng="Relationship information" />
+		<subfield code="s" repet="NR" label-spa="Período de inicio" label-eng="Start period"/>
+		<subfield code="t" repet="NR" label-spa="Periodo de finalización" label-eng="End period" />
+		<subfield code="u" repet="R" label-spa="Identificador Uniforme del Recurso" label-eng="Uniform Resource Identifier"/>
+		<subfield code="v" repet="R" label-spa="Fuente de la información" label-eng="Source of information"/>
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number"/>
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del término" label-eng="Source of term"/>
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Enlace entre campos y número de secuencia" label-eng="Field link and sequence number"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="374" repet="R" label-spa="Ocupación" oblig="ALL" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="R" label-spa="Ocupación" label-eng="Occupation" />
+		<subfield code="s" repet="NR" label-spa="Período de inicio" label-eng="Start period"/>
+		<subfield code="t" repet="NR" label-spa="Periodo de finalización" label-eng="End period" />
+		<subfield code="u" repet="R" label-spa="Identificador Uniforme del Recurso" label-eng="Uniform Resource Identifier"/>
+		<subfield code="v" repet="R" label-spa="Fuente de la información" label-eng="Source of information"/>
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number"/>
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del término" label-eng="Source of term"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Enlace entre campos y número de secuencia" label-eng="Field link and sequence number"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="375" repet="R" label-spa="Género" oblig="ALL" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="R" label-spa="Género" label-eng="Gender" />
+		<subfield code="s" repet="NR" label-spa="Período de inicio" label-eng="Start period"/>
+		<subfield code="t" repet="NR" label-spa="Periodo de finalización" label-eng="End period" />
+		<subfield code="u" repet="R" label-spa="Identificador Uniforme del Recurso" label-eng="Uniform Resource Identifier"/>
+		<subfield code="v" repet="R" label-spa="Fuente de la información" label-eng="Source of information"/>
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number"/>
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del término" label-eng="Source of term"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Enlace entre campos y número de secuencia" label-eng="Field link and sequence number"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="376" repet="R" label-spa="Información sobre las familias" oblig="ALL" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="R" label-spa="Tipo de familia" label-eng="Type of family" />
+		<subfield code="b" repet="R" label-spa="Nombre del miembro destacado" label-eng="Name of prominent member"/>
+		<subfield code="c" repet="R" label-spa="Titulo hereditario" label-eng="Hereditary title" />
+		<subfield code="s" repet="NR" label-spa="Periodo de inicio" label-eng="Start period"/>
+		<subfield code="t" repet="NR" label-spa="Periodo final" label-eng="End period"/>
+		<subfield code="u" repet="R" label-spa="Identificador Uniforme del Recurso" label-eng="Uniform Resource Identifier"/>
+		<subfield code="v" repet="R" label-spa="Fuente de información" label-eng="Source of information"/>
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number"/>
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del código" label-eng="Source of term"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Enlace entre campos y número de secuencia" label-eng="Field link and sequence number"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="377" repet="R" label-spa="Lengua asociada" oblig="ALL" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" label-eng="Source of code" label-spa="Fuente del código">
+			<i value="#" label-eng="MARC language code" label-spa="Código MARC de lengua" />
+			<i value="7" label-eng="Source specified in $2" label-spa="Fuente especificada en el subcampo $2" />
+		</indicator>
+		<subfield code="a" repet="R" label-spa="Código de lengua" label-eng="Language code" />
+		<subfield code="l" repet="R" label-spa="Término de lengua" label-eng="Language term"/>
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number"/>
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del código" label-eng="Source of code"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Enlace entre campos y número de secuencia" label-eng="Field link and sequence number"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="378" repet="NR" label-spa="Forma completa del nombre personal" oblig="ALL" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="q" repet="NR" label-spa="Forma completa del nombre personal" label-eng="Fuller form of personal name" />
+		<subfield code="u" repet="R" label-spa="Identificador Uniforme del Recurso" label-eng="Uniform Resource Identifier"/>
+		<subfield code="v" repet="R" label-spa="Fuente de información" label-eng="Source of information"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Enlace entre campos y número de secuencia" label-eng="Field link and sequence number"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="380" repet="R" label-spa="Forma de la obra" oblig="ALL" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="R" label-spa="Forma de obra" label-eng="Form of work" />
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number"/>
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del código" label-eng="Source of code"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Enlace entre campos y número de secuencia" label-eng="Field link and sequence number"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="381" repet="R" label-spa="Otras características distintivas de obra o expresión" oblig="ALL" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="R" label-spa="Otras características distintivas" label-eng="Other distinguishing characteristic" />
+		<subfield code="u" repet="R" label-spa="Identificador Uniforme del Recurso" label-eng="Uniform Resource Identifier"/>
+		<subfield code="v" repet="R" label-spa="Fuente de información" label-eng="Source of information"/>
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number"/>
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del código" label-eng="Source of term"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Enlace entre campos y número de secuencia" label-eng="Field link and sequence number"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="382" repet="R" label-spa="Medio de interpretación" oblig="ALL" template="##a">
+		<indicator pos="1" label-spa="Control de visualización asociada" label-eng="Display constant controller">
+			<i value="#" label-spa="No se proporciona información" label-eng="No information provided" />
+			<i value="0" label-spa="Medio de interpretación" label-eng="Medium of performance"/>
+			<i value="1" label-spa="Medio de interpretación parcial" label-eng="Partial medium of performance"/>
+			<i value="2" label-spa="Medio de interpretación del contenido musical de la expresión representativa" label-eng="Medium of performance of musical content" />
+			<i value="3" label-spa="Medio de interpretación parcial del contenido musical de la expresión representativa" label-eng="Partial medium of performance of musical content"/>
+		</indicator>
+		<indicator pos="2" />
+		<subfield code="a" repet="R" label-spa="Medio de interpretación" label-eng="Medium of performance" />
+		<subfield code="b" repet="R" label-spa="Solista" label-eng="Soloist"/>
+		<subfield code="d" repet="R" label-spa="Instrumento auxiliar" label-eng="Doubling instrument"/>
+		<subfield code="e" repet="R" label-spa="Número de conjuntos del mismo tipo" label-eng="Number of ensembles of the same type" />
+		<subfield code="n" repet="R" label-spa="Número de intérpretes de un mismo medio" label-eng="Number of performers of the same medium"/>
+		<subfield code="p" repet="R" label-spa="Medio de interpretación alternativo" label-eng="Alternative medium of performance"/>
+		<subfield code="r" repet="NR" label-spa="Número total de intérpretes del conjunto" label-eng="Total number of individuals performing alongside ensembles"/>
+		<subfield code="s" repet="NR" label-spa="Número total de intérpretes" label-eng="Total number of performers" />
+		<subfield code="t" repet="NR" label-spa="Número total de conjuntos" label-eng="Total number of ensembles"/>
+		<subfield code="v" repet="R" label-spa="Nota" label-eng="Note"/>
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number"/>
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del término" label-eng="Source of term"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Enlace entre campos y número de secuencia" label-eng="Field link and sequence number"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="383" repet="R" label-spa="Designación numérica de obra musical" oblig="ALL" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="R" label-spa="Número de serie" label-eng="Serial number" />
+		<subfield code="b" repet="R" label-spa="Número de opus" label-eng="Opus number"/>
+		<subfield code="c" repet="R" label-spa="Número de catálogo temático" label-eng="Thematic index number"/>
+		<subfield code="d" repet="NR" label-spa="Código de catálogo temático" label-eng="Thematic index code"/>
+		<subfield code="e" repet="NR" label-spa="Editor asociado al número de serie o de opus" label-eng="Publisher associated with opus number"/>
+		<subfield code="2" repet="NR" label-spa="Fuente" label-eng="Source"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Enlace entre campos y número de secuencia" label-eng="Field link and sequence number"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="384" repet="NR" label-spa="Tonalidad" oblig="ALL" template="##a">
+		<indicator pos="1" label-eng="Key type" label-spa="Tipo de tonalidad">
+			<i value="#" label-eng="Relationship to original unknown" label-spa="Se desconoce la relación con la tonalidad original" />
+			<i value="0" label-eng="Original key" label-spa="Tonalidad original" />
+			<i value="1" label-eng="Transposed key" label-spa="Tonalidad transportada" />
+			<i value="2" label-eng="Key of representative expression" label-spa="Tonalidad de la expresión representativa" />
+		</indicator>
+		<indicator pos="2" />
+		<subfield code="a" repet="NR" label-spa="Tonalidad" label-eng="Key" />
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number"/>
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Enlace entre campos y número de secuencia" label-eng="Field link and sequence number"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="385" repet="R" label-spa="Características del público" oblig="ALL" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="R" label-spa="Término para el público" label-eng="Audience term" />
+		<subfield code="b" repet="R" label-spa="Código para el público" label-eng="Audience code"/>
+		<subfield code="m" repet="NR" label-spa="Término para el grupo demográfico" label-eng="Demographic group term"/>
+		<subfield code="n" repet="NR" label-spa="Código para el grupo demográfico" label-eng="Demographic group code"/>
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number"/>
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente" label-eng="Source"/>
+		<subfield code="3" repet="NR" label-spa="Especificación de materiales" label-eng="Materials specified"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Enlace entre campos y número de secuencia" label-eng="Field link and sequence number"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="386" repet="R" label-spa="Características del creador/colaborador" oblig="ALL" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="R" label-spa="Término para el creador/colaborador" label-eng="Creator/contributor term" />
+		<subfield code="b" repet="R" label-spa="Código para el creador/colaborador" label-eng="Creator/contributor code"/>
+		<subfield code="i" repet="R" label-spa="Información sobre la relación" label-eng="Relationship information"/>
+		<subfield code="m" repet="NR" label-spa="Término para el grupo demográfico" label-eng="Demographic group term"/>
+		<subfield code="n" repet="NR" label-spa="Código para el grupo demográfico" label-eng="Demographic group code"/>
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number"/>
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente" label-eng="Source"/>
+		<subfield code="3" repet="NR" label-spa="Especificación de materiales" label-eng="Materials specified"/>
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Enlace entre campos y número de secuencia" label-eng="Field link and sequence number"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="387" repet="R" label-spa="Características de la expresión representativa" oblig="ALL" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="R" label-spa="Proporción de aspecto de la expresión representativa" label-eng="Aspect ratio of representative expression" />
+		<subfield code="b" repet="R" label-spa="Color de la expresion representativa" label-eng="Color content of representative expression"/>
+		<subfield code="c" repet="R" label-spa="Tipo de contenido de la expresión representativa" label-eng="Content type of representative expression"/>
+		<subfield code="d" repet="NR" label-spa="Fecha de captura de la expresión representativa" label-eng="Date of capture of representative expression"/>
+		<subfield code="e" repet="NR" label-spa="Fecha de la expresión representativa" label-eng="Date of representative expression"/>
+		<subfield code="f" repet="R" label-spa="Duración de la expresión representativa" label-eng="Duration of representatvie expression" />
+		<subfield code="g" repet="R" label-spa="Público destino de la expresión representativa" label-eng="Intended audience of representative expression"/>
+		<subfield code="h" repet="R" label-spa="Lengua de la expresión representativa" label-eng="Language of representative expression"/>
+		<subfield code="i" repet="NR" label-spa="Lugar de captura de la expresión representativa" label-eng="Place of capture of representative expression"/>
+		<subfield code="j" repet="NR" label-spa="Proyección del contenido cartográfico de la expresión representativa" label-eng="Projection of cartographic content of representative expression"/>
+		<subfield code="k" repet="R" label-spa="Escala de la expresión representativa" label-eng="Scale of representative expression" />
+		<subfield code="l" repet="R" label-spa="Escritura de la expresión representativa" label-eng="Script of representative expression"/>
+		<subfield code="m" repet="R" label-spa="Contenido sonoro de la expresión representativa" label-eng="Sound content of representative expression"/>
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number"/>
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del término" label-eng="Source of term"/>
+		<subfield code="3" repet="NR" label-spa="Especificación de materiales" label-eng="Materials specified"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Enlace entre campos y número de secuencia" label-eng="Field link and sequence number"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="388" repet="R" label-spa="Periodo temporal de creación" oblig="ALL" template="##a">
+		<indicator pos="1" label-eng="Type of personal name entry element" label-spa="Tipo de periodo temporal">
+			<i value="#" label-eng="No information provided" label-spa="No se proporciona información" />
+			<i value="1" label-eng="Creation of work" label-spa="Creación de la obra" />
+			<i value="2" label-eng="Creation of aggregate work" label-spa="Creación de la obra agregada" />
+		</indicator>
+		<indicator pos="2" />
+		<subfield code="a" repet="R" label-spa="Término para el periodo temporal de creación" label-eng="Time period of creation term" />
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number"/>
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del término" label-eng="Source"/>
+		<subfield code="3" repet="NR" label-spa="Especificación de materiales" label-eng="Materials specified"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Enlace entre campos y número de secuencia" label-eng="Field link and sequence number"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="400" repet="R" label-spa="Véase - Nombre personal" label-eng="Véase - Personal name" template="0#a">
 		<indicator pos="1" label-eng="Type of personal name entry element" label-spa="Tipo de elemento de entrada">
 			<i value="0" label-eng="Forename" label-spa="Nombre propio" />
@@ -758,16 +1164,18 @@
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="410" repet="R" label-spa="Referencia de envío Véase - Nombre corporativo" template="1#a">
-		<indicator pos="1" label-spa="Tipo de elemento de entrada">
-			<i value="0" label-spa="Nombre invertido" />
-			<i value="1" label-spa="Nombre de jurisdicción" />
-			<i value="2" label-spa="Nombre en orden directo" />
+		<indicator pos="1" label-spa="Tipo de elemento de entrada" label-eng="Type of corporate name entry element">
+			<i value="0" label-spa="Nombre invertido" label-eng="Inverted name"/>
+			<i value="1" label-spa="Nombre de jurisdicción" label-eng="Jurisdiction name"/>
+			<i value="2" label-spa="Nombre en orden directo" label-eng="Name in direct order" />
 		</indicator>
 		<indicator pos="2" />
 		<subfield code="a" repet="NR" label-spa="Nombre corporativo a de jurisdicción" oblig="ALL" />
@@ -776,12 +1184,16 @@
 		<subfield code="d" repet="NR" label-spa="Fecha de la reunión" />
 		<subfield code="e" repet="R" label-spa="Unidad subordinada" />
 		<subfield code="f" repet="NR" label-spa="Fecha de una obra" />
+		<subfield code="g" repet="R" label-spa="Información miscelánea" label-eng="Miscellaneous information" />
 		<subfield code="h" repet="NR" label-spa="Medio físico" />
 		<subfield code="i" repet="NR" label-spa="Frase de instrucción" />
 		<subfield code="k" repet="R" label-spa="Subasiento de Forma" />
 		<subfield code="l" repet="NR" label-spa="Idioma de una obra" />
+		<subfield code="m" repet="R" label-spa="Medio de nterpretación" label-eng="Medium of performance for music"/>
 		<subfield code="n" repet="R" label-spa="Número de la parte o sección" />
+		<subfield code="o" repet="NR" label-spa="Arreglo" label-eng="Arranged statement for music" />
 		<subfield code="p" repet="R" label-spa="Nombre de parte o sección" />
+		<subfield code="r" repet="NR" label-spa="Tonalidad" label-eng="Key for music" />
 		<subfield code="q" repet="NR" label-spa="Nombre de reunión a continuación del nombre de la jurisdicción como elemento de entrada" />
 		<subfield code="s" repet="NR" label-eng="Version" label-spa="Versión" />
 		<subfield code="t" repet="NR" label-eng="Title of a work" label-spa="Título de una obra" />
@@ -790,20 +1202,22 @@
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Intitución a la cual se aplica el campo"/>
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="411" repet="R" label-spa="Referencia de envío Véase - Nombre de reunión" template="##a">
-		<indicator pos="1" label-spa="Tipo de elemento de entrada">
-			<i value="0" label-spa="Nombre invertido" />
-			<i value="1" label-spa="Nombre de jurisdicción" />
-			<i value="2" label-spa="Nombre en orden directo" />
+		<indicator pos="1" label-spa="Tipo de elemento de entrada" label-eng="Type of meeting name entry element">
+			<i value="0" label-spa="Nombre invertido" label-eng="Inverted name"/>
+			<i value="1" label-spa="Nombre de jurisdicción" label-eng="Jurisdiction name"/>
+			<i value="2" label-spa="Nombre en orden directo" label-eng="Name in direct order" />
 		</indicator>
 		<indicator pos="2" />
 		<subfield code="a" repet="NR" label-spa="Nombre de reunión o de jurisdicción" oblig="ALL" />
-		<subfield code="b" repet="R" label-spa="Unidad subordinada" />
+
 		<subfield code="c" repet="NR" label-spa="Lugar de reunión" />
 		<subfield code="d" repet="R" label-spa="Fecha de la reunión o de la firma de un tratado" />
 		<subfield code="e" repet="R" label-spa="Término de relación" />
@@ -811,14 +1225,12 @@
 		<subfield code="g" repet="NR" label-spa="Información miscelánea" />
 		<subfield code="h" repet="NR" label-spa="Medio físico" />
 		<subfield code="i" repet="NR" label-spa="Frase de instrucción" />
+		<subfield code="j" repet="R" label-spa="Término indicativo de función" label-eng="Relator term"/>
 		<subfield code="k" repet="R" label-spa="Subasiento de forma" />
 		<subfield code="l" repet="NR" label-spa="Idioma de una obra" />
-		<subfield code="m" repet="NR" label-spa="Medio de ejecución musical" />
 		<subfield code="n" repet="R" label-spa="Número de la parte o sección" />
-		<subfield code="o" repet="NR" label-spa="Mención de arreglo musical" />
 		<subfield code="p" repet="R" label-spa="Nombre de parte o sección" />
 		<subfield code="q" repet="NR" label-spa="Forma más completa del nombre" />
-		<subfield code="r" repet="R" label-spa="Clave musical" />
 		<subfield code="s" repet="NR" label-eng="Version" label-spa="Versión" />
 		<subfield code="t" repet="NR" label-eng="Title of a work" label-spa="Título de una obra" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
@@ -826,14 +1238,18 @@
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="430" repet="R" label-spa="Referencia de envío Véase - Título uniforme" template="##a">
 		<indicator pos="1" />
-		<indicator pos="2" />
+		<indicator pos="2" label-spa="Caracteres que no alfabetizan" label-eng="Nonfiling characters" >
+			<i value="0-9" label-spa="Número de caracteres que no alfabetizan" label-eng="Number of nonfiling characters"/>
+		</indicator>
 		<subfield code="a" repet="NR" label-spa="Título uniforme" oblig="ALL" />
 		<subfield code="d" repet="R" label-spa="Fecha de la firma de un tratado" />
 		<subfield code="f" repet="NR" label-spa="Fecha de una obra" />
@@ -854,8 +1270,30 @@
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="447" repet="R" label-spa="Referencia de envío Véase - Nombre del acontecimiento" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="NR" label-spa="Nombre del acontecimiento" oblig="ALL" />
+		<subfield code="c" repet="R" label-spa="Lugar del acontecimiento" />
+		<subfield code="d" repet="NR" label-spa="Fecha del acontecimiento" label-eng="Date of named event" />
+		<subfield code="g" repet="R" label-spa="Información miscelánea" label-eng="Miscellaneous information" />
+		<subfield code="i" repet="R" label-spa="información de relación" label-eng="Relationship information" />
+		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
+		<subfield code="w" repet="NR" label-spa="Subcampo de control" label-eng="Control subfield" />
+		<subfield code="x" repet="R" label-spa="Subdivisión de materia general" label-eng="General subdivision" />
+		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
+		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
+		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -869,8 +1307,10 @@
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -879,14 +1319,17 @@
 		<indicator pos="2" />
 		<subfield code="a" repet="NR" label-spa="Encabezamiento temático" oblig="ALL" />
 		<subfield code="b" repet="R" label-spa="Término temático a continuación de un Nombre geográfico" />
-		<subfield code="i" repet="NR" label-spa="Frase de instrucción" />
+		<subfield code="g" repet="R" label-spa="Información miscelánea" label-eng="Miscellaneous information"/>
+		<subfield code="i" repet="NR" label-spa="Información sobre la relación" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="w" repet="NR" label-spa="Subcampo de control" label-eng="Control subfield" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -894,14 +1337,17 @@
 		<indicator pos="1" />
 		<indicator pos="2" />
 		<subfield code="a" repet="NR" label-spa="Nombre geográfico" oblig="ALL" />
+		<subfield code="g" repet="R" label-spa="Información miscelánea" label-eng="Miscellaneous information"/>
 		<subfield code="i" repet="NR" label-spa="Frase de instrucción" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
 		<subfield code="w" repet="NR" label-spa="Subcampo de control" label-eng="Control subfield" />
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -909,78 +1355,101 @@
 		<indicator pos="1" />
 		<indicator pos="2" />
 		<subfield code="a" repet="NR" label-spa="Término designador" oblig="ALL" />
-		<subfield code="i" repet="NR" label-spa="Frase de instrucción" />
+		<subfield code="i" repet="NR" label-spa="Información sobre la relación" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
 		<subfield code="w" repet="NR" label-spa="Subcampo de control" label-eng="Control subfield" />
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="462" repet="R" label-spa="Referencia de Véase - Medio de interpretación" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="NR" label-spa="Medio de interpretación" oblig="ALL" label-eng="Medium of performance term"/>
+		<subfield code="i" repet="R" label-spa="Información sobre la relación" label-eng="Relationship information"/>
+		<subfield code="w" repet="NR" label-spa="Subcampo de control" label-eng="Control subfield" />
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
+		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo" label-eng="Institution which field applies"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="480" repet="R" label-spa="Referencia de Véase - Subdivisión general" template="##a">
 		<indicator pos="1" />
 		<indicator pos="2" />
-		<subfield code="i" repet="NR" label-spa="Frase de instrucción" />
+		<subfield code="i" repet="NR" label-spa="Información sobre la relación" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
 		<subfield code="w" repet="NR" label-spa="Subcampo de control" label-eng="Control subfield" />
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="481" repet="R" label-spa="Referencia de Véase - Subdivisión geográfica" template="##a">
 		<indicator pos="1" />
 		<indicator pos="2" />
-		<subfield code="i" repet="NR" label-spa="Frase de instrucción" />
+		<subfield code="i" repet="NR" label-spa="Información sobre la relación" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
 		<subfield code="w" repet="NR" label-spa="Subcampo de control" label-eng="Control subfield" />
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="482" repet="R" label-spa="Referencia de Véase - Subdivisión cronológica" template="##a">
 		<indicator pos="1" />
 		<indicator pos="2" />
-		<subfield code="i" repet="NR" label-spa="Frase de instrucción" />
+		<subfield code="i" repet="NR" label-spa="Información sobre la relación" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
 		<subfield code="w" repet="NR" label-spa="Subcampo de control" label-eng="Control subfield" />
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="485" repet="R" label-spa="Referencia de Véase - Subdivisión de forma" template="##a">
 		<indicator pos="1" />
 		<indicator pos="2" />
-		<subfield code="i" repet="NR" label-spa="Frase de instrucción" />
+		<subfield code="i" repet="NR" label-spa="Información sobre la relación" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
 		<subfield code="w" repet="NR" label-spa="Subcampo de control" label-eng="Control subfield" />
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="500" repet="R" label-spa="Referencia de envío Véase además - Nombre personal" template="##a">
-		<indicator pos="1" label-spa="Tipo de elemento de entrada">
-			<i value="0" label-spa="Nombre de pila" />
-			<i value="1" label-spa="Apellido" />
-			<i value="2" label-spa="Nombre de familia" />
+		<indicator pos="1" label-eng="Type of personal name entry element" label-spa="Tipo de elemento de entrada"> 
+			<i value="0" label-spa="Nombre de pila" label-eng="Forename"/>
+			<i value="1" label-spa="Apellido" label-eng="Surname"/>
+			<i value="3" label-spa="Nombre de familia" label-eng="Family name"/>
 		</indicator>
 		<indicator pos="2" />
 		<subfield code="a" repet="NR" label-spa="Nombre personal"  />
@@ -1009,16 +1478,19 @@
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
 		<subfield code="0" repet="R" label-spa="Número de control del registro"/>
+		<subfield code="1" repet="R" label-spa="URI del Objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="510" repet="R" label-spa="Referencia de envío Véase - Nombre corporativo" template="##a">
-		<indicator pos="1" label-spa="Tipo de elemento de entrada">
-			<i value="0" label-spa="Nombre invertido" />
-			<i value="1" label-spa="Nombre de jurisdicción" />
-			<i value="2" label-spa="Nombre en orden directo" />
+		<indicator pos="1" label-spa="Tipo de elemento de entrada" label-eng="Type of meeting name entry element">
+			<i value="0" label-spa="Nombre invertido" label-eng="Inverted name"/>
+			<i value="1" label-spa="Nombre de jurisdicción" label-eng="Jurisdiction name"/>
+			<i value="2" label-spa="Nombre en orden directo" label-eng="Name in direct order" />
 		</indicator>
 		<indicator pos="2" />
 		<subfield code="a" repet="NR" label-spa="Nombre corporativo a de jurisdicción" oblig="ALL" />
@@ -1044,16 +1516,20 @@
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
+		<subfield code="0" repet="R" label-spa="Número de control del registro"/>
+		<subfield code="1" repet="R" label-spa="URI del Objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="511" repet="R" label-spa="Referencia de envío Véase además- Nombre de Reunión" template="1#a">
-		<indicator pos="1" label-spa="Tipo de elemento de entrada">
-			<i value="0" label-spa="Nombre invertido" />
-			<i value="1" label-spa="Nombre de jurisdicción" />
-			<i value="2" label-spa="Nombre en orden directo" />
+		<indicator pos="1" label-spa="Tipo de elemento de entrada" label-eng="Type of meeting name entry element">
+			<i value="0" label-spa="Nombre invertido" label-eng="Inverted name"/>
+			<i value="1" label-spa="Nombre de jurisdicción" label-eng="Jurisdiction name"/>
+			<i value="2" label-spa="Nombre en orden directo" label-eng="Name in direct order" />
 		</indicator>
 		<indicator pos="2" />
 		<subfield code="a" repet="NR" label-spa="Nombre de reunión o de jurisdicción" oblig="ALL" />
@@ -1064,6 +1540,7 @@
 		<subfield code="g" repet="NR" label-spa="Información miscelánea" />
 		<subfield code="h" repet="NR" label-spa="Medio físico" />
 		<subfield code="i" repet="NR" label-spa="Frase de instrucción" />
+		<subfield code="j" repet="R" label-spa="Término indicativo de función" label-eng="Relator term" />
 		<subfield code="k" repet="R" label-spa="Subasiento de forma" />
 		<subfield code="l" repet="NR" label-spa="Idioma de una obra" />
 		<subfield code="n" repet="R" label-spa="Número de la parte o sección" />
@@ -1077,14 +1554,19 @@
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
 		<subfield code="0" repet="R" label-spa="Número de control del registro"/>
+		<subfield code="1" repet="R" label-spa="URI del Objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="530" repet="R" label-spa="Referencia de envío Véase además - Título uniforme" template="##a">
 		<indicator pos="1" />
-		<indicator pos="2" />
+		<indicator pos="2" label-spa="Caracteres que no alfabetizan" label-eng="Nonfiling characters" >
+			<i value="0-9" label-spa="Número de caracteres que no alfabetizan" label-eng="Number of nonfiling characters"/>
+		</indicator>
 		<subfield code="a" repet="NR" label-spa="Título uniforme" oblig="ALL" />
 		<subfield code="d" repet="R" label-spa="Fecha de la firma de un tratado" />
 		<subfield code="f" repet="NR" label-spa="Fecha de una obra" />
@@ -1106,8 +1588,33 @@
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
 		<subfield code="0" repet="R" label-spa="Número de control del registro"/>
+		<subfield code="1" repet="R" label-spa="URI del Objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
+		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="547" repet="R" label-spa="Referencia de envío Véase - Nombre del acontecimiento" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="NR" label-spa="Nombre del acontecimiento" oblig="ALL" />
+		<subfield code="c" repet="R" label-spa="Lugar del acontecimiento" label-eng="Location of named event"/>
+		<subfield code="d" repet="NR" label-spa="Fecha del acontecimiento" label-eng="Date of named event" />
+		<subfield code="g" repet="R" label-spa="Información miscelánea" label-eng="Miscellaneous information" />
+		<subfield code="i" repet="R" label-spa="información de relación" label-eng="Relationship information" />
+		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
+		<subfield code="w" repet="NR" label-spa="Subcampo de control" label-eng="Control subfield" />
+		<subfield code="x" repet="R" label-spa="Subdivisión de materia general" label-eng="General subdivision" />
+		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
+		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
+		<subfield code="0" repet="R" label-spa="Número de control del registro"/>
+		<subfield code="1" repet="R" label-spa="URI del Objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -1122,8 +1629,11 @@
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
 		<subfield code="0" repet="R" label-spa="Número de control del registro" />
+		<subfield code="1" repet="R" label-spa="URI del Objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo" />
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -1132,6 +1642,7 @@
 		<indicator pos="2" />
 		<subfield code="a" repet="NR" label-spa="Encabezamiento Temático" oblig="ALL" />
 		<subfield code="b" repet="R" label-spa="Término temático a continuación de un Nombre geográfico" />
+		<subfield code="g" repet="R" label-spa="Información miscelánea" label-eng="Miscellaneous information"/>
 		<subfield code="i" repet="NR" label-spa="Frase de instrucción" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
 		<subfield code="w" repet="NR" label-spa="Subcampo de control" label-eng="Control subfield" />
@@ -1139,8 +1650,11 @@
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
 		<subfield code="0" repet="R" label-spa="Número de control del registro"/>
+		<subfield code="1" repet="R" label-spa="URI del Objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -1148,6 +1662,7 @@
 		<indicator pos="1" />
 		<indicator pos="2" />
 		<subfield code="a" repet="NR" label-spa="Nombre geográfico" oblig="ALL" />
+		<subfield code="g" repet="R" label-spa="Información miscelánea" label-eng="Miscellaneous information"/>
 		<subfield code="i" repet="NR" label-spa="Frase de instrucción" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
 		<subfield code="w" repet="NR" label-spa="Subcampo de control" label-eng="Control subfield" />
@@ -1155,83 +1670,116 @@
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
 		<subfield code="0" repet="R" label-spa="Número de control del registro"/>
+		<subfield code="1" repet="R" label-spa="URI del Objeto del mundo real" label-eng="Real World Object URI"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="555" repet="R" label-spa="Referencia de Véase además- Término designador de Género/Forma" template="##a">
 		<indicator pos="1" />
 		<indicator pos="2" />
-		<subfield code="a" repet="NR" label-spa="Término designador" oblig="ALL" />
-		<subfield code="i" repet="NR" label-spa="Frase de instrucción" />
+		<subfield code="a" repet="NR" label-spa="Término de género/forma" oblig="ALL" />
+		<subfield code="i" repet="NR" label-spa="Información sobre la relación" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
 		<subfield code="w" repet="NR" label-spa="Subcampo de control" label-eng="Control subfield" />
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
 		<subfield code="0" repet="R" label-spa="Número de control del registro"/>
+		<subfield code="1" repet="R" label-spa="URI del Objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="562" repet="R" label-spa="Referencia de Véase además- Medio de interpretación" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="NR" label-spa="Medio de interpretación" oblig="ALL" label-eng="Medium of performance term"/>
+		<subfield code="i" repet="R" label-spa="Información sobre la relación" label-eng="Relationship information"/>
+		<subfield code="w" repet="NR" label-spa="Subcampo de control" label-eng="Control subfield" />
+		<subfield code="0" repet="R" label-spa="Número de control del registro"/>
+		<subfield code="1" repet="R" label-spa="URI del Objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
+		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo" label-eng="Institution which field applies"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="580" repet="R" label-spa="Referencia de Véase además- Subdivisión general" template="##a">
 		<indicator pos="1" />
 		<indicator pos="2" />
-		<subfield code="i" repet="NR" label-spa="Frase de instrucción" />
+		<subfield code="i" repet="NR" label-spa="Información sobre la relación" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
 		<subfield code="w" repet="NR" label-spa="Subcampo de control" label-eng="Control subfield" />
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
 		<subfield code="0" repet="R" label-spa="Número de control del registro"/>
+		<subfield code="1" repet="R" label-spa="URI del Objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="581" repet="R" label-spa="Referencia de Véase además- Subdivisión geográfica" template="##a">
 		<indicator pos="1" />
 		<indicator pos="2" />
-		<subfield code="i" repet="NR" label-spa="Frase de instrucción" />
+		<subfield code="i" repet="NR" label-spa="Información sobre la relación" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
 		<subfield code="w" repet="NR" label-spa="Subcampo de control" label-eng="Control subfield" />
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
 		<subfield code="0" repet="R" label-spa="Número de control del registro"/>
+		<subfield code="1" repet="R" label-spa="URI del Objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="582" repet="R" label-spa="Referencia de Véase además - Subdivisión cronológica" template="##a">
 		<indicator pos="1" />
 		<indicator pos="2" />
-		<subfield code="i" repet="NR" label-spa="Frase de instrucción" />
-		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
-		<subfield code="w" repet="NR" label-spa="Subcampo de control" label-eng="Control subfield" />
-		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
-		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
-		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
-		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />
-		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
-	</datafield>
-	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<datafield tag="585" repet="R" label-spa="Referencia de Véase además - Subdivisión de forma" template="##a">
-		<indicator pos="1" />
-		<indicator pos="2" />
-		<subfield code="i" repet="NR" label-spa="Frase de instrucción" />
+		<subfield code="i" repet="NR" label-spa="Información sobre la relación" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
 		<subfield code="w" repet="NR" label-spa="Subcampo de control" label-eng="Control subfield" />
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
 		<subfield code="0" repet="R" label-spa="Número de control del registro"/>
+		<subfield code="1" repet="R" label-spa="URI del Objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
+		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="585" repet="R" label-spa="Referencia de Véase además - Subdivisión de forma" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="i" repet="NR" label-spa="Información sobre la relación" />
+		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
+		<subfield code="w" repet="NR" label-spa="Subcampo de control" label-eng="Control subfield" />
+		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
+		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
+		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
+		<subfield code="0" repet="R" label-spa="Número de control del registro"/>
+		<subfield code="1" repet="R" label-spa="URI del Objeto del mundo real" label-eng="Real World Object URI"/>
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo"/>
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -1338,7 +1886,9 @@
 	<datafield tag="666" repet="NR" label-spa="Referencia general explicativa - Nombre" template="##a">
 		<indicator pos="1" />
 		<indicator pos="2" />
-		<subfield code="a" repet="R" label-spa="Referencia historia" />
+		<subfield code="a" repet="R" label-spa="Referencia explicativa general" />
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="667" repet="R" label-spa="Nota general sin despliegue al público" template="##a">
@@ -1356,7 +1906,44 @@
 		<subfield code="a" repet="NR" label-spa="Citas de la fuente" />
 		<subfield code="b" repet="NR" label-spa="Información localizada" />
 		<subfield code="u" repet="R" label-spa="Identificador uniforme del recurso" />
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="w" repet="R" label-spa="Número de control del registro bibliográfico" label-eng="Bibliographic record control number"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="672" repet="R" label-spa="Título relacionado con la entidad" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" label-spa="Caracteres que no alfabetizan" label-eng="Nonfiling characters" >
+			<i value="0" label-spa="No hay caracteres que no alfabetizan" label-eng="Nonfiling characters"/>
+			<i value="1-9" label-spa="Número de caracteres que no alfabetizan" label-eng="Number of nonfiling characters"/>
+		</indicator>
+		<subfield code="a" repet="NR" label-spa="Título" label-eng="Title" oblig="ALL" />
+		<subfield code="b" repet="NR" label-spa="Resto de título" label-eng="Remainder of title"/>
+		<subfield code="f" repet="NR" label-spa="Fecha" label-eng="Date"/>
+		<subfield code="i" repet="R" label-spa="Información sobre la relación" label-eng="Relationship information"/>
+		<subfield code="w" repet="R" label-spa="Número de control del registro bibliográfico" label-eng="Bibliographic record control number"/>
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number" />	
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI" />	
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="673" repet="R" label-spa="Título no relacionado con la entidad" template="##a">
+		<indicator pos="1" />
+		<indicator pos="2" label-spa="Caracteres que no alfabetizan" label-eng="Nonfiling characters" >
+			<i value="0" label-spa="No hay caracteres que no alfabetizan" label-eng="Nonfiling characters"/>
+			<i value="1-9" label-spa="Número de caracteres que no alfabetizan" label-eng="Number of nonfiling characters"/>
+		</indicator>
+		<subfield code="a" repet="NR" label-spa="Título" label-eng="Title" oblig="ALL" />
+		<subfield code="b" repet="NR" label-spa="Resto de título" label-eng="Remainder of title"/>
+		<subfield code="f" repet="NR" label-spa="Fecha" label-eng="Date"/>
+		<subfield code="w" repet="R" label-spa="Número de control del registro bibliográfico" label-eng="Bibliographic record control number"/>
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number" />	
+		<subfield code="1" repet="R" label-spa="URI de un objeto del mundo real" label-eng="Real World Object URI" />	
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -1364,17 +1951,33 @@
 		<indicator pos="1" />
 		<indicator pos="2" />
 		<subfield code="a" repet="R" label-spa="Cita de la fuente" />
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<datafield tag="678" repet="NR" label-spa="Datos bibliográficos y/o históricos" template="##a">
+	<datafield tag="677" repet="R" label-spa="Definición" template="##a">
 		<indicator pos="1" />
+		<indicator pos="2" />
+		<subfield code="a" repet="R" label-spa="Definición" label-eng="Definition"/>
+		<subfield code="u" repet="R" label-spa="Identificador Uniforme del Recurso" label-eng="Uniform Resource Identifier" />
+		<subfield code="v" repet="NR" label-spa="Fuente de la definición" label-eng="Source of definition"/>
+		<subfield code="5" repet="R" label-spa="Institución que aplica el campo" label-eng="Institution to which field applies"/>
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="678" repet="NR" label-spa="Datos bibliográficos y/o históricos" template="##a">
+		<indicator pos="1" label-eng="Type of data" label-spa="Tipo de datos">
+			<i value="#" label-eng="No information provided" label-spa="No aporta información" />
+			<i value="0" label-eng="Biographical sketch" label-spa="Bosquejo biográfico" />
+			<i value="1" label-eng="Administrative history" label-spa="Historia administrativa"/>
+		</indicator>
 		<indicator pos="2" />
 		<subfield code="a" repet="R" label-spa="Datos bibliográficos o históricos" />
 		<subfield code="b" repet="NR" label-spa="Expansión" />
 		<subfield code="u" repet="R" label-spa="Identificador uniforme del recurso" />
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -1384,16 +1987,17 @@
 		<subfield code="a" repet="R" label-spa="Encabezamiento" />
 		<subfield code="i" repet="R" label-spa="Texto explicativo" />
 		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo" />
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="681" repet="R" label-spa="Nota de envío a ejemplos de encabezamiento temático" template="##a">
 		<indicator pos="1" />
 		<indicator pos="2" />
-		<subfield code="a" repet="R" label-spa="Encabezamiento" />
+		<subfield code="a" repet="R" label-spa="Término de encabezamiento o subdivisión de materia" />
 		<subfield code="i" repet="R" label-spa="Texto explicativo" />
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" />		
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -1402,6 +2006,7 @@
 		<indicator pos="2" />
 		<subfield code="a" repet="R" label-spa="Encabezamiento sustituto" />
 		<subfield code="i" repet="R" label-spa="Texto explicativo" />
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number" />	
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
@@ -1422,14 +2027,14 @@
 			<i value="3" label-eng="Family name" label-spa="Nombre de familia" />
 		</indicator>
 	<indicator pos="2" label-eng="Thesaurus" label-spa="Tesauro">
-			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" />
-			<i value="1" label-spa="LC Subject Headings for Childrens Literature" />
-			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" />
-			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" />
-			<i value="4" label-spa="Fuente no especificada" />
-			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" />
-			<i value="6" label-spa="Répertorie de vedettes-mátiere" />			
-			<i value="7" label-spa="Fuente especificada en el subcampo 2" />			
+			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" label-eng="LC Subject Headings"/>
+			<i value="1" label-spa="LC Subject Headings for Childrens Literature" label-eng="LC Children's and Young Adults' Subject Headings"/>
+			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" label-eng="Medical Subject Headings" />
+			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" label-eng="National Agricultural Library subject authority file"/>
+			<i value="4" label-spa="Fuente no especificada" label-eng="Source not specified"/>
+			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" label-eng="Canadian Subject Headings" />
+			<i value="6" label-spa="Répertorie de vedettes-mátiere" label-eng="Répertoire de vedettes-matière" />			
+			<i value="7" label-spa="Fuente especificada en el subcampo 2" label-eng="Source specified in subfield $2"/>			
 		</indicator>
 		<subfield code="a" repet="NR" label-spa="Nombre personal"	label-eng="Personal name" oblig="ALL" />
 		<subfield code="b" repet="NR" label-spa="Numeración" label-eng="Numeration" />
@@ -1437,7 +2042,7 @@
 		<subfield code="d" repet="NR" label-spa="Fechas" label-eng="Dates" />
 		<subfield code="e" repet="R" label-spa="Relación (término)" label-eng="Relator term" />
 		<subfield code="f" repet="NR" label-spa="Fecha de una obra"	label-eng="Date of a work" />
-		<subfield code="g" repet="NR" label-spa="Información miscelánea" label-eng="Miscellaneous information" />
+		<subfield code="g" repet="R" label-spa="Información miscelánea" label-eng="Miscellaneous information" />
 		<subfield code="h" repet="NR" label-spa="Medio físico" label-eng="Medium" />
 		<subfield code="k" repet="R" label-spa="Subencabezamiento de forma de forma" label-eng="Form subheading" />
 		<subfield code="l" repet="NR" label-spa="Idioma" label-eng="Language of a work" />
@@ -1461,20 +2066,20 @@
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="710" repet="R" label-spa="Asiento ligado al encabezamiento - Nombre corporativo" template="##a">
-		<indicator pos="1" label-spa="Tipo de elemento de entrada">
-			<i value="0" label-spa="Nombre invertido" />
-			<i value="1" label-spa="Nombre de jurisdicción" />
-			<i value="2" label-spa="Nombre en orden directo" />
+		<indicator pos="1" label-spa="Tipo de elemento inicial del nombre de entidad corporativa" label-eng="Type of corporate name entry element">
+			<i value="0" label-spa="Nombre invertido" label-eng="Inverted name"/>
+			<i value="1" label-spa="Nombre de jurisdicción" label-eng="Jurisdiction name"/>
+			<i value="2" label-spa="Nombre en orden directo" label-eng="Name in direct order"/>
 		</indicator>
-		<indicator pos="2" label-eng="Thesaurus" label-spa="Thesaurus">
-			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" />
-			<i value="1" label-spa="LC Subject Headings for Childrens Literature" />
-			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" />
-			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" />
-			<i value="4" label-spa="Fuente no especificada" />
-			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" />
-			<i value="6" label-spa="Répertorie de vedettes-mátiere" />			
-			<i value="7" label-spa="Fuente especificada en el subcampo 2" />			
+		<indicator pos="2" label-eng="Thesaurus" label-spa="Tesauro">
+			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" label-eng="LC Subject Headings"/>
+			<i value="1" label-spa="LC Subject Headings for Childrens Literature" label-eng="LC Children's and Young Adults' Subject Headings"/>
+			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" label-eng="Medical Subject Headings" />
+			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" label-eng="National Agricultural Library subject authority file" />
+			<i value="4" label-spa="Fuente no especificada" label-eng="Source not specified"/>
+			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" label-eng="Canadian Subject Headings" />
+			<i value="6" label-spa="Répertorie de vedettes-mátiere" label-eng="Répertoire de vedettes-matière"/>			
+			<i value="7" label-spa="Fuente especificada en el subcampo 2" label-eng="Source specified in subfield $2" />			
 		</indicator>
 		<subfield code="a" repet="NR" label-spa="Nombre corporativo a de jurisdicción" oblig="ALL" />
 		<subfield code="b" repet="R" label-spa="Unidad subordinada" />
@@ -1482,8 +2087,9 @@
 		<subfield code="d" repet="NR" label-spa="Fecha de la reunión" />
 		<subfield code="e" repet="R" label-spa="Término de relación" />
 		<subfield code="f" repet="NR" label-spa="Fecha de una obra" />
-		<subfield code="g" repet="NR" label-spa="Información miscelánea" />
+		<subfield code="g" repet="R" label-spa="Información miscelánea" />
 		<subfield code="h" repet="NR" label-spa="Medio físico" />
+		<subfield code="i" repet="R" label-spa="Información de la relación" label-eng="Relationship information" />
 		<subfield code="k" repet="R" label-spa="Subasiento de forma" />
 		<subfield code="l" repet="NR" label-spa="Idioma de una obra" />
 		<subfield code="m" repet="R" label-spa="Medio de ejecución musical" />
@@ -1494,13 +2100,17 @@
 		<subfield code="s" repet="NR" label-eng="Version" label-spa="Versión" />
 		<subfield code="t" repet="NR" label-eng="Title of a work" label-spa="Título de una obra" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
+		<subfield code="w" repet="NR" label-spa="Subcampo control /0 Visualización del enlace /1 Complejidad de la sustitución" label-eng="Control subfield"/>
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
-		<subfield code="0" repet="R" label-spa="Número de control del registro" />		
-		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término"/>		
+		<subfield code="0" repet="R" label-spa="Número de control del registro" />	
+		<subfield code="1" repet="R" label-spa="URI de un Objeto del Mundo Real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término"/>
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="NR" label-spa="Institución a la cual se aplica el campo" />		
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -1511,22 +2121,24 @@
 			<i value="2" label-eng="Name in direct order" />
 		</indicator>
 		<indicator pos="2" label-eng="Thesaurus" label-spa="Tesauro">
-			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" />
-			<i value="1" label-spa="LC Subject Headings for Childrens Literature" />
-			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" />
-			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" />
-			<i value="4" label-spa="Fuente no especificada" />
-			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" />
-			<i value="6" label-spa="Répertorie de vedettes-mátiere" />			
-			<i value="7" label-spa="Fuente especificada en el subcampo 2" />			
+			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" label-eng="LC Subject Headings"/>
+			<i value="1" label-spa="LC Subject Headings for Childrens Literature" label-eng="LC Children's and Young Adults' Subject Headings"/>
+			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" label-eng="Medical Subject Headings" />
+			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" label-eng="National Agricultural Library subject authority file" />
+			<i value="4" label-spa="Fuente no especificada" label-eng="Source not specified"/>
+			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" label-eng="Canadian Subject Headings" />
+			<i value="6" label-spa="Répertorie de vedettes-mátiere" label-eng="Répertoire de vedettes-matière"/>			
+			<i value="7" label-spa="Fuente especificada en el subcampo 2" label-eng="Source specified in subfield $2" />			
 		</indicator>
 		<subfield code="a" repet="NR" label-spa="Nombre de reunión" label-eng="Meeting name or jurisdiction name as entry element" oblig="ALL" />
 		<subfield code="c" repet="NR" label-spa="Lugar" label-eng="Location of meeting" />
 		<subfield code="d" repet="NR" label-spa="Fecha" label-eng="Date of meeting" />
 		<subfield code="e" repet="R" label-spa="Unidad subordinada" label-eng="Subordinate unit" />
 		<subfield code="f" repet="NR" label-spa="Fecha de una obra" label-eng="Date of a work" />
-		<subfield code="g" repet="NR" label-spa="Información miscelánea" />
+		<subfield code="g" repet="R" label-spa="Información miscelánea" />
 		<subfield code="h" repet="NR" label-spa="Medio físico" label-eng="Medium" />
+		<subfield code="i" repet="R" label-spa="Información de la relación" label-eng="Relationship information" />
+		<subfield code="j" repet="R" label-spa="Término indicativo de función" label-eng="Relator term" />
 		<subfield code="k" repet="R" label-spa="Subencabezamiento de forma" label-eng="Form subheading" />
 		<subfield code="l" repet="NR" label-spa="Idioma" label-eng="Language of a work" />
 		<subfield code="n" repet="R" label-spa="Número de parte"	label-eng="Number of part/section/meeting" />
@@ -1535,33 +2147,38 @@
 		<subfield code="s" repet="NR" label-spa="Version" label-eng="Version" />
 		<subfield code="t" repet="NR" label-spa="Título de una obra" label-eng="Title of a work" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
+		<subfield code="w" repet="NR" label-spa="Subcampo control /0 Visualización del enlace /1 Complejidad de la sustitución" label-eng="Control subfield"/>
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
-		<subfield code="0" repet="R" label-spa="Número de control del registro" />		
-		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término"/>		
+		<subfield code="0" repet="R" label-spa="Número de control del registro" />	
+		<subfield code="1" repet="R" label-spa="URI de un Objeto del Mundo Real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término"/>	
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="NR" label-spa="Institución a la cual se aplica el campo" />
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="730" repet="R" label-spa="Asiento ligado al encabezamiento - Título uniforme" label-eng="Uniform title" template="0#a">
 		<indicator pos="1" />		
 		<indicator pos="2" label-eng="Thesaurus" label-spa="Tesauro">
-			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" />
-			<i value="1" label-spa="LC Subject Headings for Childrens Literature" />
-			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" />
-			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" />
-			<i value="4" label-spa="Fuente no especificada" />
-			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" />
-			<i value="6" label-spa="Répertorie de vedettes-mátiere" />			
-			<i value="7" label-spa="Fuente especificada en el subcampo 2" />			
+			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" label-eng="LC Subject Headings"/>
+			<i value="1" label-spa="LC Subject Headings for Childrens Literature" label-eng="LC Children's and Young Adults' Subject Headings"/>
+			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" label-eng="Medical Subject Headings" />
+			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" label-eng="National Agricultural Library subject authority file" />
+			<i value="4" label-spa="Fuente no especificada" label-eng="Source not specified"/>
+			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" label-eng="Canadian Subject Headings" />
+			<i value="6" label-spa="Répertorie de vedettes-mátiere" label-eng="Répertoire de vedettes-matière"/>			
+			<i value="7" label-spa="Fuente especificada en el subcampo 2" label-eng="Source specified in subfield $2" />			
 		</indicator>
 		<subfield code="a" repet="NR" label-eng="Uniform title" label-spa="Título uniforme" oblig="ALL" />
 		<subfield code="d" repet="R" label-eng="Date of treaty signing" label-spa="Fecha de firma de tratado" />
 		<subfield code="f" repet="NR" label-eng="Date of a work" label-spa="Fecha de una obra" />
-		<subfield code="g" repet="NR" label-eng="Miscellaneous information" label-spa="Información miscelánea" />
+		<subfield code="g" repet="R" label-eng="Miscellaneous information" label-spa="Información miscelánea" />
 		<subfield code="h" repet="NR" label-eng="Medium" label-spa="Medio (DGM)" />
+		<subfield code="i" repet="R" label-spa="Información de la relación" label-eng="Relationship information" />
 		<subfield code="k" repet="R" label-eng="Form subheading" label-spa="Subencabezamiento de forma" />
 		<subfield code="l" repet="NR" label-eng="Language of a work" label-spa="Idioma de una obra" />
 		<subfield code="m" repet="R" label-eng="Medium of performance for music" label-spa="Medio de ejecución" />
@@ -1572,258 +2189,366 @@
 		<subfield code="s" repet="NR" label-eng="Version" label-spa="Versión" />
 		<subfield code="t" repet="NR" label-eng="Title of a work" label-spa="Título de una obra" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
+		<subfield code="w" repet="NR" label-spa="Subcampo control /0 Visualización del enlace /1 Complejidad de la sustitución" label-eng="Control subfield"/>
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
-		<subfield code="0" repet="R" label-spa="Número de control del registro" />		
-		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término"/>		
+		<subfield code="0" repet="R" label-spa="Número de control del registro" />	
+		<subfield code="1" repet="R" label-spa="URI de un Objeto del Mundo Real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término"/>	
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="NR" label-spa="Institución a la cual se aplica el campo" />
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="747" repet="R" label-spa="Enlace con encabezamiento aceptado - Nombre de acontecimiento" label-eng="Established Heading Linking Entry - Named Event" template="0#a">
+		<indicator pos="1" />		
+		<indicator pos="2" label-eng="Thesaurus" label-spa="Tesauro">
+			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" label-eng="LC Subject Headings"/>
+			<i value="1" label-spa="LC Subject Headings for Childrens Literature" label-eng="LC Children's and Young Adults' Subject Headings"/>
+			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" label-eng="Medical Subject Headings" />
+			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" label-eng="National Agricultural Library subject authority file" />
+			<i value="4" label-spa="Fuente no especificada" label-eng="Source not specified"/>
+			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" label-eng="Canadian Subject Headings" />
+			<i value="6" label-spa="Répertorie de vedettes-mátiere" label-eng="Répertoire de vedettes-matière"/>			
+			<i value="7" label-spa="Fuente especificada en el subcampo 2" label-eng="Source specified in subfield $2" />			
+		</indicator>
+		<subfield code="a" repet="NR" label-eng="Named event" label-spa="Nombre del acontecimiento" oblig="ALL" />
+		<subfield code="c" repet="R" label-eng="Location of named event" label-spa="Lugar del acontecimiento" />
+		<subfield code="d" repet="NR" label-eng="Date of named event" label-spa="Fecha del acontecimiento" />
+		<subfield code="g" repet="R" label-eng="Miscellaneous information" label-spa="Información miscelánea" />
+		<subfield code="i" repet="R" label-spa="Información de la relación" label-eng="Relationship information" />
+		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
+		<subfield code="w" repet="NR" label-spa="Subcampo control /0 Visualización del enlace /1 Complejidad de la sustitución" label-eng="Control subfield"/>
+		<subfield code="x" repet="R" label-spa="Subdivisión de materia general" label-eng="General subdivision" />
+		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
+		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
+		<subfield code="0" repet="R" label-spa="Número de control del registro" />	
+		<subfield code="1" repet="R" label-spa="URI de un Objeto del Mundo Real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término"/>	
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
+		<subfield code="5" repet="NR" label-spa="Institución a la cual se aplica el campo" />
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="748" repet="NR" label-spa="Asiento ligado al encabezamiento - Término cronológico" template="0#a">
 		<indicator pos="1" />		
 		<indicator pos="2" label-eng="Thesaurus" label-spa="Tesauro">
-			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" />
-			<i value="1" label-spa="LC Subject Headings for Childrens Literature" />
-			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" />
-			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" />
-			<i value="4" label-spa="Fuente no especificada" />
-			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" />
-			<i value="6" label-spa="Répertorie de vedettes-mátiere" />			
-			<i value="7" label-spa="Fuente especificada en el subcampo 2" />			
+			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" label-eng="LC Subject Headings"/>
+			<i value="1" label-spa="LC Subject Headings for Childrens Literature" label-eng="LC Children's and Young Adults' Subject Headings"/>
+			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" label-eng="Medical Subject Headings" />
+			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" label-eng="National Agricultural Library subject authority file" />
+			<i value="4" label-spa="Fuente no especificada" label-eng="Source not specified"/>
+			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" label-eng="Canadian Subject Headings" />
+			<i value="6" label-spa="Répertorie de vedettes-mátiere" label-eng="Répertoire de vedettes-matière"/>			
+			<i value="7" label-spa="Fuente especificada en el subcampo 2" label-eng="Source specified in subfield $2" />			
 		</indicator>
 		<subfield code="a" repet="NR" label-eng="Chronological term" label-spa="Término cronológico" oblig="ALL" />
+		<subfield code="i" repet="R" label-spa="Información de la relación" label-eng="Relationship information" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
+		<subfield code="w" repet="NR" label-spa="Subcampo control /0 Visualización del enlace /1 Complejidad de la sustitución" label-eng="Control subfield"/>
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
+		<subfield code="0" repet="R" label-spa="Número de control del registro" />	
+		<subfield code="1" repet="R" label-spa="URI de un Objeto del Mundo Real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término"/>	
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
+		<subfield code="5" repet="NR" label-spa="Institución a la cual se aplica el campo" />
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="750" repet="R" label-spa="Asiento ligado al encabezamiento - Término Temático" template="0#a">
 		<indicator pos="1" />		
 		<indicator pos="2" label-eng="Thesaurus" label-spa="Tesauro">
-			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" />
-			<i value="1" label-spa="LC Subject Headings for Childrens Literature" />
-			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" />
-			<i value="3" label-spa="Biblioteca Nacional de Medicina de los E.U.A. (NLM)" />
-			<i value="4" label-spa="National Library of Agriculture (NAL) subject authority files" />
-			<i value="5" label-spa="Fuente no especificada" />
-			<i value="6" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" />
-			<i value="7" label-spa="Répertorie de vedettes-mátiere" />			
-			<i value="8" label-spa="Fuente especificada en el subcampo 2" />			
+			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" label-eng="LC Subject Headings"/>
+			<i value="1" label-spa="LC Subject Headings for Childrens Literature" label-eng="LC Children's and Young Adults' Subject Headings"/>
+			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" label-eng="Medical Subject Headings" />
+			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" label-eng="National Agricultural Library subject authority file"/>
+			<i value="4" label-spa="Fuente no especificada" label-eng="Source not specified"/>
+			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" label-eng="Canadian Subject Headings" />
+			<i value="6" label-spa="Répertorie de vedettes-mátiere" label-eng="Répertoire de vedettes-matière" />			
+			<i value="7" label-spa="Fuente especificada en el subcampo 2" label-eng="Source specified in subfield $2"/>			
 		</indicator>
 		<subfield code="a" repet="NR" label-eng="Término temático" label-spa="Término temático" oblig="ALL" />
 		<subfield code="b" repet="NR" label-spa="Término temático a continuación del Nombre geográfico usado como elemento de entrada" oblig="ALL" />
+		<subfield code="g" repet="R" label-eng="Miscellaneous information" label-spa="Información miscelánea" />
+		<subfield code="i" repet="R" label-spa="Información de la relación" label-eng="Relationship information" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
+		<subfield code="w" repet="NR" label-spa="Subcampo control /0 Visualización del enlace /1 Complejidad de la sustitución" label-eng="Control subfield"/>
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
-		<subfield code="0" repet="R" label-spa="Número de control del registro" />		
-		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término"/>		
+		<subfield code="0" repet="R" label-spa="Número de control del registro" />	
+		<subfield code="1" repet="R" label-spa="URI de un Objeto del Mundo Real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término"/>	
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="NR" label-spa="Institución a la cual se aplica el campo" />
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="751" repet="R" label-spa="Asiento ligado al encabezamiento - Nombre geográfico" template="0#a">
 		<indicator pos="1" />		
 		<indicator pos="2" label-eng="Thesaurus" label-spa="Tesauro">
-			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" />
-			<i value="1" label-spa="LC Subject Headings for Childrens Literature" />
-			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" />
-			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" />
-			<i value="4" label-spa="Fuente no especificada" />
-			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" />
-			<i value="6" label-spa="Répertorie de vedettes-mátiere" />			
-			<i value="7" label-spa="Fuente especificada en el subcampo 2" />			
+			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" label-eng="LC Subject Headings"/>
+			<i value="1" label-spa="LC Subject Headings for Childrens Literature" label-eng="LC Children's and Young Adults' Subject Headings"/>
+			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" label-eng="Medical Subject Headings" />
+			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" label-eng="National Agricultural Library subject authority file"/>
+			<i value="4" label-spa="Fuente no especificada" label-eng="Source not specified"/>
+			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" label-eng="Canadian Subject Headings" />
+			<i value="6" label-spa="Répertorie de vedettes-mátiere" label-eng="Répertoire de vedettes-matière" />			
+			<i value="7" label-spa="Fuente especificada en el subcampo 2" label-eng="Source specified in subfield $2"/>			
 		</indicator>
 		<subfield code="a" repet="NR" label-eng="Geographic name" label-spa="Nombre geográfico" oblig="ALL" />
+		<subfield code="g" repet="R" label-eng="Miscellaneous information" label-spa="Información miscelánea" />
+		<subfield code="i" repet="R" label-spa="Información de la relación" label-eng="Relationship information" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
+		<subfield code="w" repet="NR" label-spa="Subcampo control /0 Visualización del enlace /1 Complejidad de la sustitución" label-eng="Control subfield"/>
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
-		<subfield code="0" repet="R" label-spa="Número de control del registro" />		
-		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término"/>		
+		<subfield code="0" repet="R" label-spa="Número de control del registro" />	
+		<subfield code="1" repet="R" label-spa="URI de un Objeto del Mundo Real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término"/>	
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="NR" label-spa="Institución a la cual se aplica el campo" />
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="755" repet="R" label-spa="Asiento ligado al encabezamiento - Término genero/forma" template="0#a">
 		<indicator pos="1" />		
 		<indicator pos="2" label-eng="Thesaurus" label-spa="Tesauro">
-			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" />
-			<i value="1" label-spa="LC Subject Headings for Childrens Literature" />
-			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" />
-			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" />
-			<i value="4" label-spa="Fuente no especificada" />
-			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" />
-			<i value="6" label-spa="Répertorie de vedettes-mátiere" />			
-			<i value="7" label-spa="Fuente especificada en el subcampo 2" />			
+			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" label-eng="LC Subject Headings"/>
+			<i value="1" label-spa="LC Subject Headings for Childrens Literature" label-eng="LC Children's and Young Adults' Subject Headings"/>
+			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" label-eng="Medical Subject Headings" />
+			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" label-eng="National Agricultural Library subject authority file"/>
+			<i value="4" label-spa="Fuente no especificada" label-eng="Source not specified"/>
+			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" label-eng="Canadian Subject Headings" />
+			<i value="6" label-spa="Répertorie de vedettes-mátiere" label-eng="Répertoire de vedettes-matière" />			
+			<i value="7" label-spa="Fuente especificada en el subcampo 2" label-eng="Source specified in subfield $2"/>			
 		</indicator>
 		<subfield code="a" repet="NR" label-eng="Genre/form term as entry element" label-spa="Término designador de género/forma" oblig="ALL" />
+		<subfield code="i" repet="R" label-spa="Información de la relación" label-eng="Relationship information" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
+		<subfield code="w" repet="NR" label-spa="Subcampo control /0 Visualización del enlace /1 Complejidad de la sustitución" label-eng="Control subfield"/>
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
-		<subfield code="0" repet="R" label-spa="Número de control del registro" />		
-		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término"/>		
+		<subfield code="0" repet="R" label-spa="Número de control del registro" />	
+		<subfield code="1" repet="R" label-spa="URI de un Objeto del Mundo Real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término"/>	
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="NR" label-spa="Institución a la cual se aplica el campo" />
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="762" repet="R" label-spa="Enlace con encabezamiento aceptado - Término de medio de interpretación" template="0#a">
+		<indicator pos="1" />		
+		<indicator pos="2" label-eng="Thesaurus" label-spa="Tesauro">
+			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" label-eng="LC Subject Headings"/>
+			<i value="1" label-spa="LC Subject Headings for Childrens Literature" label-eng="LC Children's and Young Adults' Subject Headings"/>
+			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" label-eng="Medical Subject Headings" />
+			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" label-eng="National Agricultural Library subject authority file"/>
+			<i value="4" label-spa="Fuente no especificada" label-eng="Source not specified"/>
+			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" label-eng="Canadian Subject Headings" />
+			<i value="6" label-spa="Répertorie de vedettes-mátiere" label-eng="Répertoire de vedettes-matière" />			
+			<i value="7" label-spa="Fuente especificada en el subcampo 2" label-eng="Source specified in subfield $2"/>			
+		</indicator>
+		<subfield code="a" repet="NR" label-eng="Medium of performance term as entry element" label-spa="Término de medio de interpretación como elemento inicial" oblig="ALL" />
+		<subfield code="i" repet="R" label-spa="Información de relación" label-eng="Relationship information" />
+		<subfield code="w" repet="NR" label-spa="Subcampo de control /0 Visualización del enlace /1 Complejidad de la sustitución" label-eng="Control subfield" />
+		<subfield code="0" repet="R" label-spa="Número de control del registro" label-eng="Authority record control number or standard number" />		
+		<subfield code="1" repet="R" label-spa="URI de un Objeto del Mundo Real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término" label-eng="Source of heading or term"/>		
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
+		<subfield code="5" repet="R" label-spa="Institución a la cual se aplica el campo" label-eng="Institution to which field applies"/>
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
+		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number"/>
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="780" repet="R" label-spa="Asiento ligado al subencabezamiento - Subdivisión general" template="0#a">
 		<indicator pos="1" />		
 		<indicator pos="2" label-eng="Thesaurus" label-spa="Tesauro">
-			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" />
-			<i value="1" label-spa="LC Subject Headings for Childrens Literature" />
-			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" />
-			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" />
-			<i value="4" label-spa="Fuente no especificada" />
-			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" />
-			<i value="6" label-spa="Répertorie de vedettes-mátiere" />			
-			<i value="7" label-spa="Fuente especificada en el subcampo 2" />			
+			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" label-eng="LC Subject Headings"/>
+			<i value="1" label-spa="LC Subject Headings for Childrens Literature" label-eng="LC Children's and Young Adults' Subject Headings"/>
+			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" label-eng="Medical Subject Headings" />
+			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" label-eng="National Agricultural Library subject authority file"/>
+			<i value="4" label-spa="Fuente no especificada" label-eng="Source not specified"/>
+			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" label-eng="Canadian Subject Headings" />
+			<i value="6" label-spa="Répertorie de vedettes-mátiere" label-eng="Répertoire de vedettes-matière" />			
+			<i value="7" label-spa="Fuente especificada en el subcampo 2" label-eng="Source specified in subfield $2"/>			
 		</indicator>
+		<subfield code="i" repet="R" label-spa="Información de relación" label-eng="Relationship information" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
+		<subfield code="w" repet="NR" label-spa="Subcampo de control /0 Visualización del enlace /1 Complejidad de la sustitución" label-eng="Control subfield" />
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
-		<subfield code="0" repet="R" label-spa="Número de control del registro" />		
-		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término"/>		
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" />	
+		<subfield code="1" repet="R" label-spa="URI de un Objeto del Mundo Real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término"/>	
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="NR" label-spa="Institución a la cual se aplica el campo" />
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="781" repet="R" label-spa="Asiento ligado al subencabezamiento - Subdivisión geográfica" template="0#a">
 		<indicator pos="1" />		
 		<indicator pos="2" label-eng="Thesaurus" label-spa="Tesauro">
-			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" />
-			<i value="1" label-spa="LC Subject Headings for Childrens Literature" />
-			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" />
-			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" />
-			<i value="4" label-spa="Fuente no especificada" />
-			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" />
-			<i value="6" label-spa="Répertorie de vedettes-mátiere" />			
-			<i value="7" label-spa="Fuente especificada en el subcampo 2" />			
+			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" label-eng="LC Subject Headings"/>
+			<i value="1" label-spa="LC Subject Headings for Childrens Literature" label-eng="Library of Congress Children's and Young Adults' SUbject Headings"/>
+			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)"  label-eng="Medical Subject Headings"/>
+			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" label-eng="National Agricultural Library subject authority file"/>
+			<i value="4" label-spa="Fuente no especificada" label-eng="Source not specified"/>
+			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" label-eng="Canadian Sbject Headings" />
+			<i value="6" label-spa="Répertorie de vedettes-mátiere" label-eng="Répertoire de vedettes-matière"/>			
+			<i value="7" label-spa="Fuente especificada en el subcampo $2" label-eng="Source specified in subfield $2"/>			
 		</indicator>
+		<subfield code="i" repet="R" label-spa="Información de la relación" label-eng="Relationship information" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
+		<subfield code="w" repet="NR" label-spa="Subcampo control" label-eng="Control subfield" />
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
 		<subfield code="0" repet="R" label-spa="Número de control del registro" />		
+		<subfield code="1" repet="R" label-spa="URI de un Objeto del Mundo Real" label-eng="Real World Object URI"/>
 		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término"/>		
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="NR" label-spa="Institución a la cual se aplica el campo" />
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="782" repet="R" label-spa="Asiento ligado al subencabezamiento - Subdivisión cronológica" template="0#a">
 		<indicator pos="1" />		
 		<indicator pos="2" label-eng="Thesaurus" label-spa="Tesauro">
-			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" />
-			<i value="1" label-spa="LC Subject Headings for Childrens Literature" />
-			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" />
-			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" />
-			<i value="4" label-spa="Fuente no especificada" />
-			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" />
-			<i value="6" label-spa="Répertorie de vedettes-mátiere" />			
-			<i value="7" label-spa="Fuente especificada en el subcampo 2" />			
+ 			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" label-eng="LC Subject Headings"/>
+			<i value="1" label-spa="LC Subject Headings for Childrens Literature" label-eng="Library of Congress Children's and Young Adults' SUbject Headings"/>
+			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)"  label-eng="Medical Subject Headings"/>
+			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" label-eng="National Agricultural Library subject authority file"/>
+			<i value="4" label-spa="Fuente no especificada" label-eng="Source not specified"/>
+			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" label-eng="Canadian Sbject Headings" />
+			<i value="6" label-spa="Répertorie de vedettes-mátiere" label-eng="Répertoire de vedettes-matière"/>			
+			<i value="7" label-spa="Fuente especificada en el subcampo $2" label-eng="Source specified in subfield $2"/>			
 		</indicator>
+		<subfield code="i" repet="R" label-spa="Información de relación" label-eng="Relationship information" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
+		<subfield code="w" repet="NR" label-spa="Subcampo de control /0 Visualización del enlace /1 Complejidad de la sustitución" label-eng="Control subfield" />
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
-		<subfield code="0" repet="R" label-spa="Número de control del registro" />		
-		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término" />		
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number"/>	
+		<subfield code="1" repet="R" label-spa="URI de un Objeto del Mundo Real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término"/>		
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="NR" label-spa="Institución a la cual se aplica el campo" />
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="785" repet="R" label-spa="Asiento ligado al subencabezamiento - Subdivisión de forma" template="0#a">
 		<indicator pos="1" />		
 		<indicator pos="2" label-eng="Thesaurus" label-spa="Tesauro">
-			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" />
-			<i value="1" label-spa="LC Subject Headings for Childrens Literature" />
-			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" />
-			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" />
-			<i value="4" label-spa="Fuente no especificada" />
-			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" />
-			<i value="6" label-spa="Répertorie de vedettes-mátiere" />			
-			<i value="7" label-spa="Fuente especificada en el subcampo 2" />			
+ 			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" label-eng="LC Subject Headings"/>
+			<i value="1" label-spa="LC Subject Headings for Childrens Literature" label-eng="Library of Congress Children's and Young Adults' SUbject Headings"/>
+			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)"  label-eng="Medical Subject Headings"/>
+			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" label-eng="National Agricultural Library subject authority file"/>
+			<i value="4" label-spa="Fuente no especificada" label-eng="Source not specified"/>
+			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" label-eng="Canadian Sbject Headings" />
+			<i value="6" label-spa="Répertorie de vedettes-mátiere" label-eng="Répertoire de vedettes-matière"/>			
+			<i value="7" label-spa="Fuente especificada en el subcampo $2" label-eng="Source specified in subfield $2"/>			
 		</indicator>
+		<subfield code="i" repet="R" label-spa="Información de relación" label-eng="Relationship information" />
 		<subfield code="v" repet="R" label-spa="Subdivisión de forma" label-eng="Form subdivision" />
+		<subfield code="w" repet="NR" label-spa="Subcampo de control /0 Visualización del enlace /1 Complejidad de la sustitución" label-eng="Control subfield" />
 		<subfield code="x" repet="R" label-spa="Subdivisión temática en general" label-eng="General subdivision" />
 		<subfield code="y" repet="R" label-spa="Subdivisión cronológica" label-eng="Chronological subdivision" />
 		<subfield code="z" repet="R" label-spa="Subdivisión geográfica" label-eng="Geographic subdivision" />
-		<subfield code="0" repet="R" label-spa="Número de control del registro" />		
-		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término"/>		
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" />	
+		<subfield code="1" repet="R" label-spa="URI de un Objeto del Mundo Real" label-eng="Real World Object URI"/>
+		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término"/>	
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="NR" label-spa="Institución a la cual se aplica el campo" />
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="788" repet="R" label-spa="Información de asiento ligado complejo" template="0#a">
 		<indicator pos="1" />		
 		<indicator pos="2" label-eng="Thesaurus" label-spa="Tesauro">
-			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" />
-			<i value="1" label-spa="LC Subject Headings for Childrens Literature" />
-			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)" />
-			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" />
-			<i value="4" label-spa="Fuente no especificada" />
-			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" />
-			<i value="6" label-spa="Répertorie de vedettes-mátiere" />			
-			<i value="7" label-spa="Fuente especificada en el subcampo 2" />			
+			<i value="0" label-spa="Lista de Encabezamientos de la Biblioteca del Congreso)LCSH)/Archivo de Autoridades de Nombres del Programa NACO" label-eng="LC Subject Headings"/>
+			<i value="1" label-spa="LC Subject Headings for Childrens Literature" label-eng="Library of Congress Children's and Young Adults' SUbject Headings"/>
+			<i value="2" label-spa="Medical Subject Headings (MeSH)/Archivo de Autoridades de la Biblioteca Nacional de Medicina de los E.U.A.(NLM)"  label-eng="Medical Subject Headings"/>
+			<i value="3" label-spa="National Library of Agriculture (NAL) subject authority files" label-eng="National Agricultural Library subject authority file"/>
+			<i value="4" label-spa="Fuente no especificada" label-eng="Source not specified"/>
+			<i value="5" label-spa="Canadian Subject Heading/Archivo de Autoridades de la Biblioteca Nacional de Canadá (NLC)" label-eng="Canadian Sbject Headings" />
+			<i value="6" label-spa="Répertorie de vedettes-mátiere" label-eng="Répertoire de vedettes-matière"/>			
+			<i value="7" label-spa="Fuente especificada en el subcampo $2" label-eng="Source specified in subfield $2"/>			
 		</indicator>
 		<subfield code="a" repet="R" label-spa="Encabezamiento referido" />
 		<subfield code="i" repet="R" label-spa="Nota explicativa" />
-		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término" />		
+		<subfield code="2" repet="NR" label-spa="Fuente del encabezamiento o término" />	
+		<subfield code="4" repet="R" label-spa="Código de relación" label-eng="Relationship"/>
 		<subfield code="5" repet="NR" label-spa="Institución a la cual se aplica el campo" />
-		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />	
+		<subfield code="7" repet="R" label-spa="Procedencia de los datos" label-eng="Data provenance"/>
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="856" repet="R" label-spa="Localización y acceso electrónico" template="0#a">
 		<indicator pos="1" label-eng="Access method" label-spa="Método de acceso">		
-			<i value="#" label-spa="No se provee información" />
-			<i value="0" label-spa="Correo electrónico" />
-			<i value="1" label-spa="FTP" />
-			<i value="2" label-spa="Remoto - telnet" />
-			<i value="3" label-spa="Línea telefónica - Dial Up" />
-			<i value="4" label-spa="HTTP" />
-			<i value="7" label-spa="Método especificado en el subcampo 2" />
+			<i value="#" label-spa="No se provee información" label-eng="No information provided" />
+			<i value="0" label-spa="Correo electrónico" label-eng="Email"/>
+			<i value="1" label-spa="FTP" label-eng="FTP"/>
+			<i value="2" label-spa="Remoto - telnet" label-eng="Remoto login (Telnet)"/>
+			<i value="3" label-spa="Línea telefónica - Dial Up" label-eng="Dial-up"/>
+			<i value="4" label-spa="HTTP" label-eng="HTTP"/>
+			<i value="7" label-spa="Método especificado en el subcampo 2" label-eng="Method specified in subfield $2" />
 		</indicator>
 		<indicator pos="2" label-eng="Relationship" label-spa="Relación">
-			<i value="#" label-spa="No se provee información" />
-			<i value="0" label-spa="El recurso" />
-			<i value="1" label-spa="Una versión del recurso" />
-			<i value="2" label-spa="Un recurso relacionado" />
-			<i value="8" label-spa="No se genera una constante de despiegue" />
+			<i value="#" label-spa="No se provee información" label-eng="No information provided"/>
+			<i value="0" label-spa="El recurso" label-eng="Resource"/>
+			<i value="1" label-spa="Una versión del recurso" label-eng="Version of resource"/>
+			<i value="2" label-spa="Un recurso relacionado" label-eng="Related resource"/>
+			<i value="3" label-spa="Parte(s) componente(s) del recurso" label-eng="Component part(s) of resource"/>
+			<i value="4" label-spa="Versión de la(s) componente(s) del recurso" label-eng="Version of component part(s) of resource"/>
+			<i value="8" label-spa="No se genera una constante de despiegue" label-eng="No display constant generated"/>
 		</indicator>
 		<subfield code="a" repet="R" label-spa="Nombre del dominio" label-eng="Host name" />
-		<subfield code="b" repet="R" label-spa="Número de acceso"  />
+		
 		<subfield code="c" repet="R" label-spa="Información sobre la compresión" />
 		<subfield code="d" repet="R" label-spa="Ruta de acceso" />
-		<subfield code="f" repet="R" label-spa="Nombre electrónico" />		
-		<subfield code="h" repet="R" label-spa="Procesador de solicitud"/>		
-		<subfield code="i" repet="R" label-spa="Instrucción" />
-		<subfield code="j" repet="NR" label-spa="Bits por segundo" />		
-		<subfield code="k" repet="NR" label-spa="Clave de acceso" />
-		<subfield code="l" repet="NR" label-spa="Cadena de acceso" />		
+		<subfield code="e" repet="R" label-spa="Procedencia de los datos" />
+		<subfield code="f" repet="R" label-spa="Nombre electrónico" />	
+		<subfield code="g" repet="R" label-spa="Identificador persistente" />	
+		<subfield code="h" repet="R" label-spa="Identificador Uniforme del Recurso obsoleto"/>		
+		<subfield code="l" repet="NR" label-spa="Información normalizada sobre los requisitos de acceso" />		
 		<subfield code="m" repet="R"  label-spa="Contacto de ayuda para el acceso" />		
-		<subfield code="n" repet="NR" label-spa="Contacto de ayuda para el acceso" />		
+		<subfield code="n" repet="NR" label-spa="Términos sobre los requisitos de acceso" />		
 		<subfield code="o" repet="NR" label-spa="Sistema operativo" />		
 		<subfield code="p" repet="NR" label-spa="Puerto de acceso" />		
 		<subfield code="q" repet="R"  label-spa="Tipo de formato electronico" />		
-		<subfield code="r" repet="NR" label-spa="Posiciones establecidas" />		
+		<subfield code="r" repet="NR" label-spa="Información normalizada sobre los requisitos de uso y reproducción" />		
 		<subfield code="s" repet="R" label-spa="Tamaño del archivo" />		
-		<subfield code="t" repet="R" label-spa="Emulación de terminal" />		
+		<subfield code="t" repet="R" label-spa="Emulación de terminal por Términos sobre los requisitos de uso y reproducción" />		
 		<subfield code="u" repet="R" label-spa="Identificador uniforme del recurso" />		
 		<subfield code="v" repet="R" label-spa="Horario de disponibilidad del metodo de acceso" />		
 		<subfield code="w" repet="R" label-spa="Número del control del registro" />		
@@ -1832,14 +2557,65 @@
 		<subfield code="z" repet="R" label-spa="Nota dirigida al público" />		
 		<subfield code="2" repet="NR" label-spa="Método de acceso" />		
 		<subfield code="3" repet="NR" label-spa="Especificación de los materiales" />		
-		<subfield code="6" repet="NR" label-spa="Vínculo" />		
+		<subfield code="6" repet="NR" label-spa="Vínculo" />	
+		<subfield code="7" repet="NR" label-spa="Estado del acceso" />		
 		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" />		
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<datafield tag="880" repet="R" label-spa="Representación gráfica alterna" template="0#a">
-		<indicator pos="1" />		
+		<indicator pos="1" label-eng="Initial element type of person name" label-spa="Tipo de elemento inicial del nombre de persona">
+			<i value="0" label-spa="Nombre" label-eng="Name"/>
+			<i value="1" label-spa="Apellido"  label-eng="Surname"/>
+			<i value="3" label-spa="Nombre de familia" label-eng="Family name"/>
+		</indicator>
 		<indicator pos="2" />
 		<subfield code="6" repet="NR" label-spa="Enlace" label-eng="Linkage" />		
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="883" repet="R" label-spa="Procedencia de los metadatos" template="0#a">
+		<indicator pos="1" label-eng="Method of assignment" label-spa="Método de asignación">
+			<i value="#" label-spa="No se proporciona información / no aplicable" label-eng="No information provided/not applicable"/>
+			<i value="0" label-spa="Datos generados totlamente por ordenador" label-eng="Fully machine-generated"/>
+			<i value="1" label-spa="Datos generados parcialmente por ordenador"  label-eng="Partially machine-generated"/>
+			<i value="2" label-spa="Datos no generados por ordenador" label-eng="Not machine-generated"/>
+		</indicator>
+		<indicator pos="2" />		
+		<subfield code="a" repet="NR" label-spa="Proceso de creación" label-eng="Creation process" />
+		<subfield code="c" repet="NR" label-spa="Nivel de confianza" label-eng="Confidence value"/>
+		<subfield code="d" repet="NR" label-spa="Fecha de creación" label-eng="Creation date"/>	
+		<subfield code="q" repet="NR" label-spa="Agencia que genera o asigna los datos" label-eng="Assigning or generating agency"/>		
+		<subfield code="x" repet="NR" label-spa="Fecha final de validez" label-eng="Validity end date"/>		
+		<subfield code="u" repet="NR" label-spa="Identificador Uniforme del Recurso" label-eng="Uniform Resource Identifier"/>		
+		<subfield code="w" repet="R" label-spa="Número de control del registro bibliográfico" label-eng="Bibliographic record control number"/>		
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number"/>
+		<subfield code="1" repet="R" label-spa="URI de un Objeto del Mundo Real" label-eng="Real World Object URI" />		
+		<subfield code="8" repet="R" label-spa="Vínculo de campo y número de secuencia" label-eng="Field link and sequence number"/>
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="884" repet="R" label-spa="Información sobre la conversión de la descripción" template="0#a">
+		<indicator pos="1" />		
+		<indicator pos="2" />		
+		<subfield code="a" repet="NR" label-spa="Proceso de conversión" label-eng="Conversion process" />		
+		<subfield code="g" repet="NR" label-spa="Fecha de conversión" label-eng="Conversion date" />		
+		<subfield code="k" repet="NR" label-spa="Identificador de los metadatos originales" label-eng="Identifier of source metadata" />		
+		<subfield code="q" repet="NR" label-spa="Agencia que convierte los datos" label-eng="Conversion agency" />		
+		<subfield code="u" repet="R" label-spa="Identificador Uniforme del Recurso" label-eng="Uniform Resource Identifier" />		
+	</datafield>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<datafield tag="885" repet="R" label-spa="Información de registros coincidentes" template="0#a">
+		<indicator pos="1" />		
+		<indicator pos="2" />		
+		<subfield code="a" repet="NR" label-spa="Información de los registros coincidentes" label-eng="Matching information" />		
+		<subfield code="b" repet="NR" label-spa="Estado del proceso de búsqueda de registros coincidentes y su comprobación" label-eng="Status of matching and its checking" />		
+		<subfield code="c" repet="NR" label-spa="Valor de fiabilidad" label-eng="Confidence value" />		
+		<subfield code="d" repet="NR" label-spa="Fecha de realización" label-eng="Generation date" />		
+		<subfield code="w" repet="R" label-spa="Número de control del registro" label-eng="Record control number" />	
+		<subfield code="x" repet="R" label-spa="Nota no pública" label-eng="Nonpublic note" />		
+		<subfield code="z" repet="R" label-spa="Nota pública" label-eng="Public note" />		
+		<subfield code="0" repet="R" label-spa="Número de control del registro de autoridad o número normalizado" label-eng="Authority record control number or standard number"/>
+		<subfield code="1" repet="R" label-spa="URI de un Objeto del Mundo Real" label-eng="Real World Object URI" />		
+		<subfield code="2" repet="NR" label-spa="Fuente" label-eng="Source"/>		
+		<subfield code="5" repet="NR" label-spa="Institución a la cual se aplica el campo" label-eng="Institution to which field applies" />
 	</datafield>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<!-- Los fieldblock deberian generarse, via XSLT, a partir de un dato almacenado
