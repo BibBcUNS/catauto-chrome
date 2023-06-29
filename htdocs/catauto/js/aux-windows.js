@@ -221,95 +221,106 @@ function editField047()
 
 
 // -----------------------------------------------------------------------------
-function editIndicators(field)
+function editIndicators()
 // TO-DO: Ubicar la ventana en una posición independiente del lugar exacto
 // donde se hizo click (?)
 // -----------------------------------------------------------------------------
 {
-	var tag = field.tag;
-	var path = "marc21_bibliographic/datafield[@tag='" + tag + "']";
-	var xmlDatafield = crossBrowserNodeSelector(xmlMARC21,path);
-	var oldIndicators = getIndicators(field);
-	
-	var dialogArgs = new Object();
-	dialogArgs.ind = oldIndicators     //.replace(/#/g," ");
-	dialogArgs.tag = tag;
-	dialogArgs.xmlDatafield = xmlDatafield;
-	dialogArgs.window = window;
-	// Campos con filing indicator
-	if ( tag.search(/130|222|240|242|245|440|630|730|740|830/) != -1 && "a" == parentSubfield(firstSubfieldBox(field), "subfieldBox").code) {
-		dialogArgs.title = firstSubfieldBox(field).value;
-	}
-	var path1 = path + "/indicator[@pos='1']/i";
-	var options1 = xmlMARC21.selectNodes(path1).length;
-	var path2 = path + "/indicator[@pos='2']/i";
-	var options2 = xmlMARC21.selectNodes(path2).length;
-	
-	var dialogHeight;
-	if ( 2 == options1 && 2 == options2 ) {
-		dialogHeight = "200";
-	} else if ( options1 > 0 && options2 > 0 ) {
-		dialogHeight = "188";
-	} else dialogHeight = "135";
-	var dialogWidth = 350;
-	var dialogLeft = event.clientX + 6;
-	var dialogTop = event.clientY + 36;
-	var winProperties = "font-size:10px; dialogLeft:" + dialogLeft + "px; dialogTop:" + dialogTop + "px; dialogWidth:" + dialogWidth + "px; dialogHeight:" + dialogHeight + "px; status:no; help:no"; 
+    var field = top.globalParameter;
+    var tag = field.tag;
+    var path = "marc21_bibliographic/datafield[@tag='" + tag + "']";
 
-	// newIndicators contiene los indicadores devueltos por el cuadro de diálogo
-	var newIndicators = showModalDialog(URL_EDIT_INDICATORS, dialogArgs, winProperties);
-	
-	if ( "undefined" == typeof(newIndicators) || null == newIndicators ) {
-		return;  // abortamos
-	}
-	
-	newIndicators = newIndicators.replace(/ /g,"#");
-	updateIndicators(field,newIndicators);
-	// TO-DO: actualizar el .title para que se vean los nuevos valores
-	
-	
-	// Campo 505: el cambio del primer indicador puede producir un cambio en la estructura
-	// de subcampos (basic vs. enhanced)
-	if ( "505" == tag ) {
-	  
-		var fieldContent = getSubfields(field,"","empty");
-		if ( oldIndicators.substr(1,1) == "#" && newIndicators.substr(1,1) == "0" && fieldContent.search(/\^[rt]/) == -1 ) {
-			// basic => enhanced
-			enhance505(field,true);
-		} else if ( oldIndicators.substr(1,1) == "0" && newIndicators.substr(1,1) == "#"  && fieldContent.search(/\^[rt]/) != -1 ) {
-			// enhanced => basic
-			enhance505(field,false);
-		}
-	}
+    var xmlDatafield = crossBrowserNodeSelector(xmlData.xmlMARC21,path);
+    oldIndicators = getIndicators(field);
 
-	
-	// En ciertos casos (ej.: campo 246, ind2) podemos hacer que el cambio 
-	// en un indicador produzca el cambio de un subfieldLabel.
-	// Si usamos etiquetas para el campo, entonces el cambio podría ser a nivel
-	// de campo, y no de subcampo. Además, la etiqueta ya debe adecuarse al 
-	// indicador cuando es creado el campo/subcampo.
-	/*if ( "246" == tag ) {
-		var ind2Value = newValues.substr(1,1);
-		var newLabel = xmlDatafield.selectNodes("indicator[@pos='2']/i[@value=" + ind2Value + "]/@label-" + LANG)[0].value;
-		firstSubfieldBox(field).parentNode.previousSibling.firstChild.firstChild.innerHTML = newLabel;
-	}*/
-	
-	// En los casos en que se usan nonfiling indicators, podemos hacer esto:
-	// [suspendido 2003/11/25, luego del cambio en editIndicators.htm]
-	/*
-	if ( tag.search(/240|245|440/) != -1 ) {
-		var subfield = firstSubfieldBox(field).value;
-		subfield = subfield.replace(/^{([^}]+)}/,"$1");  // quitamos marcas
-		var ind = newValues.substr(1,1);
-		if ( ind != 0 ) {
-			subfield = "{" + subfield.substr(0,ind) + "}" + subfield.substr(ind);
-		}
-		firstSubfieldBox(field).value = subfield;
-	}
-	*/
-		
-	// Foco al primer subcampo del campo
-	firstSubfieldBox(field).focus();
+    var dialogArgs = new Object();
+    dialogArgs.ind = oldIndicators     //.replace(/#/g," ");
+    dialogArgs.tag = tag;
+    dialogArgs.xmlDatafield = xmlDatafield;
+    dialogArgs.window = window;
+    // Campos con filing indicator
+    if ( tag.search(/130|222|240|242|245|440|630|730|740|830/) != -1 && "a" == parentSubfield(firstSubfieldBox(field), "subfieldBox").code) {
+        dialogArgs.title = firstSubfieldBox(field).value;
+    }
+    var path1 = path + "/indicator[@pos='1']/i";
+    //var options1 = xmlMARC21.selectNodes(path1).length;
+    var options1 = window.top.selectNodesChrome(path1, window.top.xmlData.xmlMARC21).length;
+    
+    var path2 = path + "/indicator[@pos='2']/i";
+    //var options2 = xmlMARC21.selectNodes(path2).length;
+    var options2 = window.top.selectNodesChrome(path2, window.top.xmlData.xmlMARC21).length;
+
+    var dialogHeight;
+    if ( 2 == options1 && 2 == options2 ) {
+        dialogHeight = 200;
+        dialogWidth = 400;
+    } else if ( options1 > 0 && options2 > 0 ) {
+        dialogHeight = 170;
+        dialogWidth = 500;
+    } else {
+        dialogHeight = 135;
+        dialogWidth = 530;
+    }
+    
+    var winProperties = "font-size:10px; status:no; help:no";
+
+    // newIndicators contiene los indicadores devueltos por el cuadro de diálogo
+    var newIndicators = window.showModalDialog(URL_EDIT_INDICATORS, dialogArgs, winProperties);
+
+    //Volvemos a setear variables (por showModalDialog)
+    field = top.globalParameter;
+    oldIndicators = getIndicators(field);
+    tag = field.tag;
+
+    if ( null != newIndicators ) {
+      //  return;  // abortamos
+        newIndicators = newIndicators.replace(/ /g,"#");
+        updateIndicators(field,newIndicators);
+        // TO-DO: actualizar el .title para que se vean los nuevos valores
+
+        // Campo 505: el cambio del primer indicador puede producir un cambio en la estructura
+        // de subcampos (basic vs. enhanced)
+         if ( "505" == tag ) {
+            var fieldContent = getSubfields(field,"","empty");
+            if ( oldIndicators.substr(1,1) == "#" && newIndicators.substr(1,1) == "0" && fieldContent.search(/\^[rt]/) == -1 ) {
+                // basic => enhanced
+                enhance505(field,true);
+            } else if ( oldIndicators.substr(1,1) == "0" && newIndicators.substr(1,1) == "#"  && fieldContent.search(/\^[rt]/) != -1 ) {
+                // enhanced => basic
+                enhance505(field,false);
+            }
+        }
+
+
+        // En ciertos casos (ej.: campo 246, ind2) podemos hacer que el cambio
+        // en un indicador produzca el cambio de un subfieldLabel.
+        // Si usamos etiquetas para el campo, entonces el cambio podrï¿½a ser a nivel
+        // de campo, y no de subcampo. Ademï¿½s, la etiqueta ya debe adecuarse al
+        // indicador cuando es creado el campo/subcampo.
+        /*if ( "246" == tag ) {
+            var ind2Value = newValues.substr(1,1);
+            var newLabel = xmlDatafield.selectNodes("indicator[@pos='2']/i[@value=" + ind2Value + "]/@label-" + LANG)[0].value;
+            firstSubfieldBox(field).parentNode.previousSibling.firstChild.firstChild.innerHTML = newLabel;
+        }*/
+
+        // En los casos en que se usan nonfiling indicators, podemos hacer esto:
+        // [suspendido 2003/11/25, luego del cambio en editIndicators.htm]
+        /*
+        if ( tag.search(/240|245|440/) != -1 ) {
+            var subfield = firstSubfieldBox(field).value;
+            subfield = subfield.replace(/^{([^}]+)}/,"$1");  // quitamos marcas
+            var ind = newValues.substr(1,1);
+            if ( ind != 0 ) {
+                subfield = "{" + subfield.substr(0,ind) + "}" + subfield.substr(ind);
+            }
+            firstSubfieldBox(field).value = subfield;
+        }
+        */
+
+        // Foco al primer subcampo del campo
+        firstSubfieldBox(field).focus();
+        }
+    
 }
 
 

@@ -1137,13 +1137,14 @@ function checkKey(evt)
 			break;
 		
 		case 73 :       // Ctrl+I
-			if ( evt.ctrlKey ) {
-				if ( parentField(subfield,"subfield").hasIndicators ) {
-					editIndicators(parentField(subfield,"subfield"));
-				}
-				return false;
-			}
-			break;
+			 if ( evt.ctrlKey ) {
+                if ( parentField(subfield,"subfield").hasIndicators ) {
+                    globalParameter = parentField(subfield, "subfield");
+                    editIndicators();
+                }
+                return false;
+            }
+            break;
 		
 		case 123 :       // F12
 			if ( "4" == this.code ) {

@@ -16,15 +16,14 @@ function handleOK()
 // -----------------------------------------------------------------------------
 {
 	window.returnValue = indValues();
-	
-	window.close();
+	window.top.cerrarDialog();
 }
 
 // -----------------------------------------------------------------------------
 function handleCancel()
 // -----------------------------------------------------------------------------
 {
-	window.close();
+	window.top.cerrarDialog();
 }
 
 
@@ -71,9 +70,10 @@ function changeOffset(offset)
 {
 	for (var i=activeOffset; i <= 9; i++) {
 		document.getElementById("offsetCell" + i).style.backgroundColor = "";
+		
 	}
 	for (var i=offset; i <= 9; i++) {
-		document.getElementById("offsetCell" + i).style.backgroundColor = "#ffa";
+		document.getElementById("offsetCell" + i).style.backgroundColor = "ffa";
 	}
 	document.getElementById("filingInd").selectedIndex = offset; 
 	activeOffset = offset; 
@@ -88,32 +88,34 @@ function handleOptionChange()
 }
 
 
-
 // -----------------------------------------------------------------------------
 function renderIndicators()
 // -----------------------------------------------------------------------------
 {
-	var path;
-	
-	// Creamos una celda para cada pos que tenga un indicador asociado
-	for (var pos=1; pos <= 2; pos++) {
-		
-		// Si no hay indicador definido, seguimos de largo
-		path = "indicator[@pos='" + pos + "']/i";
-		if ( xmlDatafield.selectNodes(path).length == 0 ) {
+	let path;
+
+	for(let pos = 1 ; pos <= 2 ; pos++){
+		path = `marc21_bibliographic/datafield[@tag='${tag}']/indicator[@pos='${pos}']/i`;
+		let res = window.top.selectNodesChrome(path, window.top.xmlData.xmlMARC21);
+
+		if(res.length == 0){
 			isDefined[pos] = false;
 			continue;
 		}
-		
+
 		isDefined[pos] = true;
+
 		var newRow = document.createElement("tr");
 		var newCell = document.createElement("td");
 		newCell.vAlign = "top";
-		path = "indicator[@pos='" + pos + "']/@label-eng";
-		var label = xmlDatafield.selectNodes(path)[0].value;
+
+		path = `marc21_bibliographic/datafield[@tag='${tag}']/indicator[@pos='${pos}']/@label-eng`;
+		var label = window.top.selectNodesChrome(path, window.top.xmlData.xmlMARC21)[0].value;
+
 		newCell.innerHTML = '<b>' + pos + '. ' + label + '</b>';
-		path = "indicator[@pos='" + pos + "']/i";
-		var nodes = xmlDatafield.selectNodes(path);
+
+		path = `marc21_bibliographic/datafield[@tag='${tag}']/indicator[@pos='${pos}']/i`;
+		var nodes = window.top.selectNodesChrome(path, window.top.xmlData.xmlMARC21);
 		
 		// Tipo de elemento a usar para este indicador
 		var tagpos = tag + "~" + pos;
@@ -244,8 +246,7 @@ function renderIndicators()
 		
 		newRow.appendChild(newCell);
 		document.getElementById("indicators").appendChild(newRow);
-	}  // end for pos
-	
+	}
 }
 
 
@@ -285,16 +286,18 @@ function init()
 	// Display form controls
 	renderIndicators();
 	
+	window.top.updateDialogSizeChrome();
+
 	if ( activeOffset != null ) {
 		changeOffset(activeOffset);
 	}
 	
 	callingWindowObject = dialogArguments.window;
 	// Ajustamos la altura
-	callingWindowObject.updateDialogHeight(window);
+	//callingWindowObject.updateDialogHeight(window);
 	// Ajustamos el ancho
-	callingWindowObject.updateDialogWidth(window);
-	
+	//callingWindowObject.updateDialogWidth(window);
+
 	window.focus();
 }
 
@@ -342,7 +345,7 @@ window.onload = init;
 		font-family: courier new;
 		font-size: 16px;
 		background: #F0F0F0;
-		display: inline;
+		display: block;
 	}
 </style>
 
@@ -350,7 +353,7 @@ window.onload = init;
 
 <body>
 
-<table width="100%" cellpadding="0" cellspacing="4" border="0">
+<table width="100%" height="50%" style="padding: 4px" cellpadding="0" cellspacing="4" border="0">
 	<tbody id="indicators">
 	<!-- contents generated onload -->
 	</tbody>

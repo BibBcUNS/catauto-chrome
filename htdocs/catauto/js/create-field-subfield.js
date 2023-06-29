@@ -7,9 +7,6 @@
 
 
 
-
-
-
 // -----------------------------------------------------------------------------
 function createFieldList(tags)
 // Recibe una lista de tags y, luego de validarlos, llama repetidamente a
@@ -153,6 +150,7 @@ function createField(tag, ind, subfields)
 // TO-DO: la verificación de "legitimidad" debe hacerse fuera de esta función
 // -----------------------------------------------------------------------------
 {
+	console.log("EJECUTANDO CREATE FIELD, parametro: " + tag);
 	if ( !tag ) {
 		alert("Error: la función createField() no recibió el parámetro tag");
 		return;
@@ -254,7 +252,8 @@ function createField(tag, ind, subfields)
 	if ( xmlDatafield && xmlDatafield.getElementsByTagName("i").length > 0 ) {
 		newField.hasIndicators = true;
 		newIndPair.onclick = function() {
-			editIndicators(parentField(this,"ind"));
+			globalParameter = parentField(this, "ind");
+      		editIndicators();
 		}
 		newIndPair.title = "Ver/modificar los indicadores";
 		newIndPair.className = "indicators";
