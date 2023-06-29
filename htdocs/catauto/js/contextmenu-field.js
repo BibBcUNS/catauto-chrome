@@ -73,7 +73,7 @@ function canRemoveF(field)
 	var tag = field.tag;
 	var oblig;
 	try {
-		oblig = xmlMARC21.selectNodes("/" + "/datafield[@tag='" + tag + "']/@oblig")[0].value;
+		oblig = top.selectNodesChrome("/" + "/datafield[@tag='"+tag+"']/@oblig", top.xmlData.xmlMARC21)[0].value;
 	}
 	catch(err) {
 		oblig = "";
@@ -137,10 +137,30 @@ function canConvertTo246(field)
 
 
 // -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 function showFieldMenu(field)
 // -----------------------------------------------------------------------------
 {
+	//(M.A) 10/04 divido esta funcion con el siguiente if y declaro estas 2 funciones al final de este mismo archivo
 	// Construimos el menú
+	if(ie){
+		construirMenuIE(field);
+	}else{
+		construirMenuChrome(field);
+	}
+
+	return false;
+}
+
+
+// -----------------------------------------------------------------------------
+function killmenu()
+// -----------------------------------------------------------------------------
+{
+	hidePopup();
+}
+
+function construirMenuIE(field){
 	var newMenu = oPopup.document.createElement("div");
 	newMenu.id = "contextMenu";
 	// ATENCION: el archivo .css no es visto desde oPopup, por eso
@@ -157,6 +177,7 @@ function showFieldMenu(field)
 	newMenu.style.lineHeight = "15px";
 	newMenu.style.cursor = "default";
 	newMenu.style.fontSize = "12px";
+
 	var newMenuOption, newText;
 	
 	var itemText = new Array();        // el texto visible en el menú
@@ -277,7 +298,7 @@ function showFieldMenu(field)
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		itemEnabled.push(canConvertTo440);
 		menuFunctions.push(function() {
-			var message = "¿Confirma la conversión del campo 830 a un 440?\n\nRecuerde que los campos 440 y 490 no tienen exactamente\nla misma estructura, y por lo tanto en algunos casos tendrá que realizar\ncorrecciones adicionales luego del cambio de etiqueta. Si tiene\ndudas, consulte la documentación.";
+			var message = "¿Confirma la conversión del campo 830 a un 440?\n\nRecuerde que los campos 440 y 830 no tienen exactamente\nla misma estructura, y por lo tanto en algunos casos tendrá que realizar\ncorrecciones adicionales luego del cambio de etiqueta. Si tiene\ndudas, consulte la documentación.";
 			if ( confirm(message) ) {
 				map830to440(field);
 			}
@@ -299,21 +320,11 @@ function showFieldMenu(field)
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	itemEnabled.push(canAddSubfield);
 	menuFunctions.push( function() {
-		promptNewSubfield(field);
+		globalParameter = field;
+		promptNewSubfield();
 		killmenu();
 	});
-	
-	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	itemText.push("Buscar Autoridad...");
-	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	itemEnabled.push(canAddSubfield);
-	//alert(itemEnabled);
-	//alert(field);
-	menuFunctions.push( function() {
-		promptNewSubfield(field);
-		killmenu();
-	});
-	
+
 	// Creamos las opciones del menú
 	for (var i=0; i < itemText.length; i++) {
 		//alert(i + ":" + itemText[i]);
@@ -356,8 +367,8 @@ function showFieldMenu(field)
 			newMenu.appendChild(newDiv);
 		}
 	}
-	// Menú construido
 
+	// Menú construido
 	oPopup.document.body.innerHTML = "";  // Elimina contenido previo
 	oPopup.document.body.appendChild(newMenu);
 	oPopup.show(0, 0, CONTEXT_MENU_WIDTH, 0);
@@ -368,15 +379,223 @@ function showFieldMenu(field)
 	//oPopup.show(event.srcElement.offsetWidth, 0, CONTEXT_MENU_WIDTH, realHeight, event.srcElement);
 	//oPopup.show(event.offsetX+2, event.offsetY+2, CONTEXT_MENU_WIDTH, realHeight, event.srcElement);
 	oPopup.show(0, event.srcElement.offsetHeight, CONTEXT_MENU_WIDTH, realHeight, event.srcElement);
-
-	return false;
 }
 
 
-// -----------------------------------------------------------------------------
-function killmenu()
-// -----------------------------------------------------------------------------
-{
-	hidePopup();
+function construirMenuChrome(field){
+
+	//ARMAR MENU -----------------------------------------------------------
+
+	globalParameter = field;
+	var newMenu = document.createElement("div");
+	newMenu.classList.add ("contextMenu");
+	newMenu.style.border = "1px solid black";
+	newMenu.style.backgroundColor = "white"; //"#E2DFD0";
+	newMenu.style.fontFamily = "arial, verdana, sans-serif";
+	newMenu.style.lineHeight = "15px";
+	newMenu.style.cursor = "default";
+	newMenu.style.fontSize = "12px";
+	
+	
+	var newText;
+	
+	var itemText = new Array();        // el texto visible en el menú
+	var itemEnabled = new Array();     // la opción está habilitada | deshabilitada
+	var menuFunctions = new Array();   // la función invocada, en caso de estar habilitada la opción
+
+	// Información para construir las opciones del menú
+	itemText.push("Documentación (LC)");
+	itemEnabled.push(canShowDocF);
+	menuFunctions.push(function() {
+		showDoc(field.tag);
+		killmenu();
+	});
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemText.push("Subir");
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemEnabled.push(canMoveUpF);
+	menuFunctions.push(function() {
+		var mField = moveField(field,"up");
+		firstSubfieldBox(mField).focus(); // ATENCION: no funciona
+		killmenu();
+	});
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemText.push("Bajar");
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemEnabled.push(canMoveDownF);
+	menuFunctions.push(function() {
+		var mField = moveField(field,"down");
+		firstSubfieldBox(mField).focus(); // ATENCION: no funciona
+		killmenu();
+	});
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemText.push("Duplicar");
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemEnabled.push(canDuplicateF);
+	menuFunctions.push(function() {
+		var tag = field.tag;
+		var ind = getIndicators(field);
+		var subfields = getSubfields(field,"","empty");
+		// TO-DO: si, en lugar de una duplicación estricta, queremos que aparezca la plantilla del campo (sin datos),
+		// ¿usamos los subcampos e indicadores presentes en el campo original, o los de la plantilla asociada al tag?
+		var newField = createField(tag,ind,subfields);
+		displayField(newField);
+		lastSubfieldBox(newField).focus();  // para forzar un scroll
+		firstSubfieldBox(newField).focus();
+		killmenu();
+	});
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemText.push("Eliminar");
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemEnabled.push(canRemoveF);
+	menuFunctions.push(function() {
+		// window.event es null; oPopup.event es undefined... Y entonces, ¿cómo sabremos
+		// dónde ubicar la ventana con el confirm?
+		var fieldContent = getSubfields(field).replace(/\^/g," ^");
+		if ( fieldContent.length > 80 )  fieldContent = fieldContent.substr(0,80) + " ...";
+			var question = "<i>Campo " + field.tag + ":</i><br>&nbsp;&nbsp;&nbsp;" + fieldContent + "<br><br>¿Confirma su eliminación?";
+			
+		//(M.A) 12/04 Edito las siguientes lineas que llamaban a catalis_confirm comentada en aux-windows.js
+		var winProperties = "dialogWidth:" + 380 + "px; dialogHeight:" + 160 + "px; status:no; help:no";
+    	winProperties += "; dialogLeft:10px";
+		var answer = window.showModalDialog(URL_CONFIRM_DIALOG, question, winProperties);
+
+		if ( answer ) {
+			removeField(top.globalParameter);
+		}
+
+		killmenu();
+	});
+
+	if ( "100" == field.tag ) {
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		itemText.push("Convertir en 700");
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		itemEnabled.push(canConvertTo700);
+		menuFunctions.push(function() {
+			var message = "¿Confirma la conversión del campo 100 a un 700?";
+			if ( confirm(message) ) {
+				map100to700(field);
+			}
+			killmenu();
+		});
+	}
+	
+	if ( "490" == field.tag ) {
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		itemText.push("Convertir en 440");
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		itemEnabled.push(canConvertTo440);
+		menuFunctions.push(function() {
+			var message = "¿Confirma la conversión del campo 490 a un 440?\n\nRecuerde que los campos 440 y 490 no tienen exactamente\nla misma estructura, y por lo tanto en algunos casos tendrá que realizar\ncorrecciones adicionales luego del cambio de etiqueta. Si tiene\ndudas, consulte la documentación.";
+			if ( confirm(message) ) {
+				map490to440(field);
+			}
+			killmenu();
+		});
+	}
+	
+	if ( "740" == field.tag ) {
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		itemText.push("Convertir en 246");
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		itemEnabled.push(canConvertTo246);
+		menuFunctions.push(function() {
+			var message = "¿Confirma la conversión del campo 740 a un 246?";
+			if ( confirm(message) ) {
+				map740to246(field);
+			}
+			killmenu();
+		});
+	}
+	
+	if ( "830" == field.tag ) {
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		itemText.push("Convertir en 440");
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		itemEnabled.push(canConvertTo440);
+		menuFunctions.push(function() {
+			var message = "¿Confirma la conversión del campo 830 a un 440?\n\nRecuerde que los campos 440 y 830 no tienen exactamente\nla misma estructura, y por lo tanto en algunos casos tendrá que realizar\ncorrecciones adicionales luego del cambio de etiqueta. Si tiene\ndudas, consulte la documentación.";
+			if ( confirm(message) ) {
+				map830to440(field);
+			}
+			killmenu();
+		});
+	}
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemText.push("Agregar campo...");
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemEnabled.push(canAddField);
+	menuFunctions.push(function() {
+		killmenu();
+		promptNewField();
+	});
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemText.push("Agregar subcampo...");
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	itemEnabled.push(canAddSubfield);
+	menuFunctions.push( function() {
+		globalParameter = field;
+		promptNewSubfield();
+		killmenu();
+	});
+
+	// Creamos las opciones del menú
+	for (var i=0; i < itemText.length; i++) {
+		//alert(i + ":" + itemText[i]);
+		newMenuItem = document.createElement("div");
+		newMenuItem.style.width = "100%";
+		newMenuItem.style.padding = "2px 10px";
+		
+		if (itemEnabled[i](field)) {                 // opción habilitada
+			newMenuItem.onclick = menuFunctions[i];
+			newMenuItem.onmouseover = function() {
+				this.style.backgroundColor = "highlight";
+				this.style.color = "white";
+			}
+			newMenuItem.onmouseout = function() {
+				this.style.backgroundColor = "";
+				this.style.color = "black";
+			}
+		} else {                                     // opción deshabilitada
+			newMenuItem.style.color = "GrayText";
+			newMenuItem.style.fontStyle = "italic";
+			newMenuItem.onmouseover = function() {
+				this.style.backgroundColor = "highlight";
+			}
+			newMenuItem.onmouseout = function() {
+				this.style.backgroundColor = "";
+			}
+		}
+		newText = document.createTextNode(itemText[i]);
+		newMenuItem.appendChild(newText);
+		newMenu.appendChild(newMenuItem);
+		
+		// Líneas de separación
+		if (i==0 || i==2 || i==4) {
+			var newDiv = document.createElement("div");
+			newDiv.style.margin = "-5px";
+			var newRule = document.createElement("hr");
+			newRule.style.height = "1px";
+			newRule.style.color = "black";
+			newDiv.appendChild(newRule);
+			newMenu.appendChild(newDiv);
+		}
+	}
+
+	oPopup.innerHTML = "";
+	oPopup.appendChild(newMenu);
+
+
+	showPopup(0, 0, 450, 0);
+    hidePopup();
+    showPopup(0, event.srcElement.offsetHeight, 150, 160, event.srcElement);
+
 }
 
