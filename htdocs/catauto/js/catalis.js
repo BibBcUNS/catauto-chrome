@@ -202,42 +202,38 @@ function defineSomeVars() {
 
 // -----------------------------------------------------------------------------
 function setDimensions()
-// Asigna dimensiones a algunos elementos de la UI, en base a la resolución
-// de pantalla.
-// TO-DO: usar variables para almacenar los valores que luego vuelven a aparecer
-// en la función que muestra/oculta el IFRAME de la documentación.
+// Asigna dimensiones a algunos elementos de la UI, independientemente de la
+// resolución de pantalla.
 // -----------------------------------------------------------------------------
 {
-	switch ( screen.width + "x" + screen.height ) {
-		case "800x600" :
-			// Búsquedas
-			document.getElementById("searchResultsIframe").style.height = "278px";
-			document.getElementById("recordVisualization").style.height = "203px";
-			document.getElementById("indexTerms").style.height = "290px";
-			// Edición
-			document.getElementById("theRightPanel").style.height = "484px";
-			document.getElementById("recordDiv").style.height = "484px";
-			document.getElementById("docIframe").style.height = DOCWIN_MIN_HEIGHT;
-			break;
-			
-		case "1024x768" :
-			// Búsquedas
-			document.getElementById("searchResultsIframe").style.height = "400px";
-			document.getElementById("recordVisualization").style.height = "248px";
-			document.getElementById("indexTerms").style.height = "450px";
-			// Edición
-			document.getElementById("theRightPanel").style.height = "652px";
-			document.getElementById("recordDiv").style.height = "652px";
-			document.getElementById("docIframe").style.height = DOCWIN_MIN_HEIGHT;
-			break;
-		
-		
-	
-		default :
-			var message = screen.width + "x" + screen.height + ": resolución de pantalla no prevista.\n\nPor favor, comuníquese con:\n\nfgomez@criba.edu.ar";
-			//FIX-ME BC
-			//alert(message);
-	}
+  var _innerHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+  var _innerWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+  var freeHeight = _innerHeight - 77; // quito la altura ocupada por las barras superiores
+  var freeWidth = _innerWidth;
+
+  // Variable global con dimensiones
+  g_Dimensions = {
+    searchResultsIframe: {height: 0.572 * freeHeight},
+    recordVisualization: {height: 0.422 * freeHeight},
+    indexTerms: {height: freeHeight - 210},
+    theRightPanel: {height: 0.995*freeHeight},
+    recordDiv: {height: 0.992*freeHeight},
+    recordDivWithDocs: {height: 0.49 * freeHeight},
+    docIframe: {height: 0.49 * freeHeight},
+    docIframeCollapsed: {height: DOCWIN_MIN_HEIGHT},
+    subfieldTextarea: {width: freeWidth - 444},
+    subfieldTextareaNoLabels: {width: freeWidth - 292}
+  };
+
+  // Búsquedas
+  document.getElementById("searchResultsIframe").style.height = g_Dimensions.searchResultsIframe.height + "px";
+  document.getElementById("recordVisualization").style.height = g_Dimensions.recordVisualization.height + "px";
+  document.getElementById("indexTerms").style.height = g_Dimensions.indexTerms.height + "px";
+
+  // Edición
+  document.getElementById("theRightPanel").style.height = g_Dimensions.theRightPanel.height + "px";
+  document.getElementById("recordDiv").style.height = g_Dimensions.recordDiv.height + "px";
+  document.getElementById("docIframe").style.height = g_Dimensions.docIframeCollapsed.height + "px";
 }
 
 

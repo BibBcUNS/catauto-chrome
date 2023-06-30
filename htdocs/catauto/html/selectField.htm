@@ -19,169 +19,183 @@
 <link rel="stylesheet" type="text/css" href="../css/catalis.css">
 <!--script language="JavaScript" type="text/javascript" src="../js/catalis.js"></script-->
 
-
 <script language="JavaScript" type="text/javascript">
-var callerWindowObject = dialogArguments;  
+	var callerWindowObject = window.dialogArguments;  
 
-// XML con los datos de MARC21
-var xmlMARC21 = callerWindowObject.xmlMARC21;
+	// XML con los datos de MARC21
+	let xmlMARC21 = callerWindowObject.xmlData.xmlMARC21;
 
-// Tags deshabilitados
-var disabledTags = callerWindowObject.disabledTags;
+	console.log("xmlMARC21 desde selectSubfield.htm ----------------------------------");
+	console.log(xmlMARC21);
 
-// Idioma
-var LANG = callerWindowObject.LANG;
+	// Tags deshabilitados
+	var disabledTags = callerWindowObject.disabledTags;
 
-var blocksNumber = xmlMARC21.selectNodes("marc21_bibliographic/fieldblock").length;
+	console.log("disabledTags desde selectSubfield.htm ---------------------------------");
+	console.log(disabledTags);
 
+	// Idioma
+	var LANG = callerWindowObject.LANG;
 
-//------------------------------------------------------------------------------
-function selectedTags()
-//------------------------------------------------------------------------------
-{
-	tags = new Array();
-	// Primero, los tags ingresados manualmente
-	if ( document.getElementById("tagBox").value.search(/\d{3}/ ) != -1 ) {
-		tags = document.getElementById("tagBox").value.split(/\s+|\s*,\s*|\./);
-	}
-	// Luego, los tags seleccionados en las listas de campos
-	var allTags = document.getElementsByTagName("INPUT");
-	for (var i=0; i<allTags.length; i++) {
-		if ( allTags[i].type == "checkbox" && allTags[i].checked ) {
-			tags.push(allTags[i].value);
-		}
-	}
-	return tags;
-} 
+	var blocksNumber = xmlMARC21.getElementsByTagName("fieldblock").length;
 
-//------------------------------------------------------------------------------
-function handleOK()
-//------------------------------------------------------------------------------
-{
-	returnValue = selectedTags();
-	window.close();
-}
+	console.log("blocksNumber desde selectSubfield.htm -----------------------------------");
+	console.log(blocksNumber)
 
-//------------------------------------------------------------------------------
-function handleCancel()
-//------------------------------------------------------------------------------
-{
-	window.close();
-}
-
-//------------------------------------------------------------------------------
-function mouseOut(obj)
-//------------------------------------------------------------------------------
-{
-	obj.className = ( obj.index != activeBlockIndex ) 
-					? "blockNav blockNavNormal"
-					: "blockNav blockNavActive";
-}
-
-
-//------------------------------------------------------------------------------
-function buildBlock(i)
-//------------------------------------------------------------------------------
-{
-	var tagList = xmlMARC21.selectSingleNode("marc21_bibliographic/fieldblock[" + (i) + "]/text()").nodeValue.split(",");
-	
-	var HTMLstring = "<table border='0' width='100%' style='background: #EEE;'>";
-	for (var j=0; j < tagList.length; j++)
+	//------------------------------------------------------------------------------
+	function selectedTags()
+	//------------------------------------------------------------------------------
 	{
-		//alert("datafield[@tag=" + tagList[j] + "]/@label-eng");
-		var tag = tagList[j];
-		if ( "|||" == tag ) {
-			HTMLstring += "<tr><td colspan='3' style='height: 1px; background: #999;'></td></tr>"; 
+		tags = new Array();
+		// Primero, los tags ingresados manualmente
+		if ( document.getElementById("tagBox").value.search(/\d{3}/ ) != -1 ) {
+			tags = document.getElementById("tagBox").value.split(/\s+|\s*,\s*|\./);
 		}
-		else {
-
-			var fieldLabel = xmlMARC21.selectNodes("marc21_bibliographic/datafield[@tag=" + tag + "]/@label-" + LANG)[0].value.replace("--","&#8212;"); 
-			var repet = xmlMARC21.selectNodes("marc21_bibliographic/datafield[@tag=" + tag + "]/@repet")[0].value;
-			var disabled = ( disabledTags[tag] ) ? "disabled" : "";
-			var labelClass = ( disabledTags[tag] ) ? "disabledLabel" : "";
-			HTMLstring += "<tr><td style='vertical-align: top; width: 20px'>" 
-						+ "<input type='checkbox' value='" + tag + "' id='f" + tag + "' " + disabled + "></td>"
-						+ "<td valign='top' width='32'><label style='font-weight: bold' for='f" + tag + "' class='" + labelClass + "'>"
-						+ "<b>" + tag + "</b></label></td>"
-						+ "<td valign='top'><label style='font-weight: bold' for='f" + tag + "' class='" + labelClass + "'>" + fieldLabel + "</label>"
-						//+ " (" + repet + ")"
-						+ "</td></tr>";
+		// Luego, los tags seleccionados en las listas de campos
+		var allTags = document.getElementsByTagName("INPUT");
+		for (var i=0; i<allTags.length; i++) {
+			if ( allTags[i].type == "checkbox" && allTags[i].checked ) {
+				tags.push(allTags[i].value);
+			}
 		}
-		/*
-		var newInput = document.createElement("input");
-		newInput.type = "checkbox";
-		var newText = document.createTextNode(marcFields[fieldBlocks[i].id][j]);
-		var newBR = document.createElement("BR");
-		fieldBlocks[i].appendChild(newInput);
-		fieldBlocks[i].appendChild(newText);
-		fieldBlocks[i].appendChild(newBR);
-		*/
+		return tags;
+	} 
+
+	//------------------------------------------------------------------------------
+	function handleOK()
+	//------------------------------------------------------------------------------
+	{
+		window.returnValue = selectedTags();
+		window.top.cerrarDialog();
 	}
-	HTMLstring += "</table>";
-	return HTMLstring;
-}
-	
-	
-//------------------------------------------------------------------------------
-function showBlock(blockIndex)
-//------------------------------------------------------------------------------
-{
-	//ATENCION: buildBlock sólo la primera vez que es llamado, de lo contrario
-	// se pierden los checks ya marcados
-	if ( !built[blockIndex] ) {
-		fieldBlocks[blockIndex].innerHTML = buildBlock(blockIndex);
-		built[blockIndex] = true;
+
+	//------------------------------------------------------------------------------
+	function handleCancel()
+	//------------------------------------------------------------------------------
+	{
+		window.returnValue = [];
+		window.top.cerrarDialog();
 	}
-	document.getElementById("block" + activeBlockIndex).style.display = "none";
-	document.getElementById("block" + blockIndex).style.display = "block";
-	document.getElementById("nav" + activeBlockIndex).className = "blockNav blockNavNormal";
-	document.getElementById("nav" + blockIndex).className = "blockNav blockNavActive";
-	activeBlockIndex = blockIndex;
-}
+
+	//------------------------------------------------------------------------------
+	function mouseOut(obj)
+	//------------------------------------------------------------------------------
+	{
+		obj.className = ( obj.index != activeBlockIndex ) 
+						? "blockNav blockNavNormal"
+						: "blockNav blockNavActive";
+	}
 
 
-//------------------------------------------------------------------------------
-function init()
-//------------------------------------------------------------------------------
-{
-	window.returnValue = null;
+	//------------------------------------------------------------------------------
+	function buildBlock(i)
+	//------------------------------------------------------------------------------
+	{
+		var tagList = window.top.selectSingleNodeChrome(`marc21_bibliographic/fieldblock[${i}]/text()`, xmlMARC21).nodeValue.split(",");
+		console.log("TAGLIST --");
+		console.log(tagList);
+		var HTMLstring = "<table border='0' width='100%' style='background: #EEE;'>";
+		for (var j=0; j < tagList.length; j++)
+		{
+			//alert("datafield[@tag=" + tagList[j] + "]/@label-eng");
+			var tag = tagList[j];
+			if ( "|||" == tag ) {
+				HTMLstring += "<tr><td colspan='3' style='height: 1px; background: #999;'></td></tr>"; 
+			}
+			else {
+				var fieldLabel = window.top.selectNodesChrome("marc21_bibliographic/datafield[@tag=" + tag + "]/@label-" + LANG, xmlMARC21)[0].nodeValue.replace("--","&#8212;");
+				var repet = window.top.selectNodesChrome("marc21_bibliographic/datafield[@tag=" + tag + "]/@repet", xmlMARC21)[0].nodeValue;
+				var disabled = ( disabledTags[tag] ) ? "disabled" : "";
+				var labelClass = ( disabledTags[tag] ) ? "disabledLabel" : "";
+				HTMLstring += "<tr><td style='vertical-align: top; width: 20px'>" 
+							+ "<input type='checkbox' value='" + tag + "' id='f" + tag + "' " + disabled + "></td>"
+							+ "<td valign='top' width='32'><label style='font-weight: bold' for='f" + tag + "' class='" + labelClass + "'>"
+							+ "<b>" + tag + "</b></label></td>"
+							+ "<td valign='top'><label style='font-weight: bold' for='f" + tag + "' class='" + labelClass + "'>" + fieldLabel + "</label>"
+							//+ " (" + repet + ")"
+							+ "</td></tr>";					
+			}
 	
-	document.onkeydown = function(evt) {
-		var evt = (evt) ? evt : window.event;
-		if ( evt.keyCode == 27 ) {
-			handleCancel();
+			/*
+			var newInput = document.createElement("input");
+			newInput.type = "checkbox";
+			var newText = document.createTextNode(marcFields[fieldBlocks[i].id][j]);
+			var newBR = document.createElement("BR");
+			fieldBlocks[i].appendChild(newInput);
+			fieldBlocks[i].appendChild(newText);
+			fieldBlocks[i].appendChild(newBR);
+			*/
+		}
+		HTMLstring += "</table>";
+		
+		return HTMLstring;
+	}
+
+
+	//------------------------------------------------------------------------------
+	function showBlock(blockIndex)
+	//------------------------------------------------------------------------------
+	{
+		//ATENCION: buildBlock sólo la primera vez que es llamado, de lo contrario
+		// se pierden los checks ya marcados
+		if ( !built[blockIndex - 1] ) {
+			//Guardamos en la posicion del array blockIndex - 1 ya que siempre se le pasa la posicion de la lista (en posicion de array será -1)
+			fieldBlocks[blockIndex - 1].innerHTML = buildBlock(blockIndex);
+		    built[blockIndex - 1] = true;
+		}
+		document.getElementById("block" + activeBlockIndex).style.display = "none";
+		document.getElementById("block" + blockIndex).style.display = "block";
+		document.getElementById("nav" + activeBlockIndex).className = "blockNav blockNavNormal";
+		document.getElementById("nav" + blockIndex).className = "blockNav blockNavActive";
+		activeBlockIndex = blockIndex;
+	}
+
+
+	//------------------------------------------------------------------------------
+	function init()
+	//------------------------------------------------------------------------------
+	{
+		window.returnValue = null;
+
+		document.onkeydown = function(evt) {
+			var evt = (evt) ? evt : window.event;
+			if ( evt.keyCode == 27 ) {
+				handleCancel();
+			}
+		}
+		document.getElementById("btnOK").onclick = handleOK;
+		document.getElementById("btnCancel").onclick = handleCancel;
+
+		document.getElementById("theForm").onsubmit = function() {
+			//handleOK();
+			return false;
+		}
+
+		// TO-DO: para acelerar la presentaciï¿½n de la ventana, podemos dibujar cada
+		// bloque reciï¿½n cuando es solicitado por primera vez (showBlock)
+
+		// Global vars
+		fieldBlocks = document.getElementById("blocksContainer").getElementsByTagName("DIV");
+		built = new Array();
+		//(M.A) 30/03/2023 Originalmente se iniciaba con activeBlockIndex y showBlock en 0 pero ahora es en 1 por la llamada con evaluate
+		activeBlockIndex = 1;
+		showBlock(1);
+
+	}
+
+
+	// -----------------------------------------------------------------------------
+	function setFocus()
+	// -----------------------------------------------------------------------------
+	{
+		// dialogArguments = window object of main window
+		if ( callerWindowObject.selectedSubfieldBox ) {
+			callerWindowObject.selectedSubfieldBox.focus();
 		}
 	}
-	document.getElementById("btnOK").onclick = handleOK;
-	document.getElementById("btnCancel").onclick = handleCancel;
-	document.getElementById("theForm").onsubmit = function() {
-		handleOK();
-		return false;
-	}
-	
-	// TO-DO: para acelerar la presentación de la ventana, podemos dibujar cada
-	// bloque recién cuando es solicitado por primera vez (showBlock)
-	
-	// Global vars
-	fieldBlocks = document.getElementById("blocksContainer").getElementsByTagName("DIV");
-	built = new Array();
-	activeBlockIndex = 0;
-	showBlock(0);
-}
 
-
-// -----------------------------------------------------------------------------
-function setFocus()
-// -----------------------------------------------------------------------------
-{
-	// dialogArguments = window object of main window
-	if ( callerWindowObject.selectedSubfieldBox ) {
-		callerWindowObject.selectedSubfieldBox.focus();
-	}
-}
-
-window.onload = init;
-window.onunload = setFocus;
+	window.onload = init;
+	window.onunload = setFocus;
 </script>
 
 <style type="text/css">
@@ -240,10 +254,35 @@ window.onunload = setFocus;
 	
 		<!-- Celda izquierda -->
 		<td id="navCell" style="width: 150px;" valign="top">
-			<script language="JavaScript" type="text/javascript">
-			for (var i=0; i < blocksNumber; i++) {
+		<script language="JavaScript" type="text/javascript">
+
+			var nodos = window.top.selectNodesChrome("marc21_bibliographic/fieldblock/@label-" + LANG, xmlMARC21 );
+			var nodosIds = window.top.selectNodesChrome("marc21_bibliographic/fieldblock/@id", xmlMARC21);
+
+			let n = 1;
+			nodos.forEach(element => {
+				var newDiv = document.createElement("div");
+				var blockLabel = element.nodeValue;
+				newDiv.title = blockLabel;
+				newDiv.index = n;
+				newDiv.id = "nav" + n;
+				newDiv.className = "blockNav blockNavNormal";
+				newDiv.style.textAlign = "center";
+				newDiv.onclick = function () { 
+					showBlock(this.index) 
+				};
+				newDiv.innerHTML = nodosIds[n-1].nodeValue;
+				document.getElementById("navCell").appendChild(newDiv);
+				n++;
+			});
+
+			//(M.A) 30/03/2023 Comento todo el for y refactorizo en el bucle de arriba
+			/* 
+			for (var i=1; i < blocksNumber; i++) {
 				var newDiv = document.createElement("DIV");
-				var blockLabel = xmlMARC21.selectNodes("marc21_bibliographic/fieldblock[" + (i) + "]/@label-" + LANG)[0].value;
+				//var blockLabel = xmlMARC21.selectNodes("marc21_bibliographic/fieldblock[" + (i) + "]/@label-" + LANG)[0].value;
+			
+				var blockLabel = xmlMARC21.evaluate("marc21_bibliographic/fieldblock["+i+"]", xmlMARC21, null, XPathResult.ANY_TYPE , null);
 				newDiv.index = i;
 				newDiv.id = "nav" + i;
 				newDiv.className = "blockNav blockNavNormal";
@@ -252,25 +291,40 @@ window.onunload = setFocus;
 				//newDiv.onmouseout = function() {mouseOut(this)};
 				newDiv.onclick = function() { showBlock(this.index) };
 				newDiv.title = blockLabel;
-				// ATENCION: revisar newDiv.innerHTML según la estructura de bloques usada
+				// ATENCION: revisar newDiv.innerHTML segï¿½n la estructura de bloques usada
 				//newDiv.innerHTML = xmlMARC21.selectNodes("marc21_bibliographic/fieldblock[" + (i) + "]/@id")[0].value;
 				//                   blockLabel;
 				newDiv.innerHTML = xmlMARC21.selectNodes("marc21_bibliographic/fieldblock[" + (i) + "]/@id")[0].value;
 				document.getElementById("navCell").appendChild(newDiv);
 			}
-			</script>
+			*/
+		</script>
 		</td>
 		
 		<!-- Celda derecha -->
 		<td valign="top" style="background: #F5DEB3; border: 1px solid #666; border-left-width: 0px; padding: 6px;">
 			<div id="blocksContainer">
 				<script language="JavaScript" type="text/javascript">
+
+					n = 1;
+					nodosIds.forEach(element => {
+						var blockId = element.nodeValue;
+						var display = (blockId == "description") ? "block" : "none";
+						var HTMLstring = "<div id='block" + n + "' class='fieldBlock' style='display:" + display + "'></div>";
+						document.write(HTMLstring);
+
+						n++;
+					})
+
+				//(M.A) 30/03/2023 comento el siguiente for y refactorizo arriba.
+				/*
 				for (var i=0; i < blocksNumber; i++) {
 					var blockId = xmlMARC21.selectNodes("marc21_bibliographic/fieldblock[" + (i) + "]/@id")[0].value;
 					var display = (blockId == "description") ? "block" : "none";
 					var HTMLstring = "<div id='block" + i + "' class='fieldBlock' style='display:" + display + "'></div>";
 					document.write(HTMLstring);
 				}
+				*/
 				</script>
 			</div>
 		</td>

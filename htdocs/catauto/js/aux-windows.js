@@ -22,7 +22,7 @@
 
 
 // -----------------------------------------------------------------------------
-function rawEdit(oldDatafields, aacr)
+function rawEdit(aacr)
 // Presenta la ventana para editar los campos en crudo, y actualiza el
 // formulario de carga (a menos que el usuario haya cancelado).
 // aacr --> los campos provienen de aacr2marc()
@@ -386,14 +386,15 @@ function promptNewField()
 	}
 
 	// Mostramos la ventana
-	var tags = showModalDialog(URL_SELECT_FIELD, window, winProperties);
+	var tags = window.showModalDialog(URL_SELECT_FIELD, window, winProperties);
 
-	if ( "undefined" == typeof(tags) || null == tags || tags.length == 0 ) {
-		return;  // abortamos
+    //(M.A) cambio condiciones del if por el siguiente (si se editó el array tags entonces se crea el campo nuevo)
+	if ( tags.length !== 0 ) {
+		createFieldList(tags);
 	}
-	
-	// Procesamos los datos devueltos por la ventana en el array tags
-	createFieldList(tags);
+		
+    console.log("Tags desde fuera de showmodaldialog: ----------------------");
+    console.log(tags)
 }
 
 
