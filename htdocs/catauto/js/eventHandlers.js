@@ -239,10 +239,11 @@ function setToolbarEvents()
 		promptNewField();
 	}
 	
-	document.getElementById("btnNewSubfield").onclick = function() {
-		this.blur();
-		promptNewSubfield(selectedField);
-	}
+	 document.getElementById("btnNewSubfield").onclick = function() {
+			this.blur();
+    		globalParameter = selectedField;
+    		promptNewSubfield();
+  	};
 	
 	document.getElementById("btnPrevResult").onclick = function() {
 		checkModified(this.id);

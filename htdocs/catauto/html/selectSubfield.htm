@@ -14,15 +14,15 @@
 if ( opener && opener.dialogWin && opener.dialogWin.args ) {
 	dialogArguments = opener.dialogWin.args;
 }
+
 var xmlDatafield = dialogArguments[0];
 var LANG = dialogArguments[1];
 var disabledCodes = dialogArguments[2];
 
-
 // -----------------------------------------------------------------------------
 function selectedCodes()
 // -----------------------------------------------------------------------------
-{ 
+{
 	codes = new Array();
 	if (document.getElementById("codeBox").value.search(/[a-z1-9]/) != -1) {
 		codes = document.getElementById("codeBox").value.split(/\s+|\s*,\s*/);
@@ -33,6 +33,7 @@ function selectedCodes()
 			codes.push(allCodes[i].value);
 		}
 	}
+
 	return codes;
 }
 
@@ -40,15 +41,16 @@ function selectedCodes()
 function handleOK()
 // -----------------------------------------------------------------------------
 {
-	returnValue = selectedCodes();
-	window.close();
+	window.returnValue = selectedCodes();
+	window.top.cerrarDialog();
 }
 
 // -----------------------------------------------------------------------------
 function handleCancel()
 // -----------------------------------------------------------------------------
 {
-	window.close();
+	window.returnValue = [];
+	window.top.cerrarDialog();
 }
 
 //------------------------------------------------------------------------------
@@ -66,7 +68,8 @@ function init()
 	}
 	document.getElementById("btnOK").onclick = handleOK;
 	document.getElementById("btnCancel").onclick = handleCancel;
-	document.getElementById("theForm").onsubmit = function() {
+	document.getElementById("theForm").onsubmit = function(e) {
+		e.preventDefault();
 		handleOK();
 		return false;
 	}
@@ -116,9 +119,10 @@ window.onload = init;
 <body>
 
 <script language="JavaScript" type="text/javascript">
-var tag = xmlDatafield.selectNodes("@tag")[0].value;
-var fieldLabel = xmlDatafield.selectNodes("@label-"+LANG)[0].value; 
-document.write("<div style='font-size: 17px; padding: 6px 0px;'>" + tag + " - " + fieldLabel + "</div>");
+	var tag = xmlDatafield.getAttribute("tag");
+	var fieldLabel = xmlDatafield.getAttribute("label-"+LANG);
+
+	document.write("<div style='font-size: 17px; padding: 6px 0px;'>" + tag + " - " + fieldLabel + "</div>");
 </script>
 
 <form id="theForm" action="javascript:void(0)" style="margin:3px">
@@ -131,15 +135,32 @@ document.write("<div style='font-size: 17px; padding: 6px 0px;'>" + tag + " - " 
 <div style="background: #E6E3BC; padding: 0.3em 0.7em; border: solid 1px #999; height: 300px; overflow: auto;">
 <table width="100%" cellpadding="1" border="0" style="background: #E6E3BC;">
 <script language="JavaScript">
-		var codeList = xmlDatafield.selectNodes("subfield/@code");
-		for (var j=0; j<codeList.length; j++) {
-			var code = codeList[j].value;
-			//alert("subfield[@code='" + code + "']/@label-eng");
-			var disabled = (disabledCodes[code]) ? "disabled" : "";
-			var labelClass = (disabledCodes[code]) ? "disabledLabel" : "";
-			var subfieldLabel = xmlDatafield.selectNodes("subfield[@code='" + code + "']/@label-"+LANG)[0].value;
-			var repet = xmlDatafield.selectNodes("subfield[@code='" + code + "']/@repet")[0].value;
-			// TO-DO: reescribir usando DOM
+		//(M.A) 28/04/2023 Comento la siguiente linea y refactorizo el bucle de abajo
+		//var codeList = xmlDatafield.selectNodes("subfield/@code");
+
+		//(M.A) Armo arrays
+		let arraySubfields = []; //Array que contiene letras de subcampos
+		let arrayLabels = [];	//Array que contiene los lenguajes (eng o spa) en posiciones relativas al array de arriba
+		let arrayRepet = [];	//R o NR relativas al array de arriba
+
+		xmlDatafield.childNodes.forEach( element =>{
+			if(element.tagName == "subfield"){
+				arraySubfields.push(element.getAttribute("code"));
+				let label = element.getAttribute("label-"+LANG);
+				arrayLabels.push(label);
+				let repet = element.getAttribute("repet");
+				arrayRepet.push(repet);
+			}
+		})
+
+		//(M.A) Armo vista
+		arraySubfields.forEach((element, index) =>{
+			let code = element;
+			let disabled = (disabledCodes[code]) ? "disabled" : "";
+			let labelClass = (disabledCodes[code]) ? "disabledLabel" : "";
+			let subfieldLabel = arrayLabels[index];
+			let repet = arrayRepet[index];
+
 			var HTMLstring = "<tr><td valign='top' width='20'>" 
 							+ "<input type='checkbox' value='" + code + "' id='f" + code + "'" + disabled + "></td>"
 							+ "<td valign='top' align='right' width='12' style='padding-right: 3px;'>"
@@ -152,7 +173,8 @@ document.write("<div style='font-size: 17px; padding: 6px 0px;'>" + tag + " - " 
 							//+ " (" + repet + ")"
 							+ "</td></tr>";
 			document.write(HTMLstring);
-		}
+		})
+
 </script>
 </table>
 </div>
