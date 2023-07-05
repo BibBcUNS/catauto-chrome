@@ -817,14 +817,15 @@ function marcHelpPopup(tag,code)
 function generalHelpPopup(messageType)
 // -----------------------------------------------------------------------------
 {
-	oPopup.document.body.innerHTML = document.getElementById("searchHelp").innerHTML;
-	oPopup.document.getElementById("searchMessage").innerHTML = document.getElementById( messageType + "HelpMessage").innerHTML;
-	
-	var popupWidth = 500;
-	showPopup(0, 0, popupWidth, 0);
-	var realHeight = oPopup.document.body.scrollHeight;
-	hidePopup();
-	showPopup(0, event.srcElement.offsetHeight, popupWidth, realHeight, event.srcElement);
+	oPopup.innerHTML = document.getElementById("searchHelp").innerHTML;
+    document.getElementById("searchMessage").innerHTML = document.getElementById( messageType + "HelpMessage").innerHTML;
+    
+    var popupWidth = 500;
+    showPopup(0, 0, popupWidth, 0);
+    var realHeight = oPopup.scrollHeight;
+    killmenu()
+    event.target.click();
+    showPopup(0, event.srcElement.offsetHeight, popupWidth, realHeight, event.srcElement);
 }
 
 
@@ -1484,6 +1485,9 @@ function editRecord(recordID,evt)
 // búsqueda más reciente.
 // -----------------------------------------------------------------------------
 {
+	//(M.A) Cerramos el popUp en caso de que este abierto
+    killmenu();
+	
 	switch ( recordID ) {
 		case null :
 			recordID = document.getElementById("hiddenFORM").recordID.value;
