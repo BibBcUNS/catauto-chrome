@@ -70,13 +70,11 @@ function setSearchFormEvents()
 function setEditionFormEvents()
 // -----------------------------------------------------------------------------
 {
-
-/*
 	document.getElementById("postItNoteBtn").onclick = function() {
 		//this.blur();
 		editPostItNote();
 	}
-*/
+
 	document.getElementById("btnDocHideShow").onclick = docIframeShow;
 	
 	document.getElementById("docForm").onsubmit = function() {

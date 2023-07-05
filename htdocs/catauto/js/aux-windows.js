@@ -353,20 +353,17 @@ function editEjemplares()
 function editPostItNote()
 // -----------------------------------------------------------------------------
 {
-	var winProperties = "font-size: 10px; dialogWidth: 604px; dialogHeight: 470px; status: no; help: no"; 
-	
-	var newPostItNote = showModalDialog(URL_EDIT_POSTITNOTE, postItNote, winProperties);
-	
-	if ( "undefined" == typeof(newPostItNote) || null == newPostItNote ) {
-		return;  // abortamos
-	}
-	
-	postItNote = newPostItNote;  // actualiza la variable global
-	//alert(postItNote);
-	
-	var bgColor = ( postItNote != "" ) ? POSTITNOTE_BGCOLOR : "";
-	document.getElementById("postItNoteBtn").style.backgroundColor = bgColor;
-	document.getElementById("postItNoteBtn").title = ( postItNote != "" ) ? postItNote.substr(2).replace(/\^\w/g,"\n\n") : "";
+    var winProperties = "font-size: 10px; dialogWidth: 610px; dialogHeight: 470px; status: no; help: no";
+
+    var newPostItNote = window.showModalDialog(URL_EDIT_POSTITNOTE, postItNote, winProperties);
+
+    if ( null != newPostItNote ) {
+        postItNote = newPostItNote;  // Actualiza la variable global
+        var bgColor = ( postItNote != "" ) ? POSTITNOTE_BGCOLOR : "";
+        document.getElementById("postItNoteBtn").style.backgroundColor = bgColor;
+        document.getElementById("postItNoteBtn").title = ( postItNote != "" ) ? postItNote.substr(2).replace(/\^\w/g,"\n\n") : "";
+    }
+
 }
 
 // -----------------------------------------------------------------------------

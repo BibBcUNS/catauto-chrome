@@ -23,37 +23,44 @@ function handleOK()
 	notes += ( access != "" ) ? "^a" + access : "";
 	notes += ( subject != "" ) ? "^s" + subject : "";
 	notes += ( other != "" ) ? "^o" + other : "";
+
+	//window.parent.postItNote = notes;
+
+	//Retorno para showModalDialog
 	window.returnValue = notes;
-	window.close();
+
+	window.top.cerrarDialog();
 }
 
-//--------------------------------------------------------
-function handleCancel()
-//--------------------------------------------------------
-{
-	window.close();
+
+function handleCancel(){
+	
+	window.returnValue = window.dialogArguments;
+
+	window.top.cerrarDialog();
 }
 
 //--------------------------------------------------------
 function init()
 //--------------------------------------------------------
 {
-	window.returnValue = null;
 
-	// Event handlers
-	document.onkeydown = function(evt) {
-		var evt = (evt) ? evt : window.event;
-		if ( evt.keyCode == 27 ) {
-			handleCancel();
-		}
-	}
-	document.getElementById("btnOK").onclick = handleOK;
-	document.getElementById("btnCancel").onclick = handleCancel;
+	let btnOK = document.getElementById("btnOK");
+
+	btnOK.addEventListener("click", function(){
+		handleOK();
+	});
+
+	let btnCancel = document.getElementById("btnCancel");
+
+	btnCancel.addEventListener("click", function(){
+		handleCancel();
+	});
+
 	document.getElementById("removeDescription").onclick = function() {
 		document.getElementById("postItNoteDescription").value = "";
 		this.blur();
 	}
-	
 	document.getElementById("removeAccess").onclick = function() {
 		document.getElementById("postItNoteAccess").value = "";
 		this.blur();
@@ -67,31 +74,42 @@ function init()
 		this.blur();
 	}
 	
+	//var postItNote = window.parent.postItNote;
+
+	
+	//Retorno para show modal dialog
 	var postItNote = window.dialogArguments;
-	if ( postItNote.search(/\^/) == -1 ) {
+
+	if(postItNote != null){
+		if ( postItNote.search(/\^/) == -1 ) {
 		document.getElementById("postItNoteOther").value = postItNote;
 	} 
 	else {
-		var notas = postItNote.split(/\^/);
-		var whichNote = "";
-		for (var i=0; i < notas.length; i++) {
-			if ( "d" == notas[i].substr(0,1) )
-				whichNote = "Description";
-			else if ( "a" == notas[i].substr(0,1) )
-				whichNote = "Access";
-			else if ( "s" == notas[i].substr(0,1) )
-				whichNote = "Subject";
-			else if ( "o" == notas[i].substr(0,1) )
-				whichNote = "Other";
-				
-			document.getElementById("postItNote" + whichNote).value = notas[i].substr(1).replace(/_ALT94_/g,"^");
+			var notas = postItNote.split(/\^/);
+			var whichNote = "";
+			for (var i=0; i < notas.length; i++) {
+				if ( "d" == notas[i].substr(0,1) )
+					whichNote = "Description";
+				else if ( "a" == notas[i].substr(0,1) )
+					whichNote = "Access";
+				else if ( "s" == notas[i].substr(0,1) )
+					whichNote = "Subject";
+				else if ( "o" == notas[i].substr(0,1) )
+					whichNote = "Other";
+				else
+				    continue;  // ver ticket #5878
+
+				document.getElementById("postItNote" + whichNote).value = notas[i].substr(1).replace(/_ALT94_/g,"^");
+			}
 		}
 	}
-	//document.getElementById("postItNote").value = postItNote;
-	document.getElementById("postItNoteDescription").focus();
+	
+	document.getElementById("postItNoteOther").focus();
 }
 
+
 window.onload = init;
+
 </script>
 
 <style type="text/css">
