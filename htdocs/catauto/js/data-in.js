@@ -246,43 +246,11 @@ function showRecordInForm(receivedRecord)
 	// Quitamos el cartel de "Solicitando el registro..."
 	document.getElementById("cartel").style.display = "none";
 
-	// Foco al primer subcampo del campo 245
-	if ( document.getElementById("field100") ) {
-	setTimeout('firstSubfieldBox(document.getElementById("field100")).focus()',100);
-	}
-	if ( document.getElementById("field110") ) {
-	setTimeout('firstSubfieldBox(document.getElementById("field110")).focus()',100);
-	}
-	if ( document.getElementById("field111") ) {
-	setTimeout('firstSubfieldBox(document.getElementById("field111")).focus()',100);
-	}
-	if ( document.getElementById("field130") ) {
-	setTimeout('firstSubfieldBox(document.getElementById("field130")).focus()',100);
-	}
-	if ( document.getElementById("field148") ) {
-	setTimeout('firstSubfieldBox(document.getElementById("field148")).focus()',100);
-	}
-	if ( document.getElementById("field150") ) {
-	setTimeout('firstSubfieldBox(document.getElementById("field150")).focus()',100);
-	}
-	if ( document.getElementById("field151") ) {
-	setTimeout('firstSubfieldBox(document.getElementById("field151")).focus()',100);
-	}
-	if ( document.getElementById("field155") ) {
-	setTimeout('firstSubfieldBox(document.getElementById("field155")).focus()',100);
-	}
-	if ( document.getElementById("field180") ) {
-	setTimeout('firstSubfieldBox(document.getElementById("field180")).focus()',100);
-	}
-	if ( document.getElementById("field181") ) {
-	setTimeout('firstSubfieldBox(document.getElementById("field181")).focus()',100);
-	}
-	if ( document.getElementById("field182") ) {
-	setTimeout('firstSubfieldBox(document.getElementById("field182")).focus()',100);
-	}
-	if ( document.getElementById("field185") ) {
-	setTimeout('firstSubfieldBox(document.getElementById("field185")).focus()',100);
-	}
+	//(M.A) Foco al primer subcampo (setea foco cuando el primer subcampo está dentro de los 100..200 sino no lo hace (to-do arreglar))
+	setTimeout(function() {
+		let firstRow = document.getElementById("recordDiv").querySelectorAll("tr")[1];
+		firstSubfieldBox(firstRow).focus();
+	}, 50);
 
 }
 
