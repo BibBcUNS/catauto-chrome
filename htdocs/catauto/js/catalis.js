@@ -295,6 +295,7 @@ function highlightSubfieldBox(subfieldBox)
 // ATENCION: revisar resaltado del selectedField
 // ---------------------------------------------------------------------------
 {
+	console.log("Ejecutando highlight");
 	//alert();
 	//var eventSource = (evt) ? evt.target : event.srcElement;
 	//var subfieldBox = eventSource;
@@ -922,11 +923,14 @@ function findNewFieldPosition(tag,fieldBlock)
 // (y aparte, la excepción: newPosition = getDatafields(fieldBlock).length;)
 // -----------------------------------------------------------------------------
 {
+	console.log("---------------------------------------- DESDE DENTRO DE FINDNEWFIELDPOSITION TAG Y FIELDBLOCK ------------------------");
+	console.log(tag);
+	console.log(fieldBlock);
 	var newPosition;
 	
 	// Algunas veces, el formulario se queda sin ningún campo seleccionado (un error que deberíamos corregir)
 	if ( selectedField == null ) {
-		selectedField = document.getElementById("field245");
+		selectedField = document.getElementById("field100");
 	}
 	
 	if ( tag.search(/[56]../) != -1 ) {
@@ -1765,7 +1769,7 @@ function showPopup(x,y,width,height,refObject)
         clickedElement = e.target;
 
         //(M.A) Controles para que el menu no se cierre al clickear en el boton o el mismo popUp
-        if ( ( !clickedElement.classList.contains ("menu") && (clickedElement.id != "btnNuevo") ) &&
+        if ( ( !clickedElement.classList.contains ("menu") && (clickedElement.id != "btnNuevo") && (clickedElement.parentNode.id != "btnNuevo") ) &&
             (!clickedElement.classList.contains("tip1") && (clickedElement.tagName != "SPAN")) &&
             (!clickedElement.classList.contains("tip2") && (clickedElement.tagName != "SPAN")) &&
             (!clickedElement.classList.contains("fieldTag")) &&
@@ -1777,6 +1781,7 @@ function showPopup(x,y,width,height,refObject)
             (!clickedElement.id != "searchMessage") && (clickedElement.id != "indexHelpLink")           
         ){
             console.log("Kill xq no es menu");
+			console.log(e.target.parentNode.id)
             killmenu(); 
         }
     })
@@ -1790,11 +1795,15 @@ function showPopup(x,y,width,height,refObject)
         var left;
         var top;
        
-        if(event.srcElement.id == "btnNuevo"){
+        if(event.srcElement.id == "btnNuevo" || (event.srcElement.parentNode.id == "btnNuevo") ){
               // Truco para obtener las coordenadas (de: JavaScript and DHTML Cookbook)
               var offsetTrail = refObject;
               var offsetLeft = 0;
               var offsetTop = 0;
+
+			  console.log("offsetTrail: ---------------------------------------------");
+			  console.log(offsetTrail)
+			  console.log("-----------------------------------------------------------")
   
               while (offsetTrail) {
                   offsetLeft += offsetTrail.offsetLeft;
@@ -1802,8 +1811,8 @@ function showPopup(x,y,width,height,refObject)
                   offsetTrail = offsetTrail.offsetParent;
               }
               //PopUP Nuevo Registro
-              left = x + offsetLeft;
-              top = y + offsetTop;
+              left = 2;
+              top = 57;
         }else{
             //left = event.clientX;
             left = event.clientX;
