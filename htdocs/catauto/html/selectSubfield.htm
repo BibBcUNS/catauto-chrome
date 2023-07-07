@@ -68,11 +68,6 @@ function init()
 	}
 	document.getElementById("btnOK").onclick = handleOK;
 	document.getElementById("btnCancel").onclick = handleCancel;
-	document.getElementById("theForm").onsubmit = function(e) {
-		e.preventDefault();
-		handleOK();
-		return false;
-	}
 }
 
 window.onload = init;
