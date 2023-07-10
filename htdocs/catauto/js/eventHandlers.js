@@ -244,11 +244,13 @@ function setToolbarEvents()
   	};
 	
 	document.getElementById("btnPrevResult").onclick = function() {
-		checkModified(this.id);
+		top.globalParameter = this.id;
+   		checkModified();
 	}
 	
 	document.getElementById("btnNextResult").onclick = function() {
-		checkModified(this.id);
+		top.globalParameter = this.id;
+		checkModified();
 	}
 	
 	document.getElementById("resultSetCounter").onfocus = function() {
@@ -256,7 +258,8 @@ function setToolbarEvents()
 	}
 	
 	document.getElementById("btnBuscar").onclick = function() {
-		checkModified(this.id);
+		top.globalParameter = this.id;
+		checkModified();
 	}
 	
 	document.getElementById("btnEditar").onclick = showEditDiv;
