@@ -325,6 +325,16 @@ function construirMenuIE(field){
 		killmenu();
 	});
 
+	itemText.push("Buscar Autoridad...");
+	itemEnabled.push(canAddSubfield);
+	//alert(itemEnabled);
+	//alert(field);
+	menuFunctions.push( function() {
+		globalParameter = field;
+		promptNewSubfield();
+		killmenu();
+	});
+
 	// Creamos las opciones del menú
 	for (var i=0; i < itemText.length; i++) {
 		//alert(i + ":" + itemText[i]);
@@ -546,6 +556,16 @@ function construirMenuChrome(field){
 		killmenu();
 	});
 
+	itemText.push("Buscar Autoridad...");
+	itemEnabled.push(canAddSubfield);
+	//alert(itemEnabled);
+	//alert(field);
+	menuFunctions.push( function() {
+		globalParameter = field;
+		promptNewSubfield();
+		killmenu();
+	});
+	
 	// Creamos las opciones del menú
 	for (var i=0; i < itemText.length; i++) {
 		//alert(i + ":" + itemText[i]);
