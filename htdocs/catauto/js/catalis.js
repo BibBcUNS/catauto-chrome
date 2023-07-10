@@ -14,6 +14,10 @@
 //(M.A) objeto xmlData tiene como propiedades cada uno de los xhr pedidos al servidor.
 var xmlData = {};
 
+function swapElements(elemento1, elemento2){
+	elemento1.parentNode.insertBefore(elemento1, elemento2);
+}
+
 // -----------------------------------------------------------------------------
 function importXML(name ,sourceURL)
 // From: http://www.sitepoint.com/print/xml-javascript-mozilla

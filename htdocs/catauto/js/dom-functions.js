@@ -16,9 +16,6 @@ function crossBrowserNodeSelector(xmlObj,path)
 // Véase: Document Object Model (DOM) Level 3 XPath Specification, Version 1.0
 // -----------------------------------------------------------------------------
 {
- 
- 
- 
 	var node = null;
 	if (ie)
 		node = xmlObj.selectSingleNode(path);
@@ -397,10 +394,10 @@ function moveField(field, dir)
 	
 	switch ( dir ) {
 		case "up" :
-			mField = field.swapNode(field.previousSibling);
-			break;
+			swapElements(field, field.previousSibling)
+		break;
 		case "down" :
-			mField = field.swapNode(field.nextSibling);
+			swapElements(field.nextSibling, field )
 			break;
 		default :
 			alert("moveField error: dir=" + dir);
@@ -422,10 +419,10 @@ function moveSubfield(subfield, dir)
 	var mSubfield;
 	switch ( dir ) {
 		case "up" :
-			mSubfield = subfield.swapNode(subfield.previousSibling);
+			swapElements(subfield, subfield.previousSibling)
 			break;
 		case "down" :
-			mSubfield = subfield.swapNode(subfield.nextSibling);
+			swapElements(subfield.nextSibling, subfield)
 			break;
 		default :
 			alert("moveSubfield error: dir=" + dir);
