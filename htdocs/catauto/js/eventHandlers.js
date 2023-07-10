@@ -271,11 +271,13 @@ function setHeaderEvents()
 // -----------------------------------------------------------------------------
 {
 	document.getElementById("btnFinSesion").onclick = function() {
-		checkModified(this.id);
+		top.globalParameter = this.id;
+		checkModified();
 	}
 	
 	document.getElementById("selDatabase").onchange = function() {
-		checkModified(this.id);
+		top.globalParameter = this.id;
+		checkModified();
 	}
 	
 	document.getElementById("showHiddenData").onclick = showHiddenData;
