@@ -467,6 +467,7 @@ function showSpecialChars()
 }
 
 
+/*
 // -----------------------------------------------------------------------------
 function promptSaveChanges()
 // Abre una ventana que informa que el registro ha sido modificado.
@@ -483,7 +484,7 @@ function promptSaveChanges()
 	
 	return answer;
 }
-
+*/
 
 // -----------------------------------------------------------------------------
 function catalis_confirm(question,w,h,pos)

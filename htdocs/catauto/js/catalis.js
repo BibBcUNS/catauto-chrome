@@ -1610,41 +1610,36 @@ function checkModified()
 // -----------------------------------------------------------------------------
 {
 	var elementID = top.globalParameter;
-	// Si el elementID corresponde a un elemento de un popup, éste ya no existe!
-	if ( document.getElementById(elementID) ) {
-		//document.getElementById(elementID).blur(); // no va con Mozilla
-	}
-	// ATENCION: ¿adónde debería ir el foco?
-	
-	
 	// La condición sobre el botón de Grabar tiene que ver con el nivel de permisos del usuario; ver showRecordInForm(). Tal vez sea mejor usar una variable global.
-	if ( !document.getElementById("btnGrabar").disabled && typeof(originalRecord) != "undefined" && modifiedRecord() ) {
-		
-		// El usuario debe tomar una decisión
-		var userDecision = promptSaveChanges();
-		
-		switch ( userDecision ) {
-			case "cancel" :
-				if ( "selDatabase" == elementID ) {
-					// Restauramos la opción correspondiente a la base activa
-					document.getElementById("selDatabase").selectedIndex = g_activeDatabase.index;
-				}
-				return false;  // nos vamos, y acá no ha pasado nada
-				break;
-			case "save" :
-				g_NextTask = elementID; // para que, luego de grabar, sepamos qué hacer
-				saveRecord();
-				break;
-			case "doNotSave" :
-				break;      // seguimos adelante, hacia handleNextTask()
-			default :
-				alert("Error! userDecision = " + userDecision);
-				return;
+    if ( !document.getElementById("btnGrabar").disabled && typeof(originalRecord) != "undefined" && modifiedRecord() ) {
+        mostrarModalConfirmacion()
+    }else{
+        handleNextTask(elementID);
+    }
+}
+
+function mostrarModalConfirmacion(){
+	var winProperties = "font-size: 10px; dialogWidth: 620px; dialogHeight: 140px; dialogTop: 80px; status: no; help: no";
+
+	// Mostramos la ventana
+	var userDecision = window.showModalDialog(URL_SAVE_CHANGES, window, winProperties);
+	var elementID = top.globalParameter;
+
+	if ( userDecision == "cancel" ){
+		if ( "selDatabase" == elementID ){
+			document.getElementById("selDatabase").selectedIndex = g_activeDatabase.index;
 		}
 	}
 
-	// Si no hay cambios, o el usuario decidió que no deben guardarse
-	handleNextTask(elementID);
+	if ( userDecision == "save" ){
+		g_NextTask = elementID;
+		saveRecord();
+		handleNextTask(elementID);
+	}
+
+	if ( userDecision == "doNotSave" ){
+		handleNextTask(elementID);
+	}
 }
 
 
@@ -1887,16 +1882,16 @@ function map100to700(field100)
 // Convierte un campo 100 en un 700.
 // ATENCION: ¿hay que poner el primer indicador del 245 en 0? ¿Re-Cutter?
 // -----------------------------------------------------------------------------
-{	
-	var sf = getSubfields(field100);
-	if ( sf.substr(0,2) != "^a" ) sf = "^a" + sf;  // 700$a es obligatorio
-	
-	var ind = getIndicators(field100).substr(0,1) + "#";
-	var field700 = createField("700",ind,sf);
-	displayField(field700,field100);  // field100 es el nodo de referencia para ubicar el field700
-	updatePunctuation(field700);
-	removeField(field100);
-	firstSubfieldBox(field700).focus();
+{
+    var sf = getSubfields(field100);
+    if ( sf.substr(0,2) != "^a" ) sf = "^a" + sf;  // 700$a es obligatorio
+    
+    var ind = getIndicators(field100).substr(0,1) + "#";
+    var field700 = createField("700",ind,sf);
+    displayField(field700,field100);  // field100 es el nodo de referencia para ubicar el field700
+    updatePunctuation(field700);
+    removeField(field100);
+    firstSubfieldBox(field700).focus();
 }
 
 
