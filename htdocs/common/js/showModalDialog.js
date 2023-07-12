@@ -58,7 +58,7 @@
         });
 
 
-        //throw 'Execution stopped until showModalDialog is closed';
+        throw 'Execution stopped until showModalDialog is closed';
     };
     
 })();
