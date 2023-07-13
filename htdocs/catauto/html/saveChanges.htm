@@ -193,6 +193,15 @@ function heckelDiff(inputO,inputN)
 	document.getElementById("oldFile").innerHTML = "<pre>" + oldFile + "</pre>";
 	document.getElementById("diff").style.display = "block";
 	
+	ajustarVentana();
+
+}
+
+function ajustarVentana(){
+	let dialog = window.top.document.getElementsByTagName("dialog")[0];
+	dialog.style.height = "500px";
+	dialog.style.width = "630px";
+	dialog.style.top = "20px";
 }
 
 // -----------------------------------------------------------------------------

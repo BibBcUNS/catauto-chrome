@@ -91,7 +91,7 @@ function showNewRecordMenu(evt)
 		newMenuItem = theDocument.createElement("DIV");
 		// Uso BUTTON en lugar de DIV con la esperanza de que se pueda acceder a
 		// ellos desde el teclado :-\
-		newMenuItem.style.width = "100%";
+		//newMenuItem.style.width = "100%";
 		newMenuItem.style.padding = "3px 10px";  // 2px en los contextuales
 
 		// styles agregados a causa de los BUTTONS

@@ -96,7 +96,7 @@ td.value {
 	font: bold 12px verdana;
 	border: 1px solid black;
 	margin: 0px 1px;
-	padding: 1px 0px;
+	/* padding: 1px 0px; */
 	height: 23px;
 }
 
@@ -234,8 +234,10 @@ td.value {
 	margin-left: 2px;
 	margin-top: -1px; /* seems necessary to keep the top of the textarea aligned with the top of the label */
 	padding: 2px 1px;
+	resize: none;
+	width: 99.8% !important;
 }
- 
+
 .subfieldBoxCell {
 	vertical-align: top;
 	height: 24px; /* esto resuelve el problema de la variacion de altura en textareas vacíos */
@@ -743,7 +745,7 @@ table#theToolbar td {
 }
 
 #logoutForm {
-	margin: 0;
+	margin: 4px;
 }
 
 #appName {
@@ -853,8 +855,8 @@ tr.oddRow {
 }
 
 #showHiddenData {
-	background: brown;
-	color: brown;
+	background: blue;
+	color: blue;
 	height: 20px;
 	border: 0;
 }

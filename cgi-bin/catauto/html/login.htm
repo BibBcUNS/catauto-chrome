@@ -4,7 +4,7 @@
 // Aviso para quien no ingrese con IE
 if ( navigator.appName != "Microsoft Internet Explorer" ) {
 	var msg = "Please consider that this version of Catalis does not work properly on browsers other than Internet Explorer 6. That will change, once we finish the next version which will also work on Mozilla. The development version can be tested online; please check the website.";
-	alert(msg);
+	// alert(msg);
 // Aviso para quien ingrese con IE < 5.5
 } else if ( navigator.appVersion.search(/MSIE (8\.\d?|7\.\d?|6\.\d?|5\.5)/) == -1 ) {
 	var msg = "La versión de Internet Explorer que está utilizando (" + RegExp.$1 + ") no permite trabajar con Catalis. Recomendamos usar la versión 6.";
@@ -49,7 +49,7 @@ function handleLoginSubmit()
 </script>
 
 <div align="center">
-	<div style="width: 75%; background: brown; /*#CC6600*/ ; border: 1px solid #F0F0F0; padding: 6px; margin: 6px 0;">
+	<div style="width: 75%; background: rgb(37, 37, 255); /*#CC6600*/ ; border: 1px solid #F0F0F0; padding: 6px; margin: 6px 0;">
 		
 		<form name="loginForm" id="loginForm" action="[pft]v6001^u[/pft]" method="POST"
 				onsubmit="handleLoginSubmit(); return false" style="margin: 0;">

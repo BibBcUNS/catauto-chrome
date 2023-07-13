@@ -745,6 +745,8 @@ function docIframeHide()
 	} else {
 		document.getElementById("btnDocHideShow").blur();
 	}
+
+	setDimensions()
 }
 
 
@@ -757,7 +759,7 @@ function docIframeShow()
 	
 	// Cambios en el iframe
 	var docIframe = document.getElementById("docIframe");
-	docIframe.style.height = ( screen.height == 600 ) ? "240px" : "310px";
+	docIframe.style.height = ( screen.height == 600 ) ? "240px" : "542px";
 	docIframe.style.borderWidth = "1px";
 	var docIframeWrapper = document.getElementById("docIframeWrapper");
 	docIframeWrapper.style.display = "block";
