@@ -64,9 +64,7 @@ function rawEdit(aacr)
         }
 
         //return true;  // así sabemos, desde createRecord(), que la operación no fue cancelada
-    })();
-
-    
+    })(); 
 }
 
 

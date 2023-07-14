@@ -21,7 +21,7 @@ function updateTextareaHeight(){
 		//Setear evento para que se actualice cada vez que se escribe
 		subfieldBoxes[i].addEventListener("input", function(){
 			this.style.height = 0;
-			this.style.height = (this.scrollHeight) + 1 + "px";
+			this.style.height = (this.scrollHeight) + "px";
 		}, false);
 	}
 }
