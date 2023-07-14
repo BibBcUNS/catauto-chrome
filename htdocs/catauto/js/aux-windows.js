@@ -31,39 +31,18 @@ function rawEdit(aacr)
 // formulario los campos presentes en la ventana de raw-edit).
 // -----------------------------------------------------------------------------
 {
-	console.log("--------------------------------------------");
-	console.log("Desde dentro de rawEdit");
-	console.log(top.globalParameter)
-
     var dWidth = (screen.width == 1024) ? "820px" : "660px";
     var dHeight = (screen.width == 1024) ? "550px" : "450px";
     var winProperties = "dialogWidth:" + dWidth + "; dialogHeight:" + dHeight + "; status:no; resizable:no; help:no";
     var dialogArgs = { datafields : top.globalParameter, aacrParsedData : aacr };
     var newDatafields;
 
-    // Presentamos la ventana
-    //console.log("before dialog");
-    //var newDatafields = showModalDialog(URL_RAW_EDIT, dialogArgs, winProperties);
-    //console.log("after dialog");
-    //console.log("newDatafields: ", newDatafields);
 
     // Esto según https://github.com/niutech/showModalDialog
     (function() {
         //statements before showing a modal dialog
 
-        console.log(URL_RAW_EDIT)
         newDatafields = window.showModalDialog(URL_RAW_EDIT, dialogArgs, winProperties);
-
-		console.log(newDatafields)
-        
-        //statements after closing a modal dialog
-        console.log("after dialog");
-        console.log("newDatafields: ", newDatafields);
-
-        //M.A 22/03/2023 comento las siguientes 3 lineas
-        //if ( "undefined" == typeof(newDatafields) || null == newDatafields ) {
-        //    return false;
-        //}
 
         // Procesamos lo que devuelve la ventana
         newDatafields = newDatafields.replace(/\r/g, "");  //  \r del textarea
@@ -97,10 +76,6 @@ function editCodedData()
 // -----------------------------------------------------------------------------
 {
 	let dataElement = top.globalParameter;
-    console.log("GLOBAL PARAMETER desde dentro de editCodedData ----------------------")
-    console.log(top.globalParameter)
-    console.log("--------------------------------")
-
     var URL = URL_EDIT_CODES;
 
     var dialogLeft;
@@ -153,13 +128,8 @@ function editCodedData()
     var dialogHeight = ( "multiple" == codeType ) ? 230 : 145;
     var dialogWidth = 300;
 
-    console.log(winProperties)
-
     winProperties = winProperties.replace("$dialogWidthToReplace", dialogWidth+"px")
     winProperties = winProperties.replace("$dialogHeightToReplace", dialogHeight+"px")
-
-
-    console.log(winProperties)
 
 
     //var winProperties = "visibility:hidden; font-size:10px; dialogLeft:" + ( dialogLeft ) + "px; dialogTop:" + ( dialogTop ) + "px; dialogWidth:" + dialogWidth + "px; dialogHeight:" + dialogHeight + "px; status:no; help:no";
