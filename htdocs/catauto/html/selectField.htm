@@ -25,22 +25,13 @@
 	// XML con los datos de MARC21
 	let xmlMARC21 = callerWindowObject.xmlData.xmlMARC21;
 
-	console.log("xmlMARC21 desde selectSubfield.htm ----------------------------------");
-	console.log(xmlMARC21);
-
 	// Tags deshabilitados
 	var disabledTags = callerWindowObject.disabledTags;
-
-	console.log("disabledTags desde selectSubfield.htm ---------------------------------");
-	console.log(disabledTags);
 
 	// Idioma
 	var LANG = callerWindowObject.LANG;
 
 	var blocksNumber = xmlMARC21.getElementsByTagName("fieldblock").length;
-
-	console.log("blocksNumber desde selectSubfield.htm -----------------------------------");
-	console.log(blocksNumber)
 
 	//------------------------------------------------------------------------------
 	function selectedTags()
@@ -92,8 +83,7 @@
 	//------------------------------------------------------------------------------
 	{
 		var tagList = window.top.selectSingleNodeChrome(`marc21_bibliographic/fieldblock[${i}]/text()`, xmlMARC21).nodeValue.split(",");
-		console.log("TAGLIST --");
-		console.log(tagList);
+
 		var HTMLstring = "<table border='0' width='100%' style='background: #EEE;'>";
 		for (var j=0; j < tagList.length; j++)
 		{

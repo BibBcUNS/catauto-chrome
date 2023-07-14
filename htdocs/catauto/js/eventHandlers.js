@@ -122,7 +122,6 @@ function setControlFormEvents()
 			//alert(allCells[i].id);
 			allCells[i].onclick = function() {
 				window.top.globalParameter = this.id.substr(3);
-				console.log(window.top.globalParameter);
 				editCodedData();
 			}
 			allCells[i].onmouseover = function() {
@@ -178,7 +177,6 @@ function setToolbarEvents()
 {
 	document.getElementById("btnNuevo").onclick = function(e) {
 		this.blur();
-		console.log(e)
 		showNewRecordMenu(e);
 	}
 	
@@ -210,8 +208,6 @@ function setToolbarEvents()
 		this.blur();
 		//rawEdit(serializeRecord(false,false,true,false));
 		top.globalParameter = serializeRecord(false, false, false, false);
-		console.log("globalParameter: ----------------------------------------------------------------------------");
-		console.log(top.globalParameter);
 		rawEdit();
 	}
 	

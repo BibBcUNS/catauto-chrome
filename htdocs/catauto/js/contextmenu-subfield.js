@@ -62,7 +62,6 @@ function canDuplicateSf(subfield)
 	var code = subfield.code;
 	try {
 		repet = window.top.selectNodesChrome("//datafield[@tag='" + tag + "']/subfield[@code='" + code + "']/@repet", window.top.xmlData.xmlMARC21)[0].value;
-		console.log(repet)
 	}
 	catch(err) {
 		repet = "NR";
@@ -101,7 +100,6 @@ function showSubfieldMenu(subfield)
 }
 
 function showSubfieldMenuIE(subfield){
-	console.log("Ejecutando desde internet explorer")
 	var field = parentField(subfield,"subfield");
 
 	// Construimos el menú

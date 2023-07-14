@@ -4,7 +4,6 @@ function createFieldList(tags)
 // createField()
 // -----------------------------------------------------------------------------
 {
-  console.log(tags)
   if ( tags.length == 0 ) {
     alert("ATENCION - Error del sistema: createFieldList() fue llamada con tags.length = 0");
     return;

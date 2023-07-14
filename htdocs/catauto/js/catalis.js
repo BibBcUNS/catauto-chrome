@@ -24,7 +24,6 @@ function updateTextareaHeight(){
 			this.style.height = (this.scrollHeight) + 1 + "px";
 		}, false);
 	}
-	console.log("Textareas height actualizada");
 }
 
 function swapElements(elemento1, elemento2){
@@ -39,14 +38,12 @@ function importXML(name ,sourceURL)
 	var xmlDoc;
 	
 	if (moz) {
-		console.log("Ejecutando en chrome")
 		xmlDoc = document.implementation.createDocument("", "", null);
 		var xmlhttp = new XMLHttpRequest();
 
     	xmlhttp.onreadystatechange = function() {
     	    if (this.readyState == 4 && this.status == 200) {
     	        xmlData[name] = this.responseXML;
-				console.log(this.responseXML);
     	    }
     	}
 
@@ -57,7 +54,6 @@ function importXML(name ,sourceURL)
 		msxmlProgID = "Msxml2.DOMDocument.3.0";  // versión de MSXML usada
 		xmlDoc = new ActiveXObject(msxmlProgID);
 		xmlDoc.async = false;
-		console.log("Ejecutando en Internet Explorer")
 
 		xmlDoc.load(sourceURL);
 		return xmlDoc;
@@ -312,17 +308,12 @@ function highlightSubfieldBox(subfieldBox)
 // ATENCION: revisar resaltado del selectedField
 // ---------------------------------------------------------------------------
 {
-	console.log("Ejecutando highlight");
-	//alert();
-	//var eventSource = (evt) ? evt.target : event.srcElement;
-	//var subfieldBox = eventSource;
 
 	// Quitamos el resaltado al box antiguo
 	if ( selectedSubfieldBox != null && !selectedSubfieldBox.error ) {
 		selectedSubfieldBox.style.backgroundColor = "";
 		selectedSubfieldBox.style.borderColor = "";
 	}
-	//if ( selectedField != null ) selectedField.style.backgroundColor = "";
 
 	// Resaltamos el box nuevo
 	if ( !subfieldBox.error ) {
@@ -942,9 +933,6 @@ function findNewFieldPosition(tag,fieldBlock)
 // (y aparte, la excepción: newPosition = getDatafields(fieldBlock).length;)
 // -----------------------------------------------------------------------------
 {
-	console.log("---------------------------------------- DESDE DENTRO DE FINDNEWFIELDPOSITION TAG Y FIELDBLOCK ------------------------");
-	console.log(tag);
-	console.log(fieldBlock);
 	var newPosition;
 	
 	// Algunas veces, el formulario se queda sin ningún campo seleccionado (un error que deberíamos corregir)
@@ -1794,8 +1782,6 @@ function showPopup(x,y,width,height,refObject)
             (!clickedElement.id != "searchMessage") && (clickedElement.id != "testConditionSearchHelpLink") &&
             (!clickedElement.id != "searchMessage") && (clickedElement.id != "indexHelpLink")           
         ){
-            console.log("Kill xq no es menu");
-			console.log(e.target.parentNode.id)
             killmenu(); 
         }
     })
@@ -1814,10 +1800,6 @@ function showPopup(x,y,width,height,refObject)
               var offsetTrail = refObject;
               var offsetLeft = 0;
               var offsetTop = 0;
-
-			  console.log("offsetTrail: ---------------------------------------------");
-			  console.log(offsetTrail)
-			  console.log("-----------------------------------------------------------")
   
               while (offsetTrail) {
                   offsetLeft += offsetTrail.offsetLeft;
