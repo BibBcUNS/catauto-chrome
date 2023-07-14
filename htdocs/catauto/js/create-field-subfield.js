@@ -564,7 +564,7 @@ function createSubfield( code, sfText, label, fieldTag )
   if (ie) {
     newSubfieldBox.style.height = newSubfieldBox.scrollHeight;
   } else if (moz) {
-    newSubfieldBox.style.minHeight = SUBFIELDBOX_MIN_HEIGHT; //"26px";
+    newSubfieldBox.style.height = SUBFIELDBOX_MIN_HEIGHT; //"26px";
     // ???
   }
   

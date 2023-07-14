@@ -14,6 +14,19 @@
 //(M.A) objeto xmlData tiene como propiedades cada uno de los xhr pedidos al servidor.
 var xmlData = {};
 
+function updateTextareaHeight(){
+	const subfieldBoxes = document.getElementsByClassName("subfieldBox");
+
+	for (let i = 0; i < subfieldBoxes.length; i++){
+		//Setear evento para que se actualice cada vez que se escribe
+		subfieldBoxes[i].addEventListener("input", function(){
+			this.style.height = 0;
+			this.style.height = (this.scrollHeight) + 1 + "px";
+		}, false);
+	}
+	console.log("Textareas height actualizada");
+}
+
 function swapElements(elemento1, elemento2){
 	elemento1.parentNode.insertBefore(elemento1, elemento2);
 }

@@ -217,25 +217,26 @@ td.value {
 }
 
 .subfieldBox {
-	font-family: verdana, "lucida console", "courier new", monospace;
-	/* Relaciones font-size/line-height: 13px/19px, 12px/18px */
-	font-size: 12px;
-	line-height: 18px;
-	font-weight: bold;
-	background: transparent; /*#ECFBEC*/ /*#FAFAFA*/ /* el mismo color que el fondo */
-	/*width: 100%;*/ /* si usamos un valor fijo en px, solucionamos el
-						 problema de los textos largos, como p.ej. URLs.
-						 Ver catalis.js */
-	border-bottom: 1px solid #ECFBEC; /*#FAFAFA*/
-	border-right: 1px solid #ECFBEC; /*#FAFAFA*/
-	border-top: 0;
-	border-left: 0;
-	overflow: hidden; /* hides the scrollbars */
-	margin-left: 2px;
-	margin-top: -1px; /* seems necessary to keep the top of the textarea aligned with the top of the label */
-	padding: 2px 1px;
-	resize: none;
-	width: 99.8% !important;
+	font-family: "source code pro", "ubuntu mono", "roboto mono", "open sans", verdana, "lucida console", sans-serif;
+    /* Relaciones font-size/line-height: 13px/19px, 12px/18px */
+    /* font-size: 12px; */
+    /* line-height: 18px; */
+    font-size: 15px; /* roboto mono: 14px - ubuntu mono: 15px - source code pro: 15px */
+    line-height: 1.4;
+    /*font-weight: bold;*/
+    background-color: transparent; /*#ECFBEC*/ /*#FAFAFA*/ /* el mismo color que el fondo */
+    /*width: 100%;*/ /* si usamos un valor fijo en px, solucionamos el
+                         problema de los textos largos, como p.ej. URLs.
+                         Ver catalis.js */
+    border-bottom: 1px solid #ECFBEC; /*#FAFAFA*/
+    border-right: 1px solid #ECFBEC; /*#FAFAFA*/
+    border-top: 0;
+    border-left: 0;
+    overflow: hidden; /* hides the scrollbars */
+    margin-left: 2px;
+    padding: 2px 1px;
+    resize: none;
+    width: 99.8% !important;
 }
 
 .subfieldBoxCell {
@@ -352,7 +353,7 @@ col.subfieldLabelColumn {
 
 
 iframe#docIframe {
-	height: 0px; /* final height set dinamically onload */
+	height: 0px; /* final height set dinamically onload */ /*MA el height se setea en docIframeShow()*/
 	width: 100%;
 	border: 0px solid #999;
 	margin-left: 1px; /* parece necesario en IE */
