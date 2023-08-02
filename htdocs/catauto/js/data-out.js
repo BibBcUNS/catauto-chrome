@@ -209,9 +209,11 @@ function buildISO2709()
 	var baseDataAddress = padWithZeros(24 + directory.length,5);
 	var encLevel = form.L_17.value;
 
-	var leader = recordLength + recordStatus + recordType + "##"
-	          	codingScheme + "22" + baseDataAddress
-	           + encLevel + "4500";
+	var leader = recordLength + recordStatus 
+				+ recordType + "##" 
+	            + codingScheme + "22" + baseDataAddress
+	            + encLevel + "##4500";
+
 	leader = leader.replace(/#/g," ");
 	
 	//alert(leader + "\n\n" + directory + "\n\n" + body);
@@ -233,7 +235,7 @@ function exportRecord()
 {
 	var isoRecord = buildISO2709();
 	var isoString = isoRecord.leader + isoRecord.directory + isoRecord.body;
-	var winProperties = "width=400, height=150, top=120, left=100, resizable=yes, scrollbars=yes, menubar=yes";
+	var winProperties = "width=700, height=400, top=50%, left=50%, resizable=yes, scrollbars=yes, menubar=yes";
 	newWin = window.open("", "", winProperties);
 	newWin.focus();
 	
@@ -249,10 +251,10 @@ function exportRecord()
 	return;*/
 	
 	// ATENCION: es importante el orden de las dos líneas siguientes
-	newWin.document.write(isoString);
-	newWin.document.title = "Exportación";
-	
-	newWin.document.body.style.fontFamily = "'courier new', monospace";
+	newWin.document.write('<h1 style="font-size: 110%;">Exportación del registro</h1>');
+    newWin.document.write('<p>Para utilizarlo en otra aplicación, seleccione y copie el contenido del área coloreada.</p>');
+    newWin.document.write('<textarea rows="20" cols="90" style="background: #FED;">' + isoString + '</textarea>');
+    newWin.document.title = "Exportación";
 	
 	// TO-DO: usar para el title el número de registro
 	// Deshabilitar line-wrap?
