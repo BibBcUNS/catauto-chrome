@@ -151,8 +151,10 @@ function buildISO2709()
 	// Creamos un array con un elemento para cada campo
 	var fields = new Array();
 	var f008 = serialize008().replace(/#/g," ");	//TO-DO: corregir pos. 00-05
+
 	fields.push("008 " + f008);
 	var fieldContainers = getDatafields();
+
 	for (var i=0; i < fieldContainers.length; i++) {
 		var subfields = getSubfields(fieldContainers[i]).replace(/ \.(?=\^|$)/g,".");
 		if ( subfields.search(REGEX_EMPTY_SUBFIELD) == -1 ) {  // Ignoramos campos sin datos
@@ -199,7 +201,7 @@ function buildISO2709()
 	
 	directory += ISO_FIELD_TERMINATOR;
 	body += ISO_RECORD_TERMINATOR;
-	
+
 	// Leader components
 	var recordLength = padWithZeros(24 + directory.length + body.length,5);
 	var recordStatus = form.L_05.value;
@@ -215,9 +217,9 @@ function buildISO2709()
 	            + encLevel + "##4500";
 
 	leader = leader.replace(/#/g," ");
-	
+
 	//alert(leader + "\n\n" + directory + "\n\n" + body);
-	
+
 	var isoRecord = new Object();
 	isoRecord.leader = leader;
 	isoRecord.directory = directory;
@@ -258,6 +260,7 @@ function exportRecord()
 	
 	// TO-DO: usar para el title el número de registro
 	// Deshabilitar line-wrap?
+	
 }
 
 
@@ -266,33 +269,24 @@ function viewRecord()
 // Presenta una ventana con la ficha AACR2 y la lista de campos MARC
 // -----------------------------------------------------------------------------
 {
-	// 1. Construcción de la ficha
-	
 	var fieldContainers = getDatafields();
-	var marcDatafields = new Array();
+	var marcDatafields = [];
+
 	for (var i=0; i < fieldContainers.length; i++) {
-		var subfields = getSubfields(fieldContainers[i]).replace(/ \.(?=\^|$)/g,".");
-		if ( subfields.search(REGEX_EMPTY_SUBFIELD) == -1 ) {	// Ignoramos campos sin datos
-			var tag = fieldContainers[i].tag;
-			var ind = getIndicators(fieldContainers[i]);
-			/*
-			if ( tag.search(/245|440/) != -1 ) {	// remove non sorting delimiters
-				subfields = subfields.replace(/[{}]/g,"");
-			}
-			*/
-			marcDatafields.push(tag + " " + ind + subfields);
-		}
-	}
-	
-	var form = document.getElementById("marcEditForm");
-	var f001 = form.f001.value;
-	var f005 = form.f005.value;
-	var f008 = serialize008();
-	var fichaHTML = marc2aacr(f001,f005,f008,marcDatafields);
-	
+        var subfields = getSubfields(fieldContainers[i]).replace(/ \.(?=\^|$)/g,".");
+        if ( subfields.search(REGEX_EMPTY_SUBFIELD) == -1 ) {    // Ignoramos campos sin datos
+            var tag = fieldContainers[i].tag;
+            var ind = getIndicators(fieldContainers[i]);
+            /*
+            if ( tag.search(/245|440/) != -1 ) {    // remove non sorting delimiters
+                subfields = subfields.replace(/[{}]/g,"");
+            }
+            */
+            marcDatafields.push(tag + " " + ind + subfields);
+        }
+    }
 
 	// 2. Construcción de la lista de campos MARC
-
 	var form = document.getElementById("marcEditForm");
 	var leader = form.L_05.value + form.L_06.value +  form.L_17.value;
 	var f001 = form.f001.value;
@@ -301,52 +295,11 @@ function viewRecord()
 	var f008 = serialize008();
 	var marcTagged = marc2marcTagged(leader, f001, f003, f005, f008, marcDatafields);
 
+	var dialogHeight = 350;
+    var dialogWidth = 660;
+    var winProperties = "dialogHeight: " + dialogHeight + "px;dialogWidth: "+dialogWidth+"px; dialogTop: 25px; ";
 
-	// Capturamos el error que se produce al usar la referencia a la ventana cuando ésta ya fue cerrada
-	try {
-		var tmp = modelessWin.document;
-	}
-	catch(err) {
-		displayWindowClosed = true;
-	}
-
-	// Creamos la ventana
-	if ( displayWindowClosed ) {
-		var dialogHeight = 350;
-		var dialogWidth = 660;
-		var winProperties = "dialogHeight: " + dialogHeight + "px; ";
-		winProperties += "dialogWidth: " + dialogWidth + "px; ";
-		winProperties += "dialogTop: 25px; ";
-		//winProperties += "dialogLeft: " + (screen.width - 553) + "px; ";
-		winProperties += "resizable: yes; scroll: yes; status: no; help: no";
-		//alert(winProperties);
-		modelessWin = showModelessDialog(URL_RECORD_VISUALIZATION, window, winProperties);
-		displayWindowClosed = false;
-	}
-
-	// Este loop es para librarnos del error al abrir la ventanita por primera vez
-	var popupOK = false;
-	while( !popupOK ) {
-		try {
-			var tmp = modelessWin.document.getElementById("aacrDiv").innerHTML;
-			popupOK = true;
-		}
-		catch (err) {   // Sólo se ejecuta si se produjo un error
-			popupOK = false;
-		}
-	}
-	
-	
-	// Actualizamos el contenido de la ventana
-	modelessWin.document.getElementById("aacrDiv").innerHTML = fichaHTML;
-	
-	modelessWin.document.getElementById("chkAccess").checked = true;
-	modelessWin.document.getElementById("chkDescription").checked = true;
-	modelessWin.document.getElementById("marcDiv").innerHTML = marcTagged;
-	modelessWin.document.getElementById("chkSubfieldSplit").checked = false;
-	
-	// Y ajustamos su altura, para que se aprecie mejor el contenido.
-	updateDialogHeight(modelessWin);
+    modelessWin = window.showModalDialog(URL_RECORD_VISUALIZATION, marcTagged, winProperties);
 }
 
 
@@ -379,10 +332,10 @@ function saveRecord()
 		return;
 	}
 	
-	var message = "DATOS QUE SE ENVIAN PARA SER GRABADOS<p>\nNï¿½mero de registro: " + document.getElementById("marcEditForm").f001.value;
+	var message = "DATOS QUE SE ENVIAN PARA SER GRABADOS<p>\nNúmero de registro: " + document.getElementById("marcEditForm").f001.value;
     message += "<div id='dataToBeSaved'><pre>" + marcFields + "</pre></div>";
 
-    // suspendemos el cuadro de confirmaciï¿½n (FG, 06/sep/2005)
+    // suspendemos el cuadro de confirmación (FG, 06/sep/2005)
     // lo volvemos a activar, ya que de lo contrario se pueden llegar a grabar datos en forma accidental (FG, 16/sep/2005)
 
     //-------------(M.A) Funcion copiada de aux-windows.js:

@@ -35,9 +35,20 @@ function copyText(elementID)
 // http://www.htmlgoodies.com/beyond/clipboard.html
 // ATENCION: IE only
 {
-	textHolder.innerText = document.getElementById(elementID + "Div").innerText;
-	Copied = textHolder.createTextRange();
-	Copied.execCommand("Copy");
+	//Se recomiendo usar Clipboard API, por el momento se utiliza document.execCommand para evitar problemas con https en implementacion
+    let range = new Range();
+
+    let divToCopy = document.getElementById(elementID+"Div");
+
+    //Seleccionamos todos los nodos del elemento
+    range.setStart(divToCopy, 0);
+    range.setEnd(divToCopy, divToCopy.childNodes.length);
+
+    document.getSelection().removeAllRanges();
+    document.getSelection().addRange(range);
+    document.execCommand("copy");
+	alert("Texto copiado.");
+	document.getSelection().removeRange(range);
 }
 
 
@@ -191,6 +202,34 @@ function init()
 	}
 	
 	window.focus();
+
+	document.getElementById("marcDiv").innerHTML = window.dialogArguments;
+
+	//(M.A) Arreglo estilos --------------------------------------------------------------
+
+	let cruz = window.top.document.getElementById("dialog-close");
+
+	cruz.style.display = "block";
+
+	window.top.updateDialogSizeChrome();
+
+	let dialogHeight = window.top.document.getElementsByTagName("dialog")[0].style.height;
+
+	dialogHeight = dialogHeight.split("p")[0];
+
+	dialogHeight = parseInt(dialogHeight);
+
+	let cuadroAacr = document.getElementById("aacrDiv");
+
+	cuadroAacr.style.padding = "10px";
+	cuadroAacr.style.width = "96.8%";
+
+	let cuadroMarc = document.getElementById("marcDiv");
+
+	cuadroMarc.style.width = "97.9%";
+	cuadroMarc.style.maxHeight= dialogHeight - 80 +"px";
+	cuadroMarc.style.overflowY = "scroll";
+	//--------------------------------------------------------------------------------------
 }
 
 window.onload = init;
@@ -209,6 +248,8 @@ body {
 	border-top-width: 0;
 	padding: 1em 1.5em 1.5em 1.5em;
 	width: 100%; /* necesario! */
+	display: none;
+
 }
 
 #marcDiv {
@@ -220,7 +261,6 @@ body {
 	font-size: 13px;
 	width: 100%;
 	/*margin-top: 2px;*/
-	display: none;
 }
 
 #etiqDiv {
@@ -258,7 +298,6 @@ textarea#textHolder, iframe#newHiddenIframe {
 	border: 1px solid #666;
 	font-family: verdana;
 	font-size: 11px;
-	display: none;
 }
 
 #aacrToolbar {
@@ -268,6 +307,7 @@ textarea#textHolder, iframe#newHiddenIframe {
 	border: 1px solid #666;
 	font-family: verdana;
 	font-size: 11px;
+	display: none;
 }
 
 #etiqToolbar {
@@ -299,16 +339,19 @@ div#tabs {
 }
 
 button#aacrTab {
+	display: none;
 	width: 80px;
 	font-weight: bold;
 }
 
 button#etiqTab {
+	display: none;
 	width: 102px;
 	font-weight: bold;
 }
 
 button#breveTab {
+	display: none;
 	width: 80px;
 	font-weight: bold;
 }
@@ -368,8 +411,8 @@ div#cartelHead {
 	<!-- TABS -->
 	<div id="tabs">
 		&nbsp;
-		<button id="aacrTab" class="tab activeTab" accesskey="A"><u>A</u>ACR2</button>
-		<button id="marcTab" class="tab" accesskey="M"><u>M</u>ARC</button>
+		<button id="aacrTab" class="tab" accesskey="A"><u>A</u>ACR2</button>
+		<button id="marcTab" class="tab activeTab" accesskey="M"><u>M</u>ARC</button>
 		<button id="etiqTab" class="tab" accesskey="E"><u>E</u>tiquetado</button>
 		<button id="breveTab" class="tab" accesskey="B"><u>B</u>reve</button>
 		

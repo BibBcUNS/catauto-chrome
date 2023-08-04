@@ -191,7 +191,10 @@ function setToolbarEvents()
 		toggleSubfieldLabels();
 	}
 	
-
+	document.getElementById("btnFicha").onclick = function() {
+		this.blur();
+		viewRecord();
+	};
 	
 	document.getElementById("btnExportar").onclick = function() {
 		this.blur();
