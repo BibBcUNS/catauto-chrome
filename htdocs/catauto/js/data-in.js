@@ -158,6 +158,12 @@ function createRecord(newRecParams)
 	// ATENCION: en la plantilla de CD-ROM, cuyo primer campo de datos es
 	// el 245, el foco se coloca "a medias" (i.e. no tenemos cursor). El loop
 	// parece remediar el problema sólo ocasionalmente. El timeout será mejor?
+
+	setTimeout(function() {
+		let firstRow = document.getElementById("recordDiv").querySelectorAll("tr")[1];
+		firstSubfieldBox(firstRow).focus();
+	}, 50);
+
 }
 
 
