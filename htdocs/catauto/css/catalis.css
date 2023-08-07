@@ -412,6 +412,10 @@ table.control input {
 	color: #606060;
 }
 
+table.control tr td{
+	cursor: pointer;
+}
+
 #f001 {
 	width: 90px;
 	background: #ECECEC;
@@ -422,7 +426,7 @@ table.control input {
 }
 
 #f008_00_05_nice {
-	width: 86px;
+	width: 90px;
 	border-width: 0;
 	font-family: verdana;
 	font-size: 13px;
@@ -431,7 +435,7 @@ table.control input {
 }
 
 #createdBy {
-	width: 52px;
+	width: 20%;
 	border-width: 0;
 	font-family: verdana;
 	font-size: 13px;

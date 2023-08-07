@@ -118,23 +118,28 @@ function serializeRecord(leader, controlFields, dataFields, localData)
 				marcFields += "\n" + tag + " " + ind + subfields;
 			}
 		}
+	}
 
-		// 980: PostIt note
+	// 980: PostIt note
 
-/*		if ( postItNote != "" ) {
+    
+
+	if( localData ){
+		//980 PostItNotes
+		/*
+		if ( postItNote != "" ) {
 			marcFields += "\n980 " + postItNote.replace(/\r\n/g,"\\r\\n");
 			// ATENCION: \r\n solo en Windows?
 		}
-	*/	
-
-	/* 991 esto lo sa1que el 25 de agosto de 2008.... pone el usuario
-		marcFields += ( form.createdBy.value != "" )
-		             ? "\n991 " + form.createdBy.value.replace(/\s|\[|\]/g,"")		            
-					 : "\n991 " + form.userid.value;
-	*/
-	
+		*/
 		
+		//991: Identificación del catalogador que creó el registro
+		marcFields += ( form.createdBy.value != "" ) ? "\n991 " + form.createdBy.value.replace(/\s|\[|\]/g,"") : "\n991 " + form.userid.value;
 	}
+
+	console.log("RESULTADO: _------- ----------- ------------ ------------ -----------");
+	console.log(marcFields.replace(/^\n/,""))
+
 	return marcFields.replace(/^\n/,"");  // quitamos salto de línea inicial
 }
 
