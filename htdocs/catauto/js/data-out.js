@@ -123,16 +123,19 @@ function serializeRecord(leader, controlFields, dataFields, localData)
 	// 980: PostIt note
 
     
+	console.log("SERIALIZE RECORD");
+	console.log(typeof(postItNote));
 
 	if( localData ){
-		//980 PostItNotes
-		/*
-		if ( postItNote != "" ) {
+
+		if(typeof postItNote != 'undefined'){
+			//980 PostItNotes
+			if ( postItNote != "" ) {
 			marcFields += "\n980 " + postItNote.replace(/\r\n/g,"\\r\\n");
 			// ATENCION: \r\n solo en Windows?
 		}
-		*/
-		
+		}
+	
 		//991: Identificación del catalogador que creó el registro
 		marcFields += ( form.createdBy.value != "" ) ? "\n991 " + form.createdBy.value.replace(/\s|\[|\]/g,"") : "\n991 " + form.userid.value;
 	}

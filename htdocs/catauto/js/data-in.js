@@ -163,7 +163,6 @@ function createRecord(newRecParams)
 		let firstRow = document.getElementById("recordDiv").querySelectorAll("tr")[1];
 		firstSubfieldBox(firstRow).focus();
 	}, 50);
-
 }
 
 
@@ -179,6 +178,7 @@ function showRecordInForm(receivedRecord)
 // -----------------------------------------------------------------------------
 {
 	showEditDiv();
+	postItNote = receivedRecord.postItNote;
 	
 	selectedSubfieldBox = null;
 	selectedField = null;
@@ -296,18 +296,17 @@ function showRecordDetails(receivedRecord)
 			var f003 = receivedRecord.f003;
 			var f005 = receivedRecord.f005;
 			var f008 = receivedRecord.f008;
-		/*	var postItNote = receivedRecord.postItNote;*/
-			var recordDisplay = marc2marcTagged(leader, f001, f003, f005, f008, marcDatafields);
+			var postItNote = receivedRecord.postItNote;
+			var recordDisplay = marc2marcTagged(leader, f001, f003, f005, f008, marcDatafields, postItNote);
 			break;
 	
 		case "etiq" :
 			var recordDisplay = receivedRecord.etiq;
 			break;
-		/*
 		case "postItNote" :
 			var recordDisplay = receivedRecord.postItNote.replace(/\n/g,"<br>");
 			break;
-		*/
+		
 	
 	}
 
@@ -328,8 +327,8 @@ function showRecordDetails(receivedRecord)
 	document.getElementById("hiddenFORM").recordID.value = receivedRecord.f001;
 	
 	// Habilitamos el botón Anotaciones sólo si hay anotaciones	
-	/*document.getElementById("postItNoteDisplayBtn").disabled = ( "" == receivedRecord.postItNote );
-	*/
+	document.getElementById("postItNoteDisplayBtn").disabled = ( "" == receivedRecord.postItNote );
+	
 	// Quitamos el cartel de "Solicitando registro"
 	document.getElementById("cartel").style.display = "none";
 
