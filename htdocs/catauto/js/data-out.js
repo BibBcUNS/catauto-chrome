@@ -131,8 +131,7 @@ function serializeRecord(leader, controlFields, dataFields, localData)
 		if(typeof postItNote != 'undefined'){
 			//980 PostItNotes
 			if ( postItNote != "" ) {
-			marcFields += "\n980 " + postItNote.replace(/\r\n/g,"\\r\\n");
-			// ATENCION: \r\n solo en Windows?
+			marcFields += "\n980 " + postItNote.replace(/\r?\n/g,"\\r\\n");
 		}
 		}
 	
