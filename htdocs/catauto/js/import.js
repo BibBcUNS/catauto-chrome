@@ -299,11 +299,20 @@ function parseISO2709(isoRecord)
 				fieldContent = fieldContent.replace(/ /g,'#');
 			}
 			
+			if(tag == "670"){
+				//M.A TO-DO definir traduccion y reemplazar otros casos.
+
+				//Reemplazamos empezando por el caso "mas largo" hasta el mas corto que incluya t.p.
+				//fieldContent = fieldContent.replace(/verso t.p./g,"port.");
+				//fieldContent = fieldContent.replace(/ser. t.p./g, "port.");
+				fieldContent = fieldContent.replace(/t.p./g,"port.");
+			}
+
 			var indicators = fieldContent.substr(0,2).replace(/ /g,'#');
 			var subfields = fieldContent.substr(2);
 			
 			// Modificación de datos (para registros pre-AACR2 y en general)
-			if ( /*"a" != leader.substr(18,1) && MODIFY_NOT_AACR2 &&*/ tag.search(/020|041|100|260|700/) != -1 ) {
+			if ( /*"a" != leader.substr(18,1) && MODIFY_NOT_AACR2 &&*/ tag.search(/020|041|100|260|670|700/) != -1 ) {
 				var modifiedField = modifyImportedField(tag,indicators,subfields);
 				indicators = modifiedField.indicators;
 				subfields = modifiedField.subfields;
