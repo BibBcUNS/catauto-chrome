@@ -7,7 +7,15 @@
 //  Véase el archivo LICENCIA.TXT incluido en la distribución de Catalis
 // =============================================================================
 
+window.onresize = function(){
+	setDimensions();
+}
 
+window.onbeforeunload = function(){
+	if(modifiedRecord()){
+		return true;
+	}
+}
 
 // -----------------------------------------------------------------------------
 function setSearchFormEvents()
