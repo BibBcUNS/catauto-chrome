@@ -86,8 +86,11 @@ function setEditionFormEvents()
 	document.getElementById("btnDocHideShow").onclick = docIframeShow;
 	
 	document.getElementById("docForm").onsubmit = function() {
-		showDoc(this.docItem.value);
-		return false;
+		let cod = this.docItem.value;
+		if(cod != ""){
+			showDoc(cod);
+			return false;
+		}	
 	}
 }
 
