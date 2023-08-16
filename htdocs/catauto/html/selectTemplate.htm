@@ -72,9 +72,12 @@ function init()
 			handleCancel();
 		}
 	}
-	document.getElementById("aacrCheckbox").onclick = function() {
-		handleAacrCheck(this);
-	}
+
+	// M.A 16/07/23 comento las siguientes 3 lineas
+	// document.getElementById("aacrCheckbox").onclick = function() {
+	// 	handleAacrCheck(this);
+	// }
+
 	document.getElementById("btnOK").onclick = handleOK;
 	document.getElementById("btnCancel").onclick = handleCancel;
 	
@@ -159,8 +162,9 @@ window.onload = init;
 
 <br>
 
-<input type="checkbox" id="aacrCheckbox" -accesskey="A">
-<label for="aacrCheckbox"><b>Ingreso de datos desde un asiento AACR2</b></label>
+<!-- M.A 16/08/2023 comento las siguientes dos líneas porque la plantilla aacr2 es para Catalis -->
+<!-- <input type="checkbox" id="aacrCheckbox" -accesskey="A">
+<label for="aacrCheckbox"><b>Ingreso de datos desde un asiento AACR2</b></label> -->
 <!--input class="marcEditButton" type="button" value="Ingresar asiento AACR2" onclick="document.getElementById('aacrText').style.display='block';window.dialogHeight='530px';window.dialogTop='35px';document.getElementById('aacrText').focus()"-->
 
 <table id="aacrWrapper" style="display:none;" cellpadding="2" border="0">
