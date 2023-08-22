@@ -17,10 +17,20 @@
 
 <script type="text/javascript">
 	function init() {
-		top.document.getElementById("cartelMsg").innerHTML += "<br><br>" + parent.document.getElementById("registroBorrado").innerHTML;
-		setTimeout("top.document.getElementById(\"cartel\").style.display = \"none\"",1500);
+
+		//Mostrar cartel de registro eliminado
+		top.document.getElementById("cartel").style.display = "block";
+		top.document.getElementById("cartelMsg").innerHTML = parent.document.getElementById("registroBorrado").innerHTML;
+		setTimeout(() => {
+			top.document.getElementById("cartel").style.display = "none";
+
+			//Volver a pantalla principal
+			top.showSearchDiv();
+			//Actualizar listado
+			top.showNewRecords();
+		}, 1500);
+
 	}
-	
 	
 	window.onload = init;
 </script>
