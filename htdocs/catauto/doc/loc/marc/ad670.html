@@ -1,0 +1,440 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>MARC 21 Format for Authority Data: 670:
+         Source Data Found (Network Development and MARC Standards
+         Office, Library of Congress)
+      </title>
+      <meta name="description" content="This field contains the  (Network Development and MARC Standards Office, Library of Congress)" />
+      <meta name="keywords" content="marc, marc21, marc standards" />
+      <meta name="author" content="Library of Congress Network Development and MARC Standards Office" />
+      
+      
+   
+</head>
+   <body class="full">
+      <div class="head-nav">
+         <div class="noprint"><a href="//www.loc.gov/">Library of Congress</a> &gt;&gt; <a href="//www.loc.gov/marc/">MARC</a> &gt;&gt; 
+            
+            <a href="//www.loc.gov/marc/authority/">Authority</a> &gt;&gt; 
+            <span class="caps"><a href="//www.loc.gov/marc/authority/ad66768x.html">667-68X</a> 
+               
+               &gt;&gt;
+               <strong>670</strong></span></div>
+      </div>
+      <hr /><a name="skip_menu"></a><h1><span>670</span> - <span>Source Data Found</span><span> (R)</span></h1>
+      <hr />
+      <div class="formatname">MARC 21 Authority - full</div>
+      <div class="datename">July 2022</div>
+      <hr />
+      <table width="100%" class="indicators">
+         <tr>
+            <th width="45%"> First Indicator </th>
+            <th width="45%"> Second Indicator </th>
+         </tr>
+         <tr>
+            <td><em>Undefined</em><br /><span># - Undefined</span><br /><br /></td>
+            <td><em>Undefined</em><br /><span># - Undefined</span><br /><br /></td>
+         </tr>
+      </table>
+      <hr />
+      <table width="100%" class="subfields">
+         <tr>
+            <td width="50%"></td>
+            <td width="50%"></td>
+         </tr>
+         <tr>
+            <th colspan="2">Subfield Codes</th>
+         </tr>
+         <tr>
+            <td>
+               <ul class="nomark">
+                  <li>$a - Source citation<span> (NR)</span></li>
+                  <li>$b - Information found<span> (NR)</span></li>
+                  <li>$u - Uniform Resource Identifier<span> (R)</span></li>
+                  <li>$w - Bibliographic record control number<span> (R)</span></li>
+               </ul>
+            </td>
+            <td>
+               <ul class="nomark">
+                  <li>$6 - Linkage<span> (NR)</span></li>
+                  <li>$7 - Data provenance<span> (R)</span></li>
+                  <li>$8 - Field link and sequence number<span> (R)</span></li>
+               </ul>
+            </td>
+         </tr>
+      </table>
+      <hr />
+      <h3>FIELD DEFINITION AND SCOPE</h3>
+      <div class="definition">
+         <div>
+            <p>Citation for a consulted source in which information is found related in
+               some manner to the entity represented by the authority record or related entities.
+               
+               May also include the information found in the source.
+            </p>
+         </div>
+         <div>
+            <p>Each source citation is contained in a separate 670 field.</p>
+            <p>Citation for a consulted source that yielded no information is
+               contained in field 675 (Source Data Not Found).
+            </p>
+            <p>Citations and information in this field are often not written in a form adequate for
+               public user display.
+            </p>
+         </div>
+      </div>
+      <hr />
+      <h3>GUIDELINES FOR APPLYING CONTENT DESIGNATORS</h3>
+      <div class="guidelines">
+         <h4><span class="box">■</span> INDICATORS
+         </h4>
+         <div class="indicators">
+            <ul>
+               <li>Both indicator positions are undefined; each contains a blank (#).</li>
+            </ul>
+         </div>
+         <h4><span class="box">■</span> SUBFIELD CODES
+         </h4>
+         <div class="subfields">
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$a - Source citation</strong> 
+                  </p>
+                  <div>
+                     <p>Citation for a published work or a description of any source or action that
+                        provided information about the heading (e.g., a telephone call to a publisher).
+                        The citation includes enough information to identify the work, such as the title
+                        and imprint date. When a work has a non-distinctive title (e.g., a generic term),
+                        the citation may begin with the name of the author. When the author is the same as
+                        the 1XX heading, one of the following may be used in the citation:<em> Author's</em> (personal name), or <em>Its</em> (not a
+                  personal name). When a 100 heading is used for more than one person (008/32,
+                  Undifferentiated personal name, code b), subfield $a may contain a
+                  descriptive term for an author enclosed within brackets (e.g., [Author of
+                  Ireland]).
+                     </p>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td>110</td>
+                           <td colspan="9">2#$aOxon Hill Manor (Md.)</td>
+                        </tr>
+                        <tr>
+                           <td><strong>670</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>Phone call to National Register of Historic
+                              Places
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td>110</td>
+                           <td colspan="9">2#$aWorld Bank</td>
+                        </tr>
+                        <tr>
+                           <td><strong>670</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>Its Annual report, 1981:<strong>$b</strong>p.3 (The World Bank is a group of three institutions,
+                              the International Bank for Reconstruction and Development (IBRD), the
+                              International Development Association (IDA), and the International Finance
+                              Corporation (IFC))
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td>100</td>
+                           <td colspan="9">1#$aSmith, Howard</td>
+                        </tr>
+                        <tr>
+                           <td><strong>670</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>[Added entry of Inside Japan]
+                           </td>
+                        </tr>
+                        <tr>
+                           <td><strong>670</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>Inside Japan, 1981 (a.e.)<strong>$b</strong>verso t.p. (Howard Smith)
+                           </td>
+                        </tr>
+                        <tr>
+                           <td><strong>670</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>[Author of Ireland]
+                           </td>
+                        </tr>
+                        <tr>
+                           <td><strong>670</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>Author's Ireland, 1974:<strong>$b</strong>t.p. (Howard Smith)
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td>130</td>
+                           <td colspan="9">#0$aHeadline series</td>
+                        </tr>
+                        <tr>
+                           <td><strong>670</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>Harsch, Joseph C. Germany at war, 1942: ser. t.p.
+                              (Headline books)<em><span><br /><span>[The source cited contains information only concerning
+                                       a series related to the series being established.]</span></span></em></td>
+                        </tr>
+                     </table>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td>100</td>
+                           <td colspan="9">1#$aBreay, Phillis</td>
+                        </tr>
+                        <tr>
+                           <td><strong>670</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>OCLC, Mar. 1, 2012<strong>$b</strong>(hdg.: Breay, Phillis)
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>675</td>
+                           <td colspan="9">##$aThe mine explored, 1850<em><span><br /><span>[Name being established was not given in the work cataloged; information 
+                                       found in OCLC WorldCat for the same and/or similar works attributed to Phillis Breay.]</span></span></em></td>
+                        </tr>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$b - Information found</strong> 
+                  </p>
+                  <div>
+                     <p>Parenthetical statement of the information found in the source. A statement of the
+                        location of the information within the source, such as <em>cover, t.p.,
+                           foreword,</em> may also be contained in subfield $b. Multiple
+                  occurrences of location/information found within the same source are contained in
+                  a single subfield $b.
+                     </p>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td>100</td>
+                           <td colspan="9">1#$aDefoe, Daniel,$d1661?-1731</td>
+                        </tr>
+                        <tr>
+                           <td><strong>670</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>InU/Wing STC files<strong>$b</strong>(usage: a lay-hand in the country)
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td>110</td>
+                           <td colspan="9">2#$aTwin City Federal</td>
+                        </tr>
+                        <tr>
+                           <td><strong>670</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>Lund, D. A. Billions for homes, c1980 (subj.)<strong>$b</strong>t.p. (TCF) verso t.p. (Twin City Federal) p. 11
+                              (founded 4-2-23)
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td>110</td>
+                           <td colspan="9">2#$aBentley Historical Library</td>
+                        </tr>
+                        <tr>
+                           <td><strong>670</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>Billington, R. A.<strong>$b</strong>Local history is ... 1974.
+                           </td>
+                        </tr>
+                        <tr>
+                           <td><strong>670</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>Its Guide to manuscripts in the Bentley Historical
+                              Library, 1976:<strong>$b</strong>t.p. (Bentley Historical Library, Michigan Historical
+                              Collections, Univ. of Mich.)
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td>130</td>
+                           <td colspan="9">#0$aAstronomy library</td>
+                        </tr>
+                        <tr>
+                           <td><strong>670</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>Eicher, D.J. Beyond the solar system, c1992:<strong>$b</strong>t.p. (Astronomy library)
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$u - Uniform Resource Identifier</strong> 
+                  </p>
+                  <div>
+                     <p>Uniform Resource Identifier (URI), for example a URL or URN, which provides
+                        electronic access data in a standard syntax. This data can be used for automated
+                        access to an electronic item using one of the Internet protocols.
+                     </p>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td>100</td>
+                           <td colspan="9">1#$aKing, Stephen,$d1947-</td>
+                        </tr>
+                        <tr>
+                           <td><strong>670</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>The official Stephen King web presence, viewed Oct. 26,
+                              2001:<strong>$b</strong>The man (Stephen Edwin King; b. Portland, Maine, 1947)<strong>$u</strong>http://www.stephenking.com
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$w - Bibliographic record control number</strong> 
+                  </p>
+                  <div>
+                     <p>System control number of the related record preceded by the MARC code, enclosed
+                        in parentheses, for the agency to which the control number applies.
+                     </p>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td>150</td>
+                           <td colspan="9">##$aDunking (Basketball)</td>
+                        </tr>
+                        <tr>
+                           <td><strong>670</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>Work cat: Year of the dunk, 2015<strong>$w</strong>(DLC)2014041716
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td>150</td>
+                           <td colspan="9">##$aCabala</td>
+                        </tr>
+                        <tr>
+                           <td><strong>670</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>Bloom, H. Kabbalah and criticism, c1975<strong>$w</strong>(DLC)75012820<strong>$w</strong>(OCoLC)1339798
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td>100</td>
+                           <td colspan="9">1#$aSnyder, G. Irvin</td>
+                        </tr>
+                        <tr>
+                           <td><strong>670</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>Our soldier boys in khaki o'er in France, ©1918:<strong>$b</strong>t.p. (G. Irvin Snyder)<strong>$w</strong>(DLC)2014561136<strong>$w</strong>(OCoLC)899258216
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$6 - Linkage</strong> 
+                  </p>
+                  <div>
+                     <p>See description of this subfield in Appendix A: <em><a href="//www.loc.gov/marc/authority/ecadcntf.html">Control Subfields</a></em>.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$7 - Data provenance</strong> 
+                  </p>
+                  <div>
+                     <p>See description of this subfield in Appendix H: <em><a href="//www.loc.gov/marc/authority/adapndxh.html">Data Provenance Subfields</a></em>.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$8 - Field link and sequence number</strong> 
+                  </p>
+                  <div>
+                     <p>See description of this subfield in Appendix A: <em><a href="//www.loc.gov/marc/authority/ecadcntf.html">Control Subfields</a></em>.
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <hr />
+      <h3>INPUT CONVENTIONS</h3>
+      <div class="conventions">
+         <div>
+            <p><strong>Punctuation and Spacing - </strong>Punctuation and spacing is a matter of judgment. The examples used in the
+               <em>Guidelines</em> area reflect current Library of Congress practice.
+            </p>
+         </div>
+         <div>
+            <p><strong>Order - </strong>First 670 field in a record should contain the citation for the work for which the
+               1XX
+               heading is being established whenever there is one. Other sources may be listed in
+               any
+               order.
+            </p>
+         </div>
+      </div>
+      <hr />
+      <h3>CONTENT DESIGNATOR HISTORY</h3>
+      <div class="history">
+         <div class="historySubfield">
+            <div><em>$a - Source consulted and information found [REDEFINED, 1997] [CAN/MARC only]</em></div>
+         </div>
+         <div class="historySubfield">
+            <div><em>$u - Uniform Resource Identifier [NEW, 2002]</em></div>
+         </div>
+         <div class="historySubfield">
+            <div><em>$w - Bibliographic record control number [NEW, 2015]</em></div>
+         </div>
+         <div class="historySubfield">
+            <div><em>$7 - Data provenance [NEW, 2022]</em></div>
+         </div>
+      </div>
+      <hr class="clear" />
+      <div class="head-nav">
+         <div class="noprint"><a href="//www.loc.gov/">Library of Congress</a> &gt;&gt; <a href="//www.loc.gov/marc/">MARC</a> &gt;&gt; 
+            
+            <a href="//www.loc.gov/marc/authority/">Authority</a> &gt;&gt; 
+            <span class="caps"><a href="//www.loc.gov/marc/authority/ad66768x.html">667-68X</a> 
+               
+               &gt;&gt;
+               <strong>670</strong></span></div>
+      </div>
+      <div class="left"><span class="noprint">(07/07/2022)</span></div>
+      <div class="right"><a href="/cdn-cgi/l/email-protection#d9b7bdb4aab699b5b6baf7beb6af" class="noprint">Contact Us</a></div>
+   
+</body>
+</html>

@@ -252,21 +252,24 @@
   <!-- Acceso a documentación para un campo particular -->
   <div id="docFormWrapper"> 
     <form id="docForm" action="javascript:void(0)" style="margin: 0;">
-      <span style="font-size: 11px;"><u>D</u>ocumentación</span><br>
-      <input type="button" id="btnDocHideShow" class="marcEditButton"
-					title="Mostrar el panel con la documentación de MARC 21">
-      <select id="docSource">
-        <option value="LC">LC</option>
-        <option value="OCLC">OCLC</option>
-        <!--option value="FOLLETT">Follett</option>
-					<option value="TLC">CRS</option-->
-      </select>
-      <input type="text" name="docItem" id="docItem"
-					maxlength="3" accesskey="D" -tabindex="-1"
-					title="Escriba el número de campo y presione Enter. Escriba "toc" para acceder a la página inicial de la documentación de LC.">
-      <!--
-				-->
-      <input type="submit" class="marcEditButton" value="Ir" style="height: 20px; width: 23px; margin-left: 3px;">
+      <span style="font-size: 12px">Documentación</span><br>
+      
+      <div style="margin-top: 5px; display : flex; gap: 1px;">
+        <input type="button" id="btnDocHideShow" class="marcEditButton"
+					title="Mostrar el panel con la documentación de MARC 21" style="padding: 15px; background-size: 17px;">
+          <select id="docSource">
+            <option value="LC">LC</option>
+            <option value="OCLC">OCLC</option>
+          </select>
+          <input type="text" name="docItem" id="docItem"
+            maxlength="3" accesskey="D" -tabindex="-1" style="width: 67px;">
+      </div>
+			
+      <div style="margin-top: 5px ;display: flex; justify-content: center;">
+        <input type="submit" class="marcEditButton" value="Ver" title="Consulta por la documentacion en archivos locales (puede no estar actualizado)" style="width:60%">
+        <input type="submit" class="marcEditButton" value="Online" title="Consulta por la documentacion en https://www.loc.gov/" style="width:60%" id="btnOnline">
+      </div>
+
     </form>
   </div>
 </div>

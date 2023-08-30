@@ -244,8 +244,8 @@ function setDimensions()
   document.getElementById("indexTerms").style.height = g_Dimensions.indexTerms.height + "px";
 
   // Edición
-  document.getElementById("theRightPanel").style.height = g_Dimensions.theRightPanel.height + "px";
-  document.getElementById("recordDiv").style.height = g_Dimensions.recordDiv.height + "px";
+  document.getElementById("theRightPanel").style.height = g_Dimensions.theRightPanel.height + 19 + "px";
+  document.getElementById("recordDiv").style.height = g_Dimensions.recordDiv.height + 12 + 3.09 + "px";
   document.getElementById("docIframe").style.height = g_Dimensions.docIframeCollapsed.height + "px";
 }
 
@@ -354,375 +354,65 @@ function showDoc(tag)
 		
 		frames.docIframe.focus();
 		//document.getElementById("docIframe").focus();  ==> No tiene el efecto deseado, en IE
+
+		//window.open(url, '_blank')
+
+		let iframe = document.getElementById("docIframe");
+		iframe.style.backgroundColor = "white";
+
+		setTimeout(function(){
+			if(iframe.contentDocument.getElementsByTagName("h1")[0].textContent == "Not Found"){
+				document.getElementById("btnDocHideShow").click();
+				setTimeout(() => {
+					alert("El campo "+tag+" no aparece en la documentación de MARC 21.")
+				}, 50);
+			}
+		}, 50)
 	}
 }
 
+function showDocOnline(tag){
+	var menu = document.getElementById("docSource");
+	var docSource = menu.options[menu.selectedIndex].value;
+	var url = docURL(docSource,tag, true);
 
-// -----------------------------------------------------------------------------
-function docURL(docSource,tag)
-// -----------------------------------------------------------------------------
-{
+	if("notFound" == url){
+		alert( "El campo " + tag + " no aparece en la documentación de MARC 21." );
+	}else{
+		window.open(url, '_blank')
+	}
+}
+
+function docURL(docSource, tag, online){
 	var url;
-	switch ( docSource ) {
-		case "LC" :
-			var url_dir = ( DOC_LC_REMOTE ) ? "http:/" + "/www.loc.gov/marc/authority/" : HTDOCS + "doc/loc/marc/authority/concise/";
-			if ( tag == "" )
-				tag = "TOC";
-			if ( "TOC" == tag.toUpperCase() )
-				url = url_dir + "ecbdhome.html#TOC";
-			else
-			if ( "EJE" == tag.toUpperCase() )
-				url = url_dir + "examples.html";
-			else
-			if ( tag.search("#") != -1 )
-				url = url_dir + tag;
-			else
-			if ( "001".search(tag) != -1 )
-				url = url_dir + "ad001.html";
-			else
-			if ( "003".search(tag) != -1 )
-				url = url_dir + "ad003.html";
-			else
-			if ( "005".search(tag) != -1 )
-				url = url_dir + "ad005.html";
-			else
-			if ( "008".search(tag) != -1 )
-				url = url_dir + "ad008.html";
-			else
-				if ( "010".search(tag) != -1 )
-				url = url_dir + "ad010.html";
-			else
-				if ( "014".search(tag) != -1 )
-				url = url_dir + "ad014.html";
-			else
-				if ( "016".search(tag) != -1 )
-				url = url_dir + "ad016.html";
-			else
-				if ( "020".search(tag) != -1 )
-				url = url_dir + "ad020.html";
-			else
-				if ( "022".search(tag) != -1 )
-				url = url_dir + "ad022.html";
-			else
-				if ( "024".search(tag) != -1 )
-				url = url_dir + "ad024.html";
-			else
-				if ( "031".search(tag) != -1 )
-				url = url_dir + "ad031.html";
-			else
-				if ( "034".search(tag) != -1 )
-				url = url_dir + "ad034.html";
-			else
-				if ( "035".search(tag) != -1 )
-				url = url_dir + "ad035.html";
-			else
-				if ( "040".search(tag) != -1 )
-				url = url_dir + "ad040.html";
-			else
-				if ( "042".search(tag) != -1 )
-				url = url_dir + "ad042.html";
-			else
-				if ( "043".search(tag) != -1 )
-				url = url_dir + "ad043.html";
-			else
-				if ( "045".search(tag) != -1 )
-				url = url_dir + "ad045.html";
-			else
-				if ( "050".search(tag) != -1 )
-				url = url_dir + "ad050.html";
-			else
-				if ( "052".search(tag) != -1 )
-				url = url_dir + "ad052.html";
-			else
-				if ( "053".search(tag) != -1 )
-				url = url_dir + "ad053.html";
-			else
-				if ( "055".search(tag) != -1 )
-				url = url_dir + "ad055.html";
-			else
-				if ( "060".search(tag) != -1 )
-				url = url_dir + "ad060.html";
-			else
-				if ( "065".search(tag) != -1 )
-				url = url_dir + "ad065.html";
-			else
-				if ( "066".search(tag) != -1 )
-				url = url_dir + "ad066.html";
-			else
-				if ( "070".search(tag) != -1 )
-				url = url_dir + "ad070.html";
-			else
-				if ( "072".search(tag) != -1 )
-				url = url_dir + "ad072.html";
-			else
-				if ( "073".search(tag) != -1 )
-				url = url_dir + "ad073.html";
-			else
-				if ( "082".search(tag) != -1 )
-				url = url_dir + "ad082.html";
-			else
-				if ( "083".search(tag) != -1 )
-				url = url_dir + "ad083.html";
-			else
-				if ( "086".search(tag) != -1 )
-				url = url_dir + "ad086.html";
-			else
-				if ( "087".search(tag) != -1 )
-				url = url_dir + "ad087.html";
-			else
-				if ( "09x".search(tag) != -1 )
-				url = url_dir + "ad9x.html";
-			else
-			
-			if ( "100".search(tag) != -1 )
-				url = url_dir + "ad100.html";
-			else
-			if ( "110".search(tag) != -1 )
-				url = url_dir + "ad110.html";
-			else
-			if ( "111".search(tag) != -1 )
-				url = url_dir + "ad111.html";
-			else
-			if ( "130".search(tag) != -1 )
-				url = url_dir + "ad130.html";
-			else
-			if ( "148".search(tag) != -1 )
-				url = url_dir + "ad148.html";
-			else
-			if ( "150".search(tag) != -1 )
-				url = url_dir + "ad150.html";
-			else
-			if ( "151".search(tag) != -1 )
-				url = url_dir + "ad151.html";
-			else
-			if ( "155".search(tag) != -1 )
-				url = url_dir + "ad155.html";
-			else
-			if ( "180".search(tag) != -1 )
-				url = url_dir + "ad180.html";
-			else
-			if ( "181".search(tag) != -1 )
-				url = url_dir + "ad181.html";
-			else
-			if ( "182".search(tag) != -1 )
-				url = url_dir + "ad182.html";
-			else
-			if ( "185".search(tag) != -1 )
-				url = url_dir + "ad185.html";
-			else
-			if ( "260".search(tag) != -1 )
-				url = url_dir + "ad260.html";
-			else
-			if ( "360".search(tag) != -1 )
-				url = url_dir + "ad360.html";
-			else
-			if ( "400".search(tag) != -1 )
-				url = url_dir + "ad400.html";
-			else
-			if ( "410".search(tag) != -1 )
-				url = url_dir + "ad410.html";
-			else
-			if ( "411".search(tag) != -1 )
-				url = url_dir + "ad411.html";
-			else
-			if ( "430".search(tag) != -1 )
-				url = url_dir + "ad430.html";
-			else
-			if ( "448".search(tag) != -1 )
-				url = url_dir + "ad448.html";
-			else
-			if ( "450".search(tag) != -1 )
-				url = url_dir + "ad450.html";
-			else
-			if ( "451".search(tag) != -1 )
-				url = url_dir + "ad451.html";
-			else
-			if ( "455".search(tag) != -1 )
-				url = url_dir + "ad455.html";
-			else
-			if ( "480".search(tag) != -1 )
-				url = url_dir + "ad480.html";
-			else
-			if ( "481".search(tag) != -1 )
-				url = url_dir + "ad481.html";
-			else
-			if ( "482".search(tag) != -1 )
-				url = url_dir + "ad482.html";
-			else
-			if ( "485".search(tag) != -1 )
-				url = url_dir + "ad485.html";
-			else
-			if ( "500".search(tag) != -1 )
-				url = url_dir + "ad500.html";
-			else
-			if ( "510".search(tag) != -1 )
-				url = url_dir + "ad510.html";
-			else
-			if ( "511".search(tag) != -1 )
-				url = url_dir + "ad511.html";
-			else
-			if ( "530".search(tag) != -1 )
-				url = url_dir + "ad530.html";
-			else
-			if ( "548".search(tag) != -1 )
-				url = url_dir + "ad548.html";
-			else
-			if ( "550".search(tag) != -1 )
-				url = url_dir + "ad550.html";
-			else
-			if ( "551".search(tag) != -1 )
-				url = url_dir + "ad551.html";
-			else
-			if ( "555".search(tag) != -1 )
-				url = url_dir + "ad555.html";
-			else
-			if ( "580".search(tag) != -1 )
-				url = url_dir + "ad580.html";
-			else
-			if ( "581".search(tag) != -1 )
-				url = url_dir + "ad581.html";
-			else
-			if ( "582".search(tag) != -1 )
-				url = url_dir + "ad582.html";
-			else
-			if ( "585".search(tag) != -1 )
-				url = url_dir + "ad585.html";
-			else
-			if ( "640".search(tag) != -1 )
-				url = url_dir + "ad640.html";
-			else
-			if ( "641".search(tag) != -1 )
-				url = url_dir + "ad641.html";
-			else
-			if ( "642".search(tag) != -1 )
-				url = url_dir + "ad642.html";
-			else
-			if ( "643".search(tag) != -1 )
-				url = url_dir + "ad643.html";
-			else
-			if ( "644".search(tag) != -1 )
-				url = url_dir + "ad644.html";
-			else
-			if ( "645".search(tag) != -1 )
-				url = url_dir + "ad645.html";
-			else
-			if ( "646".search(tag) != -1 )
-				url = url_dir + "ad646.html";
-			else
-			if ( "663".search(tag) != -1 )
-				url = url_dir + "ad663.html";
-			else
-			if ( "664".search(tag) != -1 )
-				url = url_dir + "ad664.html";
-			else
-			if ( "665".search(tag) != -1 )
-				url = url_dir + "ad665.html";
-			else
-			if ( "666".search(tag) != -1 )
-				url = url_dir + "ad666.html";
-			else
-			if ( "667".search(tag) != -1 )
-				url = url_dir + "ad667.html";
-			else
-			if ( "670".search(tag) != -1 )
-				url = url_dir + "ad670.html";
-			else
-			if ( "675".search(tag) != -1 )
-				url = url_dir + "ad675.html";
-			else
-			if ( "678".search(tag) != -1 )
-				url = url_dir + "ad678.html";
-			else
-			if ( "680".search(tag) != -1 )
-				url = url_dir + "ad680.html";
-			else
-			if ( "681".search(tag) != -1 )
-				url = url_dir + "ad681.html";
-			else
-			if ( "682".search(tag) != -1 )
-				url = url_dir + "ad682.html";
-			else
-			if ( "688".search(tag) != -1 )
-				url = url_dir + "ad688.html";
-			else
-			if ( "700".search(tag) != -1 )
-				url = url_dir + "ad700.html";
-			else
-			if ( "710".search(tag) != -1 )
-				url = url_dir + "ad710.html";
-			else
-			if ( "711".search(tag) != -1 )
-				url = url_dir + "ad711.html";
-			else
-			if ( "730".search(tag) != -1 )
-				url = url_dir + "ad730.html";
-			else
-			if ( "748".search(tag) != -1 )
-				url = url_dir + "ad748.html";
-			else
-			if ( "750".search(tag) != -1 )
-				url = url_dir + "ad750.html";
-			else
-			if ( "751".search(tag) != -1 )
-				url = url_dir + "ad751.html";
-			else
-			if ( "755".search(tag) != -1 )
-				url = url_dir + "ad755.html";
-			else
-			if ( "780".search(tag) != -1 )
-				url = url_dir + "ad780.html";
-			else
-			if ( "781".search(tag) != -1 )
-				url = url_dir + "ad781.html";
-			else
-			if ( "782".search(tag) != -1 )
-				url = url_dir + "ad782.html";
-			else
-			if ( "785".search(tag) != -1 )
-				url = url_dir + "ad785.html";
-			else
-			if ( "788".search(tag) != -1 )
-				url = url_dir + "ad788.html";
-			else
-			if ( "856".search(tag) != -1 )
-				url = url_dir + "ad856.html";
-			else
-			if ( "880".search(tag) != -1 )
-				url = url_dir + "ad880.html";
-			else {				
-			url = "notFound";
-			}
-			break;
-			
+	switch( docSource ){
 		case "OCLC" :
 			var url_dir = "http:/" + "/www.oclc.org/bibformats/en/";
 			url = url_dir + tag.substr(0,1) + "xx/" + tag + ".shtm";
 			break;
-			
-		case "FOLLETT" :
-			var url_dir = "http:/" + "/www.fsc.follett.com/resources/tagofthemonth/";
-			if ( "TOC" == tag.toUpperCase() ) {
-				url = "http:/" + "/www.fsc.follett.com/resources/tagofthemonth/index.cfm";
-			}
-			else {
-				url = url_dir + tag + "b.cfm";
-			}
-			break;
-			
-		case "TLC" :
-			var url_dir = "http:/" + "/www.carl.org/tlc/crs/";
-			if ( "TOC" == tag.toUpperCase() ) {
-				url = "http:/" + "/www.carl.org/tlc/crs/bib0001.htm";
-			}
-			else {
-				url = "";
+		case "LC" : // AGREGAR LINK ONLINE
+			if( (isNaN ( parseInt(tag) ) == false) && ( !tag.includes(".") ) ){
+				tag = parseInt(tag);
+
+				if(tag < 10){
+					tag = "00" + tag;
+				}
+
+				if((tag >= 10) && (tag <=99)){
+					tag = "0" + tag
+				}
+
+				//var url_dir = ( DOC_LC_REMOTE ) ? "https:/" + "/www.loc.gov/marc/authority/" : HTDOCS + "doc/loc/marc/";
+				//(M.A) comento linea de arriba. Por ahora la doc se consulta online si se especifica en el parametro online. Pero deberia usarse la variable de configuracion DOC_LC_REMOTE
+				var url_dir = online ? "https:/" + "/www.loc.gov/marc/authority/" : HTDOCS + "doc/loc/marc/";
+				url = url_dir + "ad" + tag + ".html";
+			}else{
+				url = 'notFound'
 			}
 			break;
 	}
-	
 	return url;
 }
-
 
 // -----------------------------------------------------------------------------
 function docIframeHide()
@@ -1622,7 +1312,7 @@ function checkModified()
 }
 
 function mostrarModalConfirmacion(){
-	var winProperties = "font-size: 10px; dialogWidth: 620px; dialogHeight: 140px; dialogTop: 80px; status: no; help: no";
+	var winProperties = "font-size: 10px; dialogWidth: 620px; dialogHeight: 100px; dialogTop: 80px; status: no; help: no";
 
 	// Mostramos la ventana
 	var userDecision = window.showModalDialog(URL_SAVE_CHANGES, window, winProperties);
@@ -1864,15 +1554,9 @@ function showNewRecords(evt)
 	if (ie) {
 		document.frames.searchResultsIframe.location.href = document.getElementById("searchResultsIframe").src;
 	} else if (moz) {
-		document.getElementById("searchResultsIframe").src = document.getElementById("searchResultsIframe").src;
+	    document.getElementById("searchResultsIframe").src = document.getElementById("searchResultsIframe").src;
 	}
-	
-	var eventSource = (evt) ? evt.target : window.event.srcElement;
-	eventSource.blur();
 }
-
-
-
 
 
 // -----------------------------------------------------------------------------
@@ -1974,6 +1658,6 @@ function endSession()
 // -----------------------------------------------------------------------------
 {
 	if ( confirm("¿Confirma que desea finalizar la sesión?") ) {
-		document.getElementById("logoutForm").submit();
-	}
+        document.getElementById("logoutForm").submit();
+    }
 }

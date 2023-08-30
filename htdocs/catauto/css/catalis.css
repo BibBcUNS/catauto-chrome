@@ -149,6 +149,7 @@ td.value {
 	position: absolute;
 	right: 4px;
 	bottom: 2px;
+	display: none;
 }
 
 
@@ -157,7 +158,7 @@ td.value {
 	/*top: 498px; Mozilla?
 	left: 622px;*/
 	bottom: 0px; /* anda bien para IE */
-	width: 100%;
+	width: 94%;
 	background: #EEDFCC;
 	border: 1px solid #999;
 	padding: 2px 4px;
@@ -907,4 +908,3 @@ tr.oddRow {
 	z-index: 102;
 	border-bottom: 1px solid #FED;
 }
-

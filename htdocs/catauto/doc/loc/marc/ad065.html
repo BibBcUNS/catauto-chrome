@@ -1,0 +1,295 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>MARC 21 Format for Authority Data: 065:
+         Other Classification Number (Network Development and MARC Standards
+         Office, Library of Congress)
+      </title>
+      <meta name="description" content="This field contains the  (Network Development and MARC Standards Office, Library of Congress)" />
+      <meta name="keywords" content="marc, marc21, marc standards" />
+      <meta name="author" content="Library of Congress Network Development and MARC Standards Office" />
+      
+      
+   
+</head>
+   <body class="full">
+      <div class="head-nav">
+         <div class="noprint"><a href="//www.loc.gov/">Library of Congress</a> &gt;&gt; <a href="//www.loc.gov/marc/">MARC</a> &gt;&gt; 
+            
+            <a href="//www.loc.gov/marc/authority/">Authority</a> &gt;&gt; 
+            <span class="caps"><a href="//www.loc.gov/marc/authority/ad01x09x.html">01X-09X</a> 
+               
+               &gt;&gt;
+               <strong>065</strong></span></div>
+      </div>
+      <hr /><a name="skip_menu"></a><h1><span>065</span> - <span>Other Classification Number</span><span> (R)</span></h1>
+      <hr />
+      <div class="formatname">MARC 21 Authority - full</div>
+      <div class="datename">July 2022</div>
+      <hr />
+      <table width="100%" class="indicators">
+         <tr>
+            <th width="45%"> First Indicator </th>
+            <th width="45%"> Second Indicator </th>
+         </tr>
+         <tr>
+            <td><em>Undefined</em><br /><span># - Undefined</span><br /><br /></td>
+            <td><em>Undefined</em><br /><span># - Undefined</span><br /><br /></td>
+         </tr>
+      </table>
+      <hr />
+      <table width="100%" class="subfields">
+         <tr>
+            <td width="50%"></td>
+            <td width="50%"></td>
+         </tr>
+         <tr>
+            <th colspan="2">Subfield Codes</th>
+         </tr>
+         <tr>
+            <td>
+               <ul class="nomark">
+                  <li>$a - Classification number element-single number or beginning of span<span> (NR)</span></li>
+                  <li>$b - Classification number element-ending number of span<span> (NR)</span></li>
+                  <li>$c - Explanatory term<span> (NR)</span></li>
+                  <li>$0 - Authority record control number or standard number<span> (R)</span></li>
+                  <li>$1 - Real World Object URI<span> (R)</span></li>
+               </ul>
+            </td>
+            <td>
+               <ul class="nomark">
+                  <li>$2 - Number source<span> (NR)</span></li>
+                  <li>$5 - Institution to which field applies<span> (R)</span></li>
+                  <li>$6 - Linkage<span> (NR)</span></li>
+                  <li>$7 - Data provenance<span> (R)</span></li>
+                  <li>$8 - Field link and sequence number<span> (R)</span></li>
+               </ul>
+            </td>
+         </tr>
+      </table>
+      <hr />
+      <h3>FIELD DEFINITION AND SCOPE</h3>
+      <div class="definition">
+         <div>
+            <p>Single classification number, number stem, or a number span associated with a 1XX
+               heading in an established heading record or subdivision record. It is used for all
+               classification schemes except those already accommodated in other fields of this type
+               in
+               the format: <a href="//www.loc.gov/marc/authority/ad053.html">053</a> (LC Classification Number), <a href="//www.loc.gov/marc/authority/ad083.html">083</a> (Dewey Decimal Classification number),
+               and <a href="//www.loc.gov/marc/authority/ad087.html">087</a> (Government Document Classification Number). The classification number(s) may be
+               qualified by explanatory information when the heading is represented in more than
+               one
+               place in the same classification scheme. Each classification number or number span
+               associated with a heading is contained in separate field 065.
+            </p>
+         </div>
+      </div>
+      <hr />
+      <h3>GUIDELINES FOR APPLYING CONTENT DESIGNATORS</h3>
+      <div class="guidelines">
+         <h4><span class="box">■</span> INDICATORS
+         </h4>
+         <div class="indicators">
+            <ul>
+               <li>Both indicator positions are undefined; each contains a blank (#).</li>
+            </ul>
+         </div>
+         <h4><span class="box">■</span> SUBFIELD CODES
+         </h4>
+         <div class="subfields">
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$a - Classification number element-single number or beginning of span</strong> 
+                  </p>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td><strong>065</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>Z294.4-5g<strong>$2</strong>rubbk<strong>$5</strong>RuMoRGB
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>150</td>
+                           <td colspan="9">##$aIstochniki sveta$xIstoriíà</td>
+                        </tr>
+                     </table>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td><strong>065</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>PS8576.U57<strong>$2</strong>fcps<strong>$5</strong>CaOONL
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>100</td>
+                           <td colspan="9">1#$aMunro, Alice,$d1931-</td>
+                        </tr>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$b - Classification number element-ending number of span</strong> 
+                  </p>
+                  <div>
+                     <p>Ending number of a number span when the beginning number of the span is contained
+                  in subfield $a.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$c - Explanatory term</strong> 
+                  </p>
+                  <div>
+                     <p>Descriptive term or phrase that specifies the topic of the class number. Normally,
+                        such a phrase is used to differentiate between two or more class numbers
+                        associated with the heading.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$0 - Authority record control number or standard number</strong> 
+                  </p>
+                  <div>
+                     <p>See description of this subfield in Appendix A: <em><a href="//www.loc.gov/marc/authority/ecadcntf.html">Control Subfields</a></em>.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$1 - Real World Object URI</strong> 
+                  </p>
+                  <div>
+                     <p>See description of this subfield in Appendix A: <em><a href="//www.loc.gov/marc/authority/ecadcntf.html">Control Subfields</a></em>.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$2 - Number source</strong> 
+                  </p>
+                  <div>
+                     <p>Code from: <em><a href="//www.loc.gov/standards/sourcelist/classification.html">Classification Scheme Source Codes</a></em>.
+                     </p>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td><strong>065</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>V152.2íà73<strong>$2</strong>rubbk<strong>$5</strong>RuMoRGB
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>150</td>
+                           <td colspan="9">##$aLineinaíà algebra</td>
+                        </tr>
+                     </table>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td><strong>065</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>Sh1v663.2<strong>$2</strong>rubbk<strong>$5</strong>RuMoRGB
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>150</td>
+                           <td colspan="9">##$aÍÀzykoznanie$xStrukturnye metody</td>
+                        </tr>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$5 - Institution to which field applies</strong> 
+                  </p>
+                  <div>
+                     <p>See description of this subfield in Appendix A: <em><a href="//www.loc.gov/marc/authority/ecadcntf.html">Control Subfields</a></em>.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$6 - Linkage</strong> 
+                  </p>
+                  <div>
+                     <p>See description of this subfield in Appendix A: <em><a href="//www.loc.gov/marc/authority/ecadcntf.html">Control Subfields</a></em>.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$7 - Data provenance</strong> 
+                  </p>
+                  <div>
+                     <p>See description of this subfield in Appendix H: <em><a href="//www.loc.gov/marc/authority/adapndxh.html">Data Provenance Subfields</a></em>.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$8 - Field link and sequence number</strong> 
+                  </p>
+                  <div>
+                     <p>See description of this subfield in Appendix A: <em><a href="//www.loc.gov/marc/authority/ecadcntf.html">Control Subfields</a></em>.
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <hr />
+      <h3>INPUT CONVENTIONS</h3>
+      <div class="conventions">
+         <div>
+            <p><strong>Capitalization - </strong>Capitalization of alphabetic characters in the classification number should follow
+               the
+               rules of the scheme. For most schemes, characters are recorded in uppercase.
+            </p>
+         </div>
+         <div>
+            <p><strong>Spacing - </strong>Any spaces that are desired as part of the call number must be input.
+            </p>
+         </div>
+      </div>
+      <hr />
+      <h3>CONTENT DESIGNATOR HISTORY</h3>
+      <div class="history">
+         <div class="historySubfield">
+            <div><em>$0 - Authority record control number or standard number [NEW, 2017]</em></div>
+         </div>
+         <div class="historySubfield">
+            <div><em>$1 - Real World Object URI [NEW, 2017]</em></div>
+         </div>
+         <div class="historySubfield">
+            <div><em>$7 - Data provenance [NEW, 2022]</em></div>
+         </div>
+      </div>
+      <hr class="clear" />
+      <div class="head-nav">
+         <div class="noprint"><a href="//www.loc.gov/">Library of Congress</a> &gt;&gt; <a href="//www.loc.gov/marc/">MARC</a> &gt;&gt; 
+            
+            <a href="//www.loc.gov/marc/authority/">Authority</a> &gt;&gt; 
+            <span class="caps"><a href="//www.loc.gov/marc/authority/ad01x09x.html">01X-09X</a> 
+               
+               &gt;&gt;
+               <strong>065</strong></span></div>
+      </div>
+      <div class="left"><span class="noprint">(07/07/2022)</span></div>
+      <div class="right"><a href="/cdn-cgi/l/email-protection#2c4248415f436c40434f024b435a" class="noprint">Contact Us</a></div>
+   
+</body>
+</html>

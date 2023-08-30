@@ -1,0 +1,564 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>MARC 21 Format for Authority Data: 857:
+         Electronic Archive Location and Access (Network Development and MARC Standards
+         Office, Library of Congress)
+      </title>
+      <meta name="description" content="This field contains the  (Network Development and MARC Standards Office, Library of Congress)" />
+      <meta name="keywords" content="marc, marc21, marc standards" />
+      <meta name="author" content="Library of Congress Network Development and MARC Standards Office" />
+      
+      
+   
+</head>
+   <body class="full">
+      <div class="head-nav">
+         <div class="noprint"><a href="//www.loc.gov/">Library of Congress</a> &gt;&gt; <a href="//www.loc.gov/marc/">MARC</a> &gt;&gt; 
+            
+            <a href="//www.loc.gov/marc/authority/">Authority</a> &gt;&gt; 
+            <span class="caps"><a href="//www.loc.gov/marc/authority/ad8xx.html">8XX</a> 
+               
+               &gt;&gt;
+               <strong>857</strong></span></div>
+      </div>
+      <hr /><a name="skip_menu"></a><h1><span>857</span> - <span>Electronic Archive Location and Access</span><span> (R)</span></h1>
+      <hr />
+      <div class="formatname">MARC 21 Authority - full</div>
+      <div class="datename">June 2023</div>
+      <hr />
+      <table width="100%" class="indicators">
+         <tr>
+            <th width="45%"> First Indicator </th>
+            <th width="45%"> Second Indicator </th>
+         </tr>
+         <tr>
+            <td><em>Access method</em><br /><span># - No information provided</span><br /><span>1 - FTP</span><br /><span>4 - HTTP</span><br /><span>7 - Method specified in subfield $2</span><br /><br /></td>
+            <td><em>Relationship</em><br /><span># - No information provided</span><br /><span>0 - Resource</span><br /><span>1 - Version of resource</span><br /><span>2 - Related resource</span><br /><span>3 - Component part(s) of resource</span><br /><span>4 - Version of component part(s) of resource</span><br /><span>8 - No display constant generated</span><br /><br /></td>
+         </tr>
+      </table>
+      <hr />
+      <table width="100%" class="subfields">
+         <tr>
+            <td width="50%"></td>
+            <td width="50%"></td>
+         </tr>
+         <tr>
+            <th colspan="2">Subfield Codes</th>
+         </tr>
+         <tr>
+            <td>
+               <ul class="nomark">
+                  <li>$b - Name of archiving agency<span> (NR)</span></li>
+                  <li>$c - Name of Web archive or digital archive repository<span> (NR)</span></li>
+                  <li>$d - Date range of archived material<span> (NR)</span></li>
+                  <li>$e - Data provenance<span> (R)</span></li>
+                  <li>$f - Archive completeness<span> (NR)</span></li>
+                  <li>$g - Persistent identifier<span> (R)</span></li>
+                  <li>$h - Non-functioning Uniform Resource Identifier<span> (R)</span></li>
+                  <li>$l - Standardized information governing access<span> (R)</span></li>
+                  <li>$m - Contact for access assistance<span> (R)</span></li>
+                  <li>$n - Terms governing access<span> (R)</span></li>
+                  <li>$q - Electronic format type<span> (R)</span></li>
+                  <li>$r - Standardized information governing use and reproduction<span> (R)</span></li>
+               </ul>
+            </td>
+            <td>
+               <ul class="nomark">
+                  <li>$s - File size<span> (R)</span></li>
+                  <li>$t - Terms governing use and reproduction<span> (R)</span></li>
+                  <li>$u - Uniform Resource Identifier<span> (R)</span></li>
+                  <li>$x - Nonpublic note<span> (R)</span></li>
+                  <li>$y - Link text<span> (R)</span></li>
+                  <li>$z - Public note<span> (R)</span></li>
+                  <li>$2 - Access method<span> (NR)</span></li>
+                  <li>$3 - Materials specified<span> (NR)</span></li>
+                  <li>$5 - Institution to which field applies<span> (NR)</span></li>
+                  <li>$6 - Linkage<span> (NR)</span></li>
+                  <li>$7 - Access status<span> (NR)</span></li>
+                  <li>$8 - Field link and sequence number<span> (R)</span></li>
+               </ul>
+            </td>
+         </tr>
+      </table>
+      <hr />
+      <h3>FIELD DEFINITION AND SCOPE</h3>
+      <div class="definition">
+         <div>
+            <p>Information needed to locate and access an electronic resource from a 
+               Web archive or a digital archive repository. This field may be used 
+               in a bibliographic record for a resource when that resource or a subset 
+               of it is stored in a Web archive or digital repository. The field may be 
+               used in addition to or in place of field 856 if it is desired to provide 
+               additional information about archived resources beyond what is possible 
+               in field 856. The field may also be used to provide location and access 
+               to a digitized archived version of a tangible resource, e.g., a book or 
+               CD-ROM described in the record, or a related archived resource.
+            </p>
+         </div>
+         <div>
+            <p>Field 857 is repeated when an electronic resource has been stored in more 
+               than one Web archive or digital archive repository.
+            </p>
+         </div>
+      </div>
+      <hr />
+      <h3>GUIDELINES FOR APPLYING CONTENT DESIGNATORS</h3>
+      <div class="guidelines">
+         <h4><span class="box">■</span> INDICATORS
+         </h4>
+         <div class="indicators">
+            <div class="indicator">
+               <div>
+                  <p class="label"><strong>First Indicator - Access method</strong></p>
+                  <div>
+                     <p>Access method to the archived electronic resource. If the archived 
+                  resource is available by more than one access method, the field is 
+                  repeated with data appropriate to each method. The methods defined 
+                  are the main TCP/IP (Transmission Control Protocol/Internet Protocol) 
+                  protocols. When recording a URL in subfield $u, the value 
+                  corresponds to the access method (URL scheme), which is also the 
+                  first element in the string.</p>
+                  </div>
+                  <div class="value">
+                     <div><span class="valueLabel"># - No information provided</span></div>
+                  </div>
+                  <div class="value">
+                     <div><span class="valueLabel">1 - FTP</span><div>
+                           <p>Access to the archived electronic resource is through the File 
+                              Transfer Protocol (FTP).
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="value">
+                     <div><span class="valueLabel">4 - HTTP</span><div>
+                           <p>Access to the archived electronic resource is through the Hypertext 
+                              Transfer Protocol (HTTP).
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="value">
+                     <div><span class="valueLabel">7 - Method specified in subfield $2</span><div>
+                           <p>Access to the archived electronic resource is through a method other 
+                     than the defined values and for which an identifying code is given in 
+                     subfield $2 (Source of access).</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="indicator">
+               <div>
+                  <p class="label"><strong>Second Indicator - Relationship</strong></p>
+                  <div>
+                     <p>Relationship between an archived electronic resource at the location 
+                        identified in field 857 and the bibliographic resource described in 
+                        the record as a whole.
+                     </p>
+                     <p>Only value # (no information provided) is used for authority records.</p>
+                  </div>
+                  <div class="value">
+                     <div><span class="valueLabel"># - No information provided</span></div>
+                  </div>
+                  <div class="value">
+                     <div><span class="valueLabel">0 - Resource</span></div>
+                  </div>
+                  <div class="value">
+                     <div><span class="valueLabel">1 - Version of resource</span></div>
+                  </div>
+                  <div class="value">
+                     <div><span class="valueLabel">2 - Related resource</span></div>
+                  </div>
+                  <div class="value">
+                     <div><span class="valueLabel">3 - Component part(s) of resource</span></div>
+                  </div>
+                  <div class="value">
+                     <div><span class="valueLabel">4 - Version of component part(s) of resource</span></div>
+                  </div>
+                  <div class="value">
+                     <div><span class="valueLabel">8 - No display constant generated</span></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <h4><span class="box">■</span> SUBFIELD CODES
+         </h4>
+         <div class="subfields">
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$b - Name of archiving agency</strong> 
+                  </p>
+                  <div>
+                     <p>Agency responsible for the Web archive or digital archive repository.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$c - Name of Web archive or digital archive repository</strong> 
+                  </p>
+                  <div>
+                     <p>The name by which the Web archive or digital archive repository is known.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$d - Date range of archived material</strong> 
+                  </p>
+                  <div>
+                     <p>The subfield is intended primarily for archived electronic continuing resources 
+                        and other dynamic resources to provide information about the range of dates during
+                        
+                        which the archived material was issued. The dates are specified according to Extended
+                        
+                        Date/Time Format (EDTF). The start date of the archived material should always be
+                        
+                        mentioned when known; the end date only if the material described in the record is
+                        
+                        no longer being archived.
+                     </p>
+                  </div>
+                  <div>
+                     <p>Multiple date ranges can be provided in a single 857 $d by separating 
+               them with ";". The reason for these gaps, if known, may be provided in 857 $x or 
+               857 $z.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$e - Data provenance</strong> 
+                  </p>
+                  <div>
+                     <p>See description of this subfield in Appendix H: <em><a href="//www.loc.gov/marc/authority/adapndxh.html">Data Provenance Subfields</a></em>.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$f - Archive completeness</strong> 
+                  </p>
+                  <div>
+                     <p>The subfield is intended primarily for archived electronic continuing resources
+                  or other archived dynamic resources. It contains information about how often or 
+                  how many times an electronic continuing resource has been harvested. This information 
+                  enables the user to infer the archived material’s completeness for the date range 
+                  in $d when coupled with the resource’s frequency. If providing the number 
+                  of times a resource has been harvested, provide the date this information was obtained.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$g - Persistent identifier</strong> 
+                  </p>
+                  <div>
+                     <p>Persistent identifier (PID) which enables search and retrieval of a resource from
+                        a 
+                        Web archive or digital archive repository using existing Internet protocols.
+                        It is assigned to the resource for automated access and other 
+                        resolution services by a PID resolver. PIDs should be provided as actionable 
+                        hyperlinks (e.g., HTTP URI format).
+                     </p>
+                     <p>If a PID resolves to more than one URI, these URIs may be provided in the same 
+                  857 field, with repeated subfield $u.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$h - Non-functioning Uniform Resource Identifier</strong> 
+                  </p>
+                  <div>
+                     <p>Uniform Resource Identifier (URI), for any archive or repository that has ceased to
+                        exist.
+                     </p>
+                     <p>Subfield $h may be repeated if there is more than one non-functioning URI. A 
+                  note on the status change (including the date) may be added in either subfield $x 
+                  or subfield $z, depending on the local policy.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$l - Standardized information governing access</strong> 
+                  </p>
+                  <div>
+                     <p>The subfield contains standardized information about the access status of a 
+                        resource. The information may be in the form of a value from a controlled 
+                        vocabulary, or a Uniform Resource Identifier (URI). If the information is a 
+                        value from a controlled vocabulary, it is preceded by the appropriate value 
+                        from the list of <em><a href="https://www.loc.gov/standards/sourcelist/access-restriction.html">
+                              Access Restriction Term Source Codes</a></em>, enclosed in parentheses. 
+                        When the information is given in the form of a Web retrieval protocol, e.g., 
+                        HTTP URI, no preceding parenthetical is used.
+                     </p>
+                  </div>
+                  <div>
+                     <p>This subfield is intended to contain information which is an equivalent to that 
+               recorded using subfields $f, $2 and $u of field 506.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$m - Contact for access assistance</strong> 
+                  </p>
+                  <div>
+                     <p>Name of a contact for assistance in accessing a resource at the host specified in
+                  subfield $b. For addresses relating to the content of the resource
+                  itself (i.e. the item represented by the title recorded in field 245) rather than
+                  access assistance, field 270 is used. If the address data is the same, use field
+                  270.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$n - Terms governing access</strong> 
+                  </p>
+                  <div>
+                     <p>The subfield contains textual information about the access status of a resource.</p>
+                  </div>
+                  <div>
+                     <p>This subfield is intended to contain information which is an equivalent to 
+               that recorded using subfield $a of field 506.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$q - Electronic format type</strong> 
+                  </p>
+                  <div>
+                     <p>Identification of the electronic format type and version. Electronic 
+                        format type should be specified with a code from the list of registered Internet 
+                        Media Types (MIME types), taken from: 
+                        <em><a href="https://www.iana.org/assignments/media-types/media-types.xhtml">
+                              IANA Media Types</a></em>. If necessary (e.g., in order to specify a file format 
+                  version to support access or digital preservation) additional information, such as 
+                  PRONOM Unique Identifier (PUID) codes, may be included in addition to the information 
+                  provided by the MIME Type by repeating subfield $q.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$r - Standardized information governing use and reproduction</strong> 
+                  </p>
+                  <div>
+                     <p>The subfield contains standardized information about the use and reproduction 
+                        rights of a resource. The information may be in the form of a value from a 
+                        controlled vocabulary, or a Uniform Resource Identifier (URI). If the information
+                        
+                        is a value from a controlled vocabulary, it is preceded by the appropriate value 
+                        from the list of <em><a href="https://www.loc.gov/standards/sourcelist/access-restriction.html">
+                              Access Restriction Term Source Codes</a></em>, enclosed in parentheses. 
+                        When the information is given in the form of a Web retrieval protocol, e.g., 
+                        HTTP URI, no preceding parenthetical is used.
+                     </p>
+                  </div>
+                  <div>
+                     <p>This subfield is intended to contain information which is an equivalent to that 
+               recorded using subfields $f, $2 and $u of field 540.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$s - File size</strong> 
+                  </p>
+                  <div>
+                     <p>Size of the file(s) as stored in the archive indicated in subfield $c. It is 
+                  generally expressed in terms of 8-bit bytes (megabytes, gigabytes).</p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$t - Terms governing use and reproduction</strong> 
+                  </p>
+                  <div>
+                     <p>The subfield contains textual information about the use and reproduction rights 
+                        of a resource.
+                     </p>
+                  </div>
+                  <div>
+                     <p>This subfield is intended to contain information which is an equivalent to 
+               that recorded using subfield $a of field 540.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$u - Uniform Resource Identifier</strong> 
+                  </p>
+                  <div>
+                     <p>Uniform Resource Identifier (URI), which provides standard syntax for locating an
+                        object using existing Internet protocols or by resolution of a persistent identifier
+                        (PID).
+                     </p>
+                     <p>Subfield $u may be repeated if more than one URI is recorded.</p>
+                  </div>
+                  <div>
+                     <p>URIs which no longer function to provide access to the described resource may 
+                  be transferred to 857 $h.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$x - Nonpublic note</strong> 
+                  </p>
+                  <div>
+                     <p>Note relating to the electronic location of the source identified in the field.
+                        The note is written in a form that is not adequate or intended for public display.
+                        It may also contain processing information about the file at the location
+                        specified.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$y - Link text</strong> 
+                  </p>
+                  <div>
+                     <p>Used for display in place of the URL in subfield $u. When subfield
+                  $y is present, applications should use the contents of subfield
+                  $y as the link instead of the content of subfield $u when
+                  linking to the destination in subfield $u. The use of the link text is
+                  independent of any decision concerning the second indicator value.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$z - Public note</strong> 
+                  </p>
+                  <div>
+                     <p>Note relating to the electronic location of the source identified in the field.
+                        The note is written in a form that is adequate or intended for public display.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$2 - Access method</strong> 
+                  </p>
+                  <div>
+                     <p>Access method when the first indicator position contains value 7. Code from: 
+                        	<em><a href="//www.loc.gov/standards/valuelist/electronaccess.html">Electronic Access
+                              		Methods Code List</a></em>.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$3 - Materials specified</strong> 
+                  </p>
+                  <div>
+                     <p>Part of the described material to which the field applies</p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$5 - Institution to which field applies</strong> 
+                  </p>
+                  <div>
+                     <p>See description of this subfield in Appendix A: <em><a href="https://www.loc.gov/marc/authority/ecadcntf.html">Control
+                              Subfields</a></em>.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$6 - Linkage</strong> 
+                  </p>
+                  <div>
+                     <p>See description of this subfield in Appendix A: <em><a href="https://www.loc.gov/marc/authority/ecadcntf.html">Control
+                              Subfields</a></em>.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$7 - Access status</strong> 
+                  </p>
+                  <div>
+                     <p>Code indicating the availability of access to the networked
+                  electronic resource the address of which appears in subfield $u. 
+                  Subfield $7 applies to all subfields $u present in the field.</p>
+                  </div>
+                  <div class="value">
+                     <div><span class="valueLabel">0 - Open access</span><div>
+                           <p>The networked electronic resource is freely and openly 
+                              accessible online to everyone, without restriction, login, or payment.
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="value">
+                     <div><span class="valueLabel">1 - Restricted access</span><div>
+                           <p>The networked electronic resource is not freely and 
+                              openly accessible online.
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="value">
+                     <div><span class="valueLabel">u - Unspecified</span></div>
+                  </div>
+                  <div class="value">
+                     <div><span class="valueLabel">z - Other</span></div>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$8 - Field link and sequence number</strong> 
+                  </p>
+                  <div>
+                     <p>See description of this subfield in Appendix A: <em><a href="https://www.loc.gov/marc/authority/ecadcntf.html">Control
+                              Subfields</a></em>.
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <hr />
+      <h3>CONTENT DESIGNATOR HISTORY</h3>
+      <div class="history">
+         <div class="historyField">
+            <div class="changed"><em>Field 857 - Electronic Archive Location and Access [NEW, 2023]</em><div class="spaceAfter"><span><span></span><br /></span></div>
+            </div>
+         </div>
+      </div>
+      <hr class="clear" />
+      <div class="head-nav">
+         <div class="noprint"><a href="//www.loc.gov/">Library of Congress</a> &gt;&gt; <a href="//www.loc.gov/marc/">MARC</a> &gt;&gt; 
+            
+            <a href="//www.loc.gov/marc/authority/">Authority</a> &gt;&gt; 
+            <span class="caps"><a href="//www.loc.gov/marc/authority/ad8xx.html">8XX</a> 
+               
+               &gt;&gt;
+               <strong>857</strong></span></div>
+      </div>
+      <div class="left"><span class="noprint">(06/21/2023)</span></div>
+      <div class="right"><a href="/cdn-cgi/l/email-protection#94faf0f9e7fbd4f8fbf7baf3fbe2" class="noprint">Contact Us</a></div>
+   
+</body>
+</html>

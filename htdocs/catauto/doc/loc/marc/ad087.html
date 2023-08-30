@@ -1,0 +1,465 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>MARC 21 Format for Authority Data: 087:
+         Government Document Classification Number (Network Development and MARC Standards
+         Office, Library of Congress)
+      </title>
+      <meta name="description" content="This field contains the  (Network Development and MARC Standards Office, Library of Congress)" />
+      <meta name="keywords" content="marc, marc21, marc standards" />
+      <meta name="author" content="Library of Congress Network Development and MARC Standards Office" />
+      
+      
+   
+</head>
+   <body class="full">
+      <div class="head-nav">
+         <div class="noprint"><a href="//www.loc.gov/">Library of Congress</a> &gt;&gt; <a href="//www.loc.gov/marc/">MARC</a> &gt;&gt; 
+            
+            <a href="//www.loc.gov/marc/authority/">Authority</a> &gt;&gt; 
+            <span class="caps"><a href="//www.loc.gov/marc/authority/ad01x09x.html">01X-09X</a> 
+               
+               &gt;&gt;
+               <strong>087</strong></span></div>
+      </div>
+      <hr /><a name="skip_menu"></a><h1><span>087</span> - <span>Government Document Classification Number</span><span> (R)</span></h1>
+      <hr />
+      <div class="formatname">MARC 21 Authority - full</div>
+      <div class="datename">December 2017</div>
+      <hr />
+      <table width="100%" class="indicators">
+         <tr>
+            <th width="45%"> First Indicator </th>
+            <th width="45%"> Second Indicator </th>
+         </tr>
+         <tr>
+            <td><em>Number source</em><br /><span># - Source specified in subfield $2</span><br /><span>0 - Superintendent of Documents Classification System</span><br /><span>1 - Government of Canada Publications: Outline of Classification</span><br /><br /></td>
+            <td><em>Undefined</em><br /><span># - Undefined</span><br /><br /></td>
+         </tr>
+      </table>
+      <hr />
+      <table width="100%" class="subfields">
+         <tr>
+            <td width="50%"></td>
+            <td width="50%"></td>
+         </tr>
+         <tr>
+            <th colspan="2">Subfield Codes</th>
+         </tr>
+         <tr>
+            <td>
+               <ul class="nomark">
+                  <li>$a - Classification number element-Single number of beginning number of span<span> (NR)</span></li>
+                  <li>$b - Classification number element-Ending number of span<span> (NR)</span></li>
+                  <li>$c - Explanatory information<span> (NR)</span></li>
+                  <li>$0 - Authority record control number or standard number<span> (R)</span></li>
+               </ul>
+            </td>
+            <td>
+               <ul class="nomark">
+                  <li>$1 - Real World Object URI<span> (R)</span></li>
+                  <li>$2 - Number source<span> (NR)</span></li>
+                  <li>$6 - Linkage<span> (NR)</span></li>
+                  <li>$8 - Field link and sequence number<span> (R)</span></li>
+               </ul>
+            </td>
+         </tr>
+      </table>
+      <hr />
+      <h3>FIELD DEFINITION AND SCOPE</h3>
+      <div class="definition">
+         <div>
+            <p>Single government document classification number, number stem, or a number span
+               associated with a 1XX heading in an established heading record. The classification
+               number(s) may be qualified by explanatory information when the heading is represented
+               by
+               more than one number in the same classification scheme.
+            </p>
+         </div>
+         <div>
+            <p>Each classification number or number span associated with a heading is contained in
+               a
+               separate field 087. Government document classification number is an agency-assigned
+               data
+               element. It is assigned by designated agencies in government classification
+               programs.
+            </p>
+         </div>
+      </div>
+      <hr />
+      <h3>GUIDELINES FOR APPLYING CONTENT DESIGNATORS</h3>
+      <div class="guidelines">
+         <h4><span class="box">■</span> INDICATORS
+         </h4>
+         <div class="indicators">
+            <div class="indicator">
+               <div>
+                  <p class="label"><strong>First Indicator - Number source</strong></p>
+                  <div>
+                     <p>Source of the government document classification number.</p>
+                  </div>
+                  <div class="value">
+                     <div><span class="valueLabel"># - Source specified in subfield $2</span><div>
+                           <p>Number is taken from a source other than that specified by one of the other
+                     defined indicator values and for which an identifying code is given in subfield
+                     $2.</p>
+                        </div>
+                        <div class="example">
+                           <table>
+                              <tr>
+                                 <td>110</td>
+                                 <td colspan="9">1#$aOregon.$bDept. of Geology and Mineral
+                                    Industries
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td><strong>087</strong></td>
+                                 <td colspan="9"><strong>##</strong><strong>$a</strong>GM<strong>$2</strong>ordocs
+                                 </td>
+                              </tr>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="value">
+                     <div><span class="valueLabel">0 - Superintendent of Documents Classification System</span><div>
+                           <p>Superintendent of Documents classification numbers are assigned only by the
+                              U.S. Government Printing Office (GPO). They may be input by other institutions
+                              if verified in the <em>Monthly Catalog of United States Government
+                                 Publications</em> or the <em>Daily Depository Shipping List</em>.
+                           </p>
+                        </div>
+                        <div class="example">
+                           <table>
+                              <tr>
+                                 <td>110</td>
+                                 <td colspan="9">1#$aUnited States.$bCongress.$bHouse.$bSelect Committee on Narcotics Abuse and
+                                    Control
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td><strong>087</strong></td>
+                                 <td colspan="9"><strong>0#</strong><strong>$a</strong>Y 4.N 16
+                                 </td>
+                              </tr>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="value">
+                     <div><span class="valueLabel">1 - Government of Canada Publications: Outline of Classification</span><div>
+                           <p>Canadian government printing office assigns classification numbers to denote
+                              special series or publications of a given department.
+                           </p>
+                        </div>
+                        <div class="example">
+                           <table>
+                              <tr>
+                                 <td>110</td>
+                                 <td colspan="9">1#$aCanada.$bFisheries Development and Marketing</td>
+                              </tr>
+                              <tr>
+                                 <td><strong>087</strong></td>
+                                 <td colspan="9"><strong>1#</strong><strong>$a</strong>Fs-85
+                                 </td>
+                              </tr>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="indicator">
+               <div>
+                  <p class="label"><strong>Second Indicator - Undefined</strong></p>
+                  <div>
+                     <p>Undefined and contains a blank (#).</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <h4><span class="box">■</span> SUBFIELD CODES
+         </h4>
+         <div class="subfields">
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$a - Classification number element-Single number of beginning number of span</strong> 
+                  </p>
+                  <div>
+                     <p>Single class number or the first number in a number span.</p>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td>110</td>
+                           <td colspan="9">1#$aOregon.$bWater Resources Dept.</td>
+                        </tr>
+                        <tr>
+                           <td><strong>087</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>WR<strong>$c</strong>1987-<strong>$2</strong>ordocs
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td>110</td>
+                           <td colspan="9">2#$aNational Institute on Drug Abuse</td>
+                        </tr>
+                        <tr>
+                           <td><strong>087</strong></td>
+                           <td colspan="9"><strong>0#</strong><strong>$a</strong>HE 20.8216
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td>110</td>
+                           <td colspan="9">1#$aNew York (State).$bBoard of Statutory Consolidation.$bSubcommittee on a Plan for the Simplification of the
+                              Civil Practice
+                           </td>
+                        </tr>
+                        <tr>
+                           <td><strong>087</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>STA 993<strong>$2</strong>nydocs
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$b - Classification number element-Ending number of span</strong> 
+                  </p>
+                  <div>
+                     <p>Ending number of number span when the beginning number of the span is contained in
+                  subfield $a.</p>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td>110</td>
+                           <td colspan="9">1#$aCanada.$bDept. of Fisheries and Oceans.$bCommunications Branch</td>
+                        </tr>
+                        <tr>
+                           <td><strong>087</strong></td>
+                           <td colspan="9"><strong>1#</strong><strong>$a</strong>Fs-20<strong>$b</strong>Fs-29
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$c - Explanatory information</strong> 
+                  </p>
+                  <div>
+                     <p>Descriptive information that qualifies the topic of the class number. Normally
+                        used to differentiate between two or more class numbers associated with the
+                        heading.
+                     </p>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td>110</td>
+                           <td colspan="9">1#$aOregon.$bBoard of Geologist Examiners</td>
+                        </tr>
+                        <tr>
+                           <td><strong>087</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>Y/G29/2<strong>$c</strong>1987-<strong>$2</strong>ordocs
+                           </td>
+                        </tr>
+                        <tr>
+                           <td><strong>087</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>C/G29/2<strong>$c</strong>1977-1987<strong>$2</strong>ordocs
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td>110</td>
+                           <td colspan="9">10$aOregon.$bOccupational Safety Health Division</td>
+                        </tr>
+                        <tr>
+                           <td><strong>087</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>Con/Oc1<strong>$c</strong>1993-<strong>$2</strong>ordocs
+                           </td>
+                        </tr>
+                        <tr>
+                           <td><strong>087</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>In/Oc1<strong>$c</strong>1989-1993<strong>$2</strong>ordocs
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$0 - Authority record control number or standard number</strong> 
+                  </p>
+                  <div>
+                     <p>See description of this subfield in Appendix A: <em><a href="//www.loc.gov/marc/authority/ecadcntf.html">Control Subfields</a></em>.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$1 - Real World Object URI</strong> 
+                  </p>
+                  <div>
+                     <p>See description of this subfield in Appendix A: <em><a href="//www.loc.gov/marc/authority/ecadcntf.html">Control Subfields</a></em>.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$2 - Number source</strong> 
+                  </p>
+                  <div>
+                     <p>MARC code that identifies the government document classification system or scheme
+                        when the first indicator position contains value blank (#). Source of the MARC
+                        code is <em><a href="//www.loc.gov/standards/sourcelist/classification.html">Classification Scheme Source Codes</a></em> that is maintained by the Library of Congress.
+                     </p>
+                  </div>
+                  <div class="example">
+                     <table>
+                        <tr>
+                           <td><strong>087</strong></td>
+                           <td colspan="9"><strong>##</strong><strong>$a</strong>Heu/G74<strong>$2</strong>ordocs
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$6 - Linkage</strong> 
+                  </p>
+                  <div>
+                     <p>See description of this subfield in Appendix A: <em><a href="//www.loc.gov/marc/authority/ecadcntf.html">Control Subfields</a></em>.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="subfield">
+               <div>
+                  <p class="label"><strong>$8 - Field link and sequence number</strong> 
+                  </p>
+                  <div>
+                     <p>See description of this subfield in Appendix A: <em><a href="//www.loc.gov/marc/authority/ecadcntf.html">Control Subfields</a></em>.
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <hr />
+      <h3>INPUT CONVENTIONS</h3>
+      <div class="conventions">
+         <div>
+            <p><strong>Punctuation - </strong>Field 087 does not end with a period unless the field ends with an abbreviation,
+               initial/letter, or other data that ends with a period.
+            </p>
+         </div>
+         <div>
+            <p><strong>Superintendent of Documents Classification numbers - </strong>One space is recorded between letters and numbers unless there is intervening
+               punctuation.
+            </p>
+         </div>
+         <div>
+            <p><strong>Government of Canada Publications: Outline of Classification numbers - </strong>No spaces are recorded in the number.
+            </p>
+         </div>
+         <div>
+            <p><strong>Display Constants</strong></p>
+            <div class="table">
+               <table>
+                  <tr>
+                     <td>-</td>
+                     <td><em>[hyphen associated with the content of subfield $b]</em></td>
+                  </tr>
+                  <tr>
+                     <td>( ... )</td>
+                     <td><em>[parentheses associated with the content of subfield $c]</em></td>
+                  </tr>
+               </table>
+            </div>
+            <p>Hyphen between the two class numbers in a number span in subfields $a and
+            $b and the parentheses that may enclose the explanatory term in subfield
+            $c are not carried in the MARC record. They may be system generated as
+            display constants associated with the content of subfields $b and
+            $c, respectively.</p>
+            <div class="example">
+               <table>
+                  <tr>
+                     <td width="5%"></td>
+                     <td colspan="9">
+                        <div class="captiontext">Content designated field:</div>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td><strong>087</strong></td>
+                     <td colspan="9"><strong>##</strong><strong>$a</strong>C/G29/2<strong>$c</strong>1977-1987<strong>$2</strong>ordocs
+                     </td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                     <td colspan="9">
+                        <div class="captiontext">Display example:</div>C/G29/2 (1977-1987) 
+                     </td>
+                  </tr>
+               </table>
+            </div>
+            <p>Content of subfield $2 may be used to generate a display constant that
+            identifies the source of the number.</p>
+         </div>
+      </div>
+      <hr />
+      <h3>CONTENT DESIGNATOR HISTORY</h3>
+      <div class="history">
+         <div class="historyField">
+            <div><em>Field 087 - Dewey Classification Number Assigned in Canada [REDEFINED, 1997] [CAN/MARC only]</em><div class="spaceAfter"><span><span>First indicator values were: # (No edition information recorded), 0 (Full edition),
+               and 1 (Abridged edition). The second indicator values were: 0 (Assigned by NLC), 1
+               (Assigned by an agency other than NLC). The subfield codes were: $a (Dewey
+               classification number-Single number or beginning number of a range), $b
+               (Dewey classification number - end number of a range), $c (Explanatory
+               term), ,$2 (Source (i.e. edition number)), and $5 (Library to
+               which class number applies).</span><br /></span></div>
+            </div>
+         </div>
+         <div class="historySubfield">
+            <div><em>$0 - Authority record control number or standard number [NEW, 2017]</em></div>
+         </div>
+         <div class="historySubfield">
+            <div><em>$1 - Real World Object URI [NEW, 2017]</em></div>
+         </div>
+      </div>
+      <hr class="clear" />
+      <div class="head-nav">
+         <div class="noprint"><a href="//www.loc.gov/">Library of Congress</a> &gt;&gt; <a href="//www.loc.gov/marc/">MARC</a> &gt;&gt; 
+            
+            <a href="//www.loc.gov/marc/authority/">Authority</a> &gt;&gt; 
+            <span class="caps"><a href="//www.loc.gov/marc/authority/ad01x09x.html">01X-09X</a> 
+               
+               &gt;&gt;
+               <strong>087</strong></span></div>
+      </div>
+      <div class="left"><span class="noprint">(12/18/2017)</span></div>
+      <div class="right"><a href="/cdn-cgi/l/email-protection#c5aba1a8b6aa85a9aaa6eba2aab3" class="noprint">Contact Us</a></div>
+   
+</body>
+</html>
