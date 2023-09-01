@@ -24,7 +24,7 @@
 					<b>Por <u>p</u>alabras clave</b>
 					<form id="kwSearchForm"
 							action="[pft]v6001^u[/pft]"
-							method="GET"
+							method="POST"
 							target="searchResultsIframe">
 						<input type="hidden" name="IsisScript" value="[pft]v2000[/pft]">
 						<input type="hidden" name="userid" value="[pft]v2002[/pft]">
@@ -50,7 +50,7 @@
 					<form id="mfnSearchForm"
 							name="mfnSearchForm"
 							action="[pft]v6001^u[/pft]"
-							method="GET"
+							method="POST"
 							target="searchResultsIframe">
 						<input type="hidden" name="IsisScript" value="[pft]v2000[/pft]">
 						<input type="hidden" name="userid" value="[pft]v2002[/pft]">
@@ -71,7 +71,7 @@
 					<form id="testConditionSearchForm"
 							name="testConditionSearchForm"
 							action="[pft]v6001^u[/pft]"
-							method="GET"
+							method="POST"
 							style="margin: 2px;"
 							target="searchResultsIframe">
 						<input type="hidden" name="IsisScript" value="[pft]v2000[/pft]">
@@ -99,7 +99,7 @@
 			<div id="indexNotSearch" style="display: none; font-size: 13px;">
 				<form id="indexForm"
 						action="[pft]v6001^u[/pft]"
-						method="GET"
+						method="POST"
 						target="hiddenIFRAME">
 					<input type="hidden" name="IsisScript" value="[pft]v2000[/pft]">
 					<input type="hidden" name="userid" value="[pft]v2002[/pft]">
@@ -144,8 +144,7 @@
 				
 				<!-- Total de registros en la base -->
 				<div style="width: 98%; /*padding-top: 2px;*/ font-size: 12px; line-height: 14px; /*background: #E0E0E0;*/ margin: 4px 2px 0px 2px; /*border-top: 1px solid #777;*/">
-					<a href="[pft]v6001^u[/pft]?IsisScript=[pft]v2000[/pft]&amp;tarea=UPD_MAXMFN&amp;userid=[pft]v2002[/pft]&amp;db=[pft]v2104[/pft]"
-						target="hiddenIFRAME"
+					<a  target="hiddenIFRAME"
 						title="Haga click para conocer la cantidad actual de registros en esta base">
 					<strong id="maxmfn">[pft]ref(['BIBLIO']1,f(maxmfn-1,1,0))[/pft]</strong> registros
 					</a>

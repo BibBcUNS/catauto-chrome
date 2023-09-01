@@ -234,7 +234,7 @@
 	<div style="margin: 10px; padding: 4px; border: 0px solid #999; text-align: center;">
 	
 	<!-- Botón "ANTERIORES" -->
-	<form action="[pft]v6001^u[/pft]" method="get" style="display: inline;">
+	<form action="[pft]v6001^u[/pft]" method="post" style="display: inline;">
 		<input type="hidden" name="IsisScript" value="[pft]v2000[/pft]">
 		<input type="hidden" name="userid" value="[pft]v2002[/pft]">
 		<input type="hidden" name="tarea" value="BUSCAR">
@@ -248,7 +248,7 @@
 	</form>
 
 	<!-- Botón "SIGUIENTES" -->
-	<form action="[pft]v6001^u[/pft]" method="get" style="display: inline;">
+	<form action="[pft]v6001^u[/pft]" method="post" style="display: inline;">
 		<input type="hidden" name="IsisScript" value="[pft]v2000[/pft]">
 		<input type="hidden" name="userid" value="[pft]v2002[/pft]">
 		<input type="hidden" name="tarea" value="BUSCAR">

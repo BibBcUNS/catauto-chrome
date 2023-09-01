@@ -149,8 +149,15 @@
 		var URL_SELECT_TEMPLATE = HTDOCS + "html/selectTemplate.htm";
 		
 		// Contenido inicial para el iframe de resultados
-		var SEARCH_RESULTS_IFRAME_SRC = "[pft]v6001^u[/pft]?IsisScript=[pft]v2000[/pft]&userid=[pft]v2002[/pft]&tarea=NEW_RECORDS&db=[pft]v2104[/pft]";
+		//var SEARCH_RESULTS_IFRAME_SRC = "[pft]v6001^u[/pft]?IsisScript=[pft]v2000[/pft]&userid=[pft]v2002[/pft]&tarea=NEW_RECORDS&db=[pft]v2104[/pft]";
 		
+
+		// (M.A) Agrego variables necesarias para listar registros desde formulario
+
+		var ISIS_SCRIPT_DIRECTORY = "[pft]v2000[/pft]";
+    	var ACTIVE_USER_ID = "[pft]v2002[/pft]";
+    	var ACTIVE_DATABASE = "[pft]v2104[/pft]";
+
 		// Delimitadores usados en los registros ISO 2709
 		var ISO_SUBFIELD_DELIMITER = String.fromCharCode(0x1F);
 		var REGEX_ISO_SUBFIELD_DELIMITER = new RegExp(ISO_SUBFIELD_DELIMITER, "g");

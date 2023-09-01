@@ -1101,7 +1101,7 @@ function deleteRecord()
 		form.tarea.value = "BORRAR_REG";
 		form.recordID.value = document.getElementById("marcEditForm").f001.value;
 		form.target = "hiddenIFRAME";
-		form.method = "GET";
+		form.method = "POST";
 		
 		// Cartelito
 		catalisMessage(document.getElementById("borrandoRegistro").innerHTML);
@@ -1124,7 +1124,7 @@ function databaseChange(newdb)
 	var form = document.getElementById("hiddenFORM");
 	form.db.value = newdb;
 	form.tarea.value = "MAIN_PAGE";
-	form.method = "GET";
+	form.method = "POST";
 	form.target = "_top";
 	form.submit();
 }
@@ -1162,7 +1162,7 @@ function viewRecordDetails(evt,recordID,recordDisplayStyle)
 	form.tarea.value = ( "etiq" == recordDisplayStyle ) ? "SEND_ETIQUETADO" : "SEND_RECORD";
 	form.recordID.value = recordID;
 	form.target = "hiddenIFRAME";
-	form.method = "GET";
+	form.method = "POST";
 	form.submit();
 }
 
@@ -1216,7 +1216,7 @@ function editRecord(recordID,evt)
 	form.tarea.value = "EDITAR_REG";
 	form.recordID.value = recordID;
 
-	form.method = "GET";
+	form.method = "POST";
 	form.target = "hiddenIFRAME";
 	form.submit();
 }
@@ -1554,7 +1554,9 @@ function showNewRecords(evt)
 	if (ie) {
 		document.frames.searchResultsIframe.location.href = document.getElementById("searchResultsIframe").src;
 	} else if (moz) {
-	    document.getElementById("searchResultsIframe").src = document.getElementById("searchResultsIframe").src;
+	    // document.getElementById("searchResultsIframe").src = document.getElementById("searchResultsIframe").src;
+		document.getElementById("hiddenFormRecords").submit();
+
 	}
 }
 
@@ -1647,7 +1649,28 @@ function init()
 	document.getElementById("btnNuevo").disabled = !userCanCreate;
 	document.getElementById("btnImport").disabled = !userCanCreate;
 	
-	document.getElementById("searchResultsIframe").src = SEARCH_RESULTS_IFRAME_SRC;
+	
+	// Se llena el iframe de listado de registros
+    // document.getElementById("searchResultsIframe").src = SEARCH_RESULTS_IFRAME_SRC;
+
+    let newForm = document.createElement("form");
+    newForm.id = "hiddenFormRecords";
+    newForm.target = "searchResultsIframe";
+    newForm.action = SCRIPT_URL;
+    newForm.method = "POST";
+
+    let inputs = `<input type="hidden" name="IsisScript" value="${ISIS_SCRIPT_DIRECTORY}">
+                  <input type="hidden" name="userid" value="${ACTIVE_USER_ID}">
+                  <input type="hidden" name="tarea" value="NEW_RECORDS">
+                  <input type="hidden" name="db" value="${ACTIVE_DATABASE}">
+    `; 
+
+    newForm.innerHTML = inputs;
+
+    document.getElementsByTagName("body")[0].append(newForm)
+
+    newForm.submit()
+	
 	document.getElementById("theToolbar").style.visibility = "visible";
 }
 
