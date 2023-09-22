@@ -239,13 +239,13 @@ function setDimensions()
   };
 
   // Búsquedas
-  document.getElementById("searchResultsIframe").style.height = g_Dimensions.searchResultsIframe.height + "px";
+  document.getElementById("searchResultsIframe").style.height = g_Dimensions.searchResultsIframe.height - 25  + "px";
   document.getElementById("recordVisualization").style.height = g_Dimensions.recordVisualization.height + "px";
   document.getElementById("indexTerms").style.height = g_Dimensions.indexTerms.height + "px";
 
   // Edición
-  document.getElementById("theRightPanel").style.height = g_Dimensions.theRightPanel.height + 19 + "px";
-  document.getElementById("recordDiv").style.height = g_Dimensions.recordDiv.height + 12 + 3.09 + "px";
+  document.getElementById("theRightPanel").style.height = g_Dimensions.theRightPanel.height + 8 + "px";
+  document.getElementById("recordDiv").style.height = g_Dimensions.recordDiv.height + 7.09 + "px";
   document.getElementById("docIframe").style.height = g_Dimensions.docIframeCollapsed.height + "px";
 }
 

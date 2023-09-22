@@ -6,6 +6,65 @@
  * =============================================================================
  */
 
+ /* login */
+
+ body {
+    background-color:#C9C7BA;
+    margin: 0;
+}
+
+#divForm{
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#loginForm{
+    width: 400px;
+    text-align: center;
+    margin: 20px;
+    background-color: brown;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid white;
+}
+
+#titleLogin{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #FED;
+    font-weight: bold;
+}
+
+#inputsDiv{
+    border-top: 1px solid #C9C7BA;
+    text-align: right;
+    margin-bottom: 7px;
+    padding-right: 90px;
+    padding-top: 15px;
+}
+
+#inputsDiv input{
+    margin-left: 4px;
+}
+
+.labelLogin{
+    color: white;
+}
+
+.btnSubmitForm{
+    background-color: #E2DFD0;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 6px;
+}
+
+.btnSubmitForm:hover{
+    cursor: pointer;
+}
+
+/* fin login */
+
 body {
 	margin: 0;
 	background: #C9C7BA;
@@ -640,10 +699,11 @@ input#docItem {
 
 div#topBar {
 	height: 26px;
-	background: blue; /*#CC6600*/
+	background: rgb(0, 53, 148);
 	border: solid 1px #777;
 	position: relative;
-	padding: 2px;
+	padding: 4px;
+	font-size: 20px;
 }
 
 
@@ -738,6 +798,11 @@ table#theToolbar td {
 #btnEditar {
 	width: 8em;
 	display: none;
+	margin: 2px 6px;
+}
+
+#btnNuevo{
+	margin: 3px 6px;
 }
 
 #selDatabase {
@@ -751,13 +816,15 @@ table#theToolbar td {
 }
 
 #logoutForm {
-	margin: 4px;
+	margin: 6px;
 }
 
 #appName {
 	font-weight: bold;
 	font-family: georgia;
-	font-size: 18px;
+	font-size: 20px;
+	background-color: rgb(0, 53, 148);
+	margin-left: 5px;
 }
 
 
@@ -865,6 +932,7 @@ tr.oddRow {
 	color: blue;
 	height: 20px;
 	border: 0;
+	display: none;
 }
 
 
@@ -907,4 +975,8 @@ tr.oddRow {
 .tab.activeTab {
 	z-index: 102;
 	border-bottom: 1px solid #FED;
+}
+
+#hiddenFormRecords{
+	margin: 0px !important;
 }
