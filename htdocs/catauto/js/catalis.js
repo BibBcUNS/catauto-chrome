@@ -1322,6 +1322,8 @@ function mostrarModalConfirmacion(){
 		if ( "selDatabase" == elementID ){
 			document.getElementById("selDatabase").selectedIndex = g_activeDatabase.index;
 		}
+
+		top.globalParameter = "";
 	}
 
 	if ( userDecision == "save" ){

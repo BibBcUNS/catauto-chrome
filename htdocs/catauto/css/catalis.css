@@ -9,7 +9,7 @@
  /* login */
 
  body {
-    background-color:#C9C7BA;
+    background-color:#C9C7BA !important;
     margin: 0;
 }
 

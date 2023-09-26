@@ -12,7 +12,7 @@ window.onresize = function(){
 }
 
 window.onbeforeunload = function(){
-	if(modifiedRecord()){
+	if(modifiedRecord() && globalParameter!="selDatabase" ){
 		return true;
 	}
 }

@@ -354,11 +354,7 @@ function saveRecord()
     //---------------
 
     if (answer == true) {
-    
-        //if ( !catalis_confirm(message,640,460) ) {
-        //    return false;
-        //}
-    
+
         // Cartelito
         catalisMessage(document.getElementById("grabandoRegistro").innerHTML);
     
