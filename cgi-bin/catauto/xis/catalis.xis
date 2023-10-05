@@ -80,7 +80,9 @@
 		,else if v6000 : 'SCRIPT_URL='            then '^u',mid(v6000,instr(v6000,'=')+1,size(v6000))
 		,else if v6000 : 'LOCK_EXPIRE='           then '^x',mid(v6000,instr(v6000,'=')+1,size(v6000))
 		,else if v6000 : 'MAIN_ENTRY_TOP='        then '^1',mid(v6000,instr(v6000,'=')+1,size(v6000))
-		,fi,fi,fi,fi,fi,fi,fi,fi,fi,fi,fi,
+		,else if v6000 : 'TIMESTAMP_FILES='       then '^f',mid(v6000,instr(v6000,'=')+1,size(v6000))
+
+		,fi,fi,fi,fi,fi,fi,fi,fi,fi,fi,fi,fi,
 	),
 </pft></field>
 
