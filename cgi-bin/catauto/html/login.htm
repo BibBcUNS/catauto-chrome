@@ -3,9 +3,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-<link rel="stylesheet" href="catalis.css">
-
-
 <script language="JavaScript" type="text/javascript">
 // Aviso para quien no ingrese con IE
 if ( navigator.appName != "Microsoft Internet Explorer" ) {
@@ -69,9 +66,13 @@ function handleLoginSubmit()
   
     <h2 id="titleLogin">Catauto  | Log In</h2>
     <div id="inputsDiv">
-      <label class="labelLogin" for="usuario">Usuario: </label><input required id="usuario" type="text" name="userid" value="[pft]v2002[/pft]" size="9" maxlength="20" onkeydown="handleKey(event); return true;"> 
-      <label class="labelLogin" for="password">Contraseña: </label><input required type="password" name="pw" size="9" maxlength="20"> 
-    </div>
+		<div>
+			<label class="labelLogin" for="usuario">Usuario: </label><input required id="usuario" type="text" name="userid" value="[pft]v2002[/pft]" size="9" maxlength="20" onkeydown="handleKey(event); return true;">
+		</div>
+		<div>
+			<label class="labelLogin" for="password">Contraseña: </label><input required type="password" name="pw" size="9" maxlength="20">
+		</div>
+	</div>
 
     <input type="submit" value="Iniciar sesión" class="btnSubmitForm">      
 
