@@ -220,7 +220,7 @@ td.value {
 	width: 94%;
 	background: #EEDFCC;
 	border: 1px solid #999;
-	padding: 2px 4px;
+	padding: 4px 4px;
 	line-height: 1em; /* ?? */
 }
 
@@ -238,7 +238,7 @@ td.value {
 }
 
 #theLeftPanel {
-	margin-right: 172px; /* Esto deja el lugar necesario para el panel derecho */
+	margin-right: 201px; /* Esto deja el lugar necesario para el panel derecho */
 }
  
 #recordDiv {
@@ -429,7 +429,7 @@ iframe#docIframe {
 	position: absolute; /* se posiciona con respecto al container, theMarcEditDiv */
 	top: 0px;
 	right: 2px;
-	width: 168px;
+	width: 198px;
 	height: 487px;  /* onload se ajusta a la resolución */
 }
  
@@ -446,7 +446,7 @@ table.control td {
 	background: #FED;
 	border-top: 1px solid #A0A0A0;
 	border-right: 1px solid #A0A0A0;
-	padding: 1px 4px;
+	padding: 2px 4px;
 	cursor: default;
 }
 
@@ -551,7 +551,7 @@ select#docSource {
 input#docItem {
 	font-family: verdana;
 	font-size: 13px;
-	width: 36px;
+	width: 100%;
 	border: 1px solid #666;
 }
 
