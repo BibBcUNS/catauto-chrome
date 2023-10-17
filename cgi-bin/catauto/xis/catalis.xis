@@ -182,7 +182,7 @@
 	'BIB-LIST-HEAD.HTM=', v6003^c,'/opacmarc/html/bib-list-head.htm'/
 	
 	/* ----- Archivo de logs (uno por fecha) ----- */
-	'LOGFILE.TXT=',v6003^l,s(date).8,'.log'/
+	'LOGFILE.TXT=',v6003^l,'catauto.log'/
 	
 	/* ----- Directorio para archivos temporales ----- */
 	'CI_TEMPDIR=',v6003^t,/
