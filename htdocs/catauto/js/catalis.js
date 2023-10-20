@@ -492,7 +492,7 @@ function marcHelpPopup(tag,code)
 	// Reglas aplicables
 	try {
 		var path = "marc21_bibliographic/datafield[@tag='" + tag + "']/subfield[@code='" + code + "']/@AACR2";
-		var aacr = crossBrowserNodeSelector(xmlMARC21,path).nodeValue;
+		aacr = top.selectSingleNodeChrome(path, xmlData.xmlMARC21).textContent;
 		htmlString += "<div class='tip2'>";
 		htmlString += "<i>AACR2:</i> " + aacr.replace(/(\S),/g,"$1 &middot; ");
 		htmlString += "</div>";
