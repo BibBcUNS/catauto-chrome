@@ -903,28 +903,33 @@ tr.oddRow {
 }
 
 #kwSearchBox, #testConditionSearchBox {
-	font-family: verdana;
-	font-size: 13px;
-	width: 196px;
-	border: 1px solid #666;
-	background: #F6F6F6;
-	padding-left: 2px;
+	font-family: "open sans", verdana, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    width: 196px;
+    height: 2em;
+    line-height: 1.5em;
+    border: 1px solid #666;
+    background-color: #F6F6F6;
+    padding-left: 2px;
 }
 
 #mfnSearchBox {
-	font-family: verdana;
-	font-size: 13px;
-	width: 90px;
-	border: 1px solid #666;
-	background: #F6F6F6;
-	padding-left: 2px;
+    font-family: "open sans", verdana, sans-serif;
+    font-size: 13px;
+    height: 2em;
+    width: 90px;
+    border: 1px solid #666;
+    background-color: #F6F6F6;
+    padding-left: 2px;
 }
 
 #dictBrowseBox {
-	font-family: verdana;
-	font-size: 13px;
-	width: 145px;
-	border: 1px solid #666;
+    font-family: "open sans", verdana, sans-serif;
+    font-size: 13px;
+    width: 145px;
+    border: 1px solid #666;
+    padding: 0.2em;
 }
 
 #showHiddenData {
