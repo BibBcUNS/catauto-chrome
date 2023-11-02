@@ -1080,13 +1080,6 @@ function handleKwSearch()
 	} else {
 		// Cartelito
 		catalisMessage("Buscando...");
-		
-		/*
-		var newSearch = new Object();
-		newSearch.query = query;
-		g_SearchHistory.push(newSearch);
-		*/
-
 		form.submit();
 	}
 }
@@ -1272,6 +1265,7 @@ function updateDictionaryList(key1,reverse)
 // Solicita al servidor una lista de términos del diccionario.
 // -----------------------------------------------------------------------------
 {
+	top.g_recordSelected = "first";
 	// Cartelito
 	catalisMessage(document.getElementById("solicitandoTerminos").innerHTML + "...");
 	
@@ -1303,11 +1297,12 @@ function checkModified()
 // -----------------------------------------------------------------------------
 {
 	var elementID = top.globalParameter;
+	let recordID = document.getElementById("f001").value;
 	// La condición sobre el botón de Grabar tiene que ver con el nivel de permisos del usuario; ver showRecordInForm(). Tal vez sea mejor usar una variable global.
     if ( !document.getElementById("btnGrabar").disabled && typeof(originalRecord) != "undefined" && modifiedRecord() ) {
         mostrarModalConfirmacion()
     }else{
-        handleNextTask(elementID);
+        handleNextTask(elementID, recordID);
     }
 }
 
@@ -1337,9 +1332,20 @@ function mostrarModalConfirmacion(){
 	}
 }
 
+function highlightRecord(changedRecord){
+    let iframe = document.getElementById("searchResultsIframe");
+    let listaRegistros = iframe.contentDocument.querySelectorAll("#resultTable tr");
+
+    for(let i = 0; i < listaRegistros.length; i++){
+        if(changedRecord == listaRegistros[i].id.split("resultRow")[1]){
+            listaRegistros[i].querySelector("a").click();
+        }
+    }
+}
+
 
 // -----------------------------------------------------------------------------
-function handleNextTask(elementID)
+function handleNextTask(elementID, changedRecord)
 // Luego de resuelta la grabación del registro modificado, se ejecuta la
 // acción que el usuario había solicitado.
 // elementID = el elemento (button, select) desde el cual se inició la acción.
@@ -1350,7 +1356,11 @@ function handleNextTask(elementID)
 	switch ( elementID ) {
 		case 'btnBuscar' :
 			showSearchDiv();
-			showNewRecords();
+			//Actualizar listado
+			let iframe = document.getElementById("searchResultsIframe");
+			let formBtnActualizar = iframe.contentDocument.querySelector("#btnActualizarListado");
+            formBtnActualizar.submit();
+
 			break;
 		case 'btnPrevResult' :
 			editRecord("prev");
@@ -1550,6 +1560,7 @@ function hidePopup()
 function showNewRecords(evt)
 // -----------------------------------------------------------------------------
 {
+	top.g_recordSelected = "first";
 	// Cartelito
 	catalisMessage(document.getElementById("solicitandoListado").innerHTML);
 	

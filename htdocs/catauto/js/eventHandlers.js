@@ -31,8 +31,18 @@ function setSearchFormEvents()
 	}
 	
 	document.getElementById("kwSearchForm").onsubmit = function() {
+		top.g_recordSelected = "first";
 		handleKwSearch();
 		return false;
+	}
+
+
+	document.getElementById("mfnSearchForm").onsubmit = function(){
+		top.g_recordSelected = "first";
+	}
+	
+	document.getElementById("testConditionSearchForm").onsubmit = function(){
+		top.g_recordSelected = "first";
 	}
 	
 	document.getElementById("kwSearchHelpLink").onclick = function() {
@@ -273,6 +283,7 @@ function setToolbarEvents()
 	
 	document.getElementById("btnBuscar").onclick = function() {
 		top.globalParameter = this.id;
+		top.g_recordSelected = document.getElementById("f001").value
 		checkModified();
 	}
 	

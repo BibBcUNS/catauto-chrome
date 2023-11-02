@@ -122,10 +122,33 @@
 			// ATENCION: esto esta(ba) trayendo problemas con el uso de F5 (pero no con CTRL F5)
 		}
 	}
+
+	function selectRecord(record){
+		// Hace click en el registro que recibe por parámetro para poder ver sus detalles en el panel inferior
+		var filas = document.getElementsByTagName("tr");
+        if(record == "first"){
+            selectFirstRecord();
+        }else{
+            filas[0].id.split("resultRow")[1];
+            for(let i = 0; i < filas.length; i++){
+                if(record == filas[i].id.split("resultRow")[1]){
+                    filas[i].querySelector("a").click();
+                    //Hacer scroll
+                    document.getElementsByTagName("body")[0].scrollTo(0, filas[i].offsetTop);
+                }
+            }
+        }
+	}
 	
 	function init() {
 		disableKeys();
-		selectFirstRecord();
+
+		try {
+            selectRecord(top.g_recordSelected);
+        } catch (error) {
+            console.log(error)
+        }
+
 		top.document.getElementById("cartel").style.display = "none";
 	}
 	

@@ -170,8 +170,24 @@
 	</loop>
 </do>
 
-<display>
-	</table>
-</display>
+<display><htmlpft>
+    </table>
+
+        <!-- Botón "ACTUAL" para volver a listar los registros en pantalla luego de actualizar -->
+	    <form id="btnActualizarListado" action="[pft]v6001^u[/pft]" method="post" style="display: inline;">
+	    	<input type="hidden" name="IsisScript" value="[pft]v2000[/pft]">
+	    	<input type="hidden" name="userid" value="[pft]v2002[/pft]">
+	    	<input type="hidden" name="tarea" value="TEST_CONDITION">
+	    	<input type="hidden" name="db" value="[pft]v2104[/pft]">
+	    	<input type="hidden" name="condition" value="[pft]v2070[/pft]">
+            <input type="hidden" name="gr" value="[pft]v2071[/pft]">
+            <input type="hidden" name="maxMFN" value="[pft]v2072[/pft]">
+
+	    	<input type="hidden" name="from" value="[pft]v2006[/pft]">
+
+	    	<button class="resultsButton" onclick="this.form.submit()" style="display: none">Actual</button>
+	    </form>
+
+</htmlpft></display>
 
 
