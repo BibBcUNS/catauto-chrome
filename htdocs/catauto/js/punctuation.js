@@ -211,7 +211,7 @@ function punctuation(tag,sf)
 			break;
 			
 		// ---------------------------------------------------------
-		case "100" :
+		// case "100" :
 		case "700" :
 		// ---------------------------------------------------------
 			// Los $4 se deben mantener al margen de la puntuación
