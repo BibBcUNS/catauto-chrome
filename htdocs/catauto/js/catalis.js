@@ -1179,6 +1179,7 @@ function editRecord(recordID,evt)
 // búsqueda más reciente.
 // -----------------------------------------------------------------------------
 {
+	top.g_recordDeleted = false;
 	//(M.A) Cerramos el popUp en caso de que este abierto
     killmenu();
 	

@@ -17,17 +17,14 @@
 
 <script type="text/javascript">
 	function init() {
+		top.g_recordDeleted = true;
 
 		//Mostrar cartel de registro eliminado
 		top.document.getElementById("cartel").style.display = "block";
 		top.document.getElementById("cartelMsg").innerHTML = parent.document.getElementById("registroBorrado").innerHTML;
 		setTimeout(() => {
 			top.document.getElementById("cartel").style.display = "none";
-
-			//Volver a pantalla principal
-			top.showSearchDiv();
-			//Actualizar listado
-			top.showNewRecords();
+			top.document.getElementById("btnBuscar").click();
 		}, 1500);
 
 	}

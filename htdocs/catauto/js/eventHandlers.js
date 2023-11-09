@@ -283,7 +283,12 @@ function setToolbarEvents()
 	
 	document.getElementById("btnBuscar").onclick = function() {
 		top.globalParameter = this.id;
-		top.g_recordSelected = document.getElementById("f001").value
+		// Si el ID de registro esta tachado quiere decir que se elimino y debe mostrarse el listado con el primer registro resaltado
+		if(top.g_recordDeleted){
+			top.g_recordSelected = "first";
+		}else{
+			top.g_recordSelected = document.getElementById("f001").value;
+		}
 		checkModified();
 	}
 	
