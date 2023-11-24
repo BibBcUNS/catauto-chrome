@@ -113,8 +113,8 @@ td.value {
 
 #aacrDisplayDiv {
 	display: block;
-	height: 100%; /* parece necesario en IE */
-	background: #FEFEF0; /*#FFF8DC*/
+	height: 95.1%;
+	background: #FEFEF0;
 	border: 1px solid #666;
 	scrollbar-face-color: #C9C7BA;
 	padding: 6px 10px 10px 10px;
@@ -124,7 +124,7 @@ td.value {
 
 #etiqDisplayDiv {
 	display: none;
-	height: 100%; /* parece necesario en IE */
+	height: 99.3%; /* parece necesario en IE */
 	overflow: auto;
 	background: #F6F6F6;
 	padding: 0;
@@ -135,7 +135,7 @@ td.value {
 
 #marcDisplayDiv {
 	display: none;
-	height: 100%;
+	height: 96.2%;
 	overflow: auto;
 	background: #FEFEF0; /*#FFF8DC*/
 	padding: 6px 6px;
@@ -238,7 +238,7 @@ td.value {
 }
 
 #theLeftPanel {
-	margin-right: 201px; /* Esto deja el lugar necesario para el panel derecho */
+	margin-right: 218px; /* Esto deja el lugar necesario para el panel derecho */
 }
  
 #recordDiv {
@@ -429,7 +429,7 @@ iframe#docIframe {
 	position: absolute; /* se posiciona con respecto al container, theMarcEditDiv */
 	top: 0px;
 	right: 2px;
-	width: 198px;
+	width: 215px;
 	height: 487px;  /* onload se ajusta a la resolución */
 }
  

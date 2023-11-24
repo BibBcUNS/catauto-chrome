@@ -226,8 +226,8 @@ function setDimensions()
 
   // Variable global con dimensiones
   g_Dimensions = {
-    searchResultsIframe: {height: 0.572 * freeHeight},
-    recordVisualization: {height: 0.422 * freeHeight},
+    searchResultsIframe: {height: 0.575 * freeHeight},
+    recordVisualization: {height: 0.475 * freeHeight},
     indexTerms: {height: freeHeight - 210},
     theRightPanel: {height: 0.995*freeHeight},
     recordDiv: {height: 0.992*freeHeight},
@@ -239,8 +239,8 @@ function setDimensions()
   };
 
   // Búsquedas
-  document.getElementById("searchResultsIframe").style.height = g_Dimensions.searchResultsIframe.height - 25  + "px";
-  document.getElementById("recordVisualization").style.height = g_Dimensions.recordVisualization.height + "px";
+  document.getElementById("searchResultsIframe").style.height = g_Dimensions.searchResultsIframe.height  + "px";
+  document.getElementById("recordVisualization").style.height = g_Dimensions.recordVisualization.height - 60 + "px";
   document.getElementById("indexTerms").style.height = g_Dimensions.indexTerms.height + "px";
 
   // Edición
