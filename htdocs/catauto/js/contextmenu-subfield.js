@@ -272,7 +272,13 @@ function showSubfieldMenuChrome(subfield){
 	newMenu.style.fontFamily = "arial, verdana, sans-serif";
 	newMenu.style.lineHeight = "15px";
 	newMenu.style.cursor = "default";
-	newMenu.style.fontSize = "12px";
+	newMenu.style.lineHeight = "19px";
+	newMenu.style.cursor = "default";
+	newMenu.style.fontSize = "14px";
+	newMenu.style.overflow = "hidden";
+	newMenu.style.cursor = "pointer";
+	newMenu.style.boxShadow = "#232323b3 5px 6px 6px 2px";
+	
 	var newText;
 	var itemText = new Array();
 	var itemEnabled = new Array();
