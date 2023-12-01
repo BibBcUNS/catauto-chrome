@@ -331,7 +331,7 @@ function punctuation(tag,sf)
 			// Algunas notas llevan punto final.
 			// TO-DO: Agregar más campos de notas.
 			// ---------------------------------------------------------
-			if ( tag.search(/50[0124]/) != -1 ) {
+			if ( tag.search(/50[124]/) != -1 ) {
 				var re_end = /([^\.\-\?])(?=\^5|$)/;
 				sf = sf.replace(re_end,"$1.");
 			}
