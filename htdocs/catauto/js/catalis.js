@@ -235,7 +235,7 @@ function setDimensions()
     docIframe: {height: 0.49 * freeHeight},
     docIframeCollapsed: {height: DOCWIN_MIN_HEIGHT},
     subfieldTextarea: {width: freeWidth - 444},
-    subfieldTextareaNoLabels: {width: freeWidth - 292}
+    subfieldTextareaNoLabels: {width: freeWidth - 312}
   };
 
   // Búsquedas
@@ -270,12 +270,7 @@ function toggleSubfieldLabels()
 	var textareas = document.getElementById("recordDiv").getElementsByTagName("textarea");
 	for (var i=0; i < textareas.length; i++) {
 		if ( "subfieldBox" == textareas[i].className ) {
-			//textareas[i].style.width = "100%";
-			if ( 600 == screen.height ) { // 800x600
-				textareas[i].style.width = ( DISPLAY_SUBFIELD_LABELS ) ? "346px" : "498px";
-			} else { // 1024x768
-				textareas[i].style.width = ( DISPLAY_SUBFIELD_LABELS ) ? "570px" : "722px";
-			}
+			textareas[i].style.width = ((DISPLAY_SUBFIELD_LABELS) ? g_Dimensions.subfieldTextarea.width : g_Dimensions.subfieldTextareaNoLabels.width) - 27 + "px";
 		}
 	}
 }

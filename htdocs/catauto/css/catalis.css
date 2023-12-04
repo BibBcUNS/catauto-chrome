@@ -294,9 +294,9 @@ td.value {
     border-left: 0;
     overflow: hidden; /* hides the scrollbars */
     margin-left: 2px;
+    margin-top: -1px; /* seems necessary to keep the top of the textarea aligned with the top of the label */
     padding: 2px 1px;
     resize: none;
-    width: 99.8% !important;
 }
 
 .subfieldBoxCell {
@@ -392,7 +392,7 @@ col.subfieldLabelColumn {
 	text-align: center;
 	height: 22px;
 	cursor: pointer;
-	cursor: hand;
+	width: 20px;
 }
 
 .subfieldLabelCell {
