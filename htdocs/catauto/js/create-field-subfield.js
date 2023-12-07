@@ -409,6 +409,7 @@ function createSubfield( code, sfText, label, fieldTag )
   
   var newSpan = document.createElement("span");
   newSpan.style.cursor = "hand";
+  newSpan.setAttribute("title", label)
   newSpan.onmouseover = function() {
     this.style.textDecoration = "underline";
   }
@@ -419,7 +420,7 @@ function createSubfield( code, sfText, label, fieldTag )
     marcHelpPopup(/*parentField(this.parentNode, "subfieldLabel").tag*/fieldTag, code);
   }
 
-  newSpan.innerHTML = label.substr(0,30);
+  newSpan.innerHTML = label;
   newLabel.appendChild(newSpan);
 
   // Botón para verificación de URIs

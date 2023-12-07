@@ -409,6 +409,10 @@ col.subfieldLabelColumn {
 	overflow: hidden;
 	padding: 0px 3px;
 	border: 1px solid #D3D3D3;
+	width: 112px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 
