@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/catalis.css">
+</head>
+<body style="text-align: center; background-color: #CDC7A9; padding: 5px;">
+    <h1>Exportación del registro</h1>
+    <p>Para utilizarlo en otra aplicación, seleccione y copie el contenido del área coloreada.</p>
+    
+    <a href="#" id="btnCopy" style="float: right; margin-right: 30px;">Copiar</a>
+
+    <textarea style="background: #FED; width: 90%; margin-top: 5px;" name="" id="recordToExport" cols="30" rows="10"></textarea>
+    
+    <hr>
+    <button id="btnCancel" class="marcEditButton">Volver</button>
+
+    <script>
+        document.getElementsByTagName("textarea")[0].value = window.dialogArguments;
+
+        document.getElementById("btnCancel").addEventListener("click", function(){
+            window.top.cerrarDialog();
+        })
+
+        document.getElementById("btnCopy").addEventListener("click", function(){
+            document.querySelector('#recordToExport').select();
+       
+            document.execCommand('copy');
+            
+            alert("Registro copiado al portapapeles.")
+        })
+
+    </script>
+</body>
+</html>

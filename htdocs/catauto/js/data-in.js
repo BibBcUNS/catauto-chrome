@@ -23,23 +23,12 @@ function getNewRecordParams()
 // -----------------------------------------------------------------------------
 {
 	var dWidth = ( screen.width == 800 ) ? 620 : 750;
-	var dHeight = ( screen.width == 800 ) ? 290 : 320;
-	var dTop =  ( screen.width == 800 ) ? 32 : 120;
+	var dHeight = ( screen.width == 800 ) ? 250 : 220;
 
+	var winProperties = "font-size: 10px; dialogWidth: " + dWidth + "px; dialogHeight: " + dHeight + "px;";
+	var newRecParams = window.showModalDialog(URL_SELECT_TEMPLATE, null, winProperties);
+	createRecord(newRecParams);
 
-	if (ie) {
-		var winProperties = "font-size: 10px; dialogWidth: " + dWidth + "px; dialogHeight: " + dHeight + "px; dialogTop: " + dTop + "px; status: no; resizable: yes; help: no";
-		var newRecParams = showModalDialog(URL_SELECT_TEMPLATE, null, winProperties);
-		if ( "undefined" == typeof(newRecParams) ) {
-			return;  // abortamos
-		}
-		createRecord(newRecParams);
-	} else if (moz) {
-		openSimDialog(URL_SELECT_TEMPLATE, dWidth, dHeight, createRecord);
-
-		return;
-		// La ventana de diálogo le pasa luego el control a createRecord()
-	}
 }
 
 

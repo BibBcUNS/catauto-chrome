@@ -25,12 +25,11 @@ function handleOK()
 	
 	var returnThis = new Array(selectedTemplate,aacrText);
 	
-	if ( opener && opener.dialogWin && opener.dialogWin.returnFunc ) // mozilla
-		opener.dialogWin.returnFunc(returnThis);
-	else // ie
-		window.returnValue = returnThis;
 	
-	window.close();
+	window.returnValue = returnThis;
+
+	window.top.cerrarDialog();
+	
 }
 
 
@@ -38,7 +37,7 @@ function handleOK()
 function handleCancel()
 //------------------------------------------------------------------------------
 {
-	window.close();
+	window.top.cerrarDialog();
 }
 
 

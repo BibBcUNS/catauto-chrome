@@ -21,20 +21,10 @@ function getIsoRecord()
 // Presenta un cuadro de diálogo para ingresar un registro ISO 2709.
 // -----------------------------------------------------------------------------
 {
-	if (ie) {
-		var winProperties = "font-size:10px; dialogWidth:580px; dialogHeight:330px; status:no; help:no; resizable:yes";
-		var isoRecord = showModalDialog(URL_IMPORT_RECORD, null, winProperties);
-		if ( "undefined" == typeof(isoRecord) ) {
-			return;  // abortamos
-		}
-		importRecord(isoRecord);
-	} else if (moz) {
-		openSimDialog(URL_IMPORT_RECORD, 580, 330, importRecord);
-		return;
-		
-		// La ventana de diálogo pasa el control a importRecord()
-	}
 	
+	var winProperties = "font-size:10px; dialogWidth:931px; dialogHeight:330px; status:no; help:no; resizable:yes";
+	var isoRecord = window.showModalDialog(URL_IMPORT_RECORD, null, winProperties);
+	importRecord(isoRecord);
 }
 
 

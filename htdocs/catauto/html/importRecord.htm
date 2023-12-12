@@ -16,7 +16,8 @@
 function handleCancel()
 // -----------------------------------------------------------------------------
 {
-	window.close();
+	// window.close();
+	window.top.cerrarDialog();
 }
 
 
@@ -31,7 +32,8 @@ function handleOK()
 		window.returnValue = document.getElementById("isoRecord").value;
 	}
 	
-	window.close();
+	// window.close();
+	window.top.cerrarDialog()
 }
 
 // -----------------------------------------------------------------------------
@@ -61,25 +63,26 @@ window.onload = init;
 <style>
 	body, table {
 		font-family: verdana;
-		font-size: 13px;
+		font-size: 15px;
 		background: #CDC7A9;
 	}
 	body {
-		margin-top: 3px;
+		margin-top: 8px;
 	}
 	#sampleRecord {
-		height: 120px;
+		height: 187px;
 		margin-top: 3px;
-		width: 210px;
+		width: 400px;
 		background: #f0f0f0;
 		font-family: "courier new";
-		font-size: 13px;
+		font-size: 15px;
 		overflow: auto;
 	}
 	#isoRecord {
+		font-size: 15px;
 		background: #F9F9F9;
-		width: 320px;
-		height: 200px;
+		width: 500px;
+		height: 250px;
 	}
 </style>
 
